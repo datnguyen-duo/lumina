@@ -266,6 +266,12 @@ body {
     min-width: 98px;
     width: 98px;
 
+    &:hover {
+        .circle_arrow {
+            transform: translate(calc(-50% + 8px),-50%);
+        }
+    }
+
     @media @tablet-s {
         width: 200px;
         min-width: 200px;
@@ -282,6 +288,7 @@ body {
 
     .circle_arrow {
         width: 20px;
+        .transition();
 
         @media @tablet-s {
             width: 40px;
@@ -329,7 +336,7 @@ body {
     &.big_headline_animation{
         .word_wrap {
             display: inline-block;
-    
+
             span {
                 opacity: 0;
                 display: inline-block;
