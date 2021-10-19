@@ -6,16 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <?php wp_head(); ?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/CSSRulePlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"></script>
-    
-    
 </head>
 
 <body <?php body_class(); ?>>
-<div id="viewport">
+<div id="viewport" class="loading">
         <div id="scroll-container">
     <header class="site_header light">
         <a href="<?php echo get_site_url(); ?>" class="logo">
