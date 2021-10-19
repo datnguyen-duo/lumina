@@ -29,23 +29,21 @@ get_header(); ?>
 
             <div class="description_holder">
                 <div class="description">
-                    <p class="st__split-blurb">We provide unique opportunities for young actors of any level of experience who seek to perform <span data-image="<?php echo get_template_directory_uri(); ?>/images/dev/word-image-2.png">Shakespeare</span>, other plays of the <span data-image="<?php echo get_template_directory_uri(); ?>/images/dev/word-image-1.png">classical</span> repertory theatre, and <span data-image="<?php echo get_template_directory_uri(); ?>/images/dev/word-image-2.png">modern</span> plays that focus on the beauty of language.</p>
+                    <p class="st__split-blurb">We provide unique opportunities for young actors of any level of experience who seek to perform <span data-image="<?php echo get_template_directory_uri(); ?>/images/dev/welcome-shakespeare.jpg">Shakespeare</span>, other plays of the <span data-image="<?php echo get_template_directory_uri(); ?>/images/dev/welcome-classical.jpg">classical</span> repertory theatre, and <span data-image="<?php echo get_template_directory_uri(); ?>/images/dev/welcome-modern.jpg">modern</span> plays that focus on the beauty of language.</p>
                 </div>
             </div>
         </section>
 
         <section class="description_section">
-            <div class="description_section_content animate_el">
+            <div class="description_section_content">
                 <div class="sentence_part part_1">
-                    <h2 class="letter_wrap animate_el big_headline_animation">Register</h2>
-                    <img class="word_image animate_el" src="<?php echo get_template_directory_uri(); ?>/images/dev/word-image-1.png" alt="">
+                    <h2>Register</h2>
+                    <img class="word_image" src="<?php echo get_template_directory_uri(); ?>/images/dev/word-image-1.png" alt="">
                 </div>
 
                 <div class="sentence_part part_2">
-                    <img class="word_image animate_el" src="<?php echo get_template_directory_uri(); ?>/images/dev/word-image-2.png" alt="">
-
-                    <h2 class="letter_wrap animate_el big_headline_animation">For</h2>
-
+                    <img class="word_image" src="<?php echo get_template_directory_uri(); ?>/images/dev/word-image-2.png" alt="">
+                    <h2>For</h2>
                     <div class="circle_btn_holder animate_el">
                         <a href="#" class="circle_btn">
                             <img class="circle" src="<?php echo get_template_directory_uri(); ?>/images/circle.svg" alt="">
@@ -56,14 +54,14 @@ get_header(); ?>
                         </a>
                     </div>
 
-                    <h2 class="letter_wrap animate_el big_headline_animation">Our</h2>
+                    <h2>Our</h2>
                 </div>
 
                 <div class="sentence_part">
-                    <h2 class="letter_wrap animate_el big_headline_animation">Programs</h2>
+                    <h2>Programs</h2>
                 </div>
 
-                <div class="circle_btn_holder_mobile animate_el">
+                <div class="circle_btn_holder_mobile">
                     <a href="#" class="circle_btn">
                         <img class="circle" src="<?php echo get_template_directory_uri(); ?>/images/circle.svg" alt="">
                         <span class="circle_text_holder">
