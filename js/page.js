@@ -6,13 +6,14 @@ window.addEventListener("load", function () {
   if (document.body.classList.contains("home")) {
     let bannerHeadline = document.querySelector(".banner__split-text");
     let bannerTitleSplit = new SplitText(bannerHeadline, {
-      type: "words, chars, lines",
+      type: "lines",
     });
     var hero_animation = gsap.timeline();
 
     let hero_overlay = document.querySelector(".hero_overlay");
     let header = document.querySelector("header");
-    let cta_section = document.querySelector(".cta_section");
+    let cta_section = document.querySelectorAll(".cta_section");
+    let wrapper = document.querySelector(".template_home_page_container .banner__split-text .wrapper")
 
     hero_animation.to(hero_overlay, { opacity: 0.6, duration: 1 });
     hero_animation.to(cta_section, { opacity: 1, duration: 0.6 });
@@ -32,6 +33,8 @@ window.addEventListener("load", function () {
       },
       "-=1"
     );
+    hero_animation.from(wrapper, { opacity: 0 }, "-=1");
+
   }
 
   gsap.from(

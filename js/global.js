@@ -202,7 +202,12 @@ window.addEventListener("load", function () {
       '/images/icons/arrow.svg" alt=""></button></div>',
     appendArrows: $(".navigation"),
     fade: true,
+    adaptiveHeight: true,
+    rows: 0,
+    slide: ".actor"
   });
+
+
 
   //     $(".letter_wrap").each(function () {
   //       var words = jQuery(this).text().split(" ");

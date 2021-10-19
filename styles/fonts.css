@@ -6,3 +6,11 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'PPHatton-Regular';
+  src: url('../fonts/PPHatton-Regular.eot');
+  src: url('../fonts/PPHatton-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/PPHatton-Regular.woff') format('woff'), url('../fonts/PPHatton-Regular.ttf') format('truetype'), url('../fonts/PPHatton-Regular.svg#icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
