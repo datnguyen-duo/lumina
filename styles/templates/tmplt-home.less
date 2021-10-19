@@ -1000,11 +1000,21 @@
                     align-items: center;
                     cursor: pointer;
                     padding: 0;
+
+                    img {
+                        .transition();
+                    }
                 }
             }
 
             .left {
                 button {
+                    &:hover {
+                        img {
+                            transform: rotate(180deg) translateX(8px);
+                        }
+                    }
+
                     img {
                         transform: rotate(180deg);
                         margin-right: 8px;
@@ -1017,6 +1027,12 @@
                 border-left: solid 1px @color1;
 
                 button {
+                    &:hover {
+                        img {
+                            transform: translateX(8px);
+                        }
+                    }
+
                     img {
                         margin-left: 8px;
                     }
