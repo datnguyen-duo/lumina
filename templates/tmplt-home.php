@@ -120,7 +120,7 @@ get_header(); ?>
                 <div class="st__split-text">
                     <div class="cta">
                         <h2 class="animate_el big_headline_animation">OUR</h2>
-                        <a href="" class="cta_btn">Anti-racism, Diversity Inclusion & Accessibility</a>
+                        <a class="cta_btn">Anti-racism, Diversity Inclusion & Accessibility</a>
                     </div>
                     <h2 class="animate_el big_headline_animation">Commitment</h2>
                 </div>
