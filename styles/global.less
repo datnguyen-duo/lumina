@@ -266,15 +266,21 @@ body {
     min-width: 98px;
     width: 98px;
 
+
+    @media @tablet-s {
+        width: 150px;
+        min-width: 150px;
+    }
+
+    @media @desktop-m {
+        width: 200px;
+        min-width: 200px;
+    }
+
     &:hover {
         .circle_arrow {
             transform: translate(calc(-50% + 8px),-50%);
         }
-    }
-
-    @media @tablet-s {
-        width: 200px;
-        min-width: 200px;
     }
 
     .circle_arrow,
@@ -309,6 +315,10 @@ body {
             top: 50%;
 
             @media @tablet-s {
+                width: 115px;
+            }
+
+            @media @desktop-m {
                 width: 144px;
             }
         }
