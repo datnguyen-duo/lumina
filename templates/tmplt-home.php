@@ -4,8 +4,8 @@ get_header(); ?>
     <div class="template_home_page_container">
         <section class="hero_section">
             <div class="banner__split-text">
-                <h1 class="big_headline_animation">Oliver</h1>
-                <h1 class="big_headline_animation">Twist</h1>
+                <h1 class="big_headline_animation">Now Playing:</h1>
+                <h1 class="big_headline_animation">Oliver Twist</h1>
                 <div class="wrapper">
                     <p>Buy tickets for our Fall Mainstage Production!</p>
                     <a href="" class="button">Buy</a>
@@ -21,7 +21,7 @@ get_header(); ?>
                 <p>Register now for our Spring Mainstage Production!</p>
 
                 <div class="buttons">
-                    <a href="" class="button">Register</a>
+                    <a href="" class="button light">Register</a>
                     <a href="" class="button light">Donate</a>
                 </div>
             </div>
