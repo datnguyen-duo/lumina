@@ -333,8 +333,12 @@ header {
                     li {
                         a {
                             .fontR();
-                            font-size: 18px;
+                            font-size: 16px;
                             color: @color1;
+
+                            @media @desktop-l {
+                                font-size: 18px;
+                            }
                         }
 
                         .sub-menu {
@@ -354,15 +358,15 @@ header {
                                     }
 
                                     @media @laptop-s {
-                                        font-size: 60px;
+                                        font-size: 50px;
                                     }
 
                                     @media @desktop-m {
-                                        font-size: 80px;
+                                        font-size: 60px;
                                     }
 
                                     @media @desktop-l {
-                                        font-size: 100px;
+                                        font-size: 70px;
                                     }
                                 }
                             }
