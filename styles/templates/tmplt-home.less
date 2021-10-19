@@ -320,9 +320,13 @@
 
             h2 {
                 font-family: @fontL;
-                font-size: 15vw;
+                font-size: 16vw;
                 color: @color1;
                 text-transform: uppercase;
+
+                @media @tablet-s {
+                    font-size: 14vw;
+                }
             }
 
             .sentence_part {
@@ -332,7 +336,7 @@
 
                 &.part_1 {
                     .word_image {
-                        margin-left: 8px;
+                        margin-left: 0px;
 
                         @media @tablet-l {
                             margin-left: 30px;
@@ -361,16 +365,15 @@
                     //height: 12vw;
                     object-fit: cover;
                     position: relative;
-                    top: -5px;
                     border-radius: 10px;
                     overflow: hidden;
-                    width: 11.7vw;
-                    height: 11.7vw;
                     top: -1.8vw;
+                    width: 14.5vw;
+                    height: 13.4vw;
 
                     @media @tablet-s {
-                        //width: 14vw;
-                        //height: 13vw;
+                        width: 11.7vw;
+                        height: 10.5vw;
                         border-radius: 15px;
                     }
 
