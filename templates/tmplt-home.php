@@ -145,8 +145,8 @@ get_header(); ?>
 
         <section class="testimonials_section">
             <div class="buttons">
-                <div class="btn active">Actors</div>
-                <div class="btn dark_outline">Audience</div>
+                <div class="btn active actors">Actors</div>
+                <div class="btn dark_outline audience">Audience</div>
             </div>
             <div class="testimonials_slider">
 
