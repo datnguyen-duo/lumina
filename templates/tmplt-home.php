@@ -13,7 +13,7 @@ get_header(); ?>
             </div>
     
 
-            <img class="background animate_el" src="<?php echo get_template_directory_uri(); ?>/images/dev/hero_image.jpg" alt="">
+            <img class="background animate_el" src="<?php echo get_template_directory_uri(); ?>/images/dev/Winters Tale Players.jpg" alt="hero-image">
             <div class="hero_overlay"></div>
 
             <div class="cta_section">
@@ -42,11 +42,11 @@ get_header(); ?>
             <div class="description_section_content">
                 <div class="sentence_part part_1">
                     <h2>Register</h2>
-                    <img class="word_image" src="<?php echo get_template_directory_uri(); ?>/images/dev/word-image-1.png" alt="">
+                    <img class="word_image" src="<?php echo get_template_directory_uri(); ?>/images/dev/AYLI Grace.jpg" alt="">
                 </div>
 
                 <div class="sentence_part part_2">
-                    <img class="word_image" src="<?php echo get_template_directory_uri(); ?>/images/dev/word-image-2.png" alt="">
+                    <img class="word_image" src="<?php echo get_template_directory_uri(); ?>/images/dev/RII Karim.jpg" alt="">
                     <h2>For</h2>
                     <div class="circle_btn_holder animate_el">
                         <a href="#" class="circle_btn">
@@ -81,7 +81,7 @@ get_header(); ?>
 
         <section class="img_with_desc_section">
             <div class="left">
-                <img class="animate_el" src="<?php echo get_template_directory_uri(); ?>/images/dev/image.png" alt="">
+                <img class="animate_el" src="<?php echo get_template_directory_uri(); ?>/images/dev/Nicholas Nickelby 2013.jpg" alt="">
             </div>
             <div class="right">
                 <div class="right_content animate_el">
@@ -113,7 +113,7 @@ get_header(); ?>
                 </div>
             </div>
             <div class="right">
-                <img class="animate_el" src="<?php echo get_template_directory_uri(); ?>/images/dev/image-2.png" alt="">
+                <img class="animate_el" src="<?php echo get_template_directory_uri(); ?>/images/dev/Evian MSND.JPG" alt="">
             </div>
         </section>
 
@@ -127,7 +127,7 @@ get_header(); ?>
                     <h2 class="animate_el big_headline_animation">Commitment</h2>
                 </div>
                 <div class="description_holder">
-                    <a href="#" class="circle_btn">
+                    <a href="<?php echo get_template_directory_uri(); ?>/images/dev/DEIA Statement PDF.pdf" class="circle_btn" download>
                         <img class="circle" src="<?php echo get_template_directory_uri(); ?>/images/circle-2.svg" alt="">
                         <img class="circle_arrow" src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow.svg" alt="">
                         <span class="circle_text_holder">
