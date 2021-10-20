@@ -187,7 +187,12 @@ window.addEventListener("load", function () {
       });
     },
   });
-
+  $(".testimonials_slider").on(
+    "afterChange",
+    function (event, slick, currentSlide, nextSlide) {
+      smoothScroll();
+    }
+  );
   $(".testimonials_slider").slick({
     prevArrow:
       '<div class="left"><button type="button" class="testimonials_prev_btn"><img src="' +
@@ -205,16 +210,15 @@ window.addEventListener("load", function () {
   });
 
   $(".testimonials_section .btn").on("click", function () {
-
     if ($(this).is(".active")) {
-      return
+      return;
     } else {
       $(".testimonials_section .btn").removeClass("active");
-      $(this).addClass("active")
+      $(this).addClass("active");
     }
 
     $(".testimonials_slider").slick("unslick");
-    
+
     if ($(this).is(".actors")) {
       $(".testimonial.actor").css("display", "block");
       $(".testimonial.audience").css("display", "none");
@@ -233,6 +237,12 @@ window.addEventListener("load", function () {
         rows: 0,
         slide: ".actor",
       });
+      $(".testimonials_slider").on(
+        "afterChange",
+        function (event, slick, currentSlide, nextSlide) {
+          smoothScroll();
+        }
+      );
     } else {
       $(".testimonial.actor").css("display", "none");
       $(".testimonial.audience").css("display", "block");
@@ -251,7 +261,14 @@ window.addEventListener("load", function () {
         rows: 0,
         slide: ".audience",
       });
+      $(".testimonials_slider").on(
+        "afterChange",
+        function (event, slick, currentSlide, nextSlide) {
+          smoothScroll();
+        }
+      );
     }
+
     smoothScroll();
   });
 

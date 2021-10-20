@@ -4,7 +4,7 @@ get_header(); ?>
     <div class="template_home_page_container">
         <section class="hero_section">
             <div class="banner__split-text">
-                <h1 class="big_headline_animation">Now Playing:</h1>
+                <h1 class="big_headline_animation">Coming Soon:</h1>
                 <h1 class="big_headline_animation">Oliver Twist</h1>
                 <div class="wrapper">
                     <p>Buy tickets for our Fall Mainstage Production!</p>
@@ -89,7 +89,7 @@ get_header(); ?>
                         <h2 class="title letter_wrap animate_el big_headline_animation">Rehearsal</h2>
                         <h2 class="title letter_wrap animate_el big_headline_animation">Groups</h2>
                     </div>
-                    <h2 class="subtitle">We believe that the imaginative power, technical sophistication, and grace</h2>
+                    <h2 class="subtitle">Young Actors of many ages collaborate on a unique and high quality production</h2>
                     <div class="description">
                         <p>Actors meet in 3 groups for weekly rehearsals - Players (ages 8-12), Classics (ages 12-16) and Guild (by invitation). Although the rehearsal groups meet separately each week, the members of the Players, Classics, and Guild all work on a single production. Coming together on occasional weekend rehearsals, and then every day during Production Week, all actors ultimately create a cohesive, high quality production that bonds them together as creative collaborators. The Director and production team approach each production as a “hand made” creative project that requires complete devotion. All together, this creates not only great art, but a transformative experience that benefits our actors for life!</p>
                     </div>
@@ -105,9 +105,9 @@ get_header(); ?>
                         <h2 class="title letter_wrap animate_el big_headline_animation">Summerstock</h2>
                         <h2 class="title letter_wrap animate_el big_headline_animation">Camps</h2>
                     </div>
-                    <h2 class="subtitle">As we begin to emerge from the dark age of COVID, get ready for the next</h2>
+                    <h2 class="subtitle">Stay tuned for your chance to register for another summer of theatre magic in 2022!</h2>
                     <div class="description">
-                        <p>Stay tuned for your chance to register for another Summer of theatre magic in 2022! All actors are cast in an exciting role, receive expert directing & coaching, make new friends, play theatre games, and make memories to last a lifetime!  Lumina’s famous camp is coming back for a summer filled with laughter and learning!  Summer Camps are educational and filled with creativity that exercises both brain and body!</p>
+                        <p>All actors are cast in an exciting role, receive expert directing & coaching, make new friends, play theatre games, and make memories to last a lifetime!  Lumina’s famous camp is coming back for a summer filled with laughter and learning!  Summer Camps are educational and filled with creativity that exercises both brain and body!</p>
                     </div>
                     <a class="button blue big">Learn More</a>
                 </div>
