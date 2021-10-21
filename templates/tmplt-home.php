@@ -33,7 +33,7 @@ get_header(); ?>
 
             <div class="description_holder">
                 <div class="description">
-                    <p class="st__split-blurb">We provide unique opportunities for young actors of any level of experience who seek to perform <span data-image="<?php echo get_template_directory_uri(); ?>/images/dev/welcome-shakespeare.jpg">Shakespeare</span>, other plays of the <span data-image="<?php echo get_template_directory_uri(); ?>/images/dev/welcome-classical.jpg">classical</span> repertory theatre, and <span data-image="<?php echo get_template_directory_uri(); ?>/images/dev/welcome-modern.jpg">modern</span> plays that focus on the beauty of language.</p>
+                    <p class="st__split-blurb">We provide unique opportunities for young actors of any level of experience who seek to perform <span data-image="<?php echo get_template_directory_uri(); ?>/images/dev/Welcome-Shakespeare-v2.jpg">Shakespeare</span>, other plays of the <span data-image="<?php echo get_template_directory_uri(); ?>/images/dev/Welcome-Classical-v2.jpg">classical</span> repertory theatre, and <span data-image="<?php echo get_template_directory_uri(); ?>/images/dev/Welcome-Modern-v2.jpg">modern</span> plays that focus on the beauty of language.</p>
                 </div>
             </div>
         </section>
