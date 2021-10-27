@@ -165,6 +165,36 @@ window.addEventListener("load", function () {
         MENU OPENER END
     --------------------------------------------------------------------------------- */
 
+  /*	-----------------------------------------------------------------------------
+         CALENDAR PAGE END
+     --------------------------------------------------------------------------------- */
+  $(".events_slider").slick({
+    prevArrow:
+        '<button type="button" class="events_slider_btn prev"><img src="' +
+        site_data.theme_url +
+        '/images/icons/arrow.svg" alt=""></button>',
+    nextArrow:
+        '<button type="button" class="events_slider_btn next"><img src="' +
+        site_data.theme_url +
+        '/images/icons/arrow.svg" alt=""></button>',
+    infinite: false
+  });
+
+  $(".date_slider").slick({
+    initialSlide: 8,
+    prevArrow:
+        '<button type="button" class="date_slider_btn prev"><img src="' +
+        site_data.theme_url +
+        '/images/icons/arrow-3.svg" alt=""></button>',
+    nextArrow:
+        '<button type="button" class="date_slider_btn next"><img src="' +
+        site_data.theme_url +
+        '/images/icons/arrow-3.svg" alt=""></button>',
+  });
+  /*	-----------------------------------------------------------------------------
+       CALENDAR PAGE END
+   --------------------------------------------------------------------------------- */
+
   var wordsWithImageSection = $(".words_with_image_section");
   var wordsWithImageSectionWord = $(".words_with_image_section span");
   wordsWithImageSectionWord.on({

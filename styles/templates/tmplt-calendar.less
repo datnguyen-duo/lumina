@@ -1,0 +1,294 @@
+.template_calendar_page_container {
+    padding-top: 146px;
+    position: relative;
+    z-index: 0;
+    background: linear-gradient(rgba(225, 175, 255, 0.54), #fff);
+
+    .filters {
+        padding: 0 42px;
+        box-sizing: border-box;
+        margin-bottom: 242px;
+        display: flex;
+        justify-content: space-between;
+
+        .pill {
+            padding: 0 33px;
+
+            &.date {
+                padding: 14px;
+
+                .slick-list {
+                    width: 170px;
+                    text-align: center;
+                }
+
+                button {
+                    background-color: transparent;
+                    padding: 0;
+                    border: none;
+                    width: 24px;
+                    height: 21px;
+                    position: relative;
+                    top: -2px;
+
+                    &.prev {
+                        transform: rotate(180deg);
+                        margin-right: 18px;
+
+                        &:hover {
+                            img {
+                                transform: translateX(8px);
+                            }
+                        }
+                    }
+
+                    &.next {
+                        margin-left: 18px;
+
+                        &:hover {
+                            img {
+                                transform: translateX(8px);
+                            }
+                        }
+                    }
+
+                    img {
+                        .transition();
+                    }
+                }
+            }
+        }
+
+        ul {
+            display: flex;
+        }
+    }
+
+    .page_title {
+        .h5();
+        line-height: 10.2vw;
+        color: @color1;
+        padding-left: 125px;
+    }
+
+    .dates_section {
+        .date {
+            display: flex;
+            align-items: center;
+            border-bottom: solid 1px @color1;
+            box-sizing: border-box;
+            padding-left: 30px;
+
+            //Slick slider fix when slider is inside of div which has display: flex;
+            * {
+                min-height: 0;
+                min-width: 0;
+            }
+            //Slick slider fix END
+
+            &:first-of-type {
+                border-top: solid 1px @color1;
+            }
+
+            &:last-of-type {
+                margin-bottom: 30px;
+            }
+
+            .events_date {
+                min-width: 290px;
+                text-align: center;
+
+                .date_part_1 {
+                    font-family: @fontL;
+                    font-size: 140px;
+                    color: @color1;
+                }
+
+                .date_part_2 {
+                    .p2();
+                }
+            }
+
+            .events {
+                overflow: hidden;
+                height: 100%;
+                padding: 75px 0;
+
+                .events_slider {
+                    width: 65%;
+                    //border-right: solid 1px @color1;
+
+                    .events_slider_btn {
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 80px;
+                        background-color: #D22EFF;
+                        border: solid 1px @color1;
+                        position: absolute;
+                        z-index: 2;
+                        bottom: -45px;
+                        .transition();
+
+                        &.slick-disabled {
+                            transform: scale(0);
+                        }
+
+                        &.prev {
+                            left: 5vw;
+
+                            img {
+                                transform: rotate(180deg);
+                            }
+                        }
+
+                        &.next {
+                            right: -18vw;
+                            //transform: translateX(18vw);
+                        }
+
+                        &:after {
+                            content: "";
+                            display: block;
+                            width: 65px;
+                            height: 65px;
+                            border-radius: 65px;
+                            border: solid 1px @color1;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%,-50%);
+                        }
+                    }
+
+                    .slick-list {
+                        overflow: visible;
+
+                        .slick-slide {
+                            position: relative;
+
+                            &:after {
+                                content: "";
+                                display: block;
+                                width: 1px;
+                                height: 200%;
+                                background-color: @color1;
+                                position: absolute;
+                                left: 0;
+                                top: 50%;
+                                transform: translateY(-50%);
+                            }
+
+                            &.slick-current {
+                                &:after {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .event {
+                    position: relative;
+                    padding-left: 60px;
+                    display: flex;
+                    align-items: center;
+
+                    .image_holder {
+                        .image {
+                            position: relative;
+                            padding-top: 85.4%;
+                            border-radius: 30px;
+                            overflow: hidden;
+                            //min-width: 350px;
+                            width: 18.3vw;
+
+                            img {
+                                .cropped_img();
+                            }
+                        }
+                    }
+
+                    .info {
+                        padding-left: 72px;
+                        box-sizing: border-box;
+                        padding-right: 123px;
+
+                        .program_category {
+                            margin-bottom: 12px;
+                            .p1();
+                        }
+
+                        .program_title {
+                            margin-bottom: 30px;
+                            font-family: @fontL;
+                            font-size: 36px;
+                            color: @color1;
+                            text-transform: capitalize;
+                            max-width: 26vw;
+
+                            @media @tablet-s {
+                                font-size: 2.6vw;
+                            }
+                        }
+
+                        .program_description {
+                            .p1();
+                            .fontB();
+                            max-width: 500px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .boxes_section {
+        display: flex;
+        padding: 30px 0;
+        border-top: solid 1px @color1;
+        box-sizing: border-box;
+        background-image: url("../images/pink-2-bg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .box {
+            width: 50%;
+
+            &:nth-child(odd) {
+                padding-right: 30px;
+
+                .box_content {
+                    border-top-right-radius: 60px;
+                }
+            }
+
+            &:nth-child(even) {
+                padding-left: 30px;
+
+                .box_content {
+                    border-top-left-radius: 60px;
+                }
+            }
+
+            .box_content {
+                padding: 110px 0 200px 0;
+                border: solid 1px @color1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                .icon {
+                    margin-bottom: 55px;
+                }
+
+                h2 {
+                    font-family: @fontL;
+                    font-size: 100px;
+                    color: @color1;
+                    margin-bottom: 16px;
+                }
+            }
+        }
+    }
+}

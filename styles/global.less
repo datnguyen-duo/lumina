@@ -441,6 +441,30 @@ body {
 
 // }
 
+
+.pill {
+    .p2();
+    height: 76px;
+    border-radius: 76px;
+    border: solid 1px @color1;
+    min-width: 163px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 55px;
+    box-sizing: border-box;
+    cursor: pointer;
+    .transition();
+
+    &.active {
+        background-color: @color2;
+    }
+
+    &:hover {
+        background-color: @color2;
+    }
+}
+
 @import 'fonts';
 @import 'header';
 @import 'footer';
@@ -449,4 +473,5 @@ body {
 @import 'single';
 @import 'templates/tmplt-home';
 @import 'templates/tmplt-programs';
+@import 'templates/tmplt-calendar';
 @import 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css';
