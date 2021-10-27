@@ -10,8 +10,12 @@
 
 <body <?php body_class(); ?>>
 <div id="viewport" class="loading">
-        <div id="scroll-container">
-    <header class="site_header light">
+    <div id="scroll-container">
+
+    <?php
+    $is_light = ( is_page_template('templates/tmplt-home.php'));
+    ?>
+    <header class="site_header <?php echo ( $is_light ) ? ' light' : null; ?>">
         <a href="<?php echo get_site_url(); ?>" class="logo">
             <img class="light" src="<?php echo get_template_directory_uri(); ?>/images/logo-light.png" alt="">
             <img class="dark" src="<?php echo get_template_directory_uri(); ?>/images/logo-dark.png" alt="">
