@@ -1,0 +1,150 @@
+.template_faq_page_container {
+    .hero_section {
+        padding: 233px 190px 265px 190px;
+        background-color: @color1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+            .h5();
+            color: #fff;
+
+            &:nth-child(2) {
+                padding-left: 15.6vw
+            }
+        }
+
+        .info {
+            border: solid 1px @color2;
+            border-radius: 100px;
+            display: flex;
+            height: 177px;
+
+            .left {
+                padding: 20px 4vw 20px 4vw;
+                box-sizing: border-box;
+                border-right: solid 1px @color2;
+                display: flex;
+                align-items: center;
+
+                h2 {
+                    .p2();
+                    font-size: 1.4vw !important;
+                    color: @color2;
+                }
+            }
+
+            .right {
+                padding: 55px 40px;
+                box-sizing: border-box;
+                width: 700px;
+                position: relative;
+
+                p {
+                    .p1();
+                    color: @color2;
+                    max-width: 172px;
+                }
+
+                .circle_btn_holder {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+            }
+        }
+    }
+
+    .questions_section {
+        .questions_group {
+            padding-top: 250px;
+            background-color: #EDD1FF;
+
+            &:nth-of-type(2) {
+                background-color: #CFFFFE;
+                padding-bottom: 100px;
+
+                .questions {
+                    .question {
+                        &.active {
+                            background-color: fade(@color2,30%);
+
+                            .question_title {
+                                button {
+                                    background-color: @color2;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .group_title {
+                font-family: @fontL;
+                font-size: 100px;
+                color: @color1;
+                padding-left: 300px;
+                border-bottom: solid 1px @color1;
+                padding-bottom: 36px;
+            }
+
+            .questions {
+                padding-left: 300px;
+                box-sizing: border-box;
+
+                .question {
+                    border-left: solid 1px @color1;
+                    padding: 75px 95px 20px 110px;
+                    border-bottom: solid 1px @color1;
+                    .transition();
+
+                    &.active {
+                        background-color: fade(@color3,30%);
+
+                        .question_title {
+                            button {
+                                background-color: @color3;
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+
+                    &:last-of-type {
+                        padding: 0 0 70px 0;
+                        border-bottom: 0;
+                    }
+
+                    .question_title {
+                        cursor: pointer;
+                        .h3();
+                        position: relative;
+
+                        button {
+                            &.active {
+                                background-color: #D22EFF;
+                            }
+
+                            right: 0;
+                            bottom: 0;
+
+                            img {
+                                transform: rotate(90deg);
+                            }
+                        }
+                    }
+
+                    .question_text {
+                        padding-right: 290px;
+                        margin-top: 20px;
+                        display: none;
+
+                        p {
+                            .p1();
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

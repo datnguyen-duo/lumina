@@ -11,7 +11,6 @@ get_header(); ?>
                     <a href="" class="button">Buy</a>
                 </div>
             </div>
-    
 
             <img class="background animate_el" src="<?php echo get_template_directory_uri(); ?>/images/dev/Winters Tale Players.jpg" alt="hero-image">
             <div class="hero_overlay"></div>

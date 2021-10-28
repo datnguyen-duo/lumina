@@ -21,6 +21,7 @@
 //Colors
 @color1: #340174;
 @color2: #7EF5F5;
+@color3: #D22EFF;
 
 @fontL: 'PPHatton-Light', sans-serif;
 @fontR: 'PPHatton-Regular', sans-serif;
@@ -358,6 +359,34 @@ body {
     }
 }
 
+.icon_btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    background-color: transparent;
+    border: solid 1px @color1;
+    position: absolute;
+    z-index: 2;
+    .transition();
+
+    &.slick-disabled {
+        transform: scale(0);
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        width: 65px;
+        height: 65px;
+        border-radius: 65px;
+        border: solid 1px @color1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
+
 
 .letter_wrap {
     line-height: 0.7em;
@@ -474,4 +503,5 @@ body {
 @import 'templates/tmplt-home';
 @import 'templates/tmplt-programs';
 @import 'templates/tmplt-calendar';
+@import 'templates/tmplt-faq';
 @import 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css';
