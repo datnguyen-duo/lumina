@@ -3,7 +3,7 @@
 --------------------------------------------------------------------------------- */
 
 window.addEventListener("load", function () {
-  if (document.body.classList.contains("home")) {
+
     let bannerHeadline = document.querySelector(".banner__split-text");
     let bannerTitleSplit = new SplitText(bannerHeadline, {
       type: "lines",
@@ -35,7 +35,7 @@ window.addEventListener("load", function () {
     );
     hero_animation.from(wrapper, { opacity: 0 }, "-=1");
 
-  }
+
 
   gsap.from(
     ".cta_btn",
