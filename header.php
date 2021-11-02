@@ -13,7 +13,7 @@
     <div id="scroll-container">
 
     <?php
-    $is_light = ( is_page_template('templates/tmplt-home.php'));
+    $is_light = ( is_page_template(array('templates/tmplt-home.php','templates/tmplt-faq.php')));
     ?>
     <header class="site_header <?php echo ( $is_light ) ? ' light' : null; ?>">
         <a href="<?php echo get_site_url(); ?>" class="logo">
