@@ -3,96 +3,96 @@
 --------------------------------------------------------------------------------- */
 
 function smoothScroll() {
-  smoothScroll("#scroll-container"); // declare container here
-
-  function smoothScroll(content, viewport, smoothness) {
-    content = gsap.utils.toArray(content)[0];
-    smoothness = smoothness || 2;
-
-    gsap.set(viewport || content.parentNode, {
-      overflow: "hidden",
-      position: "fixed",
-      height: "100%",
-      width: "100%",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-    });
-    gsap.set(content, { overflow: "visible", width: "100%" });
-
-    let getProp = gsap.getProperty(content),
-      setProp = gsap.quickSetter(content, "y", "px"),
-      setScroll = ScrollTrigger.getScrollFunc(window),
-      removeScroll = () => (content.style.overflow = "visible"),
-      killScrub = (trigger) => {
-        let scrub = trigger.getTween
-          ? trigger.getTween()
-          : gsap.getTweensOf(trigger.animation)[0];
-        scrub && scrub.kill();
-        trigger.animation.progress(trigger.progress);
-      },
-      height,
-      isProxyScrolling;
-
-    function onResize() {
-      height = content.clientHeight;
-      content.style.overflow = "visible";
-      document.body.style.height = height + "px";
-    }
-    onResize();
-    ScrollTrigger.addEventListener("refreshInit", onResize);
-    ScrollTrigger.addEventListener("refresh", () => {
-      removeScroll();
-      requestAnimationFrame(removeScroll);
-    });
-    ScrollTrigger.defaults({ scroller: content });
-    ScrollTrigger.prototype.update = (p) => p;
-
-    ScrollTrigger.scrollerProxy(content, {
-      scrollTop(value) {
-        if (arguments.length) {
-          isProxyScrolling = true;
-          setProp(-value);
-          setScroll(value);
-          return;
-        }
-        return -getProp("y");
-      },
-      getBoundingClientRect() {
-        return {
-          top: 0,
-          left: 0,
-          width: window.innerWidth,
-          height: window.innerHeight,
-        };
-      },
-    });
-
-    return ScrollTrigger.create({
-      animation: gsap.fromTo(
-        content,
-        { y: 0 },
-        {
-          y: () => document.documentElement.clientHeight - height,
-          ease: "none",
-          onUpdate: ScrollTrigger.update,
-        }
-      ),
-      scroller: window,
-      invalidateOnRefresh: true,
-      start: 0,
-      end: () => height - document.documentElement.clientHeight,
-      scrub: smoothness,
-      onUpdate: (self) => {
-        if (isProxyScrolling) {
-          killScrub(self);
-          isProxyScrolling = false;
-        }
-      },
-      onRefresh: killScrub,
-    });
-  }
+    // smoothScroll("#scroll-container"); // declare container here
+    //
+    // function smoothScroll(content, viewport, smoothness) {
+    //     content = gsap.utils.toArray(content)[0];
+    //     smoothness = smoothness || 2;
+    //
+    //     gsap.set(viewport || content.parentNode, {
+    //         overflow: "hidden",
+    //         position: "fixed",
+    //         height: "100%",
+    //         width: "100%",
+    //         top: 0,
+    //         left: 0,
+    //         right: 0,
+    //         bottom: 0,
+    //     });
+    //     gsap.set(content, { overflow: "visible", width: "100%" });
+    //
+    //     let getProp = gsap.getProperty(content),
+    //         setProp = gsap.quickSetter(content, "y", "px"),
+    //         setScroll = ScrollTrigger.getScrollFunc(window),
+    //         removeScroll = () => (content.style.overflow = "visible"),
+    //         killScrub = (trigger) => {
+    //             let scrub = trigger.getTween
+    //                 ? trigger.getTween()
+    //                 : gsap.getTweensOf(trigger.animation)[0];
+    //             scrub && scrub.kill();
+    //             trigger.animation.progress(trigger.progress);
+    //         },
+    //         height,
+    //         isProxyScrolling;
+    //
+    //     function onResize() {
+    //         height = content.clientHeight;
+    //         content.style.overflow = "visible";
+    //         document.body.style.height = height + "px";
+    //     }
+    //     onResize();
+    //     ScrollTrigger.addEventListener("refreshInit", onResize);
+    //     ScrollTrigger.addEventListener("refresh", () => {
+    //         removeScroll();
+    //         requestAnimationFrame(removeScroll);
+    //     });
+    //     ScrollTrigger.defaults({ scroller: content });
+    //     ScrollTrigger.prototype.update = (p) => p;
+    //
+    //     ScrollTrigger.scrollerProxy(content, {
+    //         scrollTop(value) {
+    //             if (arguments.length) {
+    //                 isProxyScrolling = true;
+    //                 setProp(-value);
+    //                 setScroll(value);
+    //                 return;
+    //             }
+    //             return -getProp("y");
+    //         },
+    //         getBoundingClientRect() {
+    //             return {
+    //                 top: 0,
+    //                 left: 0,
+    //                 width: window.innerWidth,
+    //                 height: window.innerHeight,
+    //             };
+    //         },
+    //     });
+    //
+    //     return ScrollTrigger.create({
+    //         animation: gsap.fromTo(
+    //             content,
+    //             { y: 0 },
+    //             {
+    //                 y: () => document.documentElement.clientHeight - height,
+    //                 ease: "none",
+    //                 onUpdate: ScrollTrigger.update,
+    //             }
+    //         ),
+    //         scroller: window,
+    //         invalidateOnRefresh: true,
+    //         start: 0,
+    //         end: () => height - document.documentElement.clientHeight,
+    //         scrub: smoothness,
+    //         onUpdate: (self) => {
+    //             if (isProxyScrolling) {
+    //                 killScrub(self);
+    //                 isProxyScrolling = false;
+    //             }
+    //         },
+    //         onRefresh: killScrub,
+    //     });
+    // }
 }
 /*	-----------------------------------------------------------------------------
   SMOOTH SCROLL END
@@ -102,330 +102,374 @@ function smoothScroll() {
     DOM LOAD
 --------------------------------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", function (event) {
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.registerPlugin(ScrollToPlugin);
-  window.scrollTo(0, 0);
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollToPlugin);
+    window.scrollTo(0, 0);
 });
 
 /*	-----------------------------------------------------------------------------
     WINDOW LOAD
 --------------------------------------------------------------------------------- */
 window.addEventListener("load", function () {
-  document.getElementById("viewport").classList.remove("loading");
-  smoothScroll();
+    document.getElementById("viewport").classList.remove("loading");
+    smoothScroll();
 });
 
 (function ($) {
-  //document ready
-  /*	-----------------------------------------------------------------------------
-        MENU OPENER START
-    --------------------------------------------------------------------------------- */
-  var siteHeader = $(".site_header");
-  var hamburger = $(".hamburger");
-  var navIsLight = false;
+    //document ready
+    /*	-----------------------------------------------------------------------------
+          MENU OPENER START
+      --------------------------------------------------------------------------------- */
+    var siteHeader = $(".site_header");
+    var hamburger = $(".hamburger");
+    var navIsLight = false;
 
-  // var menuOpen = gsap.timeline({
-  //     paused: true,
-  //     reversed: true,
-  //     onComplete: function () {
-  //         console.log("complete");
-  //     },
-  // });
-  //
-  // let site_main_nav = $(".site_main_nav");
-  // let site_main_nav_before = $(".separator");
-  // let site_main_nav_after = $(".separator_second");
-  // let leftMenu = $(".main_nav_content .left");
-  // let rightMenu = $(".main_nav_content .right");
-  // let nav = $(".main_nav_content nav");
-  // let winWidth = $(window).width();
-  //
-  // menuOpen.to(site_main_nav, {display: "block"});
-  //
-  // menuOpen.to(leftMenu, {height: (winWidth > 1024) ? '100%' : '50%', duration: 0.7 ,ease: "power2.inOut",}, '<');
-  // menuOpen.to(rightMenu, {height: (winWidth > 1024) ? '100%' : '50%', duration: 0.7 ,ease: "power2.inOut",}, '<');
-  // menuOpen.to(nav, {opacity: 1, duration: 0.7 ,ease: "power2.inOut",});
-  // menuOpen.to(site_main_nav_before, {height: '100%', duration: 0.3 ,ease: "power2.inOut",});
-  // menuOpen.to(site_main_nav_after, {height: '100%', duration: 0.3 ,ease: "power2.inOut",});
+    // var menuOpen = gsap.timeline({
+    //     paused: true,
+    //     reversed: true,
+    //     onComplete: function () {
+    //         console.log("complete");
+    //     },
+    // });
+    //
+    // let site_main_nav = $(".site_main_nav");
+    // let site_main_nav_before = $(".separator");
+    // let site_main_nav_after = $(".separator_second");
+    // let leftMenu = $(".main_nav_content .left");
+    // let rightMenu = $(".main_nav_content .right");
+    // let nav = $(".main_nav_content nav");
+    // let winWidth = $(window).width();
+    //
+    // menuOpen.to(site_main_nav, {display: "block"});
+    //
+    // menuOpen.to(leftMenu, {height: (winWidth > 1024) ? '100%' : '50%', duration: 0.7 ,ease: "power2.inOut",}, '<');
+    // menuOpen.to(rightMenu, {height: (winWidth > 1024) ? '100%' : '50%', duration: 0.7 ,ease: "power2.inOut",}, '<');
+    // menuOpen.to(nav, {opacity: 1, duration: 0.7 ,ease: "power2.inOut",});
+    // menuOpen.to(site_main_nav_before, {height: '100%', duration: 0.3 ,ease: "power2.inOut",});
+    // menuOpen.to(site_main_nav_after, {height: '100%', duration: 0.3 ,ease: "power2.inOut",});
 
-  if (siteHeader.hasClass("light")) navIsLight = true;
+    if (siteHeader.hasClass("light")) navIsLight = true;
 
-  hamburger.on("click", function () {
-    $(".site_main_nav").fadeToggle();
-    $(this).toggleClass("active");
+    hamburger.on("click", function () {
+        $(".site_main_nav").fadeToggle();
+        $(this).toggleClass("active");
 
-    // menuOpen.reversed() ? menuOpen.play() : menuOpen.reverse();
+        // menuOpen.reversed() ? menuOpen.play() : menuOpen.reverse();
 
-    if (navIsLight) {
-      siteHeader.toggleClass("light");
-    }
-  });
+        if (navIsLight) {
+            siteHeader.toggleClass("light");
+        }
+    });
 
-  /*	-----------------------------------------------------------------------------
-        MENU OPENER END
-    --------------------------------------------------------------------------------- */
+    /*	-----------------------------------------------------------------------------
+          MENU OPENER END
+      --------------------------------------------------------------------------------- */
 
-  /*	-----------------------------------------------------------------------------
-         CALENDAR PAGE
-     --------------------------------------------------------------------------------- */
-  $(".events_slider").slick({
-    prevArrow:
-        '<button type="button" class="events_slider_btn prev"><img src="' +
-        site_data.theme_url +
-        '/images/icons/arrow.svg" alt=""></button>',
-    nextArrow:
-        '<button type="button" class="events_slider_btn next"><img src="' +
-        site_data.theme_url +
-        '/images/icons/arrow.svg" alt=""></button>',
-    infinite: false
-  });
+    var customSideCart = $('.custom_side_cart');
 
-  $(".date_slider").slick({
-    initialSlide: 8,
-    prevArrow:
-        '<button type="button" class="date_slider_btn prev"><img src="' +
-        site_data.theme_url +
-        '/images/icons/arrow-3.svg" alt=""></button>',
-    nextArrow:
-        '<button type="button" class="date_slider_btn next"><img src="' +
-        site_data.theme_url +
-        '/images/icons/arrow-3.svg" alt=""></button>',
-  });
-  /*	-----------------------------------------------------------------------------
-       CALENDAR PAGE END
-   --------------------------------------------------------------------------------- */
+    $('.single_product_program_registration_button').on('click', function(){
+        $('.cart').submit();
+    });
 
+    $('.cart').validate({
+        messages: {},
+        submitHandler: function(form) {
+            $('.cart button').trigger('click');
+        },
+        errorElement : 'small',
+        errorLabelContainer: '#errordiv',
+    });
 
-  /*	-----------------------------------------------------------------------------
-         GALLERY PAGE
-     --------------------------------------------------------------------------------- */
+    $('body').on('added_to_cart',function(){
+        var responseDiv = document.getElementById('response');
+        $('.button_holder').append('<p class="added_to_cart_message">Item has been added to cart.</p>')
 
-  var swiper = new Swiper(".swiper", {
-    // loopedSlides: 8,
-    slidesPerView: 2.8,
-    spaceBetween: 170,
-    loop: true,
-    freeMode: true,
-    autoplay: {
-      delay: 1,
-      disableOnInteraction: false,
-      // waitForTransition: false,
-    },
-    speed: 10000,
-    mousewheel: {
-      // forceToAxis: true,
-    }
-  });
+        $.ajax({
+            url: customSideCart.data('action'),
+            data: {
+                action: 'updateshoppingcart',
+            }, // form data
+            type: 'POST', // POST
+            beforeSend: function (xhr) {},
+            success: function (data) {
+                responseDiv.innerHTML = data;
+            },
+            complete: function (xhr, status) {
+                $('.custom_side_cart').fadeIn();
+            }
+        });
+    });
 
-  swiper.on('slideChange', function () {
-    // console.log('s');
-    swiper.autoplay.stop();
+    customSideCart.find('.close_cart').on('click', function(){
+        $('.custom_side_cart').fadeOut();
+    });
 
-    setTimeout(function(){
-      swiper.autoplay.start();
-    },500)
-  });
-
-  $('.gallery_section').hover(function(){
-    swiper.autoplay.start();
-  })
-
-  // var swiper = new Swiper(".swiper-container", {
-  //   loopedSlides: 8,
-  //   loop: true,
-  //   slidesPerView: "auto",
-  //   freeMode: true,
-  //   mousewheel: {
-  //     releaseOnEdges: true,
-  //   },
-  // });
-  //
-  // var thumb = document.querySelectorAll(".thumbContainer");
-  //
-  // thumb.forEach(function(image, index) {
-  //   var delay = index * 90;
-  //   image.classList.add("fadeInSlide");
-  //   image.style.animationDelay = delay + "ms";
-  // });
+    $('input[type=radio][name=source_copy]').change(function() {
+        $('input[name=source]').val($(this).val());
+    });
 
 
-  // $(".galleries_slider").slick({
-  //   autoplay: true,
-  //   autoplaySpeed: 0,
-  //   centerMode: true,
-  //   slidesToShow: 3,
-  //   slidesToScroll: 1,
-  //   speed: 1000,
-  //   pauseOnFocus: true,
-  //   pauseOnHover: true,
-  //   pauseOnDotsHover: true,
-  //   cssEase: 'linear',
-  //   arrows : false,
-  //   waitForAnimate: false,
-  //   // centerPadding: '50px',
-  //   // variableWidth: true ,
-  // });
-  //
-  // $('.galleries_slider').on('swipe', function(event, slick, currentSlide, nextSlide){
-  //   console.log(currentSlide);
-  // });
-  /*	-----------------------------------------------------------------------------
-       GALLERY PAGE END
-   --------------------------------------------------------------------------------- */
-
-
-
-
-  /*	-----------------------------------------------------------------------------
-       FAQ PAGE
-   --------------------------------------------------------------------------------- */
-  $('.question .question_title').on('click', function(){
-    $(this).parent().toggleClass('active').find('.question_text').slideToggle();
-  });
-  /*	-----------------------------------------------------------------------------
-       FAQ PAGE END
-   --------------------------------------------------------------------------------- */
-
-  var wordsWithImageSection = $(".words_with_image_section");
-  var wordsWithImageSectionWord = $(".words_with_image_section span");
-  wordsWithImageSectionWord.on({
-    mouseover: function () {
-      var img = $(this).data("image");
-
-      setTimeout(function () {
-        wordsWithImageSection.addClass("word_is_active");
-        wordsWithImageSection
-          .find(".img_background")
-          .attr("src", img)
-          .fadeIn(200);
-      }, 250);
-    },
-    mouseout: function () {
-      wordsWithImageSection.removeClass("word_is_active");
-
-      wordsWithImageSection.find(".img_background").fadeOut(200, function () {
-        $(this).attr("src", "");
-      });
-    },
-  });
-  $(".testimonials_slider").on(
-    "afterChange",
-    function (event, slick, currentSlide, nextSlide) {
-      smoothScroll();
-    }
-  );
-  $(".testimonials_slider").slick({
-    prevArrow:
-      '<div class="left"><button type="button" class="testimonials_prev_btn"><img src="' +
-      site_data.theme_url +
-      '/images/icons/arrow.svg" alt="">Previous</button></div>',
-    nextArrow:
-      '<div class="right"><button type="button" class="testimonials_next_btn">Next<img src="' +
-      site_data.theme_url +
-      '/images/icons/arrow.svg" alt=""></button></div>',
-    appendArrows: $(".navigation"),
-    fade: true,
-    adaptiveHeight: true,
-    rows: 0,
-    slide: ".actor",
-  });
-
-  $(".testimonials_section .btn").on("click", function () {
-    if ($(this).is(".active")) {
-      return;
-    } else {
-      $(".testimonials_section .btn").removeClass("active");
-      $(this).addClass("active");
-    }
-
-    $(".testimonials_slider").slick("unslick");
-
-    if ($(this).is(".actors")) {
-      $(".testimonial.actor").css("display", "block");
-      $(".testimonial.audience").css("display", "none");
-      $(".testimonials_slider").slick({
+    /*	-----------------------------------------------------------------------------
+           CALENDAR PAGE
+       --------------------------------------------------------------------------------- */
+    $(".events_slider").slick({
         prevArrow:
-          '<div class="left"><button type="button" class="testimonials_prev_btn"><img src="' +
-          site_data.theme_url +
-          '/images/icons/arrow.svg" alt="">Previous</button></div>',
+            '<button type="button" class="events_slider_btn prev"><img src="' +
+            site_data.theme_url +
+            '/images/icons/arrow.svg" alt=""></button>',
         nextArrow:
-          '<div class="right"><button type="button" class="testimonials_next_btn">Next<img src="' +
-          site_data.theme_url +
-          '/images/icons/arrow.svg" alt=""></button></div>',
+            '<button type="button" class="events_slider_btn next"><img src="' +
+            site_data.theme_url +
+            '/images/icons/arrow.svg" alt=""></button>',
+        infinite: false
+    });
+
+    $(".date_slider").slick({
+        initialSlide: 8,
+        prevArrow:
+            '<button type="button" class="date_slider_btn prev"><img src="' +
+            site_data.theme_url +
+            '/images/icons/arrow-3.svg" alt=""></button>',
+        nextArrow:
+            '<button type="button" class="date_slider_btn next"><img src="' +
+            site_data.theme_url +
+            '/images/icons/arrow-3.svg" alt=""></button>',
+    });
+    /*	-----------------------------------------------------------------------------
+         CALENDAR PAGE END
+     --------------------------------------------------------------------------------- */
+
+
+    /*	-----------------------------------------------------------------------------
+           GALLERY PAGE
+       --------------------------------------------------------------------------------- */
+
+    var swiper = new Swiper(".swiper", {
+        // loopedSlides: 8,
+        slidesPerView: 2.8,
+        spaceBetween: 170,
+        loop: true,
+        freeMode: true,
+        autoplay: {
+            delay: 1,
+            disableOnInteraction: false,
+            // waitForTransition: false,
+        },
+        speed: 10000,
+        mousewheel: {
+            // forceToAxis: true,
+        }
+    });
+
+    swiper.on('slideChange', function () {
+        // console.log('s');
+        swiper.autoplay.stop();
+
+        setTimeout(function(){
+            swiper.autoplay.start();
+        },500)
+    });
+
+    $('.gallery_section').hover(function(){
+        swiper.autoplay.start();
+    })
+
+    // var swiper = new Swiper(".swiper-container", {
+    //   loopedSlides: 8,
+    //   loop: true,
+    //   slidesPerView: "auto",
+    //   freeMode: true,
+    //   mousewheel: {
+    //     releaseOnEdges: true,
+    //   },
+    // });
+    //
+    // var thumb = document.querySelectorAll(".thumbContainer");
+    //
+    // thumb.forEach(function(image, index) {
+    //   var delay = index * 90;
+    //   image.classList.add("fadeInSlide");
+    //   image.style.animationDelay = delay + "ms";
+    // });
+
+
+    // $(".galleries_slider").slick({
+    //   autoplay: true,
+    //   autoplaySpeed: 0,
+    //   centerMode: true,
+    //   slidesToShow: 3,
+    //   slidesToScroll: 1,
+    //   speed: 1000,
+    //   pauseOnFocus: true,
+    //   pauseOnHover: true,
+    //   pauseOnDotsHover: true,
+    //   cssEase: 'linear',
+    //   arrows : false,
+    //   waitForAnimate: false,
+    //   // centerPadding: '50px',
+    //   // variableWidth: true ,
+    // });
+    //
+    // $('.galleries_slider').on('swipe', function(event, slick, currentSlide, nextSlide){
+    //   console.log(currentSlide);
+    // });
+    /*	-----------------------------------------------------------------------------
+         GALLERY PAGE END
+     --------------------------------------------------------------------------------- */
+
+
+
+
+    /*	-----------------------------------------------------------------------------
+         FAQ PAGE
+     --------------------------------------------------------------------------------- */
+    $('.question .question_title').on('click', function(){
+        $(this).parent().toggleClass('active').find('.question_text').slideToggle();
+    });
+    /*	-----------------------------------------------------------------------------
+         FAQ PAGE END
+     --------------------------------------------------------------------------------- */
+
+    var wordsWithImageSection = $(".words_with_image_section");
+    var wordsWithImageSectionWord = $(".words_with_image_section span");
+    wordsWithImageSectionWord.on({
+        mouseover: function () {
+            var img = $(this).data("image");
+
+            setTimeout(function () {
+                wordsWithImageSection.addClass("word_is_active");
+                wordsWithImageSection
+                    .find(".img_background")
+                    .attr("src", img)
+                    .fadeIn(200);
+            }, 250);
+        },
+        mouseout: function () {
+            wordsWithImageSection.removeClass("word_is_active");
+
+            wordsWithImageSection.find(".img_background").fadeOut(200, function () {
+                $(this).attr("src", "");
+            });
+        },
+    });
+    $(".testimonials_slider").on(
+        "afterChange",
+        function (event, slick, currentSlide, nextSlide) {
+            smoothScroll();
+        }
+    );
+    $(".testimonials_slider").slick({
+        prevArrow:
+            '<div class="left"><button type="button" class="testimonials_prev_btn"><img src="' +
+            site_data.theme_url +
+            '/images/icons/arrow.svg" alt="">Previous</button></div>',
+        nextArrow:
+            '<div class="right"><button type="button" class="testimonials_next_btn">Next<img src="' +
+            site_data.theme_url +
+            '/images/icons/arrow.svg" alt=""></button></div>',
         appendArrows: $(".navigation"),
         fade: true,
         adaptiveHeight: true,
         rows: 0,
         slide: ".actor",
-      });
-      $(".testimonials_slider").on(
-        "afterChange",
-        function (event, slick, currentSlide, nextSlide) {
-          smoothScroll();
+    });
+
+    $(".testimonials_section .btn").on("click", function () {
+        if ($(this).is(".active")) {
+            return;
+        } else {
+            $(".testimonials_section .btn").removeClass("active");
+            $(this).addClass("active");
         }
-      );
-    } else {
-      $(".testimonial.actor").css("display", "none");
-      $(".testimonial.audience").css("display", "block");
-      $(".testimonials_slider").slick({
-        prevArrow:
-          '<div class="left"><button type="button" class="testimonials_prev_btn"><img src="' +
-          site_data.theme_url +
-          '/images/icons/arrow.svg" alt="">Previous</button></div>',
-        nextArrow:
-          '<div class="right"><button type="button" class="testimonials_next_btn">Next<img src="' +
-          site_data.theme_url +
-          '/images/icons/arrow.svg" alt=""></button></div>',
-        appendArrows: $(".navigation"),
-        fade: true,
-        adaptiveHeight: true,
-        rows: 0,
-        slide: ".audience",
-      });
-      $(".testimonials_slider").on(
-        "afterChange",
-        function (event, slick, currentSlide, nextSlide) {
-          smoothScroll();
+
+        $(".testimonials_slider").slick("unslick");
+
+        if ($(this).is(".actors")) {
+            $(".testimonial.actor").css("display", "block");
+            $(".testimonial.audience").css("display", "none");
+            $(".testimonials_slider").slick({
+                prevArrow:
+                    '<div class="left"><button type="button" class="testimonials_prev_btn"><img src="' +
+                    site_data.theme_url +
+                    '/images/icons/arrow.svg" alt="">Previous</button></div>',
+                nextArrow:
+                    '<div class="right"><button type="button" class="testimonials_next_btn">Next<img src="' +
+                    site_data.theme_url +
+                    '/images/icons/arrow.svg" alt=""></button></div>',
+                appendArrows: $(".navigation"),
+                fade: true,
+                adaptiveHeight: true,
+                rows: 0,
+                slide: ".actor",
+            });
+            $(".testimonials_slider").on(
+                "afterChange",
+                function (event, slick, currentSlide, nextSlide) {
+                    smoothScroll();
+                }
+            );
+        } else {
+            $(".testimonial.actor").css("display", "none");
+            $(".testimonial.audience").css("display", "block");
+            $(".testimonials_slider").slick({
+                prevArrow:
+                    '<div class="left"><button type="button" class="testimonials_prev_btn"><img src="' +
+                    site_data.theme_url +
+                    '/images/icons/arrow.svg" alt="">Previous</button></div>',
+                nextArrow:
+                    '<div class="right"><button type="button" class="testimonials_next_btn">Next<img src="' +
+                    site_data.theme_url +
+                    '/images/icons/arrow.svg" alt=""></button></div>',
+                appendArrows: $(".navigation"),
+                fade: true,
+                adaptiveHeight: true,
+                rows: 0,
+                slide: ".audience",
+            });
+            $(".testimonials_slider").on(
+                "afterChange",
+                function (event, slick, currentSlide, nextSlide) {
+                    smoothScroll();
+                }
+            );
         }
-      );
-    }
 
-    smoothScroll();
-  });
+        smoothScroll();
+    });
 
-  //     $(".letter_wrap").each(function () {
-  //       var words = jQuery(this).text().split(" ");
-  //       jQuery(this)
-  //         .empty()
-  //         .html(function () {
-  //           for (i = 0; i < words.length; i++) {
-  //             if (i == 0) {
-  //               jQuery(this).append(
-  //                 '<div class="single_word">' + words[i] + "</div>"
-  //               );
-  //             } else {
-  //               jQuery(this).append(
-  //                 ' <div class="single_word">' + words[i] + "</div>"
-  //               );
-  //             }
-  //           }
-  //         });
-  //     });
+    //     $(".letter_wrap").each(function () {
+    //       var words = jQuery(this).text().split(" ");
+    //       jQuery(this)
+    //         .empty()
+    //         .html(function () {
+    //           for (i = 0; i < words.length; i++) {
+    //             if (i == 0) {
+    //               jQuery(this).append(
+    //                 '<div class="single_word">' + words[i] + "</div>"
+    //               );
+    //             } else {
+    //               jQuery(this).append(
+    //                 ' <div class="single_word">' + words[i] + "</div>"
+    //               );
+    //             }
+    //           }
+    //         });
+    //     });
 
-  //   $(".single_word").html(function (index, html) {
-  //     return html.replace(/\S/g, '<div class="word_wrap"><span>$&</span></div>');
-  //   });
+    //   $(".single_word").html(function (index, html) {
+    //     return html.replace(/\S/g, '<div class="word_wrap"><span>$&</span></div>');
+    //   });
 
-  //   $(window).on("scroll", function () {
-  //     $(".circle_btn")
-  //       .find(".circle_text")
-  //       .css({
-  //         transform:
-  //           "translate(-50%,-50%) rotate(" + $(window).scrollTop() * 0.1 + "deg)",
-  //       });
-  //   });
+    //   $(window).on("scroll", function () {
+    //     $(".circle_btn")
+    //       .find(".circle_text")
+    //       .css({
+    //         transform:
+    //           "translate(-50%,-50%) rotate(" + $(window).scrollTop() * 0.1 + "deg)",
+    //       });
+    //   });
 
-  $(window).on("resize", function () {});
+    $(window).on("resize", function () {});
 })(jQuery);
 
 /*	-----------------------------------------------------------------------------
@@ -433,88 +477,88 @@ window.addEventListener("load", function () {
 --------------------------------------------------------------------------------- */
 
 (function ($) {
-  let animationTrigger = $(".animate_el");
+    let animationTrigger = $(".animate_el");
 
-  animationTrigger.each(function () {
-    let trigger = $(this);
-    let headlineClasssName = "in_view";
+    animationTrigger.each(function () {
+        let trigger = $(this);
+        let headlineClasssName = "in_view";
 
-    gsap.to(animationTrigger, {
-      scrollTrigger: {
-        trigger: trigger,
-        start: "top 75%",
-        onEnter: function () {
-          $(trigger).addClass("in_view");
-        },
-      },
+        gsap.to(animationTrigger, {
+            scrollTrigger: {
+                trigger: trigger,
+                start: "top 75%",
+                onEnter: function () {
+                    $(trigger).addClass("in_view");
+                },
+            },
+        });
     });
-  });
 })(jQuery);
 
 window.addEventListener("load", function () {
-  const headlineTriggers = gsap.utils.toArray(".st__split-text");
-  headlineTriggers.forEach((split) => {
-    let titleSplit = new SplitText(split, {
-      type: "lines",
+    const headlineTriggers = gsap.utils.toArray(".st__split-text");
+    headlineTriggers.forEach((split) => {
+        let titleSplit = new SplitText(split, {
+            type: "lines",
+        });
+        var tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: split,
+                start: "top 75%",
+                onStart: function () {
+                    split.classList.add("disabled-pointer");
+                },
+                onComplete: function () {
+                    split.classList.remove("disabled-pointer");
+                },
+            },
+        });
+        tl.from(titleSplit.lines[0], 0.5, {
+            opacity: 0,
+            yPercent: 50,
+            ease: Expo.inOut,
+        });
+        tl.from(
+            titleSplit.lines[1],
+            0.5,
+            {
+                opacity: 0,
+                yPercent: -50,
+                ease: Expo.inOut,
+            },
+            "-=.5"
+        );
     });
-    var tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: split,
-        start: "top 75%",
-        onStart: function () {
-          split.classList.add("disabled-pointer");
-        },
-        onComplete: function () {
-          split.classList.remove("disabled-pointer");
-        },
-      },
-    });
-    tl.from(titleSplit.lines[0], 0.5, {
-      opacity: 0,
-      yPercent: 50,
-      ease: Expo.inOut,
-    });
-    tl.from(
-      titleSplit.lines[1],
-      0.5,
-      {
-        opacity: 0,
-        yPercent: -50,
-        ease: Expo.inOut,
-      },
-      "-=.5"
-    );
-  });
 
-  const splitBlurb = gsap.utils.toArray(".st__split-blurb");
-  splitBlurb.forEach((split) => {
-    let blurb = new SplitText(split, {
-      type: "lines",
+    const splitBlurb = gsap.utils.toArray(".st__split-blurb");
+    splitBlurb.forEach((split) => {
+        let blurb = new SplitText(split, {
+            type: "lines",
+        });
+        gsap.from(blurb.lines, {
+            y: 90,
+            rotationZ: 3,
+            stagger: 0.1,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: split,
+                start: "top 75%",
+                ease: "back.inOut(1.7)",
+            },
+        });
     });
-    gsap.from(blurb.lines, {
-      y: 90,
-      rotationZ: 3,
-      stagger: 0.1,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: split,
-        start: "top 75%",
-        ease: "back.inOut(1.7)",
-      },
-    });
-  });
-  //   const blurbTriggers = gsap.utils.toArray(".st__fade");
-  //   blurbTriggers.forEach((trigger) => {
-  //     gsap.from(trigger, {
-  //       opacity: 0,
-  //       y: 20,
-  //       ease: Expo.inOut,
-  //       scrollTrigger: {
-  //         trigger: trigger,
-  //         start: "top 70%",
-  //       },
-  //     });
-  //   });
+    //   const blurbTriggers = gsap.utils.toArray(".st__fade");
+    //   blurbTriggers.forEach((trigger) => {
+    //     gsap.from(trigger, {
+    //       opacity: 0,
+    //       y: 20,
+    //       ease: Expo.inOut,
+    //       scrollTrigger: {
+    //         trigger: trigger,
+    //         start: "top 70%",
+    //       },
+    //     });
+    //   });
 });
 
 /*	-----------------------------------------------------------------------------
@@ -522,17 +566,17 @@ window.addEventListener("load", function () {
 --------------------------------------------------------------------------------- */
 
 window.addEventListener("load", function () {
-  const rotateTriggers = gsap.utils.toArray(".circle_text");
+    const rotateTriggers = gsap.utils.toArray(".circle_text");
 
-  rotateTriggers.forEach((trigger) => {
-    gsap.from(trigger, {
-      rotation: -150,
-      scrollTrigger: {
-        trigger: trigger,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
+    rotateTriggers.forEach((trigger) => {
+        gsap.from(trigger, {
+            rotation: -150,
+            scrollTrigger: {
+                trigger: trigger,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+            },
+        });
     });
-  });
 });

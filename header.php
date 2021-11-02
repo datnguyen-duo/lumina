@@ -13,7 +13,11 @@
     <div id="scroll-container">
 
     <?php
-    $is_light = ( is_page_template(array('templates/tmplt-home.php','templates/tmplt-faq.php')));
+    $is_light = (
+        is_page_template(array('templates/tmplt-home.php','templates/tmplt-faq.php'))
+        ||
+        is_singular('product')
+    );
     ?>
     <header class="site_header <?php echo ( $is_light ) ? ' light' : null; ?>">
         <a href="<?php echo get_site_url(); ?>" class="logo">
@@ -78,4 +82,10 @@
         </div>
     </div>
 
-    
+    <div class="custom_side_cart" data-action="<?php echo site_url() ?>/wp-admin/admin-ajax.php">
+        <h2 class="title">Your Cart</h2>
+        <span class="close_cart">Close</span>
+        <div class="items" id="response">
+            <?php render_shopping_cart_items(); ?>
+        </div>
+    </div>

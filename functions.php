@@ -47,6 +47,7 @@ function site_scripts() {
 	wp_enqueue_script('scrolltrigger', get_template_directory_uri() . '/js/plugins/ScrollTrigger.min.js', true);
 	wp_enqueue_script('scrollto', get_template_directory_uri() . '/js/plugins/ScrollToPlugin.min.js', true);
 	wp_enqueue_script('swiperjs', get_template_directory_uri() . '/js/plugins/swiper-min.js', true);
+    wp_enqueue_script('jquery-validate', get_theme_file_uri('/js/plugins/jquery.validate.min.js'), NULL, '1', true);
 
 	wp_enqueue_script('global', get_theme_file_uri('/js/global.js'), NULL, '1.0', true);	
 	wp_enqueue_script('page-js', get_theme_file_uri('/js/page.js'), NULL, '1.0', true);	
@@ -68,3 +69,5 @@ add_action( 'wp_enqueue_scripts', 'remove_block_css', 100 );
 require_once("inc/additional-functions.php");
 require_once("inc/custom-posts-types.php");
 require_once("inc/custom-taxonomies.php");
+require_once("inc/woocommerce-custom-cart.php");
+require_once("inc/woocommerce-custom-product-fields.php");
