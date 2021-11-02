@@ -470,7 +470,6 @@ body {
 
 // }
 
-
 .pill {
     .p2();
     height: 76px;
@@ -494,6 +493,49 @@ body {
     }
 }
 
+.custom_side_cart {
+    background-color: @color1;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    overflow: auto;
+    width: 500px;
+    z-index: 9;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    display: none;
+
+    h2 {
+        color: #fff;
+    }
+
+    .items {
+        .item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: solid 1px @color3;
+            padding: 40px 0;
+
+            .image {
+                width: 150px;
+                height: 136px;
+                border-radius: 10px;
+                overflow: hidden;
+                position: relative;
+
+                img {
+                    .cropped_img();
+                }
+            }
+
+            p {
+                color: #fff;
+            }
+        }
+    }
+}
+
 @import 'fonts';
 @import 'header';
 @import 'footer';
@@ -506,6 +548,9 @@ body {
 @import 'templates/tmplt-faq';
 @import 'templates/tmplt-contact';
 @import 'templates/tmplt-gallery';
+@import 'templates/tmplt-donate';
+
+@import 'woocommerce/single-product';
 
 @import 'plugins/swipermin.css';
 @import 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css';

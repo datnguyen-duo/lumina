@@ -1,6 +1,18 @@
 <?php
 /* Template Name: Programs */
-get_header(); ?>
+get_header();
+
+$products = new WP_Query(array(
+    'post_type' => 'product',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'product_cat',
+            'field' => 'slug',
+            'terms' => 'program'
+        )
+    )
+));
+?>
 <div class="template_programs_page_container">
     <div class="filters">
         <ul>
@@ -15,10 +27,13 @@ get_header(); ?>
         </div>
     </div>
 
-    <h1 class="page_title">Programs</h1>
+    <h1 class="page_title"><?php the_title(); ?></h1>
 
     <section class="programs_section">
-        <?php for($i=0; $i<7; $i++): ?>
+        <?php while( $products->have_posts() ): $products->the_post();
+            $product = wc_get_product( get_the_ID() );
+            $type = get_field('type');
+            ?>
             <div class="program">
                 <div class="column img_col">
                     <div class="circle">
@@ -32,17 +47,23 @@ get_header(); ?>
                 </div>
 
                 <div class="column info_col">
-                    <p class="program_category">Summerstock Camps</p>
-                    <h2 class="program_title">The spoon of loch garve: a brand new scottish quest</h2>
-                    <p class="program_description">Lumina’s youngest actors begin their exciting theatre experience as Players. They work with speech creatively, learn to develop basic characters, and practice the fundamentals of acting.</p>
+                    <?php if( $type ): ?>
+                        <p class="program_category"><?php echo $type['label']; ?></p>
+                    <?php endif; ?>
+
+                    <h2 class="program_title"><?php the_title(); ?></h2>
+
+                    <?php if( get_the_content() ): ?>
+                        <p class="program_description"><?php echo wp_trim_words(get_the_content(),30); ?></p>
+                    <?php endif; ?>
                 </div>
 
                 <div class="column cta_col">
-                    <a class="button">Register</a>
-                    <p>Registration Cost: $550</p>
+                    <a href="<?php the_permalink(); ?>" class="button">Register</a>
+                    <p>Registration Cost: <?php echo get_woocommerce_currency_symbol().$product->get_price(); ?></p>
                 </div>
             </div>
-        <?php endfor; ?>
+        <?php endwhile; wp_reset_postdata(); ?>
     </section>
 
     <section class="banner_section">
