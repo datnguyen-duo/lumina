@@ -61,4 +61,30 @@
         });
     });
     //Remove item from cart function END
+
+
+    //Add item from cart function
+    $('.add_to_cart').on('click', function(event) {
+        var itemID = $(this).data('product-id');
+        var url = '?add-to-cart='+itemID;
+
+        $.ajax({
+            url: url,
+            data: {
+                action: 'woocommerce_ajax_add_to_cart',
+                product_id: itemID,
+                product_sku: '',
+                quantity: 1,
+                // variation_id: variation_id,
+            },
+            type: 'POST', // POST
+            beforeSend: function (xhr) {},
+            success: function (data) {
+                updateShoppingCart();
+            },
+            complete: function (xhr, status) {}
+        });
+    });
+    //ADd item to cart function END
+
 })(jQuery);

@@ -2,12 +2,13 @@
 function render_shopping_cart_items() {
     $woocommerce_cart = WC()->cart->get_cart();
     if( $woocommerce_cart ):
-
         foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ):
             $item_name = $cart_item['data']->get_title();
             $quantity = $cart_item['quantity'];
             $product_id = $cart_item['product_id'];
             $price = $cart_item['data']->get_price();
+            $categories_ids = $cart_item['data']->get_category_ids();
+            $category = get_term($categories_ids[0]);
             $price_with_symbol = get_woocommerce_currency_symbol().$price;
             $_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
             ?>
@@ -20,7 +21,9 @@ function render_shopping_cart_items() {
                     </div>
 
                     <div class="info">
-                        <div class="product_type">Registration</div>
+                        <?php if( $category): ?>
+                            <div class="product_type"><?php echo $category->name; ?></div>
+                        <?php endif; ?>
 
                         <div class="product_name">
                             <?php
@@ -47,13 +50,27 @@ function render_shopping_cart_items() {
                         ?>
                     </div>
                 </div>
-
-                <div class="bottom_info">
-                    <ul>
-                        <li>Rehearsal</li>
-                        <li><?php echo $price_with_symbol; ?></li>
-                    </ul>
-                </div>
+                <?php if( $category->slug == 'ticket'): ?>
+                    <div class="bottom_info">
+                        <ul>
+                            <li>Date</li>
+                            <li>Time</li>
+                            <li>Ticket Type</li>
+                            <li><?php echo $price_with_symbol; ?></li>
+                        </ul>
+                    </div>
+                <?php else:
+                    $registration_type = get_field('type', $product_id);
+                ?>
+                    <div class="bottom_info">
+                        <ul>
+                            <?php if( $registration_type ): ?>
+                                <li><?php echo $registration_type['label']; ?></li>
+                            <?php endif; ?>
+                            <li><?php echo $price_with_symbol; ?></li>
+                        </ul>
+                    </div>
+                <?php endif; ?>
             </div>
         <?php endforeach; ?>
 
