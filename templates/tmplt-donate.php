@@ -18,7 +18,7 @@ get_header(); ?>
                         </div>
                         <div class="inner">
                             <div class="btn-wrapper">
-                                <div class="btn pill">This is a one time donation</div>
+                                <div class="btn pill active">This is a one time donation</div>
                                 <div class="btn pill">I would like to make this a recurring donation</div>
                             </div>
                             <div class="btn-wrapper">
