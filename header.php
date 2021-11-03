@@ -33,7 +33,7 @@
         </nav>
 
         <div class="hamburger_holder">
-            <a href="" class="cart_link">Cart</a>
+            <p class="cart_link custom_side_cart_opener">Cart</p>
 
             <div class="hamburger">
                 <span></span>
@@ -82,10 +82,4 @@
         </div>
     </div>
 
-    <div class="custom_side_cart" data-action="<?php echo site_url() ?>/wp-admin/admin-ajax.php">
-        <h2 class="title">Your Cart</h2>
-        <span class="close_cart">Close</span>
-        <div class="items" id="response">
-            <?php render_shopping_cart_items(); ?>
-        </div>
-    </div>
+    <?php render_shopping_cart(); ?>

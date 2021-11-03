@@ -165,7 +165,10 @@ window.addEventListener("load", function () {
           MENU OPENER END
       --------------------------------------------------------------------------------- */
 
-    var customSideCart = $('.custom_side_cart');
+
+    /*	-----------------------------------------------------------------------------
+         SINGLE PROGRAM PRODUCT
+     --------------------------------------------------------------------------------- */
 
     $('.single_product_program_registration_button').on('click', function(){
         $('.cart').submit();
@@ -180,34 +183,13 @@ window.addEventListener("load", function () {
         errorLabelContainer: '#errordiv',
     });
 
-    $('body').on('added_to_cart',function(){
-        var responseDiv = document.getElementById('response');
-        $('.button_holder').append('<p class="added_to_cart_message">Item has been added to cart.</p>')
-
-        $.ajax({
-            url: customSideCart.data('action'),
-            data: {
-                action: 'updateshoppingcart',
-            }, // form data
-            type: 'POST', // POST
-            beforeSend: function (xhr) {},
-            success: function (data) {
-                responseDiv.innerHTML = data;
-            },
-            complete: function (xhr, status) {
-                $('.custom_side_cart').fadeIn();
-            }
-        });
-    });
-
-    customSideCart.find('.close_cart').on('click', function(){
-        $('.custom_side_cart').fadeOut();
-    });
-
     $('input[type=radio][name=source_copy]').change(function() {
         $('input[name=source]').val($(this).val());
     });
 
+    /*	-----------------------------------------------------------------------------
+          SINGLE PROGRAM PRODUCT END
+      --------------------------------------------------------------------------------- */
 
     /*	-----------------------------------------------------------------------------
            CALENDAR PAGE
