@@ -1,5 +1,123 @@
 .template_donate_page_container {
+    background: rgba(225, 175, 255, .3);
+    padding: 15em 0;
+
     .hero_section {
-        padding: 10em 2em;
+
+        .hero_title {
+            border-bottom: 1px solid @color1;
+            h1 {
+                .h5();
+                color: @color1;
+                padding-left: .5em;
+            }
+        }
+
+        .row {
+            padding: 4em 15vw 1em;
+
+            &:not(:last-of-type) {
+                border-bottom: 1px solid @color1;
+            }
+            &:last-of-type {
+                display: flex;
+                justify-content: center;
+            }
+            h2 {
+                .h3();
+                color: @color1;
+            }
+
+            h4 {
+                .p2();
+                font-size: 1.4vw !important;
+            }
+
+            p {
+                .p1();
+                margin-top: 1em;
+            }
+
+            .form-wrapper {
+                display: flex;
+                flex-direction: column;
+                margin-top: 2em;
+
+                .row2,.row3 {
+                    display: none;
+                }
+
+                .inner {
+                    &:first-of-type {
+                        display: flex;
+                        align-items: center;
+
+                        .in-action-elements {
+                            margin: 0 20px;
+                        }
+
+                        .price-wrapper {
+
+                            &::before {
+                                background: transparent !important;
+                                .p2();
+                                color: @color1 !important;
+                                font-size: 1.4vw !important;
+                                line-height: 1 !important;
+                                width: unset !important;
+                                position: absolute!important;
+                                top: unset !important;
+                                height: unset !important;
+                            }
+
+                            input {
+                                border: none !important;
+                                border-bottom: 1px solid @color1 !important;
+                                background: transparent !important;
+                                .p2();
+                                color: @color1 !important;
+                                font-size: 1.4vw !important;
+                                line-height: 1 !important;
+                                padding: 0 0 0 30px !important;
+                                &::placeholder {
+                                    color: transparent;
+                                }
+                            }
+                        }
+  
+                    }
+
+
+                }
+
+            }
+
+            .btn-wrapper {
+                display: flex;
+                justify-content: space-between;
+                margin: 2em 0;
+
+                .pill {
+                    white-space: nowrap;
+                    width: 100%;
+                    .p1();
+                    height: 60px;
+                    text-transform: unset;
+                }
+            }
+
+            input.full-width {
+                width: 100%;
+                border: 1px solid @color1;
+                padding: 5px;
+                border-radius: 5px;
+                .p2();
+                color: @color1 !important;
+                font-size: 1.4vw !important;
+                line-height: 1 !important;
+                background: transparent;
+                margin: 1em 0;
+            }
+        }
     }
 }
