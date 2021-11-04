@@ -41,12 +41,12 @@ $product = wc_get_product( get_the_ID() );
                     </div>
                 </div>
                 <div class="row">
-                    <h2>Designation (testing)</h2>
+                    <h2>Designation (Optional)</h2>
                     <p>To designate your donation for a specific fund or purpose, please enter a description of how you'd like your donation to be used.</p>
                     <input type="text" class="full-width">
                 </div>
                 <div class="row">
-                    <h2>Dedication Or Gift(TESTING)</h2>
+                    <h2>Dedication Or Gift(Optional)</h2>
                     <p>To make a donation on behalf of or in memory of another person, please enter the person’s name. You will have a chance to send an eCard to this person at the end of making a donation.</p>
                     <input type="text" class="full-width">
                 </div>
