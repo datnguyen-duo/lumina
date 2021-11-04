@@ -42,17 +42,18 @@
     //Remove item from cart function
     customSideCart.on('click', '.remove_item', function(event) {
         event.preventDefault();
-        var itemID = $(this).data('product_id');
+        var productID = $(this).data('product_id');
+        var cartItemID = $(this).data('target');
 
         $.ajax({
             url: $(this).attr('href'),
             data: {
-                action: "product_remove",
-                product_id: itemID
+                // action: "product_remove",
+                product_id: productID
             },
             type: 'POST', // POST
             beforeSend: function (xhr) {
-                $('.item_'+itemID).slideUp(250);
+                $('#cart_item_'+cartItemID).slideUp(250);
             },
             success: function (data) {
                 updateShoppingCart();
@@ -63,19 +64,20 @@
     //Remove item from cart function END
 
 
-    //Add item from cart function
-    $('.add_to_cart').on('click', function(event) {
+    //Add ticket to the cart function
+    $('.add_to_cart_ticket').on('click', function(event) {
         var itemID = $(this).data('product-id');
         var url = '?add-to-cart='+itemID;
+        var variation_id = $('input[name="ticket_type"]:checked').val();
 
         $.ajax({
             url: url,
             data: {
-                action: 'woocommerce_ajax_add_to_cart',
+                // action: 'ajax_add_to_cart',
                 product_id: itemID,
                 product_sku: '',
                 quantity: 1,
-                // variation_id: variation_id,
+                variation_id: variation_id,
             },
             type: 'POST', // POST
             beforeSend: function (xhr) {},
@@ -85,6 +87,6 @@
             complete: function (xhr, status) {}
         });
     });
-    //ADd item to cart function END
+    //Afd ticket to the cart function END
 
 })(jQuery);

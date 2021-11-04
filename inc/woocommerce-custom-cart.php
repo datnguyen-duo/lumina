@@ -7,12 +7,12 @@ function render_shopping_cart_items() {
             $quantity = $cart_item['quantity'];
             $product_id = $cart_item['product_id'];
             $price = $cart_item['data']->get_price();
-            $categories_ids = $cart_item['data']->get_category_ids();
-            $category = get_term($categories_ids[0]);
             $price_with_symbol = get_woocommerce_currency_symbol().$price;
             $_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+            $categories = get_the_terms($product_id,'product_cat');
+            $category = $categories[0];
             ?>
-            <div class="item item_<?php echo $product_id; ?>">
+            <div class="item item_<?php echo $product_id; ?>" id="cart_item_<?php echo $cart_item_key; ?>">
                 <div class="top_info">
                     <div class="product_image">
                         <div class="image_holder">
@@ -36,10 +36,10 @@ function render_shopping_cart_items() {
                     <div class="actions">
                         <div class="edit_item">Edit</div>
                         <?php
-                        echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        echo apply_filters(
                             'woocommerce_cart_item_remove_link',
                             sprintf(
-                                '<a href="%s" class="remove_item" aria-label="%s" data-product_id="%s" data-product_sku="%s">Remove</a>',
+                                '<a href="%s" class="remove_item" aria-label="%s" data-product_id="%s" data-target="'.$cart_item_key.'" data-product_sku="%s">Remove</a>',
                                 esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
                                 esc_html__( 'Remove this item', 'woocommerce' ),
                                 esc_attr( $product_id ),
@@ -50,12 +50,29 @@ function render_shopping_cart_items() {
                         ?>
                     </div>
                 </div>
-                <?php if( $category->slug == 'ticket'): ?>
+                <?php if( $category->slug == 'ticket'):
+                    $variations = $cart_item['variation'];
+                    $time = get_field('time', $product_id);
+                    $date = get_field('date', $product_id);
+                ?>
                     <div class="bottom_info">
                         <ul>
-                            <li>Date</li>
-                            <li>Time</li>
-                            <li>Ticket Type</li>
+                            <?php if( $time ): ?>
+                                <li><?php echo $time ?></li>
+                            <?php endif; ?>
+
+                            <?php if( $date ): ?>
+                                <li><?php echo $date ?></li>
+                            <?php endif; ?>
+
+                            <?php if( $variations ): ?>
+                                <li>
+                                    <?php
+                                    foreach ($variations as $var ):
+                                        echo ucfirst($var);
+                                    endforeach; ?>
+                                </li>
+                            <?php endif; ?>
                             <li><?php echo $price_with_symbol; ?></li>
                         </ul>
                     </div>

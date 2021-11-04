@@ -6,4 +6,231 @@
         color: @color1;
         text-align: center;
     }
+
+
+
+    .tickets_section {
+
+        .ticket {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background-color: #EDD1FF;
+            padding: 35px 0 50px 0;
+            border-top: solid 1px @color1;
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            @media @tablet-s {
+                padding: 95px 0;
+            }
+
+            &:nth-child(odd) {
+                background-image: url("../images/purple-bg.jpg");
+
+                .left {
+                    .image_holder {
+                        border-radius: 0 60px 60px 0;
+                    }
+                }
+            }
+
+            &:nth-child(even) {
+                background-image: url("../images/blue-bg.jpg");
+
+                .left {
+                    order: 1;
+
+                    .image_holder {
+                        border-radius: 60px 0 0 60px;
+                    }
+                }
+            }
+
+            &:before {
+                position: absolute;
+                top: -20px;
+                left: 0;
+                padding-bottom: 20px;
+                width: 100%;
+                display: block;
+                border-top: solid 1px @color1;
+
+                @media @tablet-s {
+                    content: "";
+                }
+            }
+
+            .left {
+                width: 100%;
+                margin-bottom: 35px;
+                padding-right: 35px;
+                box-sizing: border-box;
+
+                @media @tablet-s {
+                    width: 43.95%;
+                    margin-bottom: 0;
+                    padding-right: 0;
+                }
+
+                .image_holder {
+                    overflow: hidden;
+                    position: relative;
+                    padding-top: 100%;
+
+                    img {
+                        .cropped_img();
+                    }
+                }
+            }
+
+            .right {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 0 35px;
+
+                @media @tablet-s {
+                    width: 56.05%;
+                }
+
+                @media @tablet-m {
+                    padding: 0 9vw;
+                }
+
+                @media @desktop-l {
+                    padding: 0 13vw 0 12vw;
+                }
+
+                .pills_checkbox_inputs_holder {
+                    display: flex;
+
+                    label {
+                        position: relative;
+                        cursor: pointer;
+                        width: 100%;
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        small {
+                            order: 1;
+                            width: 100%;
+                        }
+
+                        input {
+                            position: absolute;
+                            opacity: 0;
+                            cursor: pointer;
+                            height: 0;
+                            width: 0;
+                        }
+
+                        .pill {
+                            width: 100%;
+                            border: solid 1px @color1;
+                            border-radius: 60px;
+                            position: relative;
+                            background-color: transparent;
+                            height: 80px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            .transition();
+
+                            .pill_content {
+                                text-align: center;
+
+                                .type {
+                                    .p1();
+                                }
+
+                                .price,
+                                .type {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+
+                    label input:checked ~ .pill {
+                        background-color: @color2;
+                    }
+                }
+
+                .title {
+                    .h2();
+                    margin-bottom: 25px;
+
+                    .single_word{
+                        padding: 8px 0;
+
+                        @media @tablet-s {
+                            padding: 1vw 0;
+                        }
+                    }
+                }
+
+                .subtitle {
+                    font-family: @fontR;
+                    font-size: 16px;
+                    line-height: 1.36em;
+                    text-transform: uppercase;
+                    color: @color1;
+
+                    //@media @tablet-s {
+                    //    font-size: 20px;
+                    //}
+
+                    @media @laptop-s {
+                        font-size: 22px;
+                    }
+
+                    @media @desktop-m {
+                        font-size: 28px;
+                    }
+                }
+
+                .description_holder {
+                    margin-top: 74px;
+
+                    .description {
+                        p {
+                            .p1();
+                        }
+                    }
+                }
+
+                .button {
+                    width: 100%;
+                    margin-top: 18px;
+
+                    @media @tablet-s {
+                        margin-top: 50px;
+                    }
+                }
+            }
+        }
+
+        //.ticket {
+        //    display: flex;
+        //
+        //    .left {
+        //        width: 50%;
+        //
+        //        .image_holder {
+        //            position: relative;
+        //            padding-top: 100%;
+        //
+        //            img {
+        //                .cropped_img();
+        //            }
+        //        }
+        //    }
+        //
+        //    .right {
+        //        align-self: center;
+        //        width: 50%;
+        //    }
+        //}
+    }
 }
