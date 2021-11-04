@@ -16,7 +16,7 @@
     $is_light = (
         is_page_template(array('templates/tmplt-home.php','templates/tmplt-faq.php'))
         ||
-        is_singular('product')
+        has_term( 'program', 'product_cat')
     );
     ?>
     <header class="site_header <?php echo ( $is_light ) ? ' light' : null; ?>">

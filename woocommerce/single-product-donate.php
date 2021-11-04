@@ -1,8 +1,9 @@
-<!-- Use single-product-donate.php -->
-
-<!-- <?php
+<?php
 /* Template Name: Donate */
-get_header(); ?>
+get_header(); 
+$product = wc_get_product( get_the_ID() );
+
+?>
 <div class="template_donate_page_container">
     <section class="hero_section">
         <div class="hero_section_content">
@@ -24,9 +25,9 @@ get_header(); ?>
                                 <div class="btn pill has-arrow recurring">I would like to make this a recurring donation</div>
                             </div>
                             <div class="btn-wrapper recurring-options">
-                                <div class="btn pill">Monthly</div>
-                                <div class="btn pill">Quarterly</div>
-                                <div class="btn pill">Annually</div>
+                                <div class="btn pill active btn__month">Monthly</div>
+                                <div class="btn pill btn__quarter">Quarterly</div>
+                                <div class="btn pill btn__annual">Annually</div>
                             </div>
                         </div>
                     </div>
@@ -50,7 +51,7 @@ get_header(); ?>
                     <input type="text" class="full-width">
                 </div>
                 <div class="row">
-                    <button class="pill">Add to Cart</button>
+                    <div class="btn pill donate-add-to-cart">Add To Cart</div>
                 </div>
             </div>
         </div>
@@ -59,4 +60,4 @@ get_header(); ?>
 
 </div>
 <?php
-get_footer(); ?> -->
+get_footer(); ?>

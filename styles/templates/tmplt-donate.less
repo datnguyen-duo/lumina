@@ -98,12 +98,40 @@
                 justify-content: space-between;
                 margin: 2em 0;
 
+                &.recurring-options {
+                    display: none;
+                    &.active {
+                        display: flex;
+                    }
+                }
                 .pill {
                     white-space: nowrap;
                     width: 100%;
                     .p1();
                     height: 60px;
                     text-transform: unset;
+                    position: relative;
+                    &.has-arrow {
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            height: 10px;
+                            width: 10px;
+                            border-top: 1px solid @color1;
+                            border-left: 1px solid @color1;
+                            right: 22%;
+                            transform: translatey(-3px) rotate(-135deg);
+                            top: 0;
+                            bottom: 0;
+                            margin: auto;
+                        }
+
+                        &.active {
+                            &::after {
+                                transform: translatey(3px) rotate(-315deg);
+                            }
+                        }
+                    }
                 }
             }
 
