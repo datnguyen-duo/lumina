@@ -3,10 +3,21 @@ function render_shopping_cart_items() {
     $woocommerce_cart = WC()->cart->get_cart();
     if( $woocommerce_cart ):
         foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ):
+//            var_dump($cart_item);
             $item_name = $cart_item['data']->get_title();
             $quantity = $cart_item['quantity'];
             $product_id = $cart_item['product_id'];
             $price = $cart_item['data']->get_price();
+            $image = get_the_post_thumbnail($product_id);
+
+            if( $cart_item['custom_price_field'] ) {
+                $price = $cart_item['custom_price_field'];
+            }
+
+            if( $cart_item['campaign_id'] ) {
+                $image = get_the_post_thumbnail( $cart_item['campaign_id'] );
+            }
+
             $price_with_symbol = get_woocommerce_currency_symbol().$price;
             $_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
             $categories = get_the_terms($product_id,'product_cat');
@@ -16,7 +27,7 @@ function render_shopping_cart_items() {
                 <div class="top_info">
                     <div class="product_image">
                         <div class="image_holder">
-                            <?php echo get_the_post_thumbnail($product_id); ?>
+                            <?php echo $image; ?>
                         </div>
                     </div>
 

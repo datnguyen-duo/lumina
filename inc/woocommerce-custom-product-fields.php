@@ -270,6 +270,61 @@ function add_fields_before_add_to_cart() {
                 </div>
             </div>
         </div>
+    <?php elseif( $category->slug == 'donation' ): ?>
+        <div class="row">
+            <h2>Donation Preferences</h2>
+            <div class="form-wrapper">
+                <div class="inner">
+                    <h4>I want to contribute:</h4>
+                    <input type="number" id="custom_donation_price" min="5" required>
+                    <h4>to Lumina Studio Theatre</h4>
+                </div>
+                <div class="inner">
+                    <div class="btn-wrapper">
+                        <div class="btn pill active one-time">This is a one time donation</div>
+                        <div class="btn pill has-arrow recurring">I would like to make this a recurring donation</div>
+                    </div>
+                    <div class="btn-wrapper recurring-options">
+                        <div class="btn pill active btn__month">Monthly</div>
+                        <div class="btn pill btn__quarter">Quarterly</div>
+                        <div class="btn pill btn__annual">Annually</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <h2>Privacy Preferences</h2>
+            <div class="pills_checkbox_inputs_holder">
+                <label for="privacy_1" class="container">
+                    <input type="radio" id="privacy_1" name="privacy_copy" value="My full contact information" required>
+                    <span class="checkmark">My full contact information</span>
+                </label>
+
+                <label for="privacy_2" class="container">
+                    <input type="radio" id="privacy_2" name="privacy_copy" value="My name and email only">
+                    <span class="checkmark">My name and email only</span>
+                </label>
+
+                <label for="privacy_3" class="container">
+                    <input type="radio" id="privacy_3" name="privacy_copy" value="Anonymous">
+                    <span class="checkmark">Anonymous</span>
+                </label>
+                <input type="hidden" name="privacy">
+            </div>
+        </div>
+
+        <div class="row">
+            <h2>Designation (Optional)</h2>
+            <p>To designate your donation for a specific fund or purpose, please enter a description of how you'd like your donation to be used.</p>
+            <input type="text" name="designation" class="full-width">
+        </div>
+
+        <div class="row">
+            <h2>Dedication Or Gift(Optional)</h2>
+            <p>To make a donation on behalf of or in memory of another person, please enter the person’s name. You will have a chance to send an eCard to this person at the end of making a donation.</p>
+            <input type="text" name="designation_or_gift" class="full-width">
+        </div>
     <?php endif; ?>
 <?php }
 

@@ -191,6 +191,32 @@ window.addEventListener("load", function () {
           SINGLE PROGRAM PRODUCT END
       --------------------------------------------------------------------------------- */
 
+
+    /*	-----------------------------------------------------------------------------
+         SINGLE PRODUCT - DONATION CATEGORY
+     --------------------------------------------------------------------------------- */
+        if( $('.single_product_page_container.donation_category').length ) {
+            $('#custom_donation_price').on('input', function() {
+                $('#custom_price_field').val($(this).val());
+            });
+
+            $('.cart').validate({
+                messages: {},
+                submitHandler: function(form) {
+                    $('.cart button').trigger('click');
+                },
+                errorElement : 'small',
+                errorLabelContainer: '#errordiv',
+            });
+        }
+
+    /*	-----------------------------------------------------------------------------
+          SINGLE PRODUCT - DONATION CATEGORY END
+      --------------------------------------------------------------------------------- */
+
+
+
+
     /*	-----------------------------------------------------------------------------
            CALENDAR PAGE
        --------------------------------------------------------------------------------- */
