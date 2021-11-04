@@ -41,7 +41,7 @@ $product = wc_get_product( get_the_ID() );
                     </div>
                 </div>
                 <div class="row">
-                    <h2>Designation (Optional)</h2>
+                    <h2>Designation (testing)</h2>
                     <p>To designate your donation for a specific fund or purpose, please enter a description of how you'd like your donation to be used.</p>
                     <input type="text" class="full-width">
                 </div>
