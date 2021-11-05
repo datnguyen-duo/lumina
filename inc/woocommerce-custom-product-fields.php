@@ -1,5 +1,13 @@
 <?php
-function custom_fields(){
+
+/*
+ * NOTE FOR RADIO BUTTONS
+ * all radio buttons have suffix _clone in name attribute and those fields won't be collected on submit
+ * Role of those fields is to populate their original hidden field with JS and those hidden fields will be submitted
+ * This is because radio buttons fields have some problem, on submit always is checked the last one choice no matter what user selects
+ */
+
+function registration_custom_fields(): array {
     return [
         ['label' => 'Guardian 1 Name', 'name' => 'guardian_1_name'],
         ['label' => 'Guardian 1 Occupation', 'name' => 'guardian_1_occupation'],
@@ -34,6 +42,20 @@ function custom_fields(){
         ['label' => 'I have read, understand and agree to abide by the Lumina Studio Theatre Policies as set forth on the Lumina Studio website', 'name' => 'privacy_and_policy_consent'],
 
         ['label' => 'We (actor and parent) understand that attendance at each camp day is essential', 'name' => 'parent_consent'],
+    ];
+}
+
+function donation_custom_fields(): array {
+    return [
+        ['label' => 'Donation Type', 'name' => 'donation_type'],
+
+        ['label' => 'Recurring donation type', 'name' => 'recurring_donation_type'],
+
+        ['label' => 'Privacy Preferences', 'name' => 'privacy'],
+
+        ['label' => 'Designation', 'name' => 'designation'],
+
+        ['label' => 'Designation or gift', 'name' => 'designation_or_gift'],
     ];
 }
 
@@ -219,32 +241,32 @@ function add_fields_before_add_to_cart() {
 
                 <div class="pills_checkbox_inputs_holder">
                     <label for="source_friend" class="container">
-                        <input type="radio" id="source_friend" name="source_copy" value="Friend" required>
+                        <input type="radio" id="source_friend" name="source_clone" value="Friend" required>
                         <span class="checkmark">Friend</span>
                     </label>
 
                     <label for="source_family" class="container">
-                        <input type="radio" id="source_family" name="source_copy" value="Family">
+                        <input type="radio" id="source_family" name="source_clone" value="Family">
                         <span class="checkmark">Family</span>
                     </label>
 
                     <label for="source_attended_a_show" class="container">
-                        <input type="radio" id="source_attended_a_show" name="source_copy" value="Attended a Show">
+                        <input type="radio" id="source_attended_a_show" name="source_clone" value="Attended a Show">
                         <span class="checkmark">Attended a Show</span>
                     </label>
 
                     <label for="source_school" class="container">
-                        <input type="radio" id="source_school" name="source_copy" value="School">
+                        <input type="radio" id="source_school" name="source_clone" value="School">
                         <span class="checkmark">School</span>
                     </label>
 
                     <label for="source_newspaper" class="container">
-                        <input type="radio" id="source_newspaper" name="source_copy" value="Newspaper">
+                        <input type="radio" id="source_newspaper" name="source_clone" value="Newspaper">
                         <span class="checkmark">Newspaper</span>
                     </label>
 
                     <label for="source_other" class="container">
-                        <input type="radio" id="source_other" name="source_copy" value="Other">
+                        <input type="radio" id="source_other" name="source_clone" value="Other">
                         <span class="checkmark">Other</span>
                     </label>
 
@@ -273,22 +295,53 @@ function add_fields_before_add_to_cart() {
     <?php elseif( $category->slug == 'donation' ): ?>
         <div class="row">
             <h2>Donation Preferences</h2>
-            <div class="form-wrapper">
-                <div class="inner">
-                    <h4>I want to contribute:</h4>
-                    <input type="number" id="custom_donation_price" min="5" required>
-                    <h4>to Lumina Studio Theatre</h4>
+
+            <div class="price_input_group">
+                <h4>I want to contribute:</h4>
+
+                <div class="price-wrapper">
+                    <div class="symbol symbol_1"><?php echo get_woocommerce_currency_symbol(); ?></div>
+                    <input type="number" id="custom_price_field_clone" min="5" required>
+                    <div class="symbol symbol_2">USD</div>
                 </div>
-                <div class="inner">
-                    <div class="btn-wrapper">
-                        <div class="btn pill active one-time">This is a one time donation</div>
-                        <div class="btn pill has-arrow recurring">I would like to make this a recurring donation</div>
-                    </div>
-                    <div class="btn-wrapper recurring-options">
-                        <div class="btn pill active btn__month">Monthly</div>
-                        <div class="btn pill btn__quarter">Quarterly</div>
-                        <div class="btn pill btn__annual">Annually</div>
-                    </div>
+
+                <h4>to Lumina Studio Theatre</h4>
+            </div>
+
+            <div class="pills_checkbox_inputs_holder">
+                <label for="donation_type_1" class="container">
+                    <input type="radio" id="donation_type_1" name="donation_type_clone" value="One time donation" required>
+                    <span class="checkmark">This is a one time donation</span>
+                </label>
+
+                <label for="donation_type_2" class="container">
+                    <!--If you change the value of recurring donation radio button choice you have to change the value in JS also in order to work-->
+                    <input type="radio" id="donation_type_2" name="donation_type_clone" value="Recurring donation">
+                    <!--END-->
+                    <span class="checkmark">I would like to make this a recurring donation</span>
+                </label>
+
+                <input type="hidden" name="donation_type">
+            </div>
+
+            <div class="recurring_donation_type_radio_buttons">
+                <div class="pills_checkbox_inputs_holder">
+                    <label for="recurring_donation_type_1" class="container">
+                        <input type="radio" id="recurring_donation_type_1" name="recurring_donation_type_clone" value="Monthly" required>
+                        <span class="checkmark">Monthly</span>
+                    </label>
+
+                    <label for="recurring_donation_type_2" class="container">
+                        <input type="radio" id="recurring_donation_type_2" name="recurring_donation_type_clone" value="Quarterly">
+                        <span class="checkmark">Quarterly</span>
+                    </label>
+
+                    <label for="recurring_donation_type_3" class="container">
+                        <input type="radio" id="recurring_donation_type_3" name="recurring_donation_type_clone" value="Annually">
+                        <span class="checkmark">Annually</span>
+                    </label>
+
+                    <input type="hidden" name="recurring_donation_type">
                 </div>
             </div>
         </div>
@@ -297,17 +350,17 @@ function add_fields_before_add_to_cart() {
             <h2>Privacy Preferences</h2>
             <div class="pills_checkbox_inputs_holder">
                 <label for="privacy_1" class="container">
-                    <input type="radio" id="privacy_1" name="privacy_copy" value="My full contact information" required>
+                    <input type="radio" id="privacy_1" name="privacy_clone" value="My full contact information" required>
                     <span class="checkmark">My full contact information</span>
                 </label>
 
                 <label for="privacy_2" class="container">
-                    <input type="radio" id="privacy_2" name="privacy_copy" value="My name and email only">
+                    <input type="radio" id="privacy_2" name="privacy_clone" value="My name and email only">
                     <span class="checkmark">My name and email only</span>
                 </label>
 
                 <label for="privacy_3" class="container">
-                    <input type="radio" id="privacy_3" name="privacy_copy" value="Anonymous">
+                    <input type="radio" id="privacy_3" name="privacy_clone" value="Anonymous">
                     <span class="checkmark">Anonymous</span>
                 </label>
                 <input type="hidden" name="privacy">
@@ -339,10 +392,15 @@ function add_cart_item_data( $cart_item_meta, $product_id ) {
 
     if( sizeof($categories) ):
         $category = get_term($categories[0]);
+        $fields = [];
 
         if( $category->slug == 'registration'):
-            $fields = custom_fields();
+            $fields = registration_custom_fields();
+        elseif( $category->slug == 'donation'):
+            $fields = donation_custom_fields();
+        endif;
 
+        if( $fields ):
             $custom_data = array();
 
             foreach( $fields as $field ):
@@ -350,7 +408,7 @@ function add_cart_item_data( $cart_item_meta, $product_id ) {
                 $custom_data[$field['name']] = $_POST[$field['name']] ? sanitize_text_field($_POST[$field['name']]) : "-" ;
             endforeach;
 
-            $cart_item_meta['custom_data'] = $custom_data ;
+            $cart_item_meta['custom_data'] = $custom_data;
         endif;
     endif;
 
@@ -366,42 +424,59 @@ function get_item_data($other_data, $cart_item) {
     $product = wc_get_product( $cart_item['product_id'] );
 
     $categories = $product->get_category_ids();
-    $category = get_term($categories[0]);
+    $fields = [];
 
-    if( $category->slug == 'registration'):
-        $fields = custom_fields();
+    if( sizeof($categories) ) {
+        $category = get_term($categories[0]);
 
-        if ( isset($cart_item['custom_data']) ) {
-            $custom_data = $cart_item['custom_data'];
+        if ( $category->slug == 'registration'):
+            $fields = registration_custom_fields();
+        elseif ( $category->slug == 'donation'):
+            $fields = donation_custom_fields();
+        endif;
 
-            foreach( $fields as $field ):
-                $other_data[] = array('name' => $field['label'], 'display' => $custom_data[$field['name']]);
-            endforeach;
+        if( $fields )  {
+            if ( isset($cart_item['custom_data']) ) {
+                $custom_data = $cart_item['custom_data'];
+
+                foreach( $fields as $field ):
+                    $other_data[] = array('name' => $field['label'], 'display' => $custom_data[$field['name']]);
+                endforeach;
+            }
         }
-    endif;
+    }
 
     return $other_data;
 }
 
-/**
- * Add order item meta
- */
+///**
+// * Add order item meta
+// */
 add_action( 'woocommerce_add_order_item_meta', 'add_order_item_meta' , 10, 2);
 
 function add_order_item_meta ( $item_id, $values ) {
-    global $product;
+//    global $product;
+    $product = wc_get_product( $values['product_id'] );
     $categories = $product->get_category_ids();
-    $category = get_term($categories[0]);
+    $fields = [];
 
-    if( $category->slug == 'registration'):
-        $fields = custom_fields();
+    if( sizeof($categories) ):
+        $category = get_term($categories[0]);
 
-        if ( isset($values['custom_data']) ) {
-            $custom_data = $values['custom_data'];
+        if ( $category->slug == 'registration'):
+            $fields = registration_custom_fields();
+        elseif ( $category->slug == 'donation'):
+            $fields = donation_custom_fields();
+        endif;
 
-            foreach( $fields as $field ):
-                wc_add_order_item_meta( $item_id, $field['label'], $custom_data[$field['name']] );
-            endforeach;
-        }
+        if( $fields ):
+            if ( isset($values['custom_data']) ) {
+                $custom_data = $values['custom_data'];
+
+                foreach( $fields as $field ):
+                    wc_add_order_item_meta( $item_id, $field['label'], $custom_data[$field['name']] );
+                endforeach;
+            }
+        endif;
     endif;
 }

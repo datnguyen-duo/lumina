@@ -63,10 +63,4 @@ $products = new WP_Query(array(
     </section>
 </div>
 <?php
-$arr = array(
-    'Ticket Type' => 'Senior'
-);
-//WC()->cart->add_to_cart( 71, 1, 75, $arr );
-?>
-<?php
 get_footer(); ?>

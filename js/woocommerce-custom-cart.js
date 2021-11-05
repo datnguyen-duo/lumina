@@ -71,9 +71,9 @@
         var variation_id = $('input[name="ticket_type"]:checked').val();
 
         $.ajax({
-            url: url,
+            url: '/wp-admin/admin-ajax.php',
             data: {
-                // action: 'ajax_add_to_cart',
+                action: 'woo_custom_add_to_cart',
                 product_id: itemID,
                 product_sku: '',
                 quantity: 1,
@@ -87,6 +87,5 @@
             complete: function (xhr, status) {}
         });
     });
-    //Afd ticket to the cart function END
-
+    //Add ticket to the cart function END
 })(jQuery);

@@ -167,49 +167,53 @@ window.addEventListener("load", function () {
 
 
     /*	-----------------------------------------------------------------------------
-         SINGLE PROGRAM PRODUCT
-     --------------------------------------------------------------------------------- */
+        SINGLE PRODUCT
+    --------------------------------------------------------------------------------- */
+    if( $('.single_product_page_container').length ) {
+        $('input[type=radio][name$=_clone]').change(function() {
+            var target = $(this).attr('name').replace('_clone','');
+            $('input[name='+target+']').val($(this).val());
+        });
 
-    $('.single_product_program_registration_button').on('click', function(){
-        $('.cart').submit();
-    });
+        $('.cart').validate({
+            messages: {},
+            submitHandler: function(form) {
+                $('.cart button').trigger('click');
+            },
+            errorElement : 'small',
+            errorLabelContainer: '#errordiv',
+        });
 
-    $('.cart').validate({
-        messages: {},
-        submitHandler: function(form) {
-            $('.cart button').trigger('click');
-        },
-        errorElement : 'small',
-        errorLabelContainer: '#errordiv',
-    });
-
-    $('input[type=radio][name=source_copy]').change(function() {
-        $('input[name=source]').val($(this).val());
-    });
-
+        $('.clone_add_to_cart_btn').on('click', function(){
+            $('.cart').submit();
+        });
+    }
     /*	-----------------------------------------------------------------------------
-          SINGLE PROGRAM PRODUCT END
+          SINGLE PRODUCT END
       --------------------------------------------------------------------------------- */
-
 
     /*	-----------------------------------------------------------------------------
          SINGLE PRODUCT - DONATION CATEGORY
      --------------------------------------------------------------------------------- */
         if( $('.single_product_page_container.donation_category').length ) {
-            $('#custom_donation_price').on('input', function() {
+            //copy value of custom price clone input to the original hidden custom price input
+            $('#custom_price_field_clone').on('input', function() {
                 $('#custom_price_field').val($(this).val());
             });
 
-            $('.cart').validate({
-                messages: {},
-                submitHandler: function(form) {
-                    $('.cart button').trigger('click');
-                },
-                errorElement : 'small',
-                errorLabelContainer: '#errordiv',
+            $('input[type=radio][name=donation_type_clone]').change(function() {
+                if ( this.value === 'Recurring donation' ) {
+                    $('.recurring_donation_type_radio_buttons').slideDown();
+                } else {
+                    $('.recurring_donation_type_radio_buttons').slideUp();
+                    $('input[name=recurring_donation_type]').val('');
+
+                    $('.recurring_donation_type_radio_buttons input').each(function(){
+                        $(this).prop('checked', false);
+                    })
+                }
             });
         }
-
     /*	-----------------------------------------------------------------------------
           SINGLE PRODUCT - DONATION CATEGORY END
       --------------------------------------------------------------------------------- */

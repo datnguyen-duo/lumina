@@ -29,7 +29,7 @@ $category = $categories[0];
             do_action( 'woocommerce_single_product_summary' );  ?>
 
             <div class="button_holder">
-                <div class="button single_product_program_registration_button">Add To Cart</div>
+                <div class="button clone_add_to_cart_btn">Add To Cart</div>
             </div>
         </section>
     </div>
@@ -123,7 +123,7 @@ $category = $categories[0];
             do_action( 'woocommerce_single_product_summary' );  ?>
 
             <div class="button_holder">
-                <div class="button single_product_program_registration_button">Register & Add to Cart</div>
+                <div class="button clone_add_to_cart_btn">Register & Add to Cart</div>
             </div>
         </section>
     </div>

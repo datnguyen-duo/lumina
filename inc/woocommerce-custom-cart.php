@@ -2,6 +2,8 @@
 function render_shopping_cart_items() {
     $woocommerce_cart = WC()->cart->get_cart();
     if( $woocommerce_cart ):
+        $checkout_url = wc_get_checkout_url();
+
         foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ):
 //            var_dump($cart_item);
             $item_name = $cart_item['data']->get_title();
@@ -87,6 +89,16 @@ function render_shopping_cart_items() {
                             <li><?php echo $price_with_symbol; ?></li>
                         </ul>
                     </div>
+                <?php elseif( $category->slug == 'donation'):
+                    $donation_type = $cart_item['custom_data']['donation_type'];?>
+                    <div class="bottom_info">
+                        <ul>
+                            <?php if( $donation_type ): ?>
+                                <li><?php echo $donation_type; ?></li>
+                            <?php endif; ?>
+                            <li><?php echo $price_with_symbol; ?></li>
+                        </ul>
+                    </div>
                 <?php else:
                     $registration_type = get_field('type', $product_id);
                     ?>
@@ -102,6 +114,9 @@ function render_shopping_cart_items() {
             </div>
         <?php endforeach; ?>
 
+        <div class="checkout_btn_holder">
+            <a href="<?php echo $checkout_url; ?>" class="checkout_btn blue">Checkout</a>
+        </div>
     <?php else:
         echo '<p class="empty_cart_message">Your cart is empty.</p>';
     endif;
@@ -115,20 +130,28 @@ add_action('wp_ajax_updateshoppingcart', 'update_shopping_cart'); // wp_ajax_{AC
 add_action('wp_ajax_nopriv_updateshoppingcart', 'update_shopping_cart');
 
 function render_shopping_cart() {
-    $checkout_url = wc_get_checkout_url();
     ?>
     <div class="custom_side_cart" data-action="<?php echo site_url() ?>/wp-admin/admin-ajax.php">
-        <div class="cart_header">
-            <h2 class="title">Your Cart</h2>
-            <img class="close_cart" src="<?php echo get_template_directory_uri(); ?>/images/icons/times-circle.svg" alt="">
-        </div>
+        <div class="custom_side_cart_content">
+            <div class="cart_header">
+                <h2 class="title">Your Cart</h2>
+                <img class="close_cart" src="<?php echo get_template_directory_uri(); ?>/images/icons/times-circle.svg" alt="">
+            </div>
 
-        <div class="items" id="response">
-            <?php render_shopping_cart_items(); ?>
-        </div>
+            <div class="items" id="response">
+                <?php render_shopping_cart_items(); ?>
+            </div>
 
-        <div class="checkout_btn_holder">
-            <a href="<?php echo $checkout_url; ?>" class="checkout_btn blue">Checkout</a>
+
         </div>
     </div>
 <?php }
+
+function woo_custom_add_to_cart(){
+    $product_id = $_POST['product_id'];
+    $variation_id = $_POST['variation_id'];
+
+    WC()->cart->add_to_cart( $product_id, 1, $variation_id );
+}
+add_action('wp_ajax_woo_custom_add_to_cart', 'woo_custom_add_to_cart'); // wp_ajax_{ACTION HERE}
+add_action('wp_ajax_nopriv_woo_custom_add_to_cart', 'woo_custom_add_to_cart');

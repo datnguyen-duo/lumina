@@ -1,5 +1,31 @@
 .single_product_page_container {
+    //Styles for forms for all types of products
     form {
+        input {
+            outline: none;
+        }
+
+        small {
+            .fontR();
+            font-size: 14px;
+            display: block;
+            margin-top: 5px;
+            color: red;
+            position: relative;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
         .pills_checkbox_inputs_holder {
             display: flex;
 
@@ -76,6 +102,7 @@
             }
         }
     }
+    //Styles for forms for all types of products END
 
     &.donation_category {
         background: rgba(225, 175, 255, .3);
@@ -93,6 +120,10 @@
         }
 
         .form_section {
+            .wrap {
+                display: none;
+            }
+
             .quantity {
                 display: none;
             }
@@ -105,8 +136,24 @@
                 display: none;
             }
 
+            input {
+                &.full-width {
+                    width: 100%;
+                    border: 1px solid @color1;
+                    padding: 5px;
+                    border-radius: 5px;
+                    .p2();
+                    color: @color1 !important;
+                    font-size: 1.4vw !important;
+                    line-height: 1 !important;
+                    background: transparent;
+                    margin: 1em 0;
+                }
+            }
+
             .button_holder {
-                text-align: center;
+                //padding-top: 4em;
+                padding: 113px 15vw 0 15vw;
 
                 .button {
                     display: flex;
@@ -115,20 +162,20 @@
                 }
             }
 
+            .recurring_donation_type_radio_buttons {
+                display: none;
+                margin-top: 40px;
+            }
+
             .row {
-                padding: 4em 15vw 1em;
+                //padding: 4em 15vw 1em;
+                padding: 137px 15vw;
+                border-bottom: 1px solid @color1;
 
-                &:not(:last-of-type) {
-                    border-bottom: 1px solid @color1;
-                }
-
-                &:last-of-type {
-                    display: flex;
-                    justify-content: center;
-                }
                 h2 {
                     .h3();
                     color: @color1;
+                    margin-bottom: 35px;
                 }
 
                 h4 {
@@ -141,69 +188,63 @@
                     margin-top: 1em;
                 }
 
-                .form-wrapper {
+                .price_input_group {
                     display: flex;
-                    flex-direction: column;
-                    margin-top: 2em;
+                    align-items: center;
+                    margin-bottom: 60px;
 
-                    .row2,.row3 {
-                        display: none;
+                    .in-action-elements {
+                        margin: 0 20px;
                     }
 
-                    .inner {
-                        &:first-of-type {
-                            display: flex;
-                            align-items: center;
+                    .price-wrapper {
+                        position: relative;
+                        top: -6px;
+                        margin-right: 10px;
 
-                            .in-action-elements {
-                                margin: 0 20px;
+                        .symbol {
+                            font-family: @fontR;
+                            text-transform: uppercase;
+                            font-size: 1.4vw;
+                            line-height: 1;
+                            color: @color1;
+                            position: absolute;
+                            bottom: 0;
+
+                            &.symbol_1 {
+                                left: 0;
                             }
 
-                            .price-wrapper {
-
-                                &::before {
-                                    background: transparent !important;
-                                    .p2();
-                                    color: @color1 !important;
-                                    font-size: 1.4vw !important;
-                                    line-height: 1 !important;
-                                    width: unset !important;
-                                    position: absolute!important;
-                                    top: unset !important;
-                                    height: unset !important;
-                                    bottom: 6px;
-                                }
-
-                                input {
-                                    border: none !important;
-                                    border-bottom: 1px solid @color1 !important;
-                                    background: transparent !important;
-                                    .p2();
-                                    color: @color1 !important;
-                                    font-size: 1.4vw !important;
-                                    line-height: 1 !important;
-                                    padding: 0 0 0 30px !important;
-                                    &::placeholder {
-                                        color: transparent;
-                                    }
-                                }
+                            &.symbol_2 {
+                                right: 0;
                             }
+                        }
 
+                        small {
+                            position: absolute;
+                        }
+
+                        input {
+                            border: none;
+                            border-bottom: 1px solid @color1;
+                            background: transparent;
+                            font-family: @fontR;
+                            text-transform: uppercase;
+                            font-size: 1.4vw;
+                            line-height: 1;
+                            color: @color1;
+                            padding: 0 0 0 30px;
+
+                            &::placeholder {
+                                color: transparent;
+                            }
                         }
                     }
                 }
 
                 .btn-wrapper {
-                    display: flex;
-                    justify-content: space-between;
                     margin: 2em 0;
 
-                    &.recurring-options {
-                        display: none;
-                        &.active {
-                            display: flex;
-                        }
-                    }
                     .pill {
                         white-space: nowrap;
                         width: 100%;
@@ -211,41 +252,7 @@
                         height: 60px;
                         text-transform: unset;
                         position: relative;
-                        &.has-arrow {
-                            &:after {
-                                content: "";
-                                position: absolute;
-                                height: 10px;
-                                width: 10px;
-                                border-top: 1px solid @color1;
-                                border-left: 1px solid @color1;
-                                right: 22%;
-                                transform: translatey(-3px) rotate(-135deg);
-                                top: 0;
-                                bottom: 0;
-                                margin: auto;
-                            }
-
-                            &.active {
-                                &::after {
-                                    transform: translatey(3px) rotate(-315deg);
-                                }
-                            }
-                        }
                     }
-                }
-
-                input.full-width {
-                    width: 100%;
-                    border: 1px solid @color1;
-                    padding: 5px;
-                    border-radius: 5px;
-                    .p2();
-                    color: @color1 !important;
-                    font-size: 1.4vw !important;
-                    line-height: 1 !important;
-                    background: transparent;
-                    margin: 1em 0;
                 }
             }
         }
@@ -441,15 +448,6 @@
                     }
                 }
 
-                small {
-                    .fontR();
-                    font-size: 14px;
-                    display: block;
-                    margin-top: 5px;
-                    color: red;
-                    position: relative;
-                }
-
                 .custom_fields {
                     padding: 137px 0;
                     max-width: 1200px;
@@ -549,6 +547,10 @@
             }
 
             .quantity {
+                display: none;
+            }
+
+            .wrap {
                 display: none;
             }
 
