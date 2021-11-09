@@ -1,6 +1,8 @@
 <?php
 function render_shopping_cart_items() {
     $woocommerce_cart = WC()->cart->get_cart();
+    $checkoutPage = ( is_checkout() && empty( is_wc_endpoint_url('order-received')) );
+
     if( $woocommerce_cart ):
         $checkout_url = wc_get_checkout_url();
 
@@ -114,7 +116,7 @@ function render_shopping_cart_items() {
             </div>
         <?php endforeach; ?>
 
-        <?php if( !is_checkout() ): ?>
+        <?php if( !$checkoutPage ): ?>
             <div class="checkout_btn_holder">
                 <a href="<?php echo $checkout_url; ?>" class="checkout_btn blue">Checkout</a>
             </div>
@@ -133,13 +135,14 @@ add_action('wp_ajax_updateshoppingcart', 'update_shopping_cart'); // wp_ajax_{AC
 add_action('wp_ajax_nopriv_updateshoppingcart', 'update_shopping_cart');
 
 function render_shopping_cart() {
+    $checkoutPage = ( is_checkout() && empty( is_wc_endpoint_url('order-received')) );
     ?>
-    <div class="custom_side_cart <?php echo ( is_checkout() ) ? ' checkout_page' : null; ?>" data-action="<?php echo site_url() ?>/wp-admin/admin-ajax.php">
+    <div class="custom_side_cart <?php echo ( $checkoutPage ) ? ' checkout_page' : null; ?>" data-action="<?php echo site_url() ?>/wp-admin/admin-ajax.php">
         <div class="custom_side_cart_content">
             <div class="cart_header">
                 <h2 class="title">Your Cart</h2>
 
-                <?php if( !is_checkout() ): ?>
+                <?php if( !$checkoutPage ): ?>
                     <img class="close_cart" src="<?php echo get_template_directory_uri(); ?>/images/icons/times-circle.svg" alt="">
                 <?php endif; ?>
             </div>
