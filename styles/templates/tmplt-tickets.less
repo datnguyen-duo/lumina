@@ -299,19 +299,47 @@
                     }
                 }
 
-                .description_holder {
+                .descriptions {
                     margin-top: 45px;
 
                     @media @tablet-s {
                         margin-top: 74px;
                     }
 
-                    .description {
-                        p {
-                            .p1();
+                    .description_holder {
+                        border-bottom: solid 1px @color1;
+                        margin-bottom: 35px;
+                        padding-bottom: 25px;
+
+                        @media @tablet-s {
+                            margin-bottom: 55px;
+                            padding-bottom: 40px;
+                            margin-top: 74px;
+                        }
+
+                        &:last-of-type {
+                            padding-bottom: 0;
+                            margin-bottom: 0;
+                            border-bottom: none;
+                        }
+
+                        .description {
+                            p {
+                                .p1();
+                            }
+
+                            &.credits {
+                                display: inline-flex;
+                                flex-wrap: wrap;
+
+                                p {
+                                    width: 50%;
+                                }
+                            }
                         }
                     }
                 }
+
 
                 .button {
                     width: 100%;

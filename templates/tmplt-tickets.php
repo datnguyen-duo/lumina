@@ -26,6 +26,7 @@ $products = new WP_Query(array(
     <section class="tickets_section">
         <?php while( $products->have_posts() ): $products->the_post();
             $product = wc_get_product( get_the_ID() );
+            $credits = get_field('credits');
             ?>
             <div class="ticket">
                 <div class="left">
@@ -54,14 +55,30 @@ $products = new WP_Query(array(
                         </div>
                     <?php endif; ?>
 
-                    <?php if( get_the_content() ): ?>
-                        <div class="description_holder">
-                            <h2 class="subtitle">Summary</h2>
-                            <div class="description">
-                                <?php the_content(); ?>
-                            </div>
+                    <?php if( get_the_content() || $credits ): ?>
+                        <div class="descriptions">
+                            <?php if( get_the_content() ): ?>
+                                <div class="description_holder">
+                                    <h2 class="subtitle">Summary</h2>
+                                    <div class="description">
+                                        <?php the_content(); ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if( $credits ): ?>
+                                <div class="description_holder">
+                                    <h2 class="subtitle">Credits</h2>
+                                    <div class="description credits">
+                                        <?php foreach( $credits as $credit ): ?>
+                                            <p><?php echo $credit['text']; ?></p>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     <?php endif; ?>
+
 
                     <button class="add_to_cart_ticket button" data-product-id="<?php echo get_the_ID(); ?>">Select Ticket</button>
                 </form>
