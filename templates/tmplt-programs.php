@@ -8,7 +8,7 @@ $products = new WP_Query(array(
         array(
             'taxonomy' => 'product_cat',
             'field' => 'slug',
-            'terms' => 'program'
+            'terms' => 'registration'
         )
     )
 ));
