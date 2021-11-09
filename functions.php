@@ -73,13 +73,3 @@ require_once("inc/custom-posts-types.php");
 require_once("inc/custom-taxonomies.php");
 require_once("inc/woocommerce-custom-cart.php");
 require_once("inc/woocommerce-custom-product-fields.php");
-
-// Category templates
-
-add_filter( 'template_include', 'single_product_template', 50, 1 );
-function single_product_template( $template ) {
-    if ( is_singular('product') && (has_term( 'donate', 'product_cat')) ) {
-        $template = get_stylesheet_directory() . '/woocommerce/single-product-donate.php';
-    } 
-    return $template;
-}
