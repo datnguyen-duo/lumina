@@ -65,27 +65,37 @@
 
 
     //Add ticket to the cart function
-    $('.add_to_cart_ticket').on('click', function(event) {
-        var itemID = $(this).data('product-id');
-        var url = '?add-to-cart='+itemID;
-        var variation_id = $('input[name="ticket_type"]:checked').val();
+    if( $('.template_tickets_page_container').length ) {
+        $('.ticket_variations_form').each(function(){
+            var formEl = $(this);
+            $(formEl).validate({
+                messages: {
+                    'ticket_type' : 'Chose type of ticket.'
+                },
+                submitHandler: function(form) {
+                    var itemID = $(formEl).find('button').data('product-id')
+                    var variation_id =  $(formEl).find('input[name="ticket_type"]:checked').val();
 
-        $.ajax({
-            url: '/wp-admin/admin-ajax.php',
-            data: {
-                action: 'woo_custom_add_to_cart',
-                product_id: itemID,
-                product_sku: '',
-                quantity: 1,
-                variation_id: variation_id,
-            },
-            type: 'POST', // POST
-            beforeSend: function (xhr) {},
-            success: function (data) {
-                updateShoppingCart();
-            },
-            complete: function (xhr, status) {}
+                    $.ajax({
+                        url: '/wp-admin/admin-ajax.php',
+                        data: {
+                            action: 'woo_custom_add_to_cart',
+                            product_id: itemID,
+                            product_sku: '',
+                            quantity: 1,
+                            variation_id: variation_id,
+                        },
+                        type: 'POST', // POST
+                        beforeSend: function (xhr) {},
+                        success: function (data) {
+                            updateShoppingCart();
+                        },
+                        complete: function (xhr, status) {}
+                    });
+                },
+                errorElement : 'small',
+            });
         });
-    });
+    }
     //Add ticket to the cart function END
 })(jQuery);
