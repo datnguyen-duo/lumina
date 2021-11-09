@@ -1,8 +1,12 @@
 .template_programs_page_container {
-    padding-top: 146px;
     position: relative;
     z-index: 0;
     background: linear-gradient(#fff, #E1AFFF);
+    padding-top: 100px;
+
+    @media @tablet-l{
+        padding-top: 146px;
+    }
 
     .filters {
         padding: 0 42px;
@@ -37,8 +41,22 @@
             display: flex;
             align-items: center;
             border-bottom: solid 1px @color1;
-            padding: 0 122px;
             box-sizing: border-box;
+            flex-direction: column;
+
+            @media @tablet-l{
+                padding: 0 30px;
+                flex-direction: row;
+            }
+
+            @media @tablet-xl{
+                padding: 0 110px;
+                flex-direction: row;
+            }
+
+            @media @desktop-s{
+                padding: 0 122px;
+            }
 
             &:first-of-type {
                 border-top: solid 1px @color1;
@@ -49,25 +67,67 @@
             }
 
             .column {
-                padding: 75px 0;
+                padding: 60px 0;
+
+                @media @tablet-l{
+                    padding: 75px 0;
+                }
 
                 &.img_col {
                     position: relative;
-                    padding-left: 173px;
+                    padding-right: 15px;
+                    padding-left: 15px;
+                    box-sizing: border-box;
+                    padding-bottom: 30px;
+                    width: 100%;
+
+                    @media @tablet-l{
+                        padding-left: 103px;
+                        padding-bottom: 60px;
+                        width: 30%;
+                    }
+
+                    @media @desktop-s{
+                        padding-left: 173px;
+                    }
 
                     .circle {
-                        width: 143px;
-                        height: 143px;
+                        right: 5vw;
+                        top: 20vw;
                         border-radius: 143px;
                         border: solid 1px @color1;
                         z-index: 1;
                         position: absolute;
-                        top: 50%;
-                        transform: translate(calc(-100% - 30px), -50%);
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         text-align: center;
+                        background-color: #fff;
+                        width: 70px;
+                        height: 70px;
+
+                        @media @tablet-s{
+                            top: 10vw;
+                        }
+
+                        @media @tablet-l{
+                            width: 80px;
+                            height: 80px;
+                            top: 50%;
+                            right: auto;
+                            background-color: transparent;
+                            transform: translate(calc(-100% - 30px), -50%);
+                        }
+
+                        @media @tablet-xl{
+                            width: 100px;
+                            height: 100px;
+                        }
+
+                        @media @desktop-s{   
+                            width: 143px;
+                            height: 143px;
+                        }
 
                         .ages {
                             display: block;
@@ -79,6 +139,11 @@
                             position: absolute;
                             bottom: 0;
                             transform: translateY(calc(100% + 13px));
+                            display: none;
+
+                            @media @tablet-l{
+                                display: block;
+                            }
                         }
                     }
 
@@ -88,7 +153,23 @@
                         border-radius: 30px;
                         overflow: hidden;
                         min-width: 350px;
-                        width: 18.3vw;
+                        width: 100%;
+
+                        @media @tablet-s{
+                            max-width: 400px;
+                            padding-top: 50%;
+                            margin: auto;
+                        }
+
+                        @media @tablet-l{
+                            min-width: initial;
+                            padding-top: 100%;
+                        }
+
+                        @media @tablet-xl{
+                            max-width: 100%;
+                            padding-top: 100%;
+                        }
 
                         img {
                             .cropped_img();
@@ -97,9 +178,29 @@
                 }
 
                 &.info_col {
-                    padding-left: 72px;
-                    box-sizing: border-box;
-                    padding-right: 123px;
+                    text-align: center;
+                    padding-left: 30px;
+                    padding-right: 30px;
+                    padding-top: 0px;
+                    padding-bottom: 0px;
+
+                    @media @tablet-l{
+                        padding-left: 32px;
+                        box-sizing: border-box;
+                        padding-right: 32px;
+                        text-align: left;
+                        width: 50%;
+                    }
+
+                    @media @tablet-xl{
+                        box-sizing: border-box;
+                        text-align: left;
+                    }
+
+                    @media @desktop-s{
+                        padding-right: 123px;
+                        padding-left: 72px;
+                    }
 
                     .program_category {
                         margin-bottom: 12px;
@@ -107,14 +208,15 @@
                     }
 
                     .program_title {
-                        margin-bottom: 32px;
+                        margin-bottom: 15px;
                         font-family: @fontL;
                         font-size: 36px;
                         color: @color1;
                         text-transform: capitalize;
 
-                        @media @tablet-s {
+                        @media @tablet-l {
                             font-size: 2.6vw;
+                            margin-bottom: 32px;
                         }
                     }
 
@@ -125,8 +227,15 @@
                 }
 
                 &.cta_col {
-                    margin-left: auto;
                     text-align: center;
+                    padding-top: 45px;
+
+                    @media @tablet-l {
+                        padding-top: 60px;
+                        margin-left: auto;
+                        text-align: center;
+                        width: 20%;
+                    }
 
                     p {
                         margin-top: 17px;
@@ -134,7 +243,10 @@
                     }
 
                     .button {
-                        min-width: 300px;
+
+                        @media @desktop-s {
+                            min-width: 300px;
+                        }
                     }
                 }
             }

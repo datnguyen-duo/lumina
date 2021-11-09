@@ -256,6 +256,15 @@ window.addEventListener("load", function () {
            GALLERY PAGE
        --------------------------------------------------------------------------------- */
 
+    var swiper = new Swiper(".gallery_swiper", {
+        slidesPerView: 1,
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        }
+    });
+
     var swiper = new Swiper(".swiper", {
         // loopedSlides: 8,
         slidesPerView: 2.8,
