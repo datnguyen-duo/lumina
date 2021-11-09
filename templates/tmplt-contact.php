@@ -6,11 +6,12 @@ get_header(); ?>
 
     <section class="map_section">
         <div class="map_holder">
-            <div class="map">
+            <div id="map"></div>
+            <!-- <div class="map">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/dev/map.png" alt="">
-            </div>
+            </div> -->
 
-            <div class="map_info">
+            <div class="map_info desktop">
                 <div class="info">
                     <div class="info_title">Find US</div>
                     <div class="info_desc">
@@ -27,6 +28,23 @@ get_header(); ?>
                 </div>
             </div>
         </div>
+
+        <div class="map_info mobile">
+                <div class="info">
+                    <div class="info_title">Find US</div>
+                    <div class="info_desc">
+                        8641 Colesville Rd,
+                        Silver Spring, MD 20910
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="info_title">Office hours</div>
+                    <div class="info_desc">
+                        Monday-Thursday,<br>
+                        9am-3pm
+                    </div>
+                </div>
+            </div>
     </section>
 
     <section class="boxes_section">
@@ -74,5 +92,184 @@ get_header(); ?>
         </div>
     </section>
 </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIkdu5ROossXfggKrWx6ApS-XmKNv1J48"></script>
+
+<script>
+    function initMap() {
+        var styleMap = 
+[
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#8550b0"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#212121"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.country",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.locality",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#bdbdbd"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#1b1b1b"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#65308f"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#8a8a8a"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#7ef5f5"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#3d3d3d"
+      }
+    ]
+  }
+] 
+        var pinIconPath = site_data.theme_url + '/images/icons/map_pin.png';    
+        // The location of Uluru
+        var uluru = { lat: 38.996834839013374, lng: -77.02723399557838 };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 16,
+            center: uluru,
+            zoomControl: false,
+            mapTypeControl: false,
+            scaleControl: false,
+            streetViewControl: false,
+            rotateControl: false,
+            fullscreenControl: false,
+            styles : styleMap
+        });
+        
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+            icon: pinIconPath,
+            anchorPoint: new google.maps.Point(0,49)
+        });
+    }
+
+    (function( $ ) {
+            $(document).ready(function(){
+                initMap();
+            });
+        })(jQuery);
+
+</script>
 <?php
 get_footer(); ?>
