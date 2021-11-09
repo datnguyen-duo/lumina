@@ -17,6 +17,9 @@
          * @version 3.5.0
          */
 
+
+//        add_filter( 'woocommerce_ship_to_different_address_checked', '__return_true' );
+
         add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
         function custom_override_checkout_fields( $fields ) {
             $fields['billing']['billing_address_2'] = array(
@@ -59,7 +62,6 @@
 
                 <div class="step_block active" id="customer_details">
                     <?php do_action( 'woocommerce_checkout_billing' ); ?>
-                    <?php do_action( 'woocommerce_checkout_shipping' ); ?>
 
                     <div class="button next_step" data-target="step_2">Continue to Payment</div>
                 </div>
@@ -75,6 +77,8 @@
             <?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 
             <div id="order_review" class="woocommerce-checkout-review-order step_block">
+                <?php do_action( 'woocommerce_checkout_shipping' ); ?>
+
                 <?php do_action( 'woocommerce_checkout_order_review' ); ?>
             </div>
 

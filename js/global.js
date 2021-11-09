@@ -356,6 +356,10 @@ window.addEventListener("load", function () {
             $(this).contents().wrap('<span class="checkmark"/>');
             $(this).detach().prependTo(label);
         });
+
+        $('input[type=radio][name=ship_to_different_address_radio]').change(function() {
+            $('#ship-to-different-address-checkbox').trigger('click');
+        });
     }
     /*	-----------------------------------------------------------------------------
          CHECKOUT PAGE END
