@@ -123,7 +123,18 @@
 
     &.donation_category {
         background: rgba(225, 175, 255, .3);
-        padding: 15em 0;
+        padding: 140px 0;
+        padding-bottom: 140px;
+        box-sizing: border-box;
+
+        @media @tablet-s{
+            padding: 200px 0;
+            padding-bottom: 240px;
+        }
+
+        @media @tablet-xl{
+            padding: 240px 0;
+        }
 
         .hero_section {
             .hero_title {
@@ -161,16 +172,28 @@
                     border-radius: 5px;
                     .p2();
                     color: @color1 !important;
-                    font-size: 1.4vw !important;
+                    font-size: 24px !important;
                     line-height: 1 !important;
                     background: transparent;
                     margin: 1em 0;
+
+                    @media @tablet-s{
+                        font-size: 2.2vw !important;
+                    }
+
+                    @media @tablet-l{
+                        font-size: 1.4vw !important;
+                    }
                 }
             }
 
             .button_holder {
                 //padding-top: 4em;
-                padding: 113px 15vw 0 15vw;
+                padding: 50px 15vw 0 15vw;
+
+                @media @tablet-s{
+                    padding: 113px 15vw 0 15vw;
+                }
 
                 .button {
                     display: flex;
@@ -185,9 +208,16 @@
             }
 
             .row {
-                //padding: 4em 15vw 1em;
-                padding: 137px 15vw;
+                padding: 50px 30px;
                 border-bottom: 1px solid @color1;
+
+                @media @tablet-s{
+                    padding: 100px 30px;
+                }
+
+                @media @tablet-xl{
+                    padding: 137px 15vw;
+                }
 
                 h2 {
                     .h3();
@@ -197,7 +227,17 @@
 
                 h4 {
                     .p2();
-                    font-size: 1.4vw !important;
+                    font-size: 24px !important;
+                    text-align: center;
+
+                    @media @tablet-s{
+                        text-align: left;
+                        font-size: 2.2vw !important;
+                    }
+
+                    @media @tablet-l{
+                        font-size: 1.4vw !important;
+                    }
                 }
 
                 p {
@@ -205,10 +245,26 @@
                     margin-top: 1em;
                 }
 
+                .pills_checkbox_inputs_holder label span{
+                    text-align: center;
+                    padding: 15px;
+
+                    @media @tablet-s{
+                        text-align: left;
+                        padding: 0px;
+                    }
+                }
+                
+
                 .price_input_group {
                     display: flex;
                     align-items: center;
                     margin-bottom: 60px;
+                    flex-direction: column;
+
+                    @media @tablet-s{
+                        flex-direction: row;
+                    }
 
                     .in-action-elements {
                         margin: 0 20px;
@@ -217,16 +273,31 @@
                     .price-wrapper {
                         position: relative;
                         top: -6px;
-                        margin-right: 10px;
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+
+                        @media @tablet-s{
+                            margin-right: 10px;
+                            margin-top: 0px;
+                            margin-bottom: 0px;
+                        }
 
                         .symbol {
                             font-family: @fontR;
                             text-transform: uppercase;
-                            font-size: 1.4vw;
+                            font-size: 24px;
                             line-height: 1;
                             color: @color1;
                             position: absolute;
                             bottom: 0;
+
+                            @media @tablet-s{
+                                font-size: 2.2vw;
+                            }
+
+                            @media @tablet-l{
+                                font-size: 1.4vw;
+                            }
 
                             &.symbol_1 {
                                 left: 0;
@@ -247,13 +318,30 @@
                             background: transparent;
                             font-family: @fontR;
                             text-transform: uppercase;
-                            font-size: 1.4vw;
+                            font-size: 24px;
                             line-height: 1;
                             color: @color1;
                             padding: 0 0 0 30px;
 
+                            @media @tablet-s{
+                                font-size: 2.2vw;
+                            }
+
+                            @media @tablet-l{
+                                font-size: 1.4vw;
+                            }
+
                             &::placeholder {
                                 color: transparent;
+                                font-size: 24px;
+
+                                @media @tablet-s{
+                                    font-size: 2.2vw;
+                                }
+
+                                @media @tablet-l{
+                                    font-size: 1.4vw;
+                                }
                             }
                         }
                     }
