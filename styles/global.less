@@ -504,7 +504,11 @@ body {
     z-index: 9;
     padding: 50px 20px;
     box-sizing: border-box;
-    display: none;
+    border-bottom-left-radius: 60px;
+
+    &:not(.checkout_page) {
+        display: none;
+    }
 
     .custom_side_cart_content {
         display: flex;
@@ -622,8 +626,6 @@ body {
                     }
                 }
 
-
-
                 p {
                     color: #fff;
                 }
@@ -637,6 +639,54 @@ body {
 
                     .button();
                     width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.select2-container {
+    .selection {
+        .select2-selection {
+            border: 0;
+            border-bottom: solid 1px;
+            border-color: @color1;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            height: auto;
+            padding-bottom: 4px;
+
+            .select2-selection__rendered {
+                padding: 0;
+                .p1();
+            }
+
+            .select2-selection__arrow {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+.select2-dropdown {
+    border-color: @color1 !important;
+
+    .select2-results {
+        .select2-results__options {
+            .select2-results__option {
+                .p1();
+                .transition();
+
+                &:hover {
+                    background-color: @color1;
+                    color: #fff;
+                }
+
+                &.select2-results__option--highlighted {
+                    background-color: @color1;
+                    color: #fff;
                 }
             }
         }
@@ -658,6 +708,7 @@ body {
 @import 'templates/tmplt-tickets';
 
 @import 'woocommerce/single-product';
+@import 'woocommerce/checkout/form-checkout';
 
 @import 'plugins/swipermin.css';
 @import 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css';

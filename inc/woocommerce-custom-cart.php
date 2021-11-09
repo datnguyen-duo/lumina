@@ -114,9 +114,12 @@ function render_shopping_cart_items() {
             </div>
         <?php endforeach; ?>
 
-        <div class="checkout_btn_holder">
-            <a href="<?php echo $checkout_url; ?>" class="checkout_btn blue">Checkout</a>
-        </div>
+        <?php if( !is_checkout() ): ?>
+            <div class="checkout_btn_holder">
+                <a href="<?php echo $checkout_url; ?>" class="checkout_btn blue">Checkout</a>
+            </div>
+        <?php endif; ?>
+
     <?php else:
         echo '<p class="empty_cart_message">Your cart is empty.</p>';
     endif;
@@ -131,18 +134,19 @@ add_action('wp_ajax_nopriv_updateshoppingcart', 'update_shopping_cart');
 
 function render_shopping_cart() {
     ?>
-    <div class="custom_side_cart" data-action="<?php echo site_url() ?>/wp-admin/admin-ajax.php">
+    <div class="custom_side_cart <?php echo ( is_checkout() ) ? ' checkout_page' : null; ?>" data-action="<?php echo site_url() ?>/wp-admin/admin-ajax.php">
         <div class="custom_side_cart_content">
             <div class="cart_header">
                 <h2 class="title">Your Cart</h2>
-                <img class="close_cart" src="<?php echo get_template_directory_uri(); ?>/images/icons/times-circle.svg" alt="">
+
+                <?php if( !is_checkout() ): ?>
+                    <img class="close_cart" src="<?php echo get_template_directory_uri(); ?>/images/icons/times-circle.svg" alt="">
+                <?php endif; ?>
             </div>
 
             <div class="items" id="response">
                 <?php render_shopping_cart_items(); ?>
             </div>
-
-
         </div>
     </div>
 <?php }
