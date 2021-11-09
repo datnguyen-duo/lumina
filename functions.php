@@ -73,3 +73,9 @@ require_once("inc/custom-posts-types.php");
 require_once("inc/custom-taxonomies.php");
 require_once("inc/woocommerce-custom-cart.php");
 require_once("inc/woocommerce-custom-product-fields.php");
+
+/** Exclude .git info in exports */
+add_filter('ai1wm_exclude_content_from_export', function($exclude_filters) {
+    $exclude_filters[] = 'themes/lumina/.git';
+    return $exclude_filters;
+});
