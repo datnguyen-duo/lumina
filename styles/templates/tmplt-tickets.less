@@ -1,16 +1,86 @@
 .template_tickets_page_container {
-    padding: 300px 0;
+    .hero_section {
+        padding-top: 234px;
+        padding-bottom: 120px;
+        position: relative;
+        background-color: #fff;
+        margin-bottom: -50px;
+        z-index: 2;
+        border-radius: 0 0 60px 60px;
+        border: solid 1px @color1;
 
-    .page_title {
-        .h5();
-        color: @color1;
-        text-align: center;
+        &:before {
+            position: absolute;
+            //bottom: -20px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% + 14px);
+            display: block;
+            border: solid 1px @color1;
+            border-top: 0;
+            border-radius: 0 0 60px 60px;
+
+            @media @tablet-s {
+                content: "";
+            }
+        }
+
+        &:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% + 27px);
+            display: block;
+            border: solid 1px @color1;
+            border-top: 0;
+            border-radius: 0 0 60px 60px;
+
+            @media @tablet-s {
+                content: "";
+            }
+        }
+
+        .content {
+            padding-left: 9vw;
+
+            .page_title {
+                .h5();
+                color: @color1;
+            }
+
+            .btn {
+                padding: 26px 100px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                box-sizing: border-box;
+                border: solid 1px @color3;
+                border-radius: 43px;
+                min-width: 170px;
+                cursor: pointer;
+                .transition();
+                .p2();
+                color: @color3;
+                //height: 38px;
+                //
+                //@media @tablet-s {
+                //    height: 45px;
+                //}
+                //
+                //@media @laptop-s {
+                //    height: 55px;
+                //}
+                //
+                //@media @desktop-l {
+                //    height: 63px;
+                //}
+            }
+        }
     }
 
-
-
     .tickets_section {
-
         .ticket {
             display: flex;
             flex-wrap: wrap;
@@ -24,6 +94,11 @@
 
             @media @tablet-s {
                 padding: 95px 0;
+            }
+
+            &:first-of-type {
+                border-top: none;
+                padding-top: 200px;
             }
 
             &:nth-child(odd) {
@@ -48,19 +123,7 @@
                 }
             }
 
-            &:before {
-                position: absolute;
-                top: -20px;
-                left: 0;
-                padding-bottom: 20px;
-                width: 100%;
-                display: block;
-                border-top: solid 1px @color1;
 
-                @media @tablet-s {
-                    content: "";
-                }
-            }
 
             .left {
                 width: 100%;
@@ -232,5 +295,52 @@
         //        width: 50%;
         //    }
         //}
+    }
+
+    .info_section {
+        background-color: @color1;
+        padding: 200px 0;
+
+        .info {
+            .info_title {
+                .h2();
+                color: #fff;
+                text-transform: uppercase;
+                padding-left: 190px;
+            }
+
+            .info_list_holder {
+                padding-left: 190px;
+                padding-right: 270px;
+                position: relative;
+                border-top: solid 1px @color3;
+                border-bottom: solid 1px @color3;
+
+                &:after {
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: @color3;
+                    position: absolute;
+                    bottom: -20px;
+                    left: 0;
+                }
+
+                ul {
+                    padding: 40px 0;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    li {
+                        width: 50%;
+                        margin-bottom: 40px;
+
+                        .p1();
+                        color: #fff;
+                    }
+                }
+            }
+        }
     }
 }

@@ -14,7 +14,14 @@ $products = new WP_Query(array(
 ));
 ?>
 <div class="template_tickets_page_container">
-    <h1 class="page_title"><?php the_title(); ?></h1>
+    <section class="hero_section">
+        <div class="content">
+            <h1 class="page_title big_headline_animation">Ticketing</h1>
+            <h1 class="page_title big_headline_animation">& shows</h1>
+
+            <p class="btn light">2 shows now playing!</p>
+        </div>
+    </section>
 
     <section class="tickets_section">
         <?php while( $products->have_posts() ): $products->the_post();
@@ -60,6 +67,22 @@ $products = new WP_Query(array(
                 </div>
             </div>
         <?php endwhile; wp_reset_postdata(); ?>
+    </section>
+
+    <section class="info_section">
+        <div class="info">
+            <h2 class="info_title">Ticketing</h2>
+            <div class="info_list_holder">
+                <ul>
+                    <li>On-line ticket sales end 12 hours prior to curtain. If on-line sales have closed you may come to the theatre 30 minutes prior to curtain time to purchase tickets, however, there is no guarantee of ticket availability.</li>
+                    <li>Allow time to park & walk to the theatre. Weekend parking in the Silver Spring garages can be limited so allow at least 30 minutes to park & walk to the theatre.</li>
+                    <li>Any will-call ticket not claimed 10 minutes prior to curtain time may be re-sold.</li>
+                    <li>Theatre doors will remain open for 5 minutes past curtain. For the safety of our actors, patrons arriving later than that may not be admitted or seated.</li>
+                    <li>Purchase tickets early – Lumina shows sell out especially the final shows.</li>
+                    <li>If you arrive at the theatre with a ticket for another performance date or time, admittance will be at the discretion of the box office manager. PLEASE CHECK YOUR TICKET ORDER for show date & time BEFORE confirming purchase.</li>
+                </ul>
+            </div>
+        </div>
     </section>
 </div>
 <?php
