@@ -353,17 +353,29 @@ window.addEventListener("load", function () {
             $('#step_2').trigger('click');
         });
 
-        $('.woocommerce-input-wrapper').addClass('pills_checkbox_inputs_holder three_in_row');
+        $('.radio_wrapper .woocommerce-input-wrapper').addClass('pills_checkbox_inputs_holder three_in_row');
 
-        $('.woocommerce-input-wrapper label').each(function(){
+        $('.radio_wrapper .woocommerce-input-wrapper label').each(function(){
             $(this).contents().wrap('<span class="checkmark"/>');
         });
 
-        $('.woocommerce-input-wrapper input[type=radio]').each(function(){
+        $('.radio_wrapper .woocommerce-input-wrapper input[type=radio]').each(function(){
             var id = $(this).attr('id');
-            var label = $('.woocommerce-input-wrapper label[for="' + id + '"]');
+            var label = $('.radio_wrapper .woocommerce-input-wrapper label[for="' + id + '"]');
             $(this).contents().wrap('<span class="checkmark"/>');
             $(this).detach().prependTo(label);
+        });
+
+        $('input[type=radio][name=ship_to_different_address_radio]').change(function() {
+            $('#ship-to-different-address-checkbox').trigger('click');
+
+            $('.shipping_address select').select2({
+                // allowClear: true,
+                // width: '100%',
+                // // selectOnClose: true,
+                // placeholder : placeHolder,
+                // dropdownPosition: 'below',
+            });
         });
     }
     /*	-----------------------------------------------------------------------------
