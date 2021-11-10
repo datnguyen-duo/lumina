@@ -1,30 +1,59 @@
 <?php
 /* Template Name: Faq */
+$hero_headline_first = get_field('hero_headline_first');
+$hero_headline_second = get_field('hero_headline_second');
+$hero_description = get_field('hero_description');
+$hero_small_desceription = get_field('hero_small_desceription');
+$hero_button = get_field('hero_button');
+
+$first_section_title = get_field('first_section_title');
+$first_section_faq = get_field('first_section_faq');
+
+$second_section_title = get_field('second_section_title');
+$second_section_faq = get_field('second_section_faq');
+
 get_header(); ?>
 <div class="template_faq_page_container">
     <section class="hero_section">
         <div class="hero_section_content">
             <div class="hero_title">
-                <h1>FAQ &</h1>
-                <h1>POLICES</h1>
+                <?php if($hero_headline_first): ?>
+                    <h1><?php echo $hero_headline_first; ?></h1>
+                <?php endif; ?>
+
+                <?php if($hero_headline_second): ?>
+                    <h1><?php echo $hero_headline_second ?></h1>
+                <?php endif; ?>
+                
+                <?php if($hero_description): ?>
+                        <h2 class="mobile_subheadline"><?php echo $hero_description ?></h2>
+                <?php endif; ?>
+                
             </div>
 
             <div class="info">
                 <div class="left">
-                    <h2>If you are new to Lumina Studio Theatre, welcome! If you are one of our many continuing Lumina families, welcome back!</h2>
+                    <?php if($hero_description): ?>
+                        <h2><?php echo $hero_description ?></h2>
+                    <?php endif; ?>
                 </div>
                 <div class="right">
-                    <p>Have a question you don’t see answered below? </p>
 
-                    <div class="circle_btn_holder">
-                        <a href="#" class="circle_btn">
-                            <img class="circle" src="<?php echo get_template_directory_uri(); ?>/images/circle.svg" alt="">
-                            <span class="circle_text_holder">
-                                <img class="circle_text" src="<?php echo get_template_directory_uri(); ?>/images/circle-text.svg" alt="">
-                            </span>
-                            <img class="circle_arrow" src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow.svg" alt="">
-                        </a>
-                    </div>
+                    <?php if($hero_small_desceription): ?>
+                        <p><?php echo $hero_small_desceription ?></p>
+                    <?php endif; ?>
+                    
+                    <?php if($hero_button): ?>
+                        <div class="circle_btn_holder">
+                            <a href="<?php echo $hero_button['url']; ?>" target="<?php echo $hero_button['target']; ?>" class="circle_btn">
+                                <img class="circle" src="<?php echo get_template_directory_uri(); ?>/images/circle_second.svg" alt="">
+                                <span class="circle_text_holder">
+                                    <img class="circle_text" src="<?php echo get_template_directory_uri(); ?>/images/circle-text.svg" alt="">
+                                </span>
+                                <img class="circle_arrow" src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow.svg" alt="">
+                            </a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -32,48 +61,57 @@ get_header(); ?>
 
     <section class="questions_section">
         <div class="questions_group">
-            <h2 class="group_title">Registration & policies</h2>
+            <?php if($first_section_title): ?>
+                <h2 class="group_title"><?php echo $first_section_title; ?></h2>
+            <?php endif; ?>
 
-            <div class="questions">
-                <?php for($i=0; $i<10; $i++): ?>
-                    <div class="question">
-                        <h3 class="question_title">
-                            Registration
-                            <button class="icon_btn"><img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow.svg" alt=""></button>
-                        </h3>
-                        <div class="question_text">
-                            <p>
-                                Once Lumina receives the registration form and payment, the registration is considered final and there are NO REFUNDS! The refund policy is clear – NO EXCEPTIONS! This policy applies whether the actor drops out or is asked to leave. If an actor changes this or her mind or drops out, the production fee cannot be “credited” towards another session or be considered a donation. Please understand that we cannot make exceptions to this NO REFUNDS policy.
-                            </p>
+            <?php if($first_section_faq): ?>
+                <div class="questions">
+                    <?php foreach ($first_section_faq as $singleQuestion): ?>
+                        <div class="question">
+                            <h3 class="question_title">
+                                <?php echo $singleQuestion['faq_question'] ?>
+                                <button class="icon_btn"><img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow.svg" alt=""></button>
+                            </h3>
+                            <div class="question_text">
+                                <p>
+                                    <?php echo $singleQuestion['faq_answer'] ?>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                <?php endfor; ?>
+                    <?php endforeach; ?>
 
-                <!--Dont delete question empty div. This empty div is just for design layout-->
-                <div class="question"></div>
-            </div>
+                    <!--Dont delete question empty div. This empty div is just for design layout-->
+                    <div class="question"></div>
+                </div>
+            <?php endif; ?>
         </div>
 
         <div class="questions_group">
-            <h2 class="group_title">Frequently Asked Questions</h2>
+            <?php if($second_section_title): ?>
+                <h2 class="group_title"><?php echo $second_section_title; ?></h2>
+            <?php endif; ?>
 
-            <div class="questions">
-                <?php for($i=0; $i<10; $i++): ?>
-                    <div class="question">
-                        <h3 class="question_title">
-                            Where do you perform?
-                            <button class="icon_btn"><img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow.svg" alt=""></button>
-                        </h3>
-                        <div class="question_text">
-                            <p>
-                                Lumina’s shows are performed at Silver Spring Black Box, 8641 Colesville Road, Silver Spring. It is located next to the AFI theatre. The performance location will always be noted at the ticket sale site www.Brownpapertickets.com
-                            </p>
+            <?php if($second_section_faq): ?>
+                <div class="questions">
+                    <?php foreach ($second_section_faq as $singleQuestion): ?>
+                        <div class="question">
+                            <h3 class="question_title">
+                                <?php echo $singleQuestion['faq_question'] ?>
+                                <button class="icon_btn"><img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow.svg" alt=""></button>
+                            </h3>
+                            <div class="question_text">
+                                <p>
+                                    <?php echo $singleQuestion['faq_answer'] ?>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                <?php endfor; ?>
-                <!--Dont delete question empty div. This empty div is just for design layout-->
-                <div class="question"></div>
-            </div>
+                    <?php endforeach; ?>
+
+                    <!--Dont delete question empty div. This empty div is just for design layout-->
+                    <div class="question"></div>
+                </div>
+            <?php endif; ?>
         </div>
     </section>
 </div>
