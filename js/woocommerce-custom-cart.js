@@ -64,7 +64,7 @@
     //Remove item from cart function END
 
 
-    //Add ticket to the cart function
+    //Add ticket to the cart
     if( $('.template_tickets_page_container').length ) {
         $('.ticket_variations_form').each(function(){
             var formEl = $(this);
@@ -75,27 +75,115 @@
                 submitHandler: function(form) {
                     var itemID = $(formEl).find('button').data('product-id')
                     var variation_id =  $(formEl).find('input[name="ticket_type"]:checked').val();
+                    var responseEl = 'edit_ticket_container_'+itemID;
+
+                    $('.edit_ticket_container').remove();
+
+                    $('.custom_side_cart').append(
+                        '<div class="edit_ticket_container" id="'+responseEl+'"></div>'
+                    ).fadeIn();
 
                     $.ajax({
                         url: '/wp-admin/admin-ajax.php',
                         data: {
-                            action: 'woo_custom_add_to_cart',
+                            action: 'edit_ticket_product',
                             product_id: itemID,
-                            product_sku: '',
-                            quantity: 1,
                             variation_id: variation_id,
                         },
-                        type: 'POST', // POST
+                        type: 'POST',
                         beforeSend: function (xhr) {},
                         success: function (data) {
-                            updateShoppingCart();
+                            document.getElementById(responseEl).innerHTML = data;
                         },
                         complete: function (xhr, status) {}
                     });
+
+                    return false;
                 },
                 errorElement : 'small',
             });
         });
     }
-    //Add ticket to the cart function END
+
+    customSideCart.on('click', '.add_to_cart_t', function() {
+        var itemID = $(this).data('product-id');
+        var variationID = $(this).data('variation-id');
+        var responseEl = 'edit_ticket_container_'+itemID;
+        var elId = $('#'+responseEl);
+        var quantity = elId.find('input[name="custom_quantity"]').val();
+        var date_time_input = elId.find('.time_label input:checked').val();
+        var date_time = date_time_input.split("__");
+        var date = date_time[0];
+        var time = date_time[1];
+
+        $.ajax({
+            url: '/wp-admin/admin-ajax.php',
+            data: {
+                action: 'woo_custom_add_to_cart',
+                product_id: itemID,
+                product_sku: '',
+                quantity: quantity,
+                variation_id: variationID,
+                custom_data: {
+                    date: date,
+                    time: time,
+                }
+            },
+            type: 'POST', // POST
+            beforeSend: function (xhr) {},
+            success: function (data) {
+                $('#edit_ticket_container_'+itemID).fadeOut(function(){
+                    $(this).remove();
+                });
+                updateShoppingCart();
+            },
+            complete: function (xhr, status) {}
+        });
+    });
+
+    customSideCart.on('click', '.change_step', function() {
+        var target = $(this).data('target');
+
+        if( target === '.step_2') {
+            $('.step_1').validate({
+                messages: {
+                    'date' : 'Chose the date.'
+                },
+                submitHandler: function(form) {
+                    $('.step').removeClass('active');
+                    $(target).addClass('active');
+                },
+                errorElement : 'small',
+                errorLabelContainer: '#step_1_errors_div',
+            });
+        } else {
+            $('.step').removeClass('active');
+            $(target).addClass('active');
+        }
+    });
+
+    customSideCart.on('click', '.variation .quantity_plus_minus', function() {
+        var input = $('.quantity_input_holder').find('input');
+        var inputVal = parseInt(input.val());
+        var productPrice = parseInt($('.step .variation .price p').data('value'));
+
+        if( $(this).hasClass('minus') ) {
+            if( inputVal > 1 ) {
+                input.val(inputVal-=1);
+            }
+        } else {
+            input.val(inputVal+=1);
+        }
+
+        $('.step .variation .price p span').text(inputVal * productPrice);
+    });
+
+    customSideCart.on('click', '.close_product', function() {
+        var itemID = $(this).data('product-id');
+
+        $('#edit_ticket_container_'+itemID).fadeOut(function(){
+            $(this).remove();
+        });
+    });
+    //Add ticket to the cart END
 })(jQuery);

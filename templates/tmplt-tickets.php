@@ -27,7 +27,7 @@ $products = new WP_Query(array(
         <?php while( $products->have_posts() ): $products->the_post();
             $product = wc_get_product( get_the_ID() );
             $credits = get_field('credits');
-            ?>
+            $ticket_dates = get_field('dates'); ?>
             <div class="ticket">
                 <div class="left">
                     <div class="image_holder">
@@ -39,7 +39,7 @@ $products = new WP_Query(array(
                     <?php
                     $handle = new WC_Product_Variable(get_the_ID());
                     $variations = $handle->get_children();
-                    if( $variations ): ?>
+                    if( $variations && $ticket_dates ): ?>
                         <div class="pills_checkbox_inputs_holder">
                             <?php foreach ( $variations as $value ): $variation = new WC_Product_Variation($value); ?>
                                 <label for="<?php echo $value; ?>">
@@ -79,8 +79,9 @@ $products = new WP_Query(array(
                         </div>
                     <?php endif; ?>
 
-
-                    <button class="add_to_cart_ticket button" data-product-id="<?php echo get_the_ID(); ?>">Select Ticket</button>
+                    <?php if( $ticket_dates ): ?>
+                        <button class="add_to_cart_ticket button" data-product-id="<?php echo get_the_ID(); ?>">Select Ticket</button>
+                    <?php endif; ?>
                 </form>
             </div>
         <?php endwhile; wp_reset_postdata(); ?>

@@ -510,6 +510,228 @@ body {
         display: none;
     }
 
+    .edit_ticket_container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: @color1;
+        display: flex;
+        flex-direction: column;
+
+        .ticket_header {
+            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h2 {
+                .h3();
+                color: #fff;
+            }
+
+            .close_cart {
+                width: 45px;
+            }
+        }
+
+        .step {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+
+            &.active {
+                display: flex;
+            }
+
+            .dates {
+                .date {
+                    border-bottom: solid 1px @color3;
+                    padding: 40px 20px;
+                    box-sizing: border-box;
+
+                    p {
+                        .p2();
+                        color: @color3;
+                        margin-bottom: 26px;
+                    }
+
+                    .dates_options {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+
+                        @media @tablet-l{
+                            justify-content: initial;
+                            flex-wrap: nowrap;
+                        }
+
+                        label {
+                            position: relative;
+                            cursor: pointer;
+                            width: 49%;
+                            display: flex;
+                            flex-wrap: wrap;
+                            margin-bottom: 10px;
+
+                            @media @tablet-l{
+                                width: 100%;
+                                margin-bottom: 0;
+                            }
+
+                            small {
+                                order: 1;
+                                width: 100%;
+                            }
+
+                            input {
+                                position: absolute;
+                                opacity: 0;
+                                cursor: pointer;
+                                height: 0;
+                                width: 0;
+                            }
+
+                            span {
+                                width: 100%;
+                                border: solid 1px #fff;
+                                border-radius: 60px;
+                                position: relative;
+                                background-color: transparent;
+                                height: 40px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                .transition();
+                                .p1();
+                                color: #fff;
+
+                                @media @tablet-s{
+                                    height: 60px;
+                                }
+                            }
+                        }
+
+                        label input:checked ~ span {
+                            background-color: @color3;
+                        }
+                    }
+                }
+            }
+
+            .variations {
+                .variation_title {
+                    .p2();
+                    color: @color3;
+                }
+
+                .variation {
+                    border-bottom: solid 1px @color3;
+                    padding: 40px 20px;
+                    box-sizing: border-box;
+
+                    .variation_content {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .price {
+                            p {
+                                .p1();
+                                color: #fff;
+                            }
+                        }
+
+                        .quantity {
+                            display: flex;
+                            align-items: center;
+
+                            p {
+                                .p1();
+                                color: #fff;
+                                margin-right: 20px;
+                            }
+
+                            .input_holder {
+                                height: 60px;
+                                border: solid 1px #fff;
+                                border-radius: 60px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                padding: 15px;
+                                box-sizing: border-box;
+
+                                .quantity_plus_minus {
+                                    color: #fff;
+                                    .fontR();
+                                    font-size: 22px;
+                                    cursor: pointer;
+                                }
+
+                                input {
+                                    background-color: transparent;
+                                    border: none;
+                                    text-align: center;
+                                    padding: 0;
+                                    .p1();
+                                    color: #fff;
+                                    outline: none;
+                                    pointer-events: none;
+                                }
+
+                                /* Chrome, Safari, Edge, Opera */
+                                input::-webkit-outer-spin-button,
+                                input::-webkit-inner-spin-button {
+                                    -webkit-appearance: none;
+                                    margin: 0;
+                                }
+
+                                /* Firefox */
+                                input[type=number] {
+                                    -moz-appearance: textfield;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .button_holder {
+                text-align: center;
+                margin-top: auto;
+                padding-bottom: 40px;
+
+                .errors {
+                    small {
+                        margin-bottom: 20px;
+
+                        .fontR();
+                        font-size: 14px;
+                        display: block;
+                        margin-top: 5px;
+                        color: red;
+                        position: relative;
+                    }
+                }
+
+                button {
+                    max-width: 535px;
+                    width: 100%;
+                    margin: auto;
+                }
+
+                .back_step {
+                    margin-top: 15px;
+                    .p1();
+                    color: @color2;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
     .custom_side_cart_content {
         display: flex;
         flex-direction: column;
