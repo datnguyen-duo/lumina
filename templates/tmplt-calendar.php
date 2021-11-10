@@ -28,7 +28,62 @@ get_header(); ?>
 
     <h1 class="page_title">Calendar</h1>
 
-    <section class="dates_section">
+    <section class="dates_section mobile">
+        <div class="date">
+            <div class="events_date">
+                <div class="date_part_1">05</div>
+                <div class="date_part_2">Sunday</div>
+            </div>
+
+            <div class="events">
+                <?php for($i=0; $i<3; $i++): ?>
+                    <div class="event">
+                        <div class="info">
+                            <p class="program_category">Registration</p>
+                            <h2 class="program_title">Registration Open for Oliver Twist</h2>
+                            <p class="program_description">For Players</p>
+                        </div>
+                    </div>
+                <?php endfor; ?>
+            </div>
+        </div>
+        <div class="date">
+            <div class="events_date">
+                <div class="date_part_1">05</div>
+                <div class="date_part_2">Sunday</div>
+            </div>
+
+            <div class="events">
+                <?php for($i=0; $i<3; $i++): ?>
+                    <div class="event">
+                        <div class="info">
+                            <p class="program_category">Registration</p>
+                            <h2 class="program_title">Registration Open for Oliver Twist</h2>
+                            <p class="program_description">For Players</p>
+                        </div>
+                    </div>
+                <?php endfor; ?>
+            </div>
+        </div>
+        <div class="date">
+            <div class="events_date">
+                <div class="date_part_1">05</div>
+                <div class="date_part_2">Sunday</div>
+            </div>
+
+            <div class="events">
+                    <div class="event">
+                        <div class="info">
+                            <p class="program_category">Registration</p>
+                            <h2 class="program_title">Registration Open for Oliver Twist</h2>
+                            <p class="program_description">For Players</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="dates_section desktop">
         <div class="date">
             <div class="events_date">
                 <div class="date_part_1">05</div>

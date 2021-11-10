@@ -3477,12 +3477,30 @@ header .hamburger_holder .hamburger span:nth-child(3) {
   font-size: 60px;
   line-height: 10.2vw;
   color: #340174;
-  padding-left: 125px;
+  padding-left: 25px;
 }
 @media only screen and (min-width : 768px) {
   .template_calendar_page_container .page_title {
     letter-spacing: 2px;
     font-size: 15.6vw;
+  }
+}
+@media only screen and (min-width : 1100px) {
+  .template_calendar_page_container .page_title {
+    padding-left: 125px;
+  }
+}
+.template_calendar_page_container .dates_section.desktop {
+  display: none;
+}
+@media only screen and (min-width : 768px) {
+  .template_calendar_page_container .dates_section.desktop {
+    display: block;
+  }
+}
+@media only screen and (min-width : 768px) {
+  .template_calendar_page_container .dates_section.mobile {
+    display: none;
   }
 }
 .template_calendar_page_container .dates_section .date {
@@ -3495,7 +3513,14 @@ header .hamburger_holder .hamburger span:nth-child(3) {
   border-bottom: solid 1px #340174;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding-left: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media only screen and (min-width : 768px) {
+  .template_calendar_page_container .dates_section .date {
+    padding-right: 0px;
+    padding-left: 30px;
+  }
 }
 .template_calendar_page_container .dates_section .date * {
   min-height: 0;
@@ -3508,13 +3533,59 @@ header .hamburger_holder .hamburger span:nth-child(3) {
   margin-bottom: 30px;
 }
 .template_calendar_page_container .dates_section .date .events_date {
-  min-width: 290px;
+  width: 30%;
   text-align: center;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  padding-top: 90px;
+}
+@media only screen and (min-width : 768px) {
+  .template_calendar_page_container .dates_section .date .events_date {
+    width: auto;
+  }
+}
+@media only screen and (min-width : 1024px) {
+  .template_calendar_page_container .dates_section .date .events_date {
+    -ms-flex-item-align: initial;
+        align-self: initial;
+    padding-top: 0px;
+    min-width: 170px;
+  }
+}
+@media only screen and (min-width : 1100px) {
+  .template_calendar_page_container .dates_section .date .events_date {
+    min-width: 220px;
+  }
+}
+@media only screen and (min-width : 1500px) {
+  .template_calendar_page_container .dates_section .date .events_date {
+    min-width: 290px;
+  }
 }
 .template_calendar_page_container .dates_section .date .events_date .date_part_1 {
   font-family: 'PPHatton-Light', sans-serif;
-  font-size: 140px;
+  font-size: 46px;
   color: #340174;
+}
+@media only screen and (min-width : 768px) {
+  .template_calendar_page_container .dates_section .date .events_date .date_part_1 {
+    font-size: 50px;
+  }
+}
+@media only screen and (min-width : 1024px) {
+  .template_calendar_page_container .dates_section .date .events_date .date_part_1 {
+    font-size: 70px;
+  }
+}
+@media only screen and (min-width : 1100px) {
+  .template_calendar_page_container .dates_section .date .events_date .date_part_1 {
+    font-size: 110px;
+  }
+}
+@media only screen and (min-width : 1500px) {
+  .template_calendar_page_container .dates_section .date .events_date .date_part_1 {
+    font-size: 140px;
+  }
 }
 .template_calendar_page_container .dates_section .date .events_date .date_part_2 {
   font-family: 'PPHatton-Regular', sans-serif;
@@ -3541,22 +3612,55 @@ header .hamburger_holder .hamburger span:nth-child(3) {
 .template_calendar_page_container .dates_section .date .events {
   overflow: hidden;
   height: 100%;
-  padding: 75px 0;
+  padding: 50px 0;
+  width: 70%;
+  padding-bottom: 0px;
+}
+@media only screen and (min-width : 768px) {
+  .template_calendar_page_container .dates_section .date .events {
+    width: auto;
+    padding: 50px 0;
+  }
+}
+@media only screen and (min-width : 1024px) {
+  .template_calendar_page_container .dates_section .date .events {
+    padding: 75px 0;
+  }
 }
 .template_calendar_page_container .dates_section .date .events .events_slider {
   width: 65%;
 }
 .template_calendar_page_container .dates_section .date .events .events_slider .events_slider_btn {
-  width: 80px;
-  height: 80px;
-  border-radius: 80px;
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
   background-color: #D22EFF;
   border: solid 1px #340174;
   position: absolute;
   z-index: 2;
-  bottom: -45px;
+  bottom: -25px;
   -webkit-transition: all 400ms ease 0ms;
   transition: all 400ms ease 0ms;
+}
+@media only screen and (min-width : 1024px) {
+  .template_calendar_page_container .dates_section .date .events .events_slider .events_slider_btn {
+    bottom: -45px;
+  }
+}
+@media only screen and (min-width : 1250px) {
+  .template_calendar_page_container .dates_section .date .events .events_slider .events_slider_btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+  }
+}
+.template_calendar_page_container .dates_section .date .events .events_slider .events_slider_btn img {
+  width: 30px;
+}
+@media only screen and (min-width : 1250px) {
+  .template_calendar_page_container .dates_section .date .events .events_slider .events_slider_btn img {
+    width: 40px;
+  }
 }
 .template_calendar_page_container .dates_section .date .events .events_slider .events_slider_btn.slick-disabled {
   -webkit-transform: scale(0);
@@ -3575,15 +3679,22 @@ header .hamburger_holder .hamburger span:nth-child(3) {
 .template_calendar_page_container .dates_section .date .events .events_slider .events_slider_btn:after {
   content: "";
   display: block;
-  width: 65px;
-  height: 65px;
-  border-radius: 65px;
+  width: 45px;
+  height: 45px;
+  border-radius: 45px;
   border: solid 1px #340174;
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+@media only screen and (min-width : 1250px) {
+  .template_calendar_page_container .dates_section .date .events .events_slider .events_slider_btn:after {
+    width: 65px;
+    height: 65px;
+    border-radius: 65px;
+  }
 }
 .template_calendar_page_container .dates_section .date .events .events_slider .slick-list {
   overflow: visible;
@@ -3608,13 +3719,29 @@ header .hamburger_holder .hamburger span:nth-child(3) {
 }
 .template_calendar_page_container .dates_section .date .events .event {
   position: relative;
-  padding-left: 60px;
+  padding-left: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+@media only screen and (min-width : 1024px) {
+  .template_calendar_page_container .dates_section .date .events .event {
+    -webkit-box-pack: initial;
+        -ms-flex-pack: initial;
+            justify-content: initial;
+  }
+}
+@media only screen and (min-width : 1500px) {
+  .template_calendar_page_container .dates_section .date .events .event {
+    padding-left: 60px;
+    padding-right: 0px;
+  }
 }
 .template_calendar_page_container .dates_section .date .events .event .image_holder .image {
   position: relative;
@@ -3634,10 +3761,22 @@ header .hamburger_holder .hamburger span:nth-child(3) {
      object-fit: cover;
 }
 .template_calendar_page_container .dates_section .date .events .event .info {
-  padding-left: 72px;
+  padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding-right: 123px;
+  margin-bottom: 50px;
+}
+@media only screen and (min-width : 768px) {
+  .template_calendar_page_container .dates_section .date .events .event .info {
+    margin-bottom: 0px;
+    padding: 0 20px;
+  }
+}
+@media only screen and (min-width : 1500px) {
+  .template_calendar_page_container .dates_section .date .events .event .info {
+    padding-left: 72px;
+    padding-right: 123px;
+  }
 }
 .template_calendar_page_container .dates_section .date .events .event .info .program_category {
   margin-bottom: 12px;
@@ -3653,16 +3792,23 @@ header .hamburger_holder .hamburger span:nth-child(3) {
   }
 }
 .template_calendar_page_container .dates_section .date .events .event .info .program_title {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   font-family: 'PPHatton-Light', sans-serif;
-  font-size: 36px;
+  font-size: 26px;
   color: #340174;
   text-transform: capitalize;
-  max-width: 26vw;
 }
 @media only screen and (min-width : 768px) {
   .template_calendar_page_container .dates_section .date .events .event .info .program_title {
+    margin-bottom: 30px;
     font-size: 2.6vw;
+    max-width: 26vw;
+    font-size: 26px;
+  }
+}
+@media only screen and (min-width : 1100px) {
+  .template_calendar_page_container .dates_section .date .events .event .info .program_title {
+    font-size: 36px;
   }
 }
 .template_calendar_page_container .dates_section .date .events .event .info .program_description {
@@ -3684,31 +3830,47 @@ header .hamburger_holder .hamburger span:nth-child(3) {
   display: -ms-flexbox;
   display: flex;
   padding: 30px 0;
-  border-top: solid 1px #340174;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   background-image: url("../images/pink-2-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+@media only screen and (min-width : 768px) {
+  .template_calendar_page_container .boxes_section {
+    border-top: solid 1px #340174;
+  }
 }
 .template_calendar_page_container .boxes_section .box {
-  width: 50%;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
-.template_calendar_page_container .boxes_section .box:nth-child(odd) {
-  padding-right: 30px;
+.template_calendar_page_container .boxes_section .box:nth-of-type(2) .box_content {
+  padding-bottom: 150px;
 }
-.template_calendar_page_container .boxes_section .box:nth-child(odd) .box_content {
-  border-top-right-radius: 60px;
-}
-.template_calendar_page_container .boxes_section .box:nth-child(even) {
-  padding-left: 30px;
-}
-.template_calendar_page_container .boxes_section .box:nth-child(even) .box_content {
-  border-top-left-radius: 60px;
+@media only screen and (min-width : 1024px) {
+  .template_calendar_page_container .boxes_section .box {
+    width: 50%;
+  }
+  .template_calendar_page_container .boxes_section .box:nth-child(odd) {
+    padding-right: 30px;
+  }
+  .template_calendar_page_container .boxes_section .box:nth-child(odd) .box_content {
+    border-top-right-radius: 60px;
+  }
+  .template_calendar_page_container .boxes_section .box:nth-child(even) {
+    padding-left: 30px;
+  }
+  .template_calendar_page_container .boxes_section .box:nth-child(even) .box_content {
+    border-top-left-radius: 60px;
+  }
 }
 .template_calendar_page_container .boxes_section .box .box_content {
-  padding: 110px 0 200px 0;
-  border: solid 1px #340174;
+  padding: 50px 0 90px 0;
+  border-top: solid 1px #340174;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3723,14 +3885,32 @@ header .hamburger_holder .hamburger span:nth-child(3) {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+@media only screen and (min-width : 1024px) {
+  .template_calendar_page_container .boxes_section .box .box_content {
+    border: solid 1px #340174;
+    padding: 110px 0 200px 0;
+  }
+}
 .template_calendar_page_container .boxes_section .box .box_content .icon {
-  margin-bottom: 55px;
+  margin-bottom: 25px;
+  width: 120px;
+}
+@media only screen and (min-width : 1024px) {
+  .template_calendar_page_container .boxes_section .box .box_content .icon {
+    margin-bottom: 55px;
+    width: 220px;
+  }
 }
 .template_calendar_page_container .boxes_section .box .box_content h2 {
   font-family: 'PPHatton-Light', sans-serif;
-  font-size: 100px;
+  font-size: 36px;
   color: #340174;
   margin-bottom: 16px;
+}
+@media only screen and (min-width : 768px) {
+  .template_calendar_page_container .boxes_section .box .box_content h2 {
+    font-size: 5vw;
+  }
 }
 .template_faq_page_container .hero_section {
   padding: 130px 25px 50px 25px;
