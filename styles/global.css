@@ -5851,6 +5851,9 @@ header .hamburger_holder .hamburger span:nth-child(3) {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.single_product_page_container.registration_category .hero_section .left .featured_image {
+  display: block;
+}
 .single_product_page_container.registration_category .hero_section .left .gallery_swiper_holer {
   display: block;
   position: relative;
