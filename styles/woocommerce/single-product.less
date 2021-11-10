@@ -496,7 +496,7 @@
                     border-top-right-radius: 60px;
                 }
                 
-                .gallery {
+                .gallery, .featured_image {
                     padding: 20px;
                     box-sizing: border-box;
                     display: none;
@@ -517,6 +517,11 @@
                         }
                     }
                 }
+
+                .featured_image{
+                    display: block;
+                }
+                
 
                 .gallery_swiper_holer{
                     display: block;
@@ -581,9 +586,11 @@
                 .right_content{
                     position: sticky;
                     top: 100px;
+                    padding-bottom: 50px;
 
                     @media @tablet-l{
                         top: 20px;
+                        padding-bottom: 70px;
                     }
                 }
 
@@ -694,12 +701,10 @@
                 .testimonials {
                     border-top: solid 1px #fff;
                     padding-top: 50px;
-                    padding-bottom: 50px;
                     margin-top: 50px;
 
                     @media @tablet-l{
                         padding-top: 70px;
-                        padding-bottom: 70px;
                     }
 
                     .testimonials_title {
