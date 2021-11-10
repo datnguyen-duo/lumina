@@ -153,7 +153,8 @@ window.addEventListener("load", function () {
     hamburger.on("click", function () {
         $(".site_main_nav").fadeToggle();
         $(this).toggleClass("active");
-
+        $('body').toggleClass("no_scroll");
+        
         // menuOpen.reversed() ? menuOpen.play() : menuOpen.reverse();
 
         if (navIsLight) {

@@ -6,23 +6,33 @@ get_header(); ?>
             <div class="banner__split-text">
                 <h1 class="big_headline_animation">Coming Soon:</h1>
                 <h1 class="big_headline_animation">Oliver Twist</h1>
-                <div class="wrapper">
-                    <p>Buy tickets for our Fall Mainstage Production!</p>
-                    <a href="" class="button">Buy</a>
-                </div>
+                
             </div>
 
             <img class="background animate_el" src="<?php echo get_template_directory_uri(); ?>/images/dev/Winters Tale Players.jpg" alt="hero-image">
             <div class="hero_overlay"></div>
 
-            <div class="cta_section">
-                <h2>ROMEO И JULIET</h2>
-                <p>Register now for our Spring Mainstage Production!</p>
+            <!-- <div class="wrapper">
+                <p>Buy tickets for our Fall Mainstage Production!</p>
+                <a href="" class="button">Buy</a>
+            </div> -->
 
-                <div class="buttons">
-                    <a href="" class="button light">Register</a>
-                    <a href="" class="button light">Donate</a>
+            <div class="cta_section">
+                <div class="wrapper left">
+                    <p>Buy tickets for our Fall Mainstage Production!</p>
+                    <a href="" class="button">Buy</a>
                 </div>
+
+                <div class="wrapper">
+                    <h2>ROMEO И JULIET</h2>
+                    <p>Register now for our Spring Mainstage Production!</p>
+
+                    <div class="buttons">
+                        <a href="" class="button light">Register</a>
+                        <a href="" class="button light">Donate</a>
+                    </div>
+                </div>
+                
             </div>
         </section>
 
