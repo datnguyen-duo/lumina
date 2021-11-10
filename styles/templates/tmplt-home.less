@@ -84,34 +84,40 @@
 
         .banner__split-text {
             position: absolute;
-            top: 50%;            
+            top: 35%;
             left: 50%;
             transform: translate(-50%,-50%);                
             z-index: 1;
-
+            width: 100%;
+            padding-left: 5vw;
+            box-sizing: border-box;
  
+            @media @tablet-l {
+                top: 50%;
+            }
+
             @media @laptop-l {
                 top: 45%;
             }
 
             @media @laptop-s {
-                padding: 0;
-                left: 80px;
-                transform: translateY(-50%);
                 text-align: left;
             }
 
             @media @desktop-l {
-                left: 10%;
+                // left: 10%;
             }
+
             h1 {
                 .h1();
                 color: #fff;
-
-                text-align: left;
+                text-align: center;
                 width: 100%;
-                padding: 0 15px;
                 box-sizing: border-box;
+
+                @media @tablet-l {
+                    text-align: left;
+                }
 
             }
 
@@ -122,38 +128,69 @@
                 margin: 1em 0;
             }
 
-            .wrapper {
-                padding-left: 2vw;                
-                .button {
-                    min-width: 250px;
-                }
-            }
-
         }
 
 
 
         .cta_section {
+            display: flex;
+            justify-content: space-between;
             position: absolute;
-            bottom: 60px;
-            right: 50%;
+            bottom: 40px;
             width: 100%;
-            max-width: 291px;
+            left: 0;
             opacity: 0;
-            transform: translateX(50%);
+            padding: 0 5vw;
+            box-sizing: border-box;
+            flex-wrap: wrap;
             text-align: center;
-            @media @laptop-s {
-                max-width: 500px;
+
+            @media @tablet-s {
+                flex-wrap: nowrap;
+                box-sizing: border-box;
                 text-align: initial;
-                transform: none;
-                right: 35px;
-                bottom: 80px;
+            }
+
+            @media @tablet-l {
+                flex-wrap: nowrap;
+                box-sizing: border-box;
+                text-align: initial;
             }
 
             @media @desktop-l {
-                right: 125px;
-                max-width: 590px;
-                bottom: 240px;
+                bottom: 5vw;
+            }
+
+            .wrapper{
+                width: 100%;
+
+                @media @tablet-l {
+                    width: 50%;
+                    max-width: 500px;
+                    text-align: initial;
+                    transform: none;
+                }
+    
+                @media @desktop-l {
+                    max-width: 590px;
+                }
+                
+                &.left{
+                    margin-bottom: 40px;
+
+                    @media @tablet-l {
+                        margin-bottom: 20px;
+                    }
+
+                    p{
+                        margin-bottom: 10px;
+
+                        @media @tablet-s{
+                            margin-bottom: 20px;
+                        }   
+                        
+                    }
+                }
             }
 
             h2 {
