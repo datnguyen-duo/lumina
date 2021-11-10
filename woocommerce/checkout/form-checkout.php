@@ -18,7 +18,7 @@
          */
 
 
-        add_filter( 'woocommerce_ship_to_different_address_checked', '__return_true' );
+//        add_filter( 'woocommerce_ship_to_different_address_checked', '__return_true' );
 
         add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
         function custom_override_checkout_fields( $fields ) {
