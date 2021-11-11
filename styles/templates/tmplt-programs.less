@@ -336,7 +336,7 @@
                         padding-top: 100%;
                         border-radius: 30px;
                         overflow: hidden;
-                        min-width: 350px;
+                        // min-width: 300px;
                         width: 100%;
 
                         @media @tablet-s{
@@ -427,6 +427,15 @@
                     }
 
                     .button {
+                        min-width: 280px;
+
+                        @media @tablet-l{
+                            min-width: 180px;
+                        }
+
+                        @media @tablet-xl{
+                            min-width: 280px;
+                        }
 
                         @media @desktop-s {
                             min-width: 300px;
@@ -441,9 +450,18 @@
         background-image: url("../images/purple-3-bg.jpg");
         background-repeat: no-repeat;
         background-size: cover;
-        padding: 170px 0 200px;
+        padding: 70px 0;
+        padding-bottom: 120px;
         text-align: center;
         position: relative;
+
+        @media @tablet-s {
+            padding: 157px 0 240px;
+        }
+
+        @media @tablet-xl {
+            padding: 170px 0 240px;
+        }
 
         &:after {
             content: "";
@@ -458,12 +476,20 @@
         }
 
         h2 {
-            .h1();
+            .h0();
             color: #fff;
         }
 
         .button {
-            margin-top: 72px;
+            margin-top: 35px;
+
+            @media @tablet-s {
+                margin-top: 45px;
+            }
+
+            @media @desktop-m {
+                margin-top: 72px;
+            }
         }
     }
 }
