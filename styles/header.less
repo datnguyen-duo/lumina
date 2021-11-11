@@ -553,8 +553,13 @@ header {
       .menu_gradient1{
         position: absolute;
         top: -20vw;
-        right: -50%;
+        left: -50%;
         z-index: 2;
+
+        @media @tablet-l{
+          right: -50%;
+          left: auto;
+        }
      }
 
       @media @tablet-l {

@@ -1708,8 +1708,14 @@ header .hamburger_holder .hamburger span:nth-child(3) {
 .site_main_nav .main_nav_content .left .menu_gradient1 {
   position: absolute;
   top: -20vw;
-  right: -50%;
+  left: -50%;
   z-index: 2;
+}
+@media only screen and (min-width : 1024px) {
+  .site_main_nav .main_nav_content .left .menu_gradient1 {
+    right: -50%;
+    left: auto;
+  }
 }
 @media only screen and (min-width : 1024px) {
   .site_main_nav .main_nav_content .left {
@@ -5327,12 +5333,13 @@ header .hamburger_holder .hamburger span:nth-child(3) {
   border-top: solid 1px #340174;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background-image: url("../images/pink-2-bg.jpg");
+  background-image: url("../images/contact_gradient.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 @media only screen and (min-width : 1024px) {
   .template_contact_page_container .boxes_section {
+    background-image: url("../images/pink-2-bg.jpg");
     padding-top: 40px;
   }
 }
@@ -6551,6 +6558,11 @@ header .hamburger_holder .hamburger span:nth-child(3) {
 .single_product_page_container form .pills_checkbox_inputs_holder label input:checked ~ span {
   background-color: #7ef5f5;
 }
+.single_product_page_container form .checkbox_inputs_holder {
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Show the checkmark when checked */
+  /* Style the checkmark/indicator */
+}
 .single_product_page_container form .checkbox_inputs_holder label {
   font-family: "Arial", sans-serif;
   font-weight: 400;
@@ -6583,6 +6595,24 @@ header .hamburger_holder .hamburger span:nth-child(3) {
   height: 18px;
   width: 18px;
   border-radius: 2px;
+}
+.single_product_page_container form .checkbox_inputs_holder .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.single_product_page_container form .checkbox_inputs_holder label input:checked ~ .checkmark:after {
+  display: block;
+}
+.single_product_page_container form .checkbox_inputs_holder .checkmark:after {
+  left: 6px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid #340174;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 .single_product_page_container form .checkbox_inputs_holder label input:checked ~ span {
   background-color: #7ef5f5;

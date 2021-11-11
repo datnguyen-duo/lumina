@@ -114,6 +114,31 @@
         }
       }
 
+    /* Create the checkmark/indicator (hidden when not checked) */
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+
+      /* Show the checkmark when checked */
+      label input:checked ~ .checkmark:after {
+        display: block;
+      }
+
+      /* Style the checkmark/indicator */
+      .checkmark:after {
+        left: 6px;
+        top: 1px;
+        width: 5px;
+        height: 10px;
+        border: solid @color1;
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
       label input:checked ~ span {
         background-color: @color2;
       }

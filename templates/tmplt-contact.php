@@ -392,10 +392,17 @@ function initMap() {
 ]
   
   if(window.screen.width < 700){
-    var pinIconPath = site_data.theme_url + "/images/icons/map_pin_mobile.svg";
+    var pinIconPath = {
+      url: site_data.theme_url + "/images/icons/map_pin_mobile.svg",
+      anchor: new google.maps.Point(10, 10)
+    }
+
     var map_zoom = 15;
   } else{
-    var pinIconPath = site_data.theme_url + "/images/icons/map_pin.svg";
+    var pinIconPath = {
+      url: site_data.theme_url + "/images/icons/map_pin.svg", 
+      anchor: new google.maps.Point(10, 10)
+    }
     var map_zoom = 16;
   }
   
