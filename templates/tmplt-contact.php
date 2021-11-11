@@ -69,11 +69,11 @@ get_header(); ?>
     <section class="contact_section">
         <div class="contact">
             <h2 class="contact_title">Email Us</h2>
-            <a href="">office@luminastudio.org </a>
+            <a href="mailto:office@luminastudio.org">office@luminastudio.org </a>
         </div>
         <div class="contact">
             <h2 class="contact_title">Call Us</h2>
-            <a href="">(301) 565-2281</a>
+            <a href="tel:(301) 565-2281">(301) 565-2281</a>
         </div>
         <div class="contact">
             <h2 class="contact_title">Follow Us</h2>
