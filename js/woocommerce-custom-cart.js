@@ -1,13 +1,16 @@
 (function ($) {
   var customSideCart = $(".custom_side_cart");
+  var customSideCartOverlay = $(".custom_cart_overlay");
   var customSideCartOpener = $(".custom_side_cart_opener");
 
   customSideCartOpener.on("click", function () {
     customSideCart.fadeIn();
+    customSideCartOverlay.fadeIn();
   });
 
   customSideCart.find(".close_cart").on("click", function () {
     customSideCart.fadeOut();
+    customSideCartOverlay.fadeOut();
   });
 
   //Update items in shopping cart

@@ -48,7 +48,7 @@ function render_shopping_cart_items() {
                         </div>
                     </div>
 
-                    <div class="actions">
+                    <div class="actions desktop">
 <!--                        <div class="edit_item" data-product="--><?php //echo $product_id; ?><!--">Edit</div>-->
                         <?php
                         echo apply_filters(
@@ -113,6 +113,22 @@ function render_shopping_cart_items() {
                         </ul>
                     </div>
                 <?php endif; ?>
+
+                <div class="actions mobile">
+                    <?php
+                    echo apply_filters(
+                        'woocommerce_cart_item_remove_link',
+                        sprintf(
+                            '<a href="%s" class="remove_item" aria-label="%s" data-product_id="%s" data-target="'.$cart_item_key.'" data-product_sku="%s">Remove</a>',
+                            esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+                            esc_html__( 'Remove this item', 'woocommerce' ),
+                            esc_attr( $product_id ),
+                            esc_attr( $_product->get_sku() )
+                        ),
+                        $cart_item_key
+                    );
+                    ?>
+                </div>
             </div>
         <?php endforeach; ?>
 
@@ -137,6 +153,8 @@ add_action('wp_ajax_nopriv_updateshoppingcart', 'update_shopping_cart');
 function render_shopping_cart() {
     $checkoutPage = ( is_checkout() && empty( is_wc_endpoint_url('order-received')) );
     ?>
+    <div class="custom_cart_overlay <?php echo ( $checkoutPage ) ? ' checkout_page' : null; ?>"></div>
+
     <div class="custom_side_cart <?php echo ( $checkoutPage ) ? ' checkout_page' : null; ?>" data-action="<?php echo site_url() ?>/wp-admin/admin-ajax.php">
         <div class="custom_side_cart_content">
             <div class="cart_header">
