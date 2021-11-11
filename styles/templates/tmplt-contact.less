@@ -265,15 +265,33 @@
 
   .contact_section {
     background-color: @color1;
-    padding-bottom: 150px;
+    padding-bottom: 70px;
+
+    @media @tablet-s{
+      padding-bottom: 150px;
+    }
 
     .contact {
       border-bottom: solid 1px @color3;
       padding: 35px;
       text-align: center;
 
+      &:first-child{
+        @media @mobile-s{
+          padding: 35px 60px;
+        }
+      }
+
+      &:last-child{
+        border-bottom: solid 1px transparent;
+      }
+
       @media @tablet-s {
         padding: 50px;
+
+        &:last-child{
+          border-bottom: solid 1px @color3;
+        }
       }
 
       @media @tablet-l {
@@ -383,6 +401,7 @@
           outline: none;
           font-size: 26px;
           word-break: break-all;
+          width: 100%;
 
           @media @tablet-s {
             font-size: 5vw;

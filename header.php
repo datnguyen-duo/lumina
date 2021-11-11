@@ -46,40 +46,74 @@
     <div class="site_main_nav">
         <div class="separator"></div>
         <div class="separator_second"></div>
-        <div class="main_nav_content">
-            <div class="left">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="">Lumina</a>
+        <div class="main_nav_content_holder">
+            <div class="main_nav_content">
+                
+                <div class="left">
+                    <img class="menu_gradient1" src="<?php echo get_template_directory_uri(); ?>/images/menu_gradient1.svg" alt="">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="">Lumina</a>
+                                <ul class="sub-menu">
+                                    <li><a href="">Home</a></li>
+                                    <li><a href="">About</a></li>
+                                    <li><a href="">Gallery</a></li>
+                                    <li><a href="">Contact</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
 
-                            <ul class="sub-menu">
-                                <li><a href="">Home</a></li>
-                                <li><a href="">About</a></li>
-                                <li><a href="">Gallery</a></li>
-                                <li><a href="">Contact</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="right">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="">Theatre</a>
+                    <div class="form_holer desktop">
+                        <p>
+                            Subscribe to Lumina for the latest updates
+                        </p>
+                        <form action="">
+                            <input type="email" placeholder="Email Address">
+                            <div class="icon_btn">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow-3.svg" alt="">
+                                <input type="submit">
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+                <div class="separator_mobile"></div>
+                <div class="right">
+                    <img class="menu_gradient2" src="<?php echo get_template_directory_uri(); ?>/images/menu_gradient2.svg" alt="">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="">Theatre</a>
 
-                            <ul class="sub-menu">
-                                <li><a href="">Programs</a></li>
-                                <li><a href="">FAQ & Policies</a></li>
-                                <li><a href="">Tickets</a></li>
-                                <li><a href="">Calendar</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
+                                <ul class="sub-menu">
+                                    <li><a href="">Programs</a></li>
+                                    <li><a href="">FAQ & Policies</a></li>
+                                    <li><a href="">Tickets</a></li>
+                                    <li><a href="">Calendar</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="form_holer mobile">
+                        <p>
+                            Subscribe to Lumina for the latest updates
+                        </p>
+                        <form action="">
+                            <input type="email" placeholder="Email Address">
+                            <div class="icon_btn">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow-3.svg" alt="">
+                                <input type="submit">
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
+        
     </div>
 
     <?php render_shopping_cart(); ?>

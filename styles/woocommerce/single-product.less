@@ -39,7 +39,7 @@
       label {
         position: relative;
         cursor: pointer;
-        width: 49%;
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 10px;
@@ -68,7 +68,7 @@
           border-radius: 60px;
           position: relative;
           background-color: transparent;
-          height: 40px;
+          height: 20px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -227,7 +227,7 @@
 
         h4 {
           .p2();
-          font-size: 24px !important;
+          font-size: 18px !important;
           text-align: center;
 
           @media @tablet-s {
@@ -257,11 +257,12 @@
 
         .price_input_group {
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           margin-bottom: 60px;
           flex-direction: column;
 
           @media @tablet-s {
+            align-items: center;
             flex-direction: row;
           }
 
@@ -284,7 +285,7 @@
             .symbol {
               font-family: @fontR;
               text-transform: uppercase;
-              font-size: 24px;
+              font-size: 18px;
               line-height: 1;
               color: @color1;
               position: absolute;
@@ -317,7 +318,7 @@
               background: transparent;
               font-family: @fontR;
               text-transform: uppercase;
-              font-size: 24px;
+              font-size: 18px;
               line-height: 1;
               color: @color1;
               padding: 0 0 0 30px;
