@@ -49,6 +49,7 @@ function site_scripts() {
 
 	wp_enqueue_script('swiperjs', get_template_directory_uri() . '/js/plugins/swiper-min.js', true);
     wp_enqueue_script('jquery-validate', get_theme_file_uri('/js/plugins/jquery.validate.min.js'), NULL, '1', true);
+    wp_enqueue_script('select2', get_theme_file_uri('/js/plugins/select2.js'), NULL, '1', true);
 
     wp_enqueue_script('global', get_theme_file_uri('/js/global.js'), NULL, '1.0', true);
     wp_enqueue_script('woocommerce-custom-cart', get_theme_file_uri('/js/woocommerce-custom-cart.js'), NULL, '1.0', true);

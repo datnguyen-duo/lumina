@@ -39,7 +39,7 @@
       label {
         position: relative;
         cursor: pointer;
-        width: 49%;
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 10px;
@@ -68,7 +68,7 @@
           border-radius: 60px;
           position: relative;
           background-color: transparent;
-          height: 40px;
+          height: 20px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -112,6 +112,31 @@
           width: 18px;
           border-radius: 2px;
         }
+      }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+
+      /* Show the checkmark when checked */
+      label input:checked ~ .checkmark:after {
+        display: block;
+      }
+
+      /* Style the checkmark/indicator */
+      .checkmark:after {
+        left: 6px;
+        top: 1px;
+        width: 5px;
+        height: 10px;
+        border: solid @color1;
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
       }
 
       label input:checked ~ span {
@@ -227,7 +252,7 @@
 
         h4 {
           .p2();
-          font-size: 24px !important;
+          font-size: 18px !important;
           text-align: center;
 
           @media @tablet-s {
@@ -257,11 +282,12 @@
 
         .price_input_group {
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           margin-bottom: 60px;
           flex-direction: column;
 
           @media @tablet-s {
+            align-items: center;
             flex-direction: row;
           }
 
@@ -284,7 +310,7 @@
             .symbol {
               font-family: @fontR;
               text-transform: uppercase;
-              font-size: 24px;
+              font-size: 18px;
               line-height: 1;
               color: @color1;
               position: absolute;
@@ -317,7 +343,7 @@
               background: transparent;
               font-family: @fontR;
               text-transform: uppercase;
-              font-size: 24px;
+              font-size: 18px;
               line-height: 1;
               color: @color1;
               padding: 0 0 0 30px;
@@ -509,9 +535,13 @@
           .image_holder {
             padding-top: 100%;
             position: relative;
-            border-radius: 60px;
+            border-radius: 20px;
             overflow: hidden;
             margin-bottom: 20px;
+
+            @media @tablet-l {
+              border-radius: 60px;
+            }
 
             img {
               .cropped_img();

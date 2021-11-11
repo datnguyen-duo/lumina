@@ -1,13 +1,24 @@
 (function ($) {
   var customSideCart = $(".custom_side_cart");
+  var customSideCartOverlay = $(".custom_cart_overlay");
   var customSideCartOpener = $(".custom_side_cart_opener");
 
-  customSideCartOpener.on("click", function () {
+  function openSideCart() {
     customSideCart.fadeIn();
+    customSideCartOverlay.fadeIn();
+  }
+
+  function closeSideCart() {
+    customSideCart.fadeOut();
+    customSideCartOverlay.fadeOut();
+  }
+
+  customSideCartOpener.on("click", function () {
+    openSideCart();
   });
 
   customSideCart.find(".close_cart").on("click", function () {
-    customSideCart.fadeOut();
+    closeSideCart();
   });
 
   //Update items in shopping cart
@@ -25,7 +36,7 @@
         responseDiv.innerHTML = data;
       },
       complete: function (xhr, status) {
-        customSideCart.fadeIn();
+        openSideCart();
       },
     });
   }
@@ -81,13 +92,11 @@
 
           $(".edit_ticket_container").remove();
 
-          $(".custom_side_cart")
-            .append(
-              '<div class="edit_ticket_container" id="' +
-                responseEl +
-                '"></div>'
-            )
-            .fadeIn();
+          $(".custom_side_cart").append(
+            '<div class="edit_ticket_container" id="' + responseEl + '"></div>'
+          );
+
+          openSideCart();
 
           $.ajax({
             url: "/wp-admin/admin-ajax.php",
@@ -146,6 +155,41 @@
       complete: function (xhr, status) {},
     });
   });
+});
+
+customSideCart.on("click", ".change_step", function () {
+  var target = $(this).data("target");
+
+  if (target === ".step_2") {
+    $(".step_1").validate({
+      messages: {
+        date: "Choose the date/time.",
+      },
+      submitHandler: function (form) {
+        $(".step").removeClass("active");
+        $(target).addClass("active");
+      },
+      errorElement: "small",
+      errorLabelContainer: "#step_1_errors_div",
+    });
+  } else {
+    $(".step").removeClass("active");
+    $(target).addClass("active");
+  }
+});
+
+customSideCart.on("click", ".variation .quantity_plus_minus", function () {
+  var input = $(".quantity_input_holder").find("input");
+  var inputVal = parseInt(input.val());
+  var productPrice = parseInt($(".step .variation .price p").data("value"));
+
+  if ($(this).hasClass("minus")) {
+    if (inputVal > 1) {
+      input.val((inputVal -= 1));
+    }
+  } else {
+    input.val((inputVal += 1));
+  }
 
   customSideCart.on("click", ".change_step", function () {
     var target = $(this).data("target");
@@ -153,7 +197,7 @@
     if (target === ".step_2") {
       $(".step_1").validate({
         messages: {
-          date: "Choose the date/time.",
+          date: "Chose the date.",
         },
         submitHandler: function (form) {
           $(".step").removeClass("active");

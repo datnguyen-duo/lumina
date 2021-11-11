@@ -95,16 +95,19 @@ $category = $categories[0];
             <div class="right">
 
                 <div class="right_content">
-                    <?php if( $age_limit['min'] ): ?>
-                        <div class="age_limit desktop">
-                            <p>AGE<?php echo ( $age_limit['min'] && $age_limit['max']) ? 'S' : null; ?></p>
-                            <div class="ages">
-                                <?php if( $age_limit['min'] ): ?>
-                                    <p><?php echo $age_limit['min']; ?></p>
-                                <?php endif; ?>
+                    <?php
+                    $age_limit_min = get_field('age_limit_min');
+                    $age_limit_max = get_field('age_limit_max');
+                    $age_limit_message = get_field('age_limit_message');
 
-                                <?php if( $age_limit['min'] && $age_limit['max'] ): ?>
-                                    <p><?php echo $age_limit['max']; ?></p>
+                    if( $age_limit_min ): ?>
+                        <div class="age_limit desktop">
+                            <p>AGE<?php echo ( $age_limit_max ) ? 'S' : null; ?></p>
+                            <div class="ages">
+                                <p><?php echo $age_limit_min; ?></p>
+
+                                <?php if( $age_limit_max ): ?>
+                                    <p><?php echo $age_limit_max; ?></p>
                                 <?php endif; ?>
                             </div>
                         </div>
