@@ -153,7 +153,7 @@
     if (target === ".step_2") {
       $(".step_1").validate({
         messages: {
-          date: "Chose the date.",
+          date: "Choose the date/time.",
         },
         submitHandler: function (form) {
           $(".step").removeClass("active");
