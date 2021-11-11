@@ -155,41 +155,6 @@
       complete: function (xhr, status) {},
     });
   });
-});
-
-customSideCart.on("click", ".change_step", function () {
-  var target = $(this).data("target");
-
-  if (target === ".step_2") {
-    $(".step_1").validate({
-      messages: {
-        date: "Choose the date/time.",
-      },
-      submitHandler: function (form) {
-        $(".step").removeClass("active");
-        $(target).addClass("active");
-      },
-      errorElement: "small",
-      errorLabelContainer: "#step_1_errors_div",
-    });
-  } else {
-    $(".step").removeClass("active");
-    $(target).addClass("active");
-  }
-});
-
-customSideCart.on("click", ".variation .quantity_plus_minus", function () {
-  var input = $(".quantity_input_holder").find("input");
-  var inputVal = parseInt(input.val());
-  var productPrice = parseInt($(".step .variation .price p").data("value"));
-
-  if ($(this).hasClass("minus")) {
-    if (inputVal > 1) {
-      input.val((inputVal -= 1));
-    }
-  } else {
-    input.val((inputVal += 1));
-  }
 
   customSideCart.on("click", ".change_step", function () {
     var target = $(this).data("target");
