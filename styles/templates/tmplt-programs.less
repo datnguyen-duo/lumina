@@ -2,31 +2,215 @@
     position: relative;
     z-index: 0;
     background: linear-gradient(#fff, #E1AFFF);
-    padding-top: 100px;
+    padding-top: 58px;
+
+    @media @tablet-s {
+        padding-top: 100px;
+    }
 
     @media @tablet-l{
         padding-top: 146px;
     }
 
     .filters {
-        padding: 0 42px;
+        padding: 0 14px;
         box-sizing: border-box;
-        margin-bottom: 242px;
+        margin-bottom: 53px;
         display: flex;
         justify-content: space-between;
 
-        .pill {
-            &.sort {
-                img {
-                    position: relative;
-                    top: -4px;
-                    margin-left: 8px;
+        @media @tablet-s {
+            margin-bottom: 150px;
+            padding: 0 42px;
+        }
+
+        @media @desktop-m {
+            margin-bottom: 242px;
+        }
+
+        .field {
+            .pills_checkbox_inputs_holder {
+                display: none;
+
+                @media @laptop-s {
+                    display: flex;
+                }
+            }
+
+            #type_dropdown {
+                @media @laptop-s {
+                    display: none;
+                }
+
+                .select2-container {
+
+                    &.select2-container--open {
+                        .selection {
+                            .select2-selection {
+                                .select2-selection__arrow {
+                                    transform: translateY(-50%) rotate(0deg);
+                                }
+                            }
+                        }
+                    }
+
+                    .selection {
+                        .select2-selection {
+                            border: solid 1px @color1;
+                            border-radius: 60px;
+                            height: 40px;
+                            display: flex;
+                            align-items: center;
+                            padding: 0 32px 0 15px;
+                            box-sizing: border-box;
+                            background-color: @color2;
+                            min-width: 77px;
+
+                            @media @tablet-s {
+                                height: 60px;
+                                padding: 0 40px 0 15px;
+                            }
+
+                            .select2-selection__rendered {
+                                padding: 0;
+                                .p2();
+                                text-align: center;
+                            }
+
+                            .select2-selection__arrow {
+                                top: 50%;
+                                right: 14px;
+                                transform: translateY(-50%) rotate(180deg);
+                                background-image: url("../images/icons/arrow-2.svg");
+                                background-size: contain;
+                                background-repeat: no-repeat;
+                                height: 15px;
+                                width: 13px;
+
+                                @media @tablet-s {
+                                    width: 17px;
+                                    height: 20px;
+                                }
+
+                                b {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .select2-dropdown {
+                    border-color: transparent !important;
+                    width: auto !important;
+                    background-color: transparent;
+
+                    .select2-results {
+                        .select2-results__options {
+                            .select2-results__option {
+                                .p2();
+                                white-space: nowrap;
+                                border-radius: 60px;
+
+                                &.select2-results__option--highlighted {
+                                    background-color: transparent;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
 
-        ul {
+        .pills_checkbox_inputs_holder {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            @media @tablet-l {
+                justify-content: initial;
+                flex-wrap: nowrap;
+            }
+
+            label {
+                position: relative;
+                cursor: pointer;
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 10px;
+
+                @media @tablet-l {
+                    margin-bottom: 0;
+                }
+
+                &.sort {
+                    &.DESC {
+                        span {
+                            img {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+
+                input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 0;
+                    width: 0;
+
+                    &:checked ~ span {
+                        background-color: @color2;
+                    }
+                }
+
+                span {
+                    padding: 0 20px;
+                    box-sizing: border-box;
+                    min-width: 77px;
+                    width: 100%;
+                    border: solid 1px @color1;
+                    border-radius: 60px;
+                    position: relative;
+                    background-color: transparent;
+                    height: 40px;
+                    display: flex;
+                    text-align: center;
+                    align-items: center;
+                    justify-content: center;
+                    .transition();
+                    .p2();
+
+                    @media @tablet-s {
+                        padding: 0 40px;
+                        height: 60px;
+                        min-width: 163px;
+                    }
+
+                    @media @desktop-m {
+                        padding: 0 55px;
+                    }
+
+                    img {
+                        position: relative;
+                        margin-left: 7px;
+                        width: 13px;
+                        top: -1px;
+
+                        @media @tablet-s {
+                            margin-left: 8px;
+                            width: 17px;
+                            top: -2px;
+                        }
+
+                        @media @laptop-s {
+                            top: -4px;
+                            width: auto;
+                        }
+                    }
+                }
+            }
         }
     }
 
