@@ -53,66 +53,66 @@ window.addEventListener("load", function () {
     DONATE PAGE
 --------------------------------------------------------------------------------- */
 
-document.addEventListener("DOMContentLoaded", function (event) {
+// document.addEventListener("DOMContentLoaded", function (event) {
 
-  //DECLARATIONS
-  var recurringCheckbox = document.querySelector(".donation-is-recurring");
-  var subInterval = document.getElementById("_subscription_period_interval");
-  var subPeriod = document.querySelector("._subscription_period");
-  var subLength = document.getElementById("_subscription_length");
+//   //DECLARATIONS
+//   var recurringCheckbox = document.querySelector(".donation-is-recurring");
+//   var subInterval = document.getElementById("_subscription_period_interval");
+//   var subPeriod = document.querySelector("._subscription_period");
+//   var subLength = document.getElementById("_subscription_length");
 
-  //RESET
-  recurringCheckbox.checked = false;
-  subInterval.value = 1;
-  subPeriod.value = "month";
-  subLength.value = 0;
+//   //RESET
+//   recurringCheckbox.checked = false;
+//   subInterval.value = 1;
+//   subPeriod.value = "month";
+//   subLength.value = 0;
 
-  const buttons = document.querySelectorAll(
-    ".template_donate_page_container .pill"
-  );
+//   const buttons = document.querySelectorAll(
+//     ".template_donate_page_container .pill"
+//   );
 
-  buttons.forEach((btn) => {
-    btn.onclick = function() {
-      this.closest(".btn-wrapper")
-        .querySelectorAll(".pill")
-        .forEach((child) => {
-          child.classList.remove("active");
+//   buttons.forEach((btn) => {
+//     btn.onclick = function() {
+//       this.closest(".btn-wrapper")
+//         .querySelectorAll(".pill")
+//         .forEach((child) => {
+//           child.classList.remove("active");
 
-          if (this.classList.contains("btn__month")) {
-            subInterval.value = 1;
-            subPeriod.value = "month";
-          } else if (this.classList.contains("btn__quarter")) {
-            subInterval.value = 3;
-            subPeriod.value = "month";
-          } else if (this.classList.contains("btn__annual")) {
-            subInterval.value = 1;
-            subPeriod.value = "year";
-          }
-        });
+//           if (this.classList.contains("btn__month")) {
+//             subInterval.value = 1;
+//             subPeriod.value = "month";
+//           } else if (this.classList.contains("btn__quarter")) {
+//             subInterval.value = 3;
+//             subPeriod.value = "month";
+//           } else if (this.classList.contains("btn__annual")) {
+//             subInterval.value = 1;
+//             subPeriod.value = "year";
+//           }
+//         });
 
-      this.classList.add("active");
+//       this.classList.add("active");
 
-      if (this.classList.contains("recurring")) {
-        document.querySelector(".recurring-options").classList.add("active");
+//       if (this.classList.contains("recurring")) {
+//         document.querySelector(".recurring-options").classList.add("active");
 
-        if (!recurringCheckbox.checked) {
-          recurringCheckbox.checked = true;
-        }
-      } else if (this.classList.contains("one-time")) {
-        document.querySelector(".recurring-options").classList.remove("active");
+//         if (!recurringCheckbox.checked) {
+//           recurringCheckbox.checked = true;
+//         }
+//       } else if (this.classList.contains("one-time")) {
+//         document.querySelector(".recurring-options").classList.remove("active");
 
-        if (recurringCheckbox.checked) {
-          recurringCheckbox.checked = false;
-        }
-      }
-    };
-  });
+//         if (recurringCheckbox.checked) {
+//           recurringCheckbox.checked = false;
+//         }
+//       }
+//     };
+//   });
 
-  // DONATE ADD TO CART 
+//   // DONATE ADD TO CART 
 
-  var addToCart = document.querySelector(".donate-add-to-cart")
+//   var addToCart = document.querySelector(".donate-add-to-cart")
 
-  addToCart.onclick = function() {
-    document.getElementById("wc-donation-f-submit-donation").click()
-  }
-});
+//   addToCart.onclick = function() {
+//     document.getElementById("wc-donation-f-submit-donation").click()
+//   }
+// });

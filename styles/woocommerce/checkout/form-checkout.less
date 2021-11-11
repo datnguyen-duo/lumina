@@ -1,307 +1,316 @@
 .form_checkout_page_container {
-    padding-top: 163px;
-    padding-bottom: 200px;
-    padding-left: 194px;
+  padding-top: 163px;
+  padding-bottom: 200px;
+  padding-left: 194px;
 
-    .page_content {
-        max-width: 950px;
+  .page_content {
+    max-width: 950px;
+  }
+
+  .woocommerce-form-coupon-toggle {
+    .woocommerce-info {
+      border-color: @color1;
+      .p1();
+
+      a {
+        color: @color1;
+      }
+
+      &:before {
+        color: @color1;
+      }
+    }
+  }
+
+  .woocommerce-error {
+    li {
+      .p1();
+    }
+  }
+
+  .checkout_coupon {
+    border-color: #ddd;
+    border-radius: 0;
+
+    ::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      .p1();
+      opacity: 1; /* Firefox */
     }
 
-    .woocommerce-form-coupon-toggle {
-        .woocommerce-info {
-            border-color: @color1;
-            .p1();
-
-            a {
-                color: @color1;
-            }
-
-            &:before {
-                color: @color1;
-            }
-        }
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      .p1();
     }
 
-    .woocommerce-error {
+    ::-ms-input-placeholder {
+      /* Microsoft Edge */
+      .p1();
+    }
+
+    input {
+      .p1();
+      min-height: 47px;
+      padding: 0 15px;
+      border: solid 1px #ddd;
+    }
+
+    p {
+      .p1();
+    }
+
+    .button,
+    button {
+      border-radius: 0;
+      font-weight: 400;
+      .button();
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  //form
+  .checkout {
+    ::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      .p1();
+      opacity: 1; /* Firefox */
+    }
+
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      .p1();
+    }
+
+    ::-ms-input-placeholder {
+      /* Microsoft Edge */
+      .p1();
+    }
+
+    .woocommerce-NoticeGroup {
+      .woocommerce-error {
         li {
-            .p1();
-        }
-    }
+          .p1();
+          margin-bottom: 8px;
 
-    .checkout_coupon {
-        border-color: #ddd;
-        border-radius: 0;
-
-        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-            .p1();
-            opacity: 1; /* Firefox */
-        }
-
-        :-ms-input-placeholder { /* Internet Explorer 10-11 */
-            .p1();
-        }
-
-        ::-ms-input-placeholder { /* Microsoft Edge */
-            .p1();
-        }
-
-        input {
-            .p1();
-            min-height: 47px;
-            padding: 0 15px;
-            border: solid 1px #ddd;
-        }
-
-        p {
-            .p1();
-        }
-
-        .button,
-        button {
-            border-radius: 0;
-            font-weight: 400;
-            .button();
-
-            &:hover {
-                color: #fff;
-            }
-        }
-    }
-
-    //form
-    .checkout {
-        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-            .p1();
-            opacity: 1; /* Firefox */
-        }
-
-        :-ms-input-placeholder { /* Internet Explorer 10-11 */
-            .p1();
-        }
-
-        ::-ms-input-placeholder { /* Microsoft Edge */
-            .p1();
-        }
-
-        .woocommerce-NoticeGroup {
-            .woocommerce-error {
-                li {
-                    .p1();
-                    margin-bottom: 8px;
-
-                    &:last-of-type {
-                        margin-bottom: 0;
-                    }
-                }
-            }
-        }
-
-        h2, h3 {
-            .h3();
-            margin-bottom: 35px;
-        }
-
-
-        .select2-container {
-            margin-bottom: 35px;
-        }
-
-        .form-row {
+          &:last-of-type {
             margin-bottom: 0;
-
-            .woocommerce-input-wrapper {
-                input {
-                    margin-bottom: 50px;
-                }
-            }
+          }
         }
+      }
+    }
 
-        label {
-            .p1();
-            display: block;
-            color: @color3;
-            margin-bottom: 10px;
-            line-height: 1 !important;
+    h2,
+    h3 {
+      .h3();
+      margin-bottom: 35px;
+    }
 
-            &.hidden {
-                opacity: 0;
-            }
-        }
+    .select2-container {
+      margin-bottom: 35px;
+    }
 
+    .form-row {
+      margin-bottom: 0;
+
+      .woocommerce-input-wrapper {
         input {
+          margin-bottom: 50px;
+        }
+      }
+    }
+
+    label {
+      .p1();
+      display: block;
+      color: @color3;
+      margin-bottom: 10px;
+      line-height: 1 !important;
+
+      &.hidden {
+        opacity: 0;
+      }
+    }
+
+    input {
+      padding: 0;
+      padding-bottom: 6px;
+      width: 100%;
+      border: none;
+      border-bottom: solid 1px @color1;
+      .p1();
+      outline: none;
+
+      &::placeholder {
+        color: @color1;
+      }
+    }
+
+    textarea {
+      .p1();
+      border: solid 1px @color1;
+      height: 210px !important;
+      padding: 15px;
+      box-sizing: border-box;
+      resize: none;
+    }
+
+    .step_block {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+
+      &#order_review {
+        .shop_table {
+          border-radius: 0;
+          display: none;
+
+          th,
+          td {
+            .p1();
+          }
+        }
+
+        #payment {
+          background-color: transparent;
+
+          ul {
             padding: 0;
-            padding-bottom: 6px;
-            width: 100%;
-            border: none;
-            border-bottom: solid 1px @color1;
-            .p1();
-            outline: none;
+          }
 
-            &::placeholder {
+          .place-order {
+            padding: 0;
+          }
+        }
+
+        #payment {
+          border-radius: 0;
+
+          .wc_payment_methods {
+            .woocommerce-notice {
+              .p1();
+              border-top: @color1;
+
+              &:before {
                 color: @color1;
-            }
-        }
-
-        textarea {
-            .p1();
-            border: solid 1px @color1;
-            height: 210px !important;
-            padding: 15px;
-            box-sizing: border-box;
-            resize: none;
-        }
-
-        .step_block {
-            display: none;
-
-            &.active {
-                display: block;
+              }
             }
 
-            &#order_review {
-                .shop_table {
-                    border-radius: 0;
-                    display: none;
-
-                    th,
-                    td {
-                        .p1();
-                    }
-                }
-
-                #payment {
-                    background-color: transparent;
-
-                    ul {
-                        padding: 0;
-                    }
-
-                    .place-order {
-                        padding: 0;
-                    }
-                }
-
-                #payment {
-                    border-radius: 0;
-
-                    .wc_payment_methods {
-                        .woocommerce-notice {
-                            .p1();
-                            border-top: @color1;
-
-                            &:before {
-                                color: @color1;
-                            }
-                        }
-
-                        .payment_box {
-
-                            p {
-                                .p1();
-                            }
-                        }
-                    }
-
-                    .place-order {
-                        .woocommerce-terms-and-conditions-wrapper {
-                            .woocommerce-privacy-policy-text {
-                                p {
-                                    .p1();
-                                    line-height: 1.3em;
-                                }
-
-                                a {
-                                    color: @color1;
-                                }
-                            }
-                        }
-
-                        .button {
-                            border-radius: 0;
-                            font-weight: 400;
-                            .button();
-                            margin-top: 30px;
-                            display: flex;
-                            width: 100%;
-                        }
-                    }
-                }
-            }
-
-            &#customer_details {
-                .woocommerce-additional-fields {
-                    h3 {
-                        display: none;
-                    }
-                }
-            }
-
-            .next_step {
-                display: flex;
-                //margin-top: 100px;
-            }
-        }
-    }
-
-    .pills_checkbox_inputs_holder {
-        display: flex;
-        margin-bottom: 80px;
-
-        &.steps {
-            label {
-                span {
-                    .p2();
-                }
-            }
-        }
-
-        &.three_in_row {
-            flex-wrap: wrap;
-
-            label {
-                margin-bottom: 30px;
-                width: 33.333%;
-            }
-        }
-
-        label {
-            position: relative;
-            cursor: pointer;
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            margin-right: 0 !important;
-
-            small {
-                order: 1;
-                width: 100%;
-            }
-
-            input {
-                position: absolute;
-                opacity: 0;
-                cursor: pointer;
-                height: 0;
-                width: 0;
-            }
-
-            span {
-                width: 100%;
-                border: solid 1px @color1;
-                border-radius: 60px;
-                position: relative;
-                background-color: transparent;
-                height: 60px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                .transition();
+            .payment_box {
+              p {
                 .p1();
+              }
             }
-        }
+          }
 
-        label input:checked ~ span {
-            background-color: @color2;
+          .place-order {
+            .woocommerce-terms-and-conditions-wrapper {
+              .woocommerce-privacy-policy-text {
+                p {
+                  .p1();
+                  line-height: 1.3em;
+                }
+
+                a {
+                  color: @color1;
+                }
+              }
+            }
+
+            .button {
+              border-radius: 0;
+              font-weight: 400;
+              .button();
+              margin-top: 30px;
+              display: flex;
+              width: 100%;
+            }
+          }
         }
+      }
+
+      &#customer_details {
+        .woocommerce-additional-fields {
+          h3 {
+            display: none;
+          }
+        }
+      }
+
+      .next_step {
+        display: flex;
+        //margin-top: 100px;
+      }
     }
+  }
+
+  .pills_checkbox_inputs_holder {
+    display: flex;
+    margin-bottom: 80px;
+
+    &.steps {
+      label {
+        span {
+          .p2();
+        }
+      }
+    }
+
+    &.three_in_row {
+      flex-wrap: wrap;
+
+      label {
+        margin-bottom: 30px;
+        width: 33.333%;
+      }
+    }
+
+    label {
+      position: relative;
+      cursor: pointer;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: 0 !important;
+
+      small {
+        order: 1;
+        width: 100%;
+      }
+
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+
+      span {
+        width: 100%;
+        border: solid 1px @color1;
+        border-radius: 60px;
+        position: relative;
+        background-color: transparent;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .transition();
+        .p1();
+      }
+    }
+
+    label input:checked ~ span {
+      background-color: @color2;
+    }
+  }
+
+  form .form-row .required {
+    color: @color3;
+  }
 }
