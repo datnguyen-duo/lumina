@@ -135,7 +135,7 @@ $type_field = get_field_object($type_field_key);
     <section class="banner_section">
         <h2>FAQS &</h2>
         <h2>Information</h2>
-        <a class="button big blue">Learn More</a>
+        <a href="/faq/" class="button big blue">Learn More</a>
     </section>
 </div>
 <?php

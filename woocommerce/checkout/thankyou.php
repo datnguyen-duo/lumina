@@ -145,7 +145,7 @@
     <section class="banner_section">
         <h2>Additional</h2>
         <h2>Faqs & Info</h2>
-        <a href="">
+        <a href="/faq/">
             <span class="button big blue">Learn More</span>
         </a>
     </section>
