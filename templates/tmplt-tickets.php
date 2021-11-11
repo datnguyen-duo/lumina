@@ -19,7 +19,7 @@ $products = new WP_Query(array(
             <h1 class="page_title big_headline_animation">Ticketing</h1>
             <h1 class="page_title big_headline_animation">& shows</h1>
 
-            <p>2 shows now playing!</p>
+            <p>1 shows now playing!</p>
         </div>
     </section>
 
