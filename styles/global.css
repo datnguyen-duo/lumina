@@ -5774,11 +5774,12 @@ header .hamburger_holder .hamburger span:nth-child(3) {
   display: block;
   border: solid 1px #340174;
   border-top: 0;
-  border-radius: 0 0 60px 60px;
+  border-radius: 0 0 30px 30px;
+  content: "";
 }
 @media only screen and (min-width : 768px) {
   .template_tickets_page_container .hero_section:before {
-    content: "";
+    border-radius: 0 0 60px 60px;
   }
 }
 .template_tickets_page_container .hero_section:after {
@@ -5790,11 +5791,12 @@ header .hamburger_holder .hamburger span:nth-child(3) {
   display: block;
   border: solid 1px #340174;
   border-top: 0;
-  border-radius: 0 0 60px 60px;
+  border-radius: 0 0 30px 30px;
+  content: "";
 }
 @media only screen and (min-width : 768px) {
   .template_tickets_page_container .hero_section:after {
-    content: "";
+    border-radius: 0 0 60px 60px;
   }
 }
 .template_tickets_page_container .hero_section .content {
@@ -7139,9 +7141,15 @@ header .hamburger_holder .hamburger span:nth-child(3) {
 .single_product_page_container.registration_category .hero_section .left .featured_image .image_holder {
   padding-top: 100%;
   position: relative;
-  border-radius: 60px;
+  border-radius: 20px;
   overflow: hidden;
   margin-bottom: 20px;
+}
+@media only screen and (min-width : 1024px) {
+  .single_product_page_container.registration_category .hero_section .left .gallery .image_holder,
+  .single_product_page_container.registration_category .hero_section .left .featured_image .image_holder {
+    border-radius: 60px;
+  }
 }
 .single_product_page_container.registration_category .hero_section .left .gallery .image_holder img,
 .single_product_page_container.registration_category .hero_section .left .featured_image .image_holder img {

@@ -510,9 +510,13 @@
           .image_holder {
             padding-top: 100%;
             position: relative;
-            border-radius: 60px;
+            border-radius: 20px;
             overflow: hidden;
             margin-bottom: 20px;
+
+            @media @tablet-l {
+              border-radius: 60px;
+            }
 
             img {
               .cropped_img();
