@@ -4,7 +4,7 @@
             <h1 class="page_title big_headline_animation">Order</h1>
             <h1 class="page_title big_headline_animation">Confirmed!</h1>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            <p>Please send proof of vaccination to office@luminastudio.org OR bring proof of vaccination with you to the theatre (picture of vaccination card is sufficient). Masks required for all audience members.</p>
         </div>
     </section>
 
@@ -108,7 +108,8 @@
                 <ul>
                     <li>On-line ticket sales end 12 hours prior to curtain. If on-line sales have closed you may come to the theatre 30 minutes prior to curtain time to purchase tickets, however, there is no guarantee of ticket availability.</li>
                     <li>Any will-call ticket not claimed 10 minutes prior to curtain time may be re-sold.</li>
-                    <li>Purchase tickets early – Lumina shows sell out especially the final shows.</li>
+                    <li>Purchase tickets early – Lumina shows sell out! Especially the final shows!</li>
+                    <li>PLEASE NOTE THAT ALL TICKET SALES ARE FINAL!</li>
                 </ul>
 
                 <ul>
@@ -127,16 +128,15 @@
                 <ul>
                     <li>Tickets are sold based on the number of seats in the house.</li>
                     <li>We offer a “wait list” for tickets that are unclaimed.</li>
-                    <li>Any ticket not picked up 10 minutes prior to curtain WILL BE SOLD to a wait-list patron.</li>
                     <li>All patrons must watch the show from a seat. There are no “standing room only” viewing areas.</li>
-                    <li>Children under the age of 8* will not be admitted. All patrons, including children, must have a ticket.</li>
+                    <li>Children under the age of 7* will not be admitted. All patrons, including children, must have a ticket.</li>
                 </ul>
 
                 <ul>
                     <li>All ticket holders must be seated 10 minutes prior to curtain time.</li>
                     <li>Saving seats for patrons who are not in the theatre is not permitted.</li>
-                    <li>There is NO SEATING later than 10 minutes after curtain time. After this time, patrons may watch the performance on the lobby monitor.</li>
                     <li>It is recommended that all ticket holders (and wait-list patrons) arrive at the theatre at least 30 minutes prior to curtain time.</li>
+                    <li>*Due to material in some Lumina productions this age may be adjusted upwards.</li>
                 </ul>
             </div>
         </div>
