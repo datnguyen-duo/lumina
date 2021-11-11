@@ -529,11 +529,17 @@
                 padding-right: 0;
             }
 
-            img {
+            .image_holder{
                 width: 100%;
-                opacity: 0;
+                position: relative;
                 .fade_in();
-                border-radius: 0 60px 60px 0;
+                border-radius:  0px 60px 60px 0px;
+                overflow: hidden;
+                padding-top: 110%;
+            }
+
+            img {
+                .cropped_img();
             }
         }
 
@@ -557,7 +563,11 @@
             .right_content {
                 .title {
                     .h2();
-                    margin-bottom: 25px;
+                    margin-bottom: 10px;
+
+                    @media @tablet-s{
+                        margin-bottom: 25px;
+                    }
 
                     .single_word{
                         padding: 8px 0;
@@ -574,13 +584,11 @@
                     line-height: 1.36em;
                     text-transform: uppercase;
                     color: @color1;
-
-                    //@media @tablet-s {
-                    //    font-size: 20px;
-                    //}
+                    margin-top: 20px;
 
                     @media @laptop-s {
                         font-size: 22px;
+                        margin-top: 0px;
                     }
 
                     @media @desktop-m {
@@ -651,11 +659,20 @@
                     }
 
                     .h2();
-                    margin-bottom: 25px;
+                    margin-bottom: 10px;
+
+                    @media @tablet-s{
+                        margin-bottom: 25px;
+                    }
                 }
 
                 .subtitle {
                     .p2();
+                    margin-top: 20px;
+
+                    @media @tablet-s{
+                        margin-top: 0px;
+                    }
                 }
 
                 .description {
@@ -685,12 +702,18 @@
                 padding-left: 0;
                 width: 44.15%;
             }
-
-            img {
+            
+            .image_holder{
                 width: 100%;
+                position: relative;
                 .fade_in();
                 border-radius:  60px 0 0 60px;
+                overflow: hidden;
+                padding-top: 110%;
+            }
 
+            img {
+                .cropped_img();
             }
         }
     }
@@ -1111,6 +1134,7 @@
             color: #fff;
             margin-bottom: 10px;
             padding: 0 40px;
+            line-height: 1em;
 
             @media @tablet-s {
                 margin-bottom: 25px;

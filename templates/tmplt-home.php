@@ -90,7 +90,9 @@ get_header(); ?>
 
         <section class="img_with_desc_section">
             <div class="left">
-                <img class="animate_el" src="<?php echo get_template_directory_uri(); ?>/images/dev/Nicholas Nickelby 2013.jpg" alt="">
+                <div class="image_holder animate_el">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/dev/Nicholas Nickelby 2013.jpg" alt="">
+                </div>
             </div>
             <div class="right">
                 <div class="right_content animate_el">
@@ -122,7 +124,9 @@ get_header(); ?>
                 </div>
             </div>
             <div class="right">
-                <img class="animate_el" src="<?php echo get_template_directory_uri(); ?>/images/dev/Evian MSND.JPG" alt="">
+                <div class="image_holder animate_el">
+                    <img class="" src="<?php echo get_template_directory_uri(); ?>/images/dev/Evian MSND.JPG" alt="">
+                </div>
             </div>
         </section>
 

@@ -204,7 +204,7 @@ header {
       }
 
       &.active {
-        background: #fff;
+        // background: #fff;
         span {
           &:nth-child(1) {
             transform: rotate(-45deg);
@@ -273,6 +273,8 @@ header {
   height: 100vh;
   display: none;
   overflow: auto;
+  // min-height: 900px;
+  overflow-y: hidden;
 
   .separator {
     content: "";
@@ -281,16 +283,40 @@ header {
     opacity: 1;
     width: 40px;
     background-color: #fff;
-    z-index: 2;
+    z-index: 3;
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%) rotate(90deg);
     border-left: solid 1px @color1;
     border-right: solid 1px @color1;
+    display: none;
 
     @media @tablet-l {
       transform: translateX(-50%);
+      display: block;
+    }
+  }
+
+  .separator_mobile{
+    position: relative;
+    background-color: #fff;
+    border-top: 1px solid @color1;
+    border-bottom: 1px solid @color1;
+    height: 30px;
+
+    @media @tablet-l {
+      display: none;
+    }
+
+    &:after{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 1px;
+      background-color: @color1;
     }
   }
 
@@ -301,23 +327,41 @@ header {
     opacity: 1;
     width: 0;
     //background-color: @color1;
-    z-index: 3;
+    z-index: 4;
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%) rotate(90deg);
     border-left: solid 1px @color1;
     border-right: solid 1px @color1;
+    display: none;
 
     @media @tablet-l {
       transform: translateX(-50%);
+      display: block;
     }
   }
 
+  .main_nav_content_holder{
+    overflow: auto;
+    display: block;
+    // min-height: 800px;
+    overflow-y: hidden;
+    height: 100vh;
+        overflow: auto;
+
+  }
   .main_nav_content {
     display: flex;
     flex-wrap: wrap;
-    height: 100vh;
+    min-height: 100vh;
+    position: relative;
+    flex-direction: column;
+
+    @media @tablet-l{
+      flex-direction: row;
+      height: 100vh;
+    }
 
     .left,
     .right {
@@ -326,8 +370,11 @@ header {
       display: flex;
       height: 50%;
       align-items: initial;
+      overflow: hidden;
+      flex: 1;
 
       @media @tablet-l {
+        flex: auto;
         align-items: center;
         height: 100%;
         width: 50%;
@@ -390,10 +437,133 @@ header {
       align-self: flex-start;
       flex-direction: column;
       padding-bottom: 30px;
-      padding-top: 200px;
+      padding-top: 100px;
       box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+
+      @media @tablet-s{
+        padding-top: 150px;
+      }
+
+      .form_holer.desktop{
+          position: absolute;
+          bottom: 40px;
+          left: 40px;
+          z-index: 5;
+          display: none;
+
+          @media @tablet-l{
+            display: block;
+         }
+
+        p{
+          .p1();
+          margin-bottom: 10px;
+          padding-left: 10px;
+          box-sizing: border-box;
+        }
+
+        form {
+            position: relative;
+
+            input[type='email'] {
+                background-color: transparent;
+                border: solid 1px @color1;
+                height: 38px;
+                border-radius: 60px;
+                width: 100%;
+                padding: 0 70px 0 23px;
+                box-sizing: border-box;
+                color: @color1;
+                font-size: 14px;
+                font-family: @fontR;
+                outline: none;
+
+                @media @tablet-s {
+                    height: 82px;
+                    padding-left: 20px;
+                    font-size: 16px;
+                    width: 30vw;
+                }
+
+                @media @laptop-s {
+                    font-size: 28px;
+                }
+
+                @media @desktop-l {
+                    
+                    
+                }
+
+                &::placeholder {
+                    color: @color1;
+                    font-size: 28px;
+                }
+            }
+
+            .icon_btn{
+              position: absolute;
+              top: 10px;
+              right: 10px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 60px;
+              height: 60px;
+
+              &:hover{
+                background-color: @color3;
+              }
+              
+              &:after{
+                border-color: transparent;
+              }
+            }
+
+            input[type='submit'] {
+                opacity: 0;
+                box-sizing: border-box;
+                padding: 0 12px;
+                background-color: transparent;
+                height: 100%;
+                border: 0;
+                position: absolute;
+                top: 0;
+                right: 0;
+
+                @media @tablet-s {
+                    padding: 0 20px 0 15px;
+                }
+
+                img {
+                    position: relative;
+                    top: 2px;
+                    width: 26px;
+
+                    @media @tablet-s {
+                        width: 34px;
+                    }
+                }
+            }
+        }
+      }
+
+      .menu_gradient1{
+        position: absolute;
+        top: -20vw;
+        left: -50%;
+        z-index: 2;
+
+        @media @tablet-l{
+          right: -50%;
+          left: auto;
+        }
+     }
 
       @media @tablet-l {
+        padding-top: 0px;
         padding-bottom: 0px;
         flex-direction: row;
         align-items: center;
@@ -401,6 +571,8 @@ header {
 
       nav {
         text-align: right;
+        position: relative;
+        z-index: 3;
 
         @media @tablet-l {
           padding-right: 40px;
@@ -409,23 +581,141 @@ header {
     }
 
     .right {
-      padding-left: 20px;
-      background: #e2fffe;
-      align-self: flex-end;
-      flex-direction: column;
-      align-items: flex-start;
-      padding-top: 60px;
+        padding-left: 20px;
+        background: #e2fffe;
+        align-self: flex-end;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 60px;
+        padding-bottom: 60px;
+        position: relative;
+        z-index: 2;
+
+        .menu_gradient2{
+            position: absolute;
+            bottom: -20vw;
+            right: -50%;
+            z-index: 2;
+        }
 
       @media @tablet-l {
         padding-top: 0px;
+        padding-bottom: 0px;
         flex-direction: row;
         align-items: center;
       }
 
       nav {
+        position: relative;
+        z-index: 3;
         @media @tablet-l {
           margin-top: 40%;
           padding-left: 40px;
+        }
+      }
+      
+      .form_holer.mobile{
+          position: relative;
+          margin-top: 50px;
+          z-index: 5;
+          width: 100%;
+          padding-right: 20px;
+          box-sizing: border-box;
+
+          @media @tablet-l{
+             display: none;
+          }
+
+        p{
+          .p1();
+          margin-bottom: 10px;
+          padding-left: 10px;
+          font-size: 14px;
+          box-sizing: border-box;
+        }
+
+        form {
+            position: relative;
+            width: 100%;
+
+            @media @tablet-s{
+              width: 70vw;
+            }
+
+            input[type='email'] {
+                background-color: transparent;
+                border: solid 1px @color1;
+                height: 38px;
+                border-radius: 60px;
+                width: 100%;
+                padding: 0 70px 0 23px;
+                box-sizing: border-box;
+                color: @color1;
+                font-size: 14px;
+                font-family: @fontR;
+                outline: none;
+                height: 52px;
+                padding-left: 20px;
+                font-size: 16px;
+
+                @media @laptop-s {
+                    font-size: 28px;
+                }
+
+                &::placeholder {
+                    color: @color1;
+                    font-size: 16px;
+
+                    @media @laptop-s {
+                      font-size: 28px;
+                    }
+                }
+            }
+
+            .icon_btn{
+              position: absolute;
+              top: 5px;
+              right: 5px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 40px;
+              height: 40px;
+
+              &:hover{
+                background-color: @color3;
+              }
+              
+              &:after{
+                border-color: transparent;
+              }
+            }
+
+            input[type='submit'] {
+                opacity: 0;
+                box-sizing: border-box;
+                padding: 0 12px;
+                background-color: transparent;
+                height: 100%;
+                border: 0;
+                position: absolute;
+                top: 0;
+                right: 0;
+
+                @media @tablet-s {
+                    padding: 0 20px 0 15px;
+                }
+
+                img {
+                    position: relative;
+                    top: 2px;
+                    width: 26px;
+
+                    @media @tablet-s {
+                        width: 34px;
+                    }
+                }
+            }
         }
       }
     }
