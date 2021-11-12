@@ -47,7 +47,7 @@ $category = $categories[0];
                         <?php endforeach; ?>
                     </div>
 
-                    <div class="gallery_swiper_holer">
+                    <div class="gallery_swiper_holder">
                         <?php if( $age_limit['min'] ): ?>
                             <div class="age_limit mobile">
                                 <p>AGE<?php echo ( $age_limit['min'] && $age_limit['max']) ? 'S' : null; ?></p>

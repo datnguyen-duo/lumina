@@ -57,15 +57,15 @@
                                 <a href="">Lumina</a>
                                 <ul class="sub-menu">
                                     <li><a href="/">Home</a></li>
-                                    <li><a href="/">About</a></li>
-                                    <li><a href="/">Gallery</a></li>
+                                    <!-- <li><a href="/">About</a></li>
+                                    <li><a href="/">Gallery</a></li> -->
                                     <li><a href="/contact">Contact</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </nav>
 
-                    <div class="form_holer desktop">
+                    <div class="form_holder desktop">
                         <p>
                             Subscribe to Lumina for the latest updates
                         </p>
@@ -97,7 +97,7 @@
                         </ul>
                     </nav>
 
-                    <div class="form_holer mobile">
+                    <div class="form_holder mobile">
                         <p>
                             Subscribe to Lumina for the latest updates
                         </p>
