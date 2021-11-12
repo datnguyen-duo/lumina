@@ -515,6 +515,7 @@ body {
     z-index: 10;
     box-sizing: border-box;
     .transition(all,350ms);
+    transform: translateX(100%);
 
     &.active {
         transform: translateX(0);
@@ -522,11 +523,25 @@ body {
 
     @media @tablet-s {
         border-bottom-left-radius: 60px;
+        width: 590px;
+    }
+
+    @media @desktop-m {
         width: 664px;
     }
 
-    &:not(.checkout_page) {
-        transform: translateX(100%);
+    &.checkout_page {
+        .cart_header {
+            .close_cart {
+                @media @laptop-s {
+                    display: none;
+                }
+            }
+        }
+
+        @media @laptop-s {
+            transform: translateX(0);
+        }
     }
 
     .cart_header,
