@@ -128,7 +128,7 @@ $type_field = get_field_object($type_field_key);
 
                 <div class="column cta_col">
                     <a href="<?php the_permalink(); ?>" class="button">Register</a>
-                    <p>Registration Cost: <?php echo get_woocommerce_currency_symbol().$product->get_price(); ?></p>
+                    <p>Registration Cost: <?php if($product->get_price()): echo get_woocommerce_currency_symbol().$product->get_price(); else: echo "TBD"; endif;?></p>
                 </div>
             </div>
         <?php endwhile; wp_reset_postdata(); ?>

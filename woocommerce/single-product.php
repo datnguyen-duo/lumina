@@ -124,7 +124,7 @@ $category = $categories[0];
                         <div class="label price_label">
                             <div class="label_content">
                                 <p class="label_title">Registration Cost</p>
-                                <p class="label_desc"><?php echo get_woocommerce_currency_symbol().$product->get_price(); ?></p>
+                                <p class="label_desc"><?php if($product->get_price()): echo get_woocommerce_currency_symbol().$product->get_price(); else: echo "TBD"; endif;?></p>
                             </div>
                         </div>
                     </div>
@@ -143,7 +143,7 @@ $category = $categories[0];
 
                     <?php if( $testimonials ): ?>
                         <div class="testimonials">
-                            <h2 class="testimonials_title">What our students are saying</h2>
+                            <h2 class="testimonials_title">What people are saying</h2>
                             <?php foreach( $testimonials as $testimonial ): ?>
                                 <div class="testimonial">
                                     <p class="testimonial_text"><?php echo $testimonial['description']; ?></p>
@@ -161,10 +161,10 @@ $category = $categories[0];
                 <div class="st__split-text">
                     <div class="cta">
                         <h2 class="animate_el big_headline_animation cta_headline">Program</h2>
-                        <h2 class="animate_el big_headline_animation cta_headline mobile">Registeration</h2>
+                        <h2 class="animate_el big_headline_animation cta_headline mobile">Registration</h2>
                         <a class="cta_btn">Please complete ALL of the information below:</a>
                     </div>
-                    <h2 class="animate_el big_headline_animation cta_headline desktop">Registeration</h2>
+                    <h2 class="animate_el big_headline_animation cta_headline desktop">Registration</h2>
                 </div>
             </div>
             
