@@ -218,6 +218,22 @@ window.addEventListener("load", function () {
             SINGLE PRODUCT - DONATION CATEGORY END
         --------------------------------------------------------------------------------- */
 
+    /*	-----------------------------------------------------------------------------
+          SINGLE PRODUCT - REGISTRATION CATEGORY
+      --------------------------------------------------------------------------------- */
+    if ( $(".single_product_page_container.registration_category").length ) {
+        $("input[type=radio][name=source_clone]").change(function () {
+            if( this.value.toLowerCase() === 'other' ) {
+                $('.other_source_input_holder').show();
+            } else {
+                $('.other_source_input_holder').hide();
+            }
+        });
+    }
+    /*	-----------------------------------------------------------------------------
+            SINGLE PRODUCT END - REGISTRATION CATEGORY
+        --------------------------------------------------------------------------------- */
+
 
     /*	-----------------------------------------------------------------------------
         PROGRAMS PAGE

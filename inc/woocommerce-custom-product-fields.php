@@ -39,6 +39,8 @@ function registration_custom_fields(): array {
 
         ['label' => 'How did you hear about us?', 'name' => 'source'],
 
+        ['label' => 'How did you hear about us? - Other ', 'name' => 'other_source'],
+
         ['label' => 'I have read, understand and agree to abide by the Lumina Studio Theatre Policies as set forth on the Lumina Studio website', 'name' => 'privacy_and_policy_consent'],
 
         ['label' => 'We (actor and parent) understand that attendance at each camp day is essential', 'name' => 'parent_consent'],
@@ -271,6 +273,11 @@ function add_fields_before_add_to_cart() {
                     </label>
 
                     <input type="hidden" name="source">
+                </div>
+
+                <div class="input_holder other_source_input_holder" style="display: none;">
+<!--                    <label for="other_source_input">Other</label>-->
+                    <input type="text" name="other_source" id="other_source_input" placeholder="How did you heard about us?" required>
                 </div>
 
                 <div class="caution">
