@@ -18,12 +18,28 @@ get_header(); ?>
             <p>December</p>
         </div>
 
-        <ul>
+        <ul class="desktop_filters">
             <li class="pill active">All</li>
             <li class="pill">Performances</li>
             <li class="pill">REHEARSALS</li>
             <li class="pill">Registration</li>
         </ul>
+
+        <div id="dropdown">
+            <select name="type">
+                    <option value="all">All</option>
+                
+                    <option value="Performances">
+                        Performances
+                    </option>
+                    <option value="REHEARSALS">
+                        REHEARSALS
+                    </option>
+                    <option value="Registration">
+                        Registration
+                    </option>
+            </select>
+        </div>
     </div>
 
     <h1 class="page_title">Calendar</h1>
