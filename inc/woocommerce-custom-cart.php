@@ -1,10 +1,23 @@
 <?php
-function render_shopping_cart_items() {
+function render_shopping_cart_items($is_item_added_to_cart = false) {
     $woocommerce_cart = WC()->cart->get_cart();
     $checkoutPage = ( is_checkout() && empty( is_wc_endpoint_url('order-received')) );
 
     if( $woocommerce_cart ):
         $checkout_url = wc_get_checkout_url();
+
+        if( $is_item_added_to_cart ):
+            $last_added_product_id = end( WC()->cart->cart_contents)['product_id'];
+            $last_product_title = get_the_title($last_added_product_id);
+            $last_product_categories = get_the_terms($last_added_product_id,'product_cat');
+            $last_product_category = ( sizeof($last_product_categories) ) ? $last_product_categories[0] : '';
+        ?>
+            <p class="item_added_to_cart_message">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/icons/checkmark.svg" alt="">
+                <?php echo $last_product_title.' '.$last_product_category->name; ?>
+                has been added to cart.
+            </p>
+        <?php endif;
 
         foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ):
 //            var_dump($cart_item);
@@ -144,7 +157,8 @@ function render_shopping_cart_items() {
 }
 
 function update_shopping_cart() {
-    render_shopping_cart_items();
+    $is_item_added_to_cart = $_POST['addedToCart'];
+    render_shopping_cart_items($is_item_added_to_cart);
     die;
 }
 add_action('wp_ajax_updateshoppingcart', 'update_shopping_cart'); // wp_ajax_{ACTION HERE}
