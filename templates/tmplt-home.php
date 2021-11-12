@@ -19,6 +19,7 @@ get_header(); ?>
 
             <div class="cta_section">
                 <div class="wrapper left">
+                    
                     <p>Buy tickets for our Fall Mainstage Production!</p>
                     <a href="/tickets" class="button">Buy</a>
                 </div>

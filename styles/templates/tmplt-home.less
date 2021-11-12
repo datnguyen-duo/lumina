@@ -149,6 +149,7 @@
                 flex-wrap: nowrap;
                 box-sizing: border-box;
                 text-align: initial;
+                align-items: flex-end;
             }
 
             @media @tablet-l {
@@ -177,6 +178,19 @@
                 
                 &.left{
                     margin-bottom: 40px;
+
+                    @media @tablet-s{
+                        margin-bottom: 0px;
+                    }
+
+                    .button{
+                        width: 100%;
+
+                        @media @tablet-s{
+                            width: 48%;
+                        }
+                        
+                    }
 
                     @media @tablet-l {
                         margin-bottom: 20px;
@@ -220,7 +234,7 @@
                     width: 100%;
                     margin-bottom: 7px;
 
-                    @media @laptop-s {
+                    @media @tablet-s {
                         margin-bottom: 0;
                         margin-right: 15px;
                         width: 45%;
@@ -1125,7 +1139,7 @@
             }
 
             @media @laptop-s {
-                width: 140px;
+                width: 120px;
             }
         }
 

@@ -48,7 +48,7 @@ get_header(); ?>
                             <a href="<?php echo $hero_button['url']; ?>" target="<?php echo $hero_button['target']; ?>" class="circle_btn">
                                 <img class="circle" src="<?php echo get_template_directory_uri(); ?>/images/circle_second.svg" alt="">
                                 <span class="circle_text_holder">
-                                    <img class="circle_text" src="<?php echo get_template_directory_uri(); ?>/images/circle-text.svg" alt="">
+                                    <img class="circle_text" src="<?php echo get_template_directory_uri(); ?>/images/circle-text-faq.svg" alt="">
                                 </span>
                                 <img class="circle_arrow" src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow.svg" alt="">
                             </a>

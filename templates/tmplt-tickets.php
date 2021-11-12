@@ -134,7 +134,7 @@ $products = new WP_Query(array(
     <section class="banner_section">
         <h2>Additional</h2>
         <h2>Faqs & Info</h2>
-        <a href="/faq/" class="button big blue">Learn More</a>
+        <a href="/faq" class="button big blue">Learn More</a>
     </section>
 </div>
 <?php
