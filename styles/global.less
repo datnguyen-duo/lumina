@@ -514,7 +514,6 @@ body {
     width: 100%;
     z-index: 10;
     box-sizing: border-box;
-    transform: translateX(100%);
     .transition(all,350ms);
 
     &.active {
@@ -527,7 +526,7 @@ body {
     }
 
     &:not(.checkout_page) {
-        //display: none;
+        transform: translateX(100%);
     }
 
     .cart_header,
