@@ -122,7 +122,7 @@ $type_field = get_field_object($type_field_key);
                     <h2 class="program_title"><?php the_title(); ?></h2>
 
                     <?php if( get_the_content() ): ?>
-                        <p class="program_description"><?php echo wp_trim_words(get_the_content(),30); ?></p>
+                        <p class="program_description"><?php echo get_the_content(); ?></p>
                     <?php endif; ?>
                 </div>
 

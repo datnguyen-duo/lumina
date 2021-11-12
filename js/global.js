@@ -246,6 +246,26 @@ window.addEventListener("load", function () {
             PROGRAMS PAGE END
         --------------------------------------------------------------------------------- */
 
+    /*	-----------------------------------------------------------------------------
+             CONTACT PAGE
+         --------------------------------------------------------------------------------- */
+        if( $(window).width() > 1000 ) {
+            $('.contact form input').attr('placeholder', 'Enter your e-mail');
+        } else {
+            $('.contact form input').attr('placeholder', 'E-mail');
+        }
+
+        $(window).on("resize", function () {
+            if( $(window).width() > 1000 ) {
+                $('.contact form input').attr('placeholder', 'Enter your e-mail');
+            } else {
+                $('.contact form input').attr('placeholder', 'E-mail');
+            }
+        });
+    /*	-----------------------------------------------------------------------------
+            CONTACT PAGE END
+        --------------------------------------------------------------------------------- */
+        
 
 
     /*	-----------------------------------------------------------------------------

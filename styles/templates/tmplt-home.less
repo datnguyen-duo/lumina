@@ -184,7 +184,8 @@
                     }
 
                     .button{
-                        width: 100%;
+                        width: 75%;
+                        margin: auto;
 
                         @media @tablet-s{
                             width: 48%;
@@ -231,18 +232,26 @@
                 }
 
                 .button {
-                    width: 100%;
+                    width: 75%;
+                    margin: auto;
                     margin-bottom: 7px;
 
                     @media @tablet-s {
                         margin-bottom: 0;
-                        margin-right: 15px;
+                        margin-right: 5px;
+                        margin-left: 0px;
                         width: 45%;
                     }
 
+                    @media @tablet-l {
+                        margin-right: 15px;
+                    }
+
                     &:last-of-type {
-                        margin-right: 0;
-                        margin-bottom: 0;
+                        @media @tablet-s {
+                            margin-right: 0;
+                            margin-bottom: 0;
+                        }
                     }
                 }
             }
@@ -590,6 +599,20 @@
                             padding: 1vw 0;
                         }
                     }
+
+                    &.desktop{
+                        display: none;
+
+                        @media @tablet-s {
+                            display: block;
+                        }
+                    }
+
+                    &.mobile{
+                        @media @tablet-s {
+                            display: none;
+                        }
+                    }
                 }
 
                 .subtitle {
@@ -677,6 +700,20 @@
 
                     @media @tablet-s{
                         margin-bottom: 25px;
+                    }
+
+                    &.desktop{
+                        display: none;
+
+                        @media @tablet-s {
+                            display: block;
+                        }
+                    }
+
+                    &.mobile{
+                        @media @tablet-s {
+                            display: none;
+                        }
                     }
                 }
 

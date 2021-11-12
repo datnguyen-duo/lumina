@@ -85,8 +85,9 @@ get_header(); ?>
         </div>
         <div class="contact">
             <h2 class="contact_title">Subscribe</h2>
+            <p class="mobile_email_label">ENTER YOUR</p>
             <form action="">
-                <input type="text" placeholder="Enter your e-mail">
+                <input type="email" placeholder="Enter your e-mail">
                 <button><img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow-white.svg" alt=""></button>
             </form>
         </div>
