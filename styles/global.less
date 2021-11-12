@@ -514,6 +514,12 @@ body {
     width: 100%;
     z-index: 10;
     box-sizing: border-box;
+    transform: translateX(100%);
+    .transition(all,350ms);
+
+    &.active {
+        transform: translateX(0);
+    }
 
     @media @tablet-s {
         border-bottom-left-radius: 60px;
@@ -521,7 +527,7 @@ body {
     }
 
     &:not(.checkout_page) {
-        display: none;
+        //display: none;
     }
 
     .cart_header,

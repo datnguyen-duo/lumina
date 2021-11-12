@@ -4,12 +4,12 @@
     var customSideCartOpener = $(".custom_side_cart_opener");
 
     function openSideCart() {
-        customSideCart.fadeIn();
+        customSideCart.addClass('active');
         customSideCartOverlay.fadeIn();
     }
 
     function closeSideCart() {
-        customSideCart.fadeOut();
+        customSideCart.removeClass('active');
         customSideCartOverlay.fadeOut();
     }
 
