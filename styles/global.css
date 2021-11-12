@@ -4706,6 +4706,9 @@ header .hamburger_holder .hamburger span:nth-child(3) {
     display: none;
   }
 }
+.template_calendar_page_container .filters #dropdown .select2-container {
+  left: auto!important;
+}
 .template_calendar_page_container .filters #dropdown .select2-container.select2-container--open .selection .select2-selection .select2-selection__arrow {
   -webkit-transform: translateY(-50%) rotate(0deg);
           transform: translateY(-50%) rotate(0deg);
@@ -4780,6 +4783,8 @@ header .hamburger_holder .hamburger span:nth-child(3) {
   border-color: transparent !important;
   width: auto !important;
   background-color: transparent;
+  right: 0!important;
+  left: auto!important;
 }
 .template_calendar_page_container .filters #dropdown .select2-dropdown .select2-results .select2-results__options {
   margin-top: 5px;
