@@ -47,6 +47,7 @@
       border-radius: 100vw;
       display: flex;
       height: 25vw;
+      position: relative;
 
       @media @tablet-s {
         height: 12vw;
@@ -77,12 +78,15 @@
       .right {
         padding: 20px;
         box-sizing: border-box;
-        width: 100%;
-        position: relative;
+        width: calc(100% - 25vw);
         display: flex;
         align-items: center;
+        justify-content: center;
 
         @media @tablet-s {
+          justify-content: initial;
+          width: 100%;
+          position: relative;
           padding: 20px 50px;
         }
 
@@ -278,18 +282,21 @@
 
             button {
               border-color: transparent;
-              width: 30px;
-              height: 30px;
+              width: 35px;
+              height: 35px;
               right: -20%;
               top: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
 
               &:after {
-                width: 35px;
-                height: 35px;
+                width: 40px;
+                height: 40px;
               }
 
               img {
-                width: 15px;
+                width: 25px;
               }
 
               @media @tablet-s {

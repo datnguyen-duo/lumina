@@ -9,7 +9,7 @@
 
             <div class="contact_info">
                 <img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo-dark.png" alt="">
-                <p>8641 Colesville Rd Silver Spring MD 20910, (301) 565-2281</p>
+                <p>8641 Colesville Rd Silver Spring MD 20910, <a href="tel:(301) 565-2281"> (301) 565-2281</a></p>
             </div>
         </div>
         <div class="right">
@@ -54,7 +54,7 @@
     <div class="bottom">
         <div class="contact_info">
             <img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo-dark.png" alt="">
-            <p>8641 Colesville Rd Silver Spring MD 20910, (301) 565-2281</p>
+            <p>8641 Colesville Rd Silver Spring MD 20910, <a href="tel:(301) 565-2281">(301) 565-2281</a></p>
         </div>
         <p class="copyright">©2021 Lumina Studio Theatre. All rights reserved.</p>
     </div>

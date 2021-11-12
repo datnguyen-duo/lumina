@@ -491,9 +491,11 @@
       position: relative;
       background-color: @color1;
       flex-wrap: wrap;
+      text-align: center;
 
       @media @tablet-s {
         padding-top: 80px;
+        text-align: left;
       }
 
       @media @tablet-l {
@@ -668,10 +670,15 @@
             border-radius: 92px;
             display: flex;
             align-items: center;
+            justify-content: center;
             padding: 15px 30px;
             box-sizing: border-box;
             width: 100%;
             margin-bottom: 20px;
+
+            @media @tablet-s {
+              justify-content: flex-start;
+            }
 
             @media @tablet-xl {
               margin-bottom: 0px;
@@ -897,6 +904,17 @@
           @media @laptop-l {
             padding: 137px 30px;
             max-width: 1260px;
+          }
+
+          .pills_checkbox_inputs_holder{
+            label{
+              width: 48%;
+              
+              span{
+                height: 38px;
+              }
+              
+            }
           }
 
           h2 {
