@@ -87,6 +87,8 @@ $type_field = get_field_object($type_field_key);
             $age_limit_min = get_field('age_limit_min');
             $age_limit_max = get_field('age_limit_max');
             $age_limit_message = get_field('age_limit_message');
+            $img_id = $product -> get_image_id();
+            $img_url = wp_get_attachment_image_url( $img_id, 'full' );
             ?>
             <div class="program">
                 <div class="column img_col">
@@ -108,7 +110,7 @@ $type_field = get_field_object($type_field_key);
                     <?php endif; ?>
 
                     <div class="image_holder">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/dev/Winters Tale Players.jpg">
+                        <img src="<?php echo $img_url?>" alt="program-image">
                     </div>
                 </div>
 
