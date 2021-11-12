@@ -96,11 +96,11 @@ $type_field = get_field_object($type_field_key);
                     <?php if( $age_limit_min ): ?>
                         <div class="circle">
                             <span class="ages">
-                                AGE<?php echo ( $age_limit_max ) ? 'S' : null; ?>
+                                AGES
                                 <br>
                                 <?php
                                 echo $age_limit_min;
-                                if( $age_limit_max ): echo '-'.$age_limit_max; endif; ?>
+                                if( $age_limit_max ): echo '-'.$age_limit_max; else: echo "+"; endif; ?>
                             </span>
 
                             <?php if( $age_limit_message ): ?>

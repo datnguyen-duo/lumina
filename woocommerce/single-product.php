@@ -102,13 +102,9 @@ $category = $categories[0];
 
                     if( $age_limit_min ): ?>
                         <div class="age_limit desktop">
-                            <p>AGE<?php echo ( $age_limit_max ) ? 'S' : null; ?></p>
+                            <p>AGES</p>
                             <div class="ages">
-                                <p><?php echo $age_limit_min; ?></p>
-
-                                <?php if( $age_limit_max ): ?>
-                                    <p><?php echo $age_limit_max; ?></p>
-                                <?php endif; ?>
+                                <p><?php echo $age_limit_min; if( $age_limit_max ): echo '-'.$age_limit_max; else: echo "+"; endif; ?></p>
                             </div>
                         </div>
                     <?php endif; ?>
