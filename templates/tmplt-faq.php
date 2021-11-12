@@ -62,7 +62,7 @@ get_header(); ?>
     <section class="questions_section">
         <div class="questions_group">
             <?php if($first_section_title): ?>
-                <h2 class="group_title"><?php echo $first_section_title; ?></h2>
+                <h2 id="registration-policies" class="group_title"><?php echo $first_section_title; ?></h2>
             <?php endif; ?>
 
             <?php if($first_section_faq): ?>

@@ -418,6 +418,18 @@ window.addEventListener("load", function () {
     /*	-----------------------------------------------------------------------------
            FAQ PAGE
        --------------------------------------------------------------------------------- */
+
+    if (window.location.href.indexOf("registration-policies") != -1) {
+        setTimeout(() => {
+            location.hash = '#registration-policies';
+            $(".questions_group:first-of-type .question:nth-child(2)").addClass("active");
+            $(".questions_group:first-of-type .question:nth-child(2) .question_text").slideDown();
+        }, 500);
+    }
+    $(".circle_btn").on("click", function(e) {
+        $(".questions_group:first-of-type .question:nth-child(2)").addClass("active");
+        $(".questions_group:first-of-type .question:nth-child(2) .question_text").slideDown();
+    })
     $(".question .question_title").on("click", function () {
         $(this).parent().toggleClass("active").find(".question_text").slideToggle();
     });

@@ -108,7 +108,7 @@ window.addEventListener("load", function () {
 //     };
 //   });
 
-//   // DONATE ADD TO CART 
+//   // DONATE ADD TO CART
 
 //   var addToCart = document.querySelector(".donate-add-to-cart")
 

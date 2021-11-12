@@ -58,7 +58,7 @@ get_header(); ?>
                     <img class="word_image" src="<?php echo get_template_directory_uri(); ?>/images/dev/RII Karim.jpg" alt="">
                     <h2>For</h2>
                     <div class="circle_btn_holder animate_el">
-                        <a href="#" class="circle_btn">
+                        <a href="/lumina/faq/#registration-policies" class="circle_btn">
                             <img class="circle" src="<?php echo get_template_directory_uri(); ?>/images/circle.svg" alt="">
                             <span class="circle_text_holder">
                                 <img class="circle_text" src="<?php echo get_template_directory_uri(); ?>/images/circle-text.svg" alt="">
