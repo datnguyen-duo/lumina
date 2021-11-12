@@ -74,9 +74,7 @@ get_header(); ?>
                                 <button class="icon_btn"><img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow.svg" alt=""></button>
                             </h3>
                             <div class="question_text">
-                                <p>
-                                    <?php echo $singleQuestion['faq_answer'] ?>
-                                </p>
+                                <?php echo $singleQuestion['faq_answer'] ?>
                             </div>
                         </div>
                     <?php endforeach; ?>
