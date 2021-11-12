@@ -4252,14 +4252,13 @@ header .hamburger_holder .hamburger span:nth-child(3) {
 }
 @media only screen and (min-width : 768px) {
   .template_programs_page_container .filters .pills_checkbox_inputs_holder label span {
-    padding: 0 40px;
-    height: 60px;
+    padding: 15px 40px;
     min-width: 163px;
   }
 }
 @media only screen and (min-width : 1600px) {
   .template_programs_page_container .filters .pills_checkbox_inputs_holder label span {
-    padding: 0 55px;
+    padding: 15 55px;
   }
 }
 .template_programs_page_container .filters .pills_checkbox_inputs_holder label span img {
@@ -4820,7 +4819,13 @@ header .hamburger_holder .hamburger span:nth-child(3) {
   color: #fff;
 }
 .template_calendar_page_container .filters .pill {
-  padding: 0 33px;
+  padding: 0px 33px;
+}
+@media only screen and (min-width : 1250px) {
+  .template_calendar_page_container .filters .pill {
+    padding: 15px 33px;
+    height: auto;
+  }
 }
 .template_calendar_page_container .filters .pill:hover {
   background-color: #fff;

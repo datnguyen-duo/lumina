@@ -117,7 +117,12 @@
         }
 
         .pill {
-            padding: 0 33px;
+            padding: 0px 33px;
+
+            @media @laptop-s {
+                padding: 15px 33px;
+                height: auto;
+            }
 
             &:hover{
                 background-color: #fff;
