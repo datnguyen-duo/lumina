@@ -310,6 +310,12 @@ window.addEventListener("load", function () {
             site_data.theme_url +
             '/images/icons/arrow-3.svg" alt=""></button>',
     });
+
+    $(".template_calendar_page_container .filters select").select2({
+        dropdownParent: $('#dropdown'),
+        width: '100%',
+        minimumResultsForSearch: -1
+    });
     /*	-----------------------------------------------------------------------------
            CALENDAR PAGE END
        --------------------------------------------------------------------------------- */
