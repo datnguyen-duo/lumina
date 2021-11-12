@@ -404,8 +404,6 @@ body.no_scroll {
   z-index: 10;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
   -webkit-transition: all 350ms ease 0ms;
   transition: all 350ms ease 0ms;
 }
@@ -418,6 +416,10 @@ body.no_scroll {
     border-bottom-left-radius: 60px;
     width: 664px;
   }
+}
+.custom_side_cart:not(.checkout_page) {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
 }
 .custom_side_cart .cart_header,
 .custom_side_cart .ticket_header {
