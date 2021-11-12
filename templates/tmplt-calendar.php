@@ -144,14 +144,14 @@ get_header(); ?>
             <div class="box_content">
                 <img class="icon" src="<?php echo get_template_directory_uri(); ?>/images/dev/box-icon-1.svg">
                 <h2>Buy Your Tickets</h2>
-                <a href="" class="button big">Buy Tickets</a>
+                <a href="/programs" class="button big">Buy Tickets</a>
             </div>
         </div>
         <div class="box">
             <div class="box_content">
                 <img class="icon" src="<?php echo get_template_directory_uri(); ?>/images/dev/box-icon-2.svg">
                 <h2>Register Today</h2>
-                <a href="" class="button big">Register</a>
+                <a href="/tickets" class="button big">Register</a>
             </div>
         </div>
     </section>

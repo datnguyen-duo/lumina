@@ -107,13 +107,17 @@
 
                     .select2-results {
                         .select2-results__options {
+                            margin-top: 5px;
                             .select2-results__option {
+                                background-color: @color2;
+                                border: 1px solid @color1;
                                 .p2();
                                 white-space: nowrap;
                                 border-radius: 60px;
 
                                 &.select2-results__option--highlighted {
-                                    background-color: transparent;
+                                    background-color: @color1;
+                                    color: #fff;
                                 }
                             }
                         }
@@ -138,6 +142,10 @@
                 display: flex;
                 flex-wrap: wrap;
                 margin-bottom: 10px;
+
+                &:hover{
+                    background-color: #fff;
+                }
 
                 @media @tablet-l {
                     margin-bottom: 0;
