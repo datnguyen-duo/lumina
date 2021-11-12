@@ -821,6 +821,25 @@ body {
             text-align: center;
         }
 
+        .item_added_to_cart_message {
+            padding: 20px 15px;
+            .p1();
+            color: @color3;
+            border-bottom: solid 1px @color3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                margin-right: 5px;
+                width: 15px;
+
+                @media @tablet-s {
+                    margin-right: 10px;
+                }
+            }
+        }
+
         .items {
             display: flex;
             flex-direction: column;
