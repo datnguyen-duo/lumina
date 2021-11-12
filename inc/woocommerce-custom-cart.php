@@ -174,9 +174,7 @@ function render_shopping_cart() {
             <div class="cart_header">
                 <h2 class="title">Your Cart</h2>
 
-                <?php if( !$checkoutPage ): ?>
-                    <img class="close_cart" src="<?php echo get_template_directory_uri(); ?>/images/icons/times-circle.svg" alt="">
-                <?php endif; ?>
+                <img class="close_cart" src="<?php echo get_template_directory_uri(); ?>/images/icons/times-circle.svg" alt="">
             </div>
 
             <div class="items" id="response">

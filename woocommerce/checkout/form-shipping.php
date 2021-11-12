@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
 	<?php if ( true === WC()->cart->needs_shipping_address() ) : ?>
         <h3>Shipping Address</h3>
 
-        <div class="pills_checkbox_inputs_holder">
+        <div class="pills_checkbox_inputs_holder shipping_type">
             <label for="test_1" class="container">
                 <input type="radio" id="test_1" name="ship_to_different_address_radio" value="yes" <?php checked( apply_filters( 'woocommerce_ship_to_different_address_checked', 'shipping' === get_option( 'woocommerce_ship_to_destination' ) ? 0 : 1 ), 1 ); ?>>
                 <span class="checkmark">Same as billing address</span>
