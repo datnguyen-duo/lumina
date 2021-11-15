@@ -44,9 +44,9 @@
                 <p>Follow Us</p>
 
                 <ul>
-                    <li><a href="https://www.facebook.com/LuminaStudioTheater/"><img src="<?php echo get_template_directory_uri(); ?>/images/social-media/facebook.svg" alt=""></a></li>
-                    <li><a href="https://www.instagram.com/luminastudiotheatre/?hl=en"><img src="<?php echo get_template_directory_uri(); ?>/images/social-media/instagram.svg" alt=""></a></li>
-                    <li><a href="https://www.youtube.com/channel/UCPp30MGZtbEp22ak3TwatzQ"><img src="<?php echo get_template_directory_uri(); ?>/images/social-media/youtube.svg" alt=""></a></li>
+                    <li><a href="https://www.facebook.com/LuminaStudioTheater/" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_template_directory_uri(); ?>/images/social-media/facebook.svg" alt=""></a></li>
+                    <li><a href="https://www.instagram.com/luminastudiotheatre/?hl=en" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_template_directory_uri(); ?>/images/social-media/instagram.svg" alt=""></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCPp30MGZtbEp22ak3TwatzQ" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_template_directory_uri(); ?>/images/social-media/youtube.svg" alt=""></a></li>
                 </ul>
             </div>
         </div>
