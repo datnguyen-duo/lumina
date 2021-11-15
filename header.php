@@ -91,7 +91,7 @@
                                     <li><a href="/programs">Programs</a></li>
                                     <li><a href="/faq">FAQ & Policies</a></li>
                                     <li><a href="/tickets">Tickets</a></li>
-                                    <li><a href="/calendar">Calendar</a></li>
+                                    <!-- <li><a href="/calendar">Calendar</a></li> -->
                                 </ul>
                             </li>
                         </ul>
