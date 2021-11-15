@@ -1,5 +1,5 @@
 <div class="form_checkout_page_container">
-    <div class="page_content">
+    <div class="checkout_fields">
         <?php
         /**
          * Checkout Form
@@ -90,5 +90,8 @@
         </form>
 
         <?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
+    </div>
+    <div class="cart_holder">
+        <?php render_shopping_cart(); ?>
     </div>
 </div>

@@ -1,16 +1,18 @@
 .form_checkout_page_container {
-    padding: 75px 20px 60px 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px 60px 20px;
 
     @media @tablet-s {
-        padding: 163px 40px 200px 40px;
+        padding: 0 40px 200px 40px;
     }
 
     @media @laptop-s {
-        padding-right: 620px;
+        padding-left: 60px;
+        padding-right: 0;
     }
 
     @media @desktop-m {
-        padding-right: 700px;
         padding-left: 100px;
     }
 
@@ -18,10 +20,29 @@
         padding-left: 194px;
     }
 
-    .page_content {
-        @media @laptop-l {
-            max-width: 950px;
+    .checkout_fields {
+        box-sizing: border-box;
+        //width: 50%;
+        padding-top: 75px;
+        width: 100%;
+
+        @media @tablet-s {
+            padding-top: 120px;
         }
+
+        @media @laptop-s {
+            padding-top: 163px;
+            padding-right: 60px;
+        }
+
+        @media @laptop-l {
+            padding-right: 80px;
+            max-width: 1200px;
+        }
+    }
+
+    .cart_holder {
+        //width: 50%;
     }
 
     .woocommerce-form-coupon-toggle {

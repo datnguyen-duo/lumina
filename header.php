@@ -116,4 +116,9 @@
         
     </div>
 
-    <?php render_shopping_cart(); ?>
+    <?php
+    $checkoutPage = ( is_checkout() && empty( is_wc_endpoint_url('order-received')) );
+    if( !$checkoutPage ):
+        render_shopping_cart();
+    endif;
+    ?>
