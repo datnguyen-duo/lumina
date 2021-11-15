@@ -61,6 +61,13 @@ function donation_custom_fields(): array {
     ];
 }
 
+function ticket_custom_fields(): array {
+    return [
+        ['label' => 'Date', 'name' => 'date'],
+        ['label' => 'Time', 'name' => 'time'],
+    ];
+}
+
 add_action( 'woocommerce_before_add_to_cart_button', 'add_fields_before_add_to_cart' );
 function add_fields_before_add_to_cart() {
     global $product;
@@ -440,6 +447,8 @@ function get_item_data($other_data, $cart_item) {
             $fields = registration_custom_fields();
         elseif ( $category->slug == 'donation'):
             $fields = donation_custom_fields();
+        elseif ( $category->slug == 'ticket'):
+            $fields = ticket_custom_fields();
         endif;
 
         if( $fields )  {
@@ -474,6 +483,8 @@ function add_order_item_meta ( $item_id, $values ) {
             $fields = registration_custom_fields();
         elseif ( $category->slug == 'donation'):
             $fields = donation_custom_fields();
+        elseif ( $category->slug == 'ticket'):
+            $fields = ticket_custom_fields();
         endif;
 
         if( $fields ):
