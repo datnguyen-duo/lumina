@@ -248,6 +248,7 @@ window.addEventListener("load", function () {
 
         $('.gallery_section .image').on('click', function(){
             var initialSlide = $(this).data('index');
+            $('.gallery_custom_mobile_pagination .current_slide').text(initialSlide + 1);
 
             $('.gallery_custom_pagination li').eq(initialSlide).addClass('active');
 
@@ -274,6 +275,7 @@ window.addEventListener("load", function () {
 
         $('.gallery_slider').on('afterChange', function(slick, currentSlide){
             $('.gallery_custom_pagination li').removeClass('active').eq(currentSlide.currentSlide).addClass('active');
+            $('.gallery_custom_mobile_pagination .current_slide').text(currentSlide.currentSlide + 1);
         });
 
         $('.gallery_custom_pagination li').on('click', function(){
