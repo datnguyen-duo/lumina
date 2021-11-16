@@ -12,7 +12,7 @@ function register_post_types() {
             'with_front' => false
         ),
         'public' => true,
-        'publicly_queryable' => false,
+        'publicly_queryable' => true,
         'show_ui' => true,
         'show_in_menu' => true,
         'query_var' => true,
