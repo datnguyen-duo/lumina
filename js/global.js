@@ -236,6 +236,61 @@ window.addEventListener("load", function () {
 
 
     /*	-----------------------------------------------------------------------------
+         SINGLE GALLERIES
+     --------------------------------------------------------------------------------- */
+    if ( $(".single_galleries_page_container").length ) {
+        $('.close_gallery').on('click', function(){
+            $('.gallery_light_box').fadeOut(function(){
+                $('.gallery_slider').slick('destroy');
+                $('.gallery_custom_pagination li').removeClass('active');
+            });
+        });
+
+        $('.gallery_section .image').on('click', function(){
+            var initialSlide = $(this).data('index');
+
+            $('.gallery_custom_pagination li').eq(initialSlide).addClass('active');
+
+            $('.gallery_light_box').fadeIn();
+
+            $(".gallery_slider").slick({
+                prevArrow:
+                    '<button type="button" class="gallery_prev_btn"><img src="' +
+                    site_data.theme_url +
+                    '/images/icons/arrow-white.svg" alt=""></button>',
+                nextArrow:
+                    '<button type="button" class="gallery_next_btn"><img src="' +
+                    site_data.theme_url +
+                    '/images/icons/arrow-white.svg" alt=""></button>',
+                fade: true,
+                appendArrows: $(".gallery_holder"),
+                // dots: true,
+                initialSlide: initialSlide,
+                adaptiveHeight: true,
+                rows: 0,
+                // slide: ".actor",
+            });
+        });
+
+        $('.gallery_slider').on('afterChange', function(slick, currentSlide){
+            $('.gallery_custom_pagination li').removeClass('active').eq(currentSlide.currentSlide).addClass('active');
+        });
+
+        $('.gallery_custom_pagination li').on('click', function(){
+            var target = $(this).data('index');
+
+            $('.gallery_slider').slick('slickGoTo', target);
+
+            $('.gallery_custom_pagination li').removeClass('active');
+            $(this).addClass('active');
+        });
+    }
+    /*	-----------------------------------------------------------------------------
+            SINGLE GALLERIES END
+        --------------------------------------------------------------------------------- */
+
+
+    /*	-----------------------------------------------------------------------------
         PROGRAMS PAGE
     --------------------------------------------------------------------------------- */
     if ( $(".template_programs_page_container").length ) {
