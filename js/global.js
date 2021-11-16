@@ -169,7 +169,7 @@ window.addEventListener("load", function () {
     /*	-----------------------------------------------------------------------------
           SINGLE PRODUCT
       --------------------------------------------------------------------------------- */
-    if ($(".single_product_page_container").length) {
+    if ( $(".single_product_page_container").length ) {
         $("input[type=radio][name$=_clone]").change(function () {
             var target = $(this).attr("name").replace("_clone", "");
             $("input[name=" + target + "]").val($(this).val());
@@ -195,7 +195,7 @@ window.addEventListener("load", function () {
     /*	-----------------------------------------------------------------------------
            SINGLE PRODUCT - DONATION CATEGORY
        --------------------------------------------------------------------------------- */
-    if ($(".single_product_page_container.donation_category").length) {
+    if ( $(".single_product_page_container.donation_category").length ) {
         //copy value of custom price clone input to the original hidden custom price input
         $("#custom_price_field_clone").on("input", function () {
             $("#custom_price_field").val($(this).val());
@@ -379,83 +379,87 @@ window.addEventListener("load", function () {
              GALLERY PAGE
          --------------------------------------------------------------------------------- */
 
-    var swiper = new Swiper(".gallery_swiper", {
-        slidesPerView: 1,
-        loop: true,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-    });
+    $('.template_gallery_page_container')
 
-    var swiper = new Swiper(".swiper", {
-        // loopedSlides: 8,
-        slidesPerView: 2.8,
-        spaceBetween: 170,
-        loop: true,
-        freeMode: true,
-        autoplay: {
-            delay: 1,
-            disableOnInteraction: false,
-            // waitForTransition: false,
-        },
-        speed: 10000,
-        mousewheel: {
-            // forceToAxis: true,
-        },
-    });
+    if ( $(".template_gallery_page_container").length ) {
+        var swiper = new Swiper(".gallery_swiper", {
+            slidesPerView: 1,
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
 
-    swiper.on("slideChange", function () {
-        // console.log('s');
-        swiper.autoplay.stop();
+        var swiper = new Swiper(".swiper", {
+            // loopedSlides: 8,
+            slidesPerView: 2.8,
+            spaceBetween: 170,
+            loop: true,
+            freeMode: true,
+            autoplay: {
+                delay: 1,
+                disableOnInteraction: false,
+                // waitForTransition: false,
+            },
+            speed: 10000,
+            mousewheel: {
+                // forceToAxis: true,
+            },
+        });
 
-        setTimeout(function () {
+        swiper.on("slideChange", function () {
+            // console.log('s');
+            swiper.autoplay.stop();
+
+            setTimeout(function () {
+                swiper.autoplay.start();
+            }, 500);
+        });
+
+        $(".gallery_section").hover(function () {
             swiper.autoplay.start();
-        }, 500);
-    });
+        });
 
-    $(".gallery_section").hover(function () {
-        swiper.autoplay.start();
-    });
+        // var swiper = new Swiper(".swiper-container", {
+        //   loopedSlides: 8,
+        //   loop: true,
+        //   slidesPerView: "auto",
+        //   freeMode: true,
+        //   mousewheel: {
+        //     releaseOnEdges: true,
+        //   },
+        // });
+        //
+        // var thumb = document.querySelectorAll(".thumbContainer");
+        //
+        // thumb.forEach(function(image, index) {
+        //   var delay = index * 90;
+        //   image.classList.add("fadeInSlide");
+        //   image.style.animationDelay = delay + "ms";
+        // });
 
-    // var swiper = new Swiper(".swiper-container", {
-    //   loopedSlides: 8,
-    //   loop: true,
-    //   slidesPerView: "auto",
-    //   freeMode: true,
-    //   mousewheel: {
-    //     releaseOnEdges: true,
-    //   },
-    // });
-    //
-    // var thumb = document.querySelectorAll(".thumbContainer");
-    //
-    // thumb.forEach(function(image, index) {
-    //   var delay = index * 90;
-    //   image.classList.add("fadeInSlide");
-    //   image.style.animationDelay = delay + "ms";
-    // });
-
-    // $(".galleries_slider").slick({
-    //   autoplay: true,
-    //   autoplaySpeed: 0,
-    //   centerMode: true,
-    //   slidesToShow: 3,
-    //   slidesToScroll: 1,
-    //   speed: 1000,
-    //   pauseOnFocus: true,
-    //   pauseOnHover: true,
-    //   pauseOnDotsHover: true,
-    //   cssEase: 'linear',
-    //   arrows : false,
-    //   waitForAnimate: false,
-    //   // centerPadding: '50px',
-    //   // variableWidth: true ,
-    // });
-    //
-    // $('.galleries_slider').on('swipe', function(event, slick, currentSlide, nextSlide){
-    //   console.log(currentSlide);
-    // });
+        // $(".galleries_slider").slick({
+        //   autoplay: true,
+        //   autoplaySpeed: 0,
+        //   centerMode: true,
+        //   slidesToShow: 3,
+        //   slidesToScroll: 1,
+        //   speed: 1000,
+        //   pauseOnFocus: true,
+        //   pauseOnHover: true,
+        //   pauseOnDotsHover: true,
+        //   cssEase: 'linear',
+        //   arrows : false,
+        //   waitForAnimate: false,
+        //   // centerPadding: '50px',
+        //   // variableWidth: true ,
+        // });
+        //
+        // $('.galleries_slider').on('swipe', function(event, slick, currentSlide, nextSlide){
+        //   console.log(currentSlide);
+        // });
+    }
     /*	-----------------------------------------------------------------------------
            GALLERY PAGE END
        --------------------------------------------------------------------------------- */

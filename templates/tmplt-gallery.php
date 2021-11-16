@@ -24,7 +24,7 @@ $galleries = new WP_Query(array(
                 <div class="swiper-wrapper">
                     <?php while( $galleries->have_posts() ): $galleries->the_post(); ?>
                         <div class="swiper-slide">
-                            <a href="<?php the_title(); ?>" class="gallery_image">
+                            <a href="<?php the_permalink(); ?>" class="gallery_image">
                                 <div class="image_holder">
                                     <div class="image">
                                         <?php echo get_the_post_thumbnail(get_the_ID(),'large'); ?>
