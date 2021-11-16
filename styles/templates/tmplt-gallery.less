@@ -1,6 +1,9 @@
 .template_gallery_page_container {
     padding-top: 146px;
     padding-bottom: 200px;
+    background-image: url("../images/pink-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 
     .swiper-wrapper{
         -webkit-transition-timing-function:linear!important;
@@ -9,6 +12,54 @@
     }
 
     .gallery_section {
+        .no_galleries {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            h2 {
+                .h2();
+            }
+        }
+
+        .top_bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 38px;
+            box-sizing: border-box;
+            margin-bottom: 55px;
+
+            p {
+                .p2();
+            }
+
+            .info {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                img {
+                    position: relative;
+                    top: -3px;
+                }
+            }
+
+            .filter {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                img {
+                    position: relative;
+                    top: -3px;
+                    transform: rotate(90deg);
+                    margin-left: 5px;
+                }
+            }
+        }
+
         .swiper-container {
             overflow: visible;
 

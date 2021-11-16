@@ -1,25 +1,47 @@
 <?php
 /* Template Name: Gallery */
-get_header(); ?>
+get_header();
+
+$galleries = new WP_Query(array(
+    'post_type' => 'galleries',
+));
+?>
 <div class="template_gallery_page_container">
     <section class="gallery_section">
-        <div class="swiper-container swiper">
-            <div class="swiper-wrapper">
-                <?php for( $i=0; $i<5; $i++ ): ?>
-                    <div class="swiper-slide">
-                        <a href="#" class="gallery_image">
-                            <div class="image_holder">
-                                <div class="image">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/dev/gallery-cover-<?php echo $i+1; ?>.png" alt="">
-                                </div>
-                            </div>
-                            <p>Invasion of the Surreal Plays SEPT 2012 to AUG 2013</p>
-                        </a>
-                    </div>
-                <?php endfor; ?>
+        <?php if( $galleries->have_posts() ): ?>
+            <div class="top_bar">
+                <div class="info">
+                    <p>Scroll</p>
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow-3.svg" alt="">
+                </div>
+                <div class="filter">
+                    <p>Season</p>
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow-3.svg" alt="">
+                </div>
             </div>
-        </div>
 
+            <div class="swiper-container swiper">
+                <div class="swiper-wrapper">
+                    <?php while( $galleries->have_posts() ): $galleries->the_post(); ?>
+                        <div class="swiper-slide">
+                            <a href="<?php the_title(); ?>" class="gallery_image">
+                                <div class="image_holder">
+                                    <div class="image">
+                                        <?php echo get_the_post_thumbnail(get_the_ID(),'large'); ?>
+                                    </div>
+                                </div>
+
+                                <p><?php the_title(); ?></p>
+                            </a>
+                        </div>
+                    <?php endwhile; wp_reset_postdata(); ?>
+                </div>
+            </div>
+        <?php else: ?>
+            <div class="no_galleries">
+                <h2>There is no galleries to show yet.</h2>
+            </div>
+        <?php endif; ?>
 <!--        <div class="galleries_slider">-->
 <!--            --><?php //for( $i=0; $i<5; $i++ ): ?>
 <!--                <div class="gallery">-->
