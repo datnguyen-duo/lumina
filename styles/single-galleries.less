@@ -1,5 +1,5 @@
 .single_galleries_page_container {
-    padding: 250px 0;
+    padding: 118px 0;
     background: rgb(225, 175, 255);
     background: linear-gradient(
             180deg,
@@ -7,11 +7,19 @@
             rgba(225, 175, 255, 1)
     );
 
+    @media @tablet-s {
+        padding: 250px 0;
+    }
+
     .gallery_section {
         display: flex;
         flex-wrap: wrap;
-        padding: 0 3.5vw;
+        padding: 0 30px;
         box-sizing: border-box;
+
+        @media @tablet-s {
+            padding: 0 3.5vw;
+        }
 
         .no_images {
             min-height: 400px;
@@ -25,14 +33,40 @@
         }
 
         .image_holder {
-            margin-bottom: 7vw;
-            width: 33.333%;
-            padding: 0 3.5vw;
+            width: 100%;
+            margin-bottom: 45px;
             box-sizing: border-box;
             cursor: pointer;
 
+            @media @tablet-s {
+                width: 33.333%;
+                margin-bottom: 7vw;
+            }
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            &:nth-child(odd) {
+                padding-left: 80px;
+
+                @media @tablet-s {
+                    padding: 0 3.5vw;
+                }
+            }
+
+            &:nth-child(even) {
+                padding-right: 80px;
+
+                @media @tablet-s {
+                    padding: 0 3.5vw;
+                }
+            }
+
             &:nth-child(3n+2) {
-                transform: translateY(7vw);
+                @media @tablet-s {
+                    transform: translateY(7vw);
+                }
             }
 
             .image {
@@ -87,9 +121,35 @@
                 height: 108px;
             }
 
-            .gallery_custom_mobile_pagination {
-                display: none;
+            .mobile_info {
+                position: absolute;
+                bottom: 0;
+                left: 14px;
+                .p2();
+                color: #fff;
+                display: flex;
                 align-items: center;
+                transform: translateY(calc(100% + 19px));
+
+                @media @tablet-l {
+                    display: none;
+                }
+
+                img {
+                    width: 15px;
+                    margin-left: 5px;
+                    position: relative;
+                    top: -2px;
+                }
+            }
+
+            .gallery_custom_mobile_pagination {
+                display: flex;
+                align-items: center;
+
+                @media @tablet-s {
+                    display: none;
+                }
 
                 p {
                     .p1();
@@ -113,7 +173,11 @@
             }
 
             .gallery_custom_pagination {
-                display: flex;
+                display: none;
+
+                @media @tablet-s {
+                    display: flex;
+                }
 
                 li {
                     .p1();
@@ -140,18 +204,41 @@
 
             .close_gallery {
                 cursor: pointer;
+                width: 30px;
+
+                @media @tablet-s {
+                    width: 40px;
+                }
+
+                @media @desktop-m {
+                    width: 45px;
+                }
+
+                img {
+                    width: 100%;
+                }
             }
         }
 
         .gallery_light_box_content {
             display: flex;
             height: 100%;
+            padding: 150px 14px;
+            box-sizing: border-box;
 
             .gallery_holder {
-                max-width: 1086px;
+                max-width: 840px;
                 margin: auto;
                 width: 100%;
                 position: relative;
+
+                @media @tablet-xl {
+                    max-width: 900px;
+                }
+
+                @media @desktop-m {
+                    max-width: 1086px;
+                }
 
                 .gallery_prev_btn,
                 .gallery_next_btn {
@@ -162,7 +249,16 @@
                     background-color: transparent;
                     border: 0;
                     z-index: 2;
-                    width: 87px;
+                    width: 55px;
+                    opacity: 0;
+
+                    @media @tablet-l {
+                        opacity: 1;
+                    }
+
+                    @media @desktop-m {
+                        width: 87px;
+                    }
 
                     img {
                         width: 100%;
@@ -172,8 +268,11 @@
 
                 .gallery_prev_btn {
                     left: 0;
-                    transform: translateX(-100% - 70px);
-                    width: 87px;
+                    transform: translateX(-100% - 40px);
+
+                    @media @laptop-xl {
+                        transform: translateX(-100% - 70px);
+                    }
 
                     &:hover {
                         img {
@@ -189,7 +288,11 @@
 
                 .gallery_next_btn {
                     right: 0;
-                    transform: translateX(100% + 70px);
+                    transform: translateX(100% + 40px);
+
+                    @media @laptop-xl {
+                        transform: translateX(100% + 70px);
+                    }
 
                     &:hover {
                         img {
@@ -201,11 +304,17 @@
                 .gallery_slider {
                     .image {
                         position: relative;
-                        padding-top: 63%;
-                        border-radius: 30px;
+                        padding-top: 83%;
+                        border-radius: 10px;
                         overflow: hidden;
-                        border: solid 2px #fff;
+                        border: solid 1px #fff;
                         box-sizing: border-box;
+
+                        @media @tablet-s {
+                            padding-top: 63%;
+                            border: solid 2px #fff;
+                            border-radius: 30px;
+                        }
 
                         img {
                             .cropped_img();

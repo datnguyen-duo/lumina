@@ -21,6 +21,11 @@ $images = get_field('gallery'); ?>
     <?php if( $images ): ?>
         <div class="gallery_light_box">
             <div class="slider_controls">
+                <p class="mobile_info">
+                    Swipe
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow-3-white.svg" alt="">
+                </p>
+
                 <div class="left">
                     <ul class="gallery_custom_pagination">
                         <?php foreach ( $images as $index => $image ): ?>
