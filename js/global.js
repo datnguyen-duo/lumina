@@ -291,6 +291,22 @@ window.addEventListener("load", function () {
             SINGLE GALLERIES END
         --------------------------------------------------------------------------------- */
 
+    /*	-----------------------------------------------------------------------------
+          SINGLE PRODUCT - REGISTRATION CATEGORY
+      --------------------------------------------------------------------------------- */
+    if ( $(".template_about_page_container").length ) {
+        $('.history_title').on('click', function(){
+            $(this).parent().parent().toggleClass('active').find('.history_text, .image_holder').slideToggle();
+        });
+
+        $('.member_name').on('click', function(){
+            $(this).parent().toggleClass('active');
+        });
+    }
+    /*	-----------------------------------------------------------------------------
+            SINGLE PRODUCT END - REGISTRATION CATEGORY
+        --------------------------------------------------------------------------------- */
+
 
     /*	-----------------------------------------------------------------------------
         PROGRAMS PAGE
