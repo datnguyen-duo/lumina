@@ -292,10 +292,10 @@ window.addEventListener("load", function () {
         --------------------------------------------------------------------------------- */
 
     /*	-----------------------------------------------------------------------------
-          SINGLE PRODUCT - REGISTRATION CATEGORY
+          ABOUT US
       --------------------------------------------------------------------------------- */
     if ( $(".template_about_page_container").length ) {
-        $('.history_title').on('click', function(){
+        $('.history .title_holder').on('click', function(){
             $(this).parent().parent().toggleClass('active').find('.history_text, .image_holder').slideToggle();
         });
 
@@ -304,7 +304,7 @@ window.addEventListener("load", function () {
         });
     }
     /*	-----------------------------------------------------------------------------
-            SINGLE PRODUCT END - REGISTRATION CATEGORY
+            ABOUT US END
         --------------------------------------------------------------------------------- */
 
 

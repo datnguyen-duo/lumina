@@ -5,12 +5,21 @@ get_header();
 <div class="template_about_page_container">
     <section class="hero_section">
         <div class="title_holder">
-            <h1 class="section_title">
+            <h1 class="section_title desktop">
                 <span class="title_part_golder">
                     <span class="title_part_text">About</span>
                     <a href=""><span>unique opportunities for young actors of any experience level</span></a>
                 </span>
                 <span class="title_part_text">lumina</span>
+            </h1>
+
+            <h1 class="section_title mobile">
+                <div class="group">
+                    <span class="title_part_text">About</span>
+                    <span class="title_part_text">lumina</span>
+                </div>
+
+                <a href=""><span>unique opportunities for young actors of any experience level</span></a>
             </h1>
         </div>
         <div class="image_with_description">
@@ -78,18 +87,24 @@ get_header();
             <?php for($i=0; $i<6; $i++): ?>
                 <div class="history_holder">
                     <div class="history <?php echo ($i == 0) ? 'active': null;?>">
-                        <div class="featured_image_holder">
-                            <div class="image_holder" style="display: <?php echo ($i == 0) ? 'block': null;?>">
-                                <div class="image">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/dev/hero_image.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
                         <div class="info_holder">
-                            <h3 class="history_title">
-                                199<?php echo $i; ?>
-                                <button class="icon_btn"><img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow-pink.svg" alt=""></button>
-                            </h3>
+                            <div class="title_holder">
+                                <div class="featured_image_holder">
+                                    <div class="image_holder" style="display: <?php echo ($i == 0) ? 'block': null;?>">
+                                        <div class="image">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/dev/hero_image.jpg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="history_title">
+                                    202<?php echo $i; ?>
+                                    <button>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow-pink.svg" alt="">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow.svg" alt="">
+                                    </button>
+                                </h3>
+                            </div>
                             <div class="history_text" style="display: <?php echo ($i == 0) ? 'block': null;?>">
                                 <p>
                                     Lumina Studio Theatre made its debut on October 5, 1995 in Brooklyn,
@@ -122,7 +137,6 @@ get_header();
         </div>
     </section>
 
-
     <section class="team_section">
         <div class="section_title_holder">
             <div class="section_title">
@@ -140,6 +154,14 @@ get_header();
         <div class="staff_description">
             <div class="left">
                 <h3>Staff</h3>
+
+                <div class="circle mobile">
+                    <p>
+                        The <br>
+                        Lumina <br>
+                        Team
+                    </p>
+                </div>
             </div>
             <div class="right">
                 <p>
@@ -148,7 +170,7 @@ get_header();
                     have helped direct over 35 productions on and off of the Lumina stage.
                 </p>
 
-                <div class="circle">
+                <div class="circle desktop">
                     <p>
                         The <br>
                         Lumina <br>
@@ -218,13 +240,19 @@ get_header();
             </div>
         </div>
 
-
         <div class="directors_description">
             <div class="left">
                 <h3>Board of directors</h3>
+                <div class="circle mobile">
+                    <p>
+                        2020 <br>
+                        - <br>
+                        2021
+                    </p>
+                </div>
             </div>
             <div class="right">
-                <div class="circle">
+                <div class="circle desktop">
                     <p>
                         2020 <br>
                         - <br>
