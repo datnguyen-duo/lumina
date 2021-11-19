@@ -5,10 +5,16 @@ get_header();
 <div class="template_support_page_container">
     <section class="hero_section">
         <div class="title_holder">
-            <h1>
-                <span>Support</span>
-                <span>lumina</span>
+            <h1 class="section_title desktop">
+                <span class="title_part_text">Support</span>
+
+                <span class="title_part_golder">
+                    <a href=""><span>Help us bring the transformative power of theatre to our community</span></a>
+                    <span class="title_part_text">lumina</span>
+                </span>
             </h1>
+
+            <a href="" class="mobile"><span>Help us bring the transformative power of theatre to our community</span></a>
         </div>
         <div class="image_with_description">
             <div class="left">
