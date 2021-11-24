@@ -255,8 +255,20 @@
                             margin-right: 0;
                         }
 
-                        img {
-                            width: 44px;
+
+                        a {
+                            &:hover {
+                                img {
+                                    background-color: #fff;
+                                }
+                            }
+
+
+                            img {
+                                .transition();
+                                border-radius: 44px;
+                                width: 44px;
+                            }
                         }
                     }
                 }
