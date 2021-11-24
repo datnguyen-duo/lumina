@@ -78,9 +78,9 @@ get_header(); ?>
         <div class="contact">
             <h2 class="contact_title">Follow Us</h2>
             <ul>
-                <li><a href="" target="_blank">FACEBOOK</a></li>
-                <li><a href="" target="_blank">INSTAGRAM</a></li>
-                <li><a href="" target="_blank">YOUTUBE</a></li>
+                <li><a href="https://www.facebook.com/LuminaStudioTheater/" target="_blank">FACEBOOK</a></li>
+                <li><a href="https://www.instagram.com/luminastudiotheatre/?hl=en" target="_blank">INSTAGRAM</a></li>
+                <li><a href="https://www.youtube.com/channel/UCPp30MGZtbEp22ak3TwatzQ" target="_blank">YOUTUBE</a></li>
             </ul>
         </div>
         <div class="contact">
