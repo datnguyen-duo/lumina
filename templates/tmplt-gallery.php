@@ -42,13 +42,6 @@ $galleries = new WP_Query(array(
                 <h2>There is no galleries to show yet.</h2>
             </div>
         <?php endif; ?>
-<!--        <div class="galleries_slider">-->
-<!--            --><?php //for( $i=0; $i<5; $i++ ): ?>
-<!--                <div class="gallery">-->
-<!--                    <img src="--><?php //echo get_template_directory_uri(); ?><!--/images/dev/gallery-cover---><?php //echo $i+1; ?><!--.png" alt="">-->
-<!--                </div>-->
-<!--            --><?php //endfor; ?>
-<!--        </div>-->
     </section>
 </div>
 <?php
