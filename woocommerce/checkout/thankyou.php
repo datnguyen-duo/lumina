@@ -1,10 +1,63 @@
 <div class="thank_you_page_container">
     <section class="hero_section">
         <div class="content">
-            <h1 class="page_title big_headline_animation">Order</h1>
-            <h1 class="page_title big_headline_animation">Confirmed!</h1>
 
-            <p>Please send proof of vaccination to office@luminastudio.org OR bring proof of vaccination with you to the theatre (picture of vaccination card is sufficient). Masks required for all audience members.</p>
+            <?php
+            $order_items = $order->get_items();
+
+            $messages_to_show = [
+                'donation' => false,
+                'ticket' => false,
+                'registration' => false,
+            ];
+
+            foreach ( $order_items as $item ):
+                $item_data = $item->get_data();
+                $item_categories = get_the_terms($item_data['product_id'], 'product_cat');
+                $messages_to_show[$item_categories[0]->slug] = true;
+            endforeach; ?>
+
+            <div class="messages">
+                <?php if( $messages_to_show['donation'] ): ?>
+                    <h1 class="page_title">Your donation has been received!</h1>
+
+                    <div class="message">
+                        <p>
+                            Thank you so much for supporting Lumina Studio Theatre! Your donation will help us
+                            continue to provide unique, high-quality performance opportunities for young actors!
+                        </p>
+                    </div>
+                <?php endif; ?>
+
+                <?php if( $messages_to_show['ticket'] ): ?>
+                    <h1 class="page_title">Order <br>Confirmed!</h1>
+
+                    <div class="message">
+                        <p>
+                            We are hosting a food drive to benefit Tommy’s Pantry and the Capital Area Food Bank at
+                            our performances, so please bring non-perishable foods with you to the show to donate!
+                        </p>
+                    </div>
+                <?php endif; ?>
+
+                <?php if( $messages_to_show['registration'] ): ?>
+                    <h1 class="page_title">Registration <br>Confirmed!</h1>
+
+                    <div class="message">
+                        <p>
+                            Welcome to the Lumina Family! Stay tuned for an email with more details about rehearsals, performances, etc.
+                        </p>
+                    </div>
+                <?php endif; ?>
+
+                <div class="message caution_message">
+                    <p>
+                        Please send proof of vaccination to office@luminastudio.org OR bring
+                        proof of vaccination with you to the theatre (picture of vaccination
+                        card is sufficient). Masks required for all audience members.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -98,7 +151,8 @@
         </div>
     <?php endif; ?>
 
-    <section class="info_section">
+    <?php if( $messages_to_show['ticket'] ): ?>
+        <section class="info_section">
         <div class="info">
             <h2 class="info_title">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/ticketing-icon.svg" alt="">
@@ -141,6 +195,7 @@
             </div>
         </div>
     </section>
+    <?php endif; ?>
 
     <section class="banner_section">
         <h2>Additional</h2>
