@@ -130,8 +130,6 @@
 
         }
 
-
-
         .cta_section {
             display: flex;
             justify-content: space-between;
@@ -179,22 +177,17 @@
                 &.left{
                     margin-bottom: 40px;
 
-                    @media @tablet-s{
-                        margin-bottom: 0px;
+                    @media @tablet-s {
+                        margin-bottom: 0;
                     }
 
-                    .button{
+                    .button {
                         width: 75%;
                         margin: auto;
 
                         @media @tablet-s{
                             width: 48%;
                         }
-                        
-                    }
-
-                    @media @tablet-l {
-                        margin-bottom: 20px;
                     }
 
                     p{
@@ -213,7 +206,6 @@
                 color: #fff;
                 margin-bottom: 8px;
                 font-family: @fontR !important;
-
             }
 
             p {
@@ -845,11 +837,6 @@
                     margin: 7px 0 10px 0;
                     .transition();
 
-                    &:hover{
-                        background-color: #fff;
-                        color: #D22EFF;
-                    }
-
                     @media @tablet-s {
                         height: 70px;
                         padding: 0 50px;
@@ -1075,7 +1062,7 @@
                 content: "";
                 display: block;
                 position: absolute;
-                top: -16px;
+                top: -15px;
                 left: 50%;
                 transform: translateX(-50%);
                 width: 100%;
@@ -1083,10 +1070,10 @@
                 border-radius: 30px 30px 0 0;
                 border: solid 1px @color1;
                 border-bottom: 0;
-                z-index: -1;
+                z-index: 1;
 
                 @media @tablet-s {
-                    top: -30px;
+                    top: -20px;
                     border-radius: 60px 60px 0 0;
                 }
             }
@@ -1147,7 +1134,7 @@
     }
 
     .banner_2_section {
-        background-image: url("../images/purple-3-bg.jpg");
+        background-image: url("../images/purple-gradient-bg.png");
         background-repeat: no-repeat;
         background-size: cover;
         text-align: center;
