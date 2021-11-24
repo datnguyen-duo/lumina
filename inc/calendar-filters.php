@@ -44,6 +44,7 @@ function print_calendar($events_args) {
                         while( $date_events->have_posts() ): $date_events->the_post();
                             $categories = get_the_terms(get_the_ID(), 'event-category');
                             $short_desc = get_field('short_description');
+                            $title = ( get_field('name') ) ? get_field('name') : get_the_title();
                         ?>
                             <div class="event">
                                 <div class="info">
@@ -51,7 +52,9 @@ function print_calendar($events_args) {
                                         <p class="event_category"><?php echo $categories[0]->name; ?></p>
                                     <?php endif; ?>
 
-                                    <h2 class="event_title"><?php the_title(); ?></h2>
+                                    <h2 class="event_title">
+                                        <?php echo $title; ?>
+                                    </h2>
 
                                     <?php if( $short_desc ): ?>
                                         <p class="event_description"><?php echo $short_desc; ?></p>
@@ -91,6 +94,7 @@ function print_calendar($events_args) {
                                     <?php while( $date_events->have_posts() ): $date_events->the_post();
                                         $categories = get_the_terms(get_the_ID(), 'event-category');
                                         $short_desc = get_field('short_description');
+                                        $title = ( get_field('name') ) ? get_field('name') : get_the_title();
                                     ?>
                                         <div class="event_slide">
                                             <div class="event">
@@ -104,7 +108,7 @@ function print_calendar($events_args) {
                                                         <p class="program_category"><?php echo $categories[0]->name; ?></p>
                                                     <?php endif; ?>
 
-                                                    <h2 class="program_title"><?php the_title(); ?></h2>
+                                                    <h2 class="program_title"><?php echo $title; ?></h2>
 
                                                     <?php if( $short_desc ): ?>
                                                         <p class="program_description"><?php echo $short_desc; ?></p>
@@ -120,6 +124,7 @@ function print_calendar($events_args) {
                         <?php while( $date_events->have_posts() ): $date_events->the_post();
                             $categories = get_the_terms(get_the_ID(), 'event-category');
                             $short_desc = get_field('short_description');
+                            $title = ( get_field('name') ) ? get_field('name') : get_the_title();
                             ?>
                             <div class="date">
                                 <div class="events_date">
@@ -140,7 +145,7 @@ function print_calendar($events_args) {
                                                 <p class="program_category"><?php echo $categories[0]->name; ?></p>
                                             <?php endif; ?>
 
-                                            <h2 class="program_title"><?php the_title(); ?></h2>
+                                            <h2 class="program_title"><?php echo $title; ?></h2>
 
                                             <?php if( $short_desc ): ?>
                                                 <p class="program_description"><?php echo $short_desc; ?></p>

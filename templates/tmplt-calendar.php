@@ -12,15 +12,17 @@ $events_months = [];
 while ( $events->have_posts() ): $events->the_post();
     //format must be in Ymd (20211123)
     $date = get_field('date');
-    $date_year = date('Y', strtotime($date));
-    $date_month = date('m', strtotime($date));
-    $date_day = '01';
+    if( $date ):
+        $date_year = date('Y', strtotime($date));
+        $date_month = date('m', strtotime($date));
+        $date_day = '01';
 
-    $month = $date_year.$date_month.$date_day;
+        $month = $date_year.$date_month.$date_day;
 
-    if( !in_array( $month ,$events_months ) )
-        array_push($events_months, $month);
-
+        if( !in_array( $month ,$events_months ) ):
+            array_push($events_months, $month);
+        endif;
+    endif;
 endwhile; wp_reset_postdata();
 
 $categories = get_terms( array(
@@ -42,29 +44,31 @@ $categories = get_terms( array(
                 <?php endforeach; ?>
             </div>
 
-            <div class="pills_checkbox_inputs_holder">
-                <label for="category_all">
-                    <input type="radio" id="category_all" name="category" value="" checked>
-                    <span class="checkmark">All</span>
-                </label>
-
-                <?php foreach ( $categories as $category ): ?>
-                    <label for="category_<?php echo $category->slug; ?>">
-                        <input type="radio" id="category_<?php echo $category->slug; ?>" name="category" value="<?php echo $category->slug; ?>">
-                        <span class="checkmark"><?php echo $category->name; ?></span>
+            <?php if( $categories ): ?>
+                <div class="pills_checkbox_inputs_holder">
+                    <label for="category_all">
+                        <input type="radio" id="category_all" name="category" value="" checked>
+                        <span class="checkmark">All</span>
                     </label>
-                <?php endforeach; ?>
-            </div>
-
-            <div id="dropdown">
-                <select name="category">
-                    <option value="">All</option>
 
                     <?php foreach ( $categories as $category ): ?>
-                        <option value="<?php echo $category->slug ?>"><?php echo $category->name; ?></option>
+                        <label for="category_<?php echo $category->slug; ?>">
+                            <input type="radio" id="category_<?php echo $category->slug; ?>" name="category" value="<?php echo $category->slug; ?>">
+                            <span class="checkmark"><?php echo $category->name; ?></span>
+                        </label>
                     <?php endforeach; ?>
-                </select>
-            </div>
+                </div>
+
+                <div id="dropdown">
+                    <select name="category">
+                        <option value="">All</option>
+
+                        <?php foreach ( $categories as $category ): ?>
+                            <option value="<?php echo $category->slug ?>"><?php echo $category->name; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            <?php endif; ?>
         <?php endif; ?>
     </div>
 
