@@ -1,5 +1,4 @@
 <?php
-
 function register_post_types() {
     register_post_type('galleries',array(
         'labels' => array(
@@ -20,6 +19,27 @@ function register_post_types() {
 //        'hierarchical' => true,
         'supports' => array('title','thumbnail'),
         'menu_icon' => 'dashicons-format-gallery',
+    ));
+
+    register_post_type('events',array(
+        'labels' => array(
+            'name' => _x('Events', 'post type general name'),
+            'singular_name' => _x('Event', 'post type singular name'),
+            'menu_name' => 'Events'
+        ),
+        'rewrite' => array(
+            'slug' => 'events',
+            'with_front' => false
+        ),
+        'public' => true,
+        'publicly_queryable' => false,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'query_var' => true,
+        'has_archive' => false,
+//        'hierarchical' => true,
+        'supports' => array('title','thumbnail'),
+        'menu_icon' => 'dashicons-calendar-alt',
     ));
 }
 add_action('init','register_post_types');

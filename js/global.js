@@ -166,6 +166,7 @@ window.addEventListener("load", function () {
             MENU OPENER END
         --------------------------------------------------------------------------------- */
 
+
     /*	-----------------------------------------------------------------------------
           SINGLE PRODUCT
       --------------------------------------------------------------------------------- */
@@ -360,42 +361,103 @@ window.addEventListener("load", function () {
     /*	-----------------------------------------------------------------------------
              CALENDAR PAGE
          --------------------------------------------------------------------------------- */
-    $(".events_slider").slick({
-        prevArrow:
-            '<button type="button" class="events_slider_btn prev"><img src="' +
-            site_data.theme_url +
-            '/images/icons/arrow.svg" alt=""></button>',
-        nextArrow:
-            '<button type="button" class="events_slider_btn next"><img src="' +
-            site_data.theme_url +
-            '/images/icons/arrow.svg" alt=""></button>',
-        infinite: false,
-    });
-
-    $(".date_slider").slick({
-        initialSlide: 8,
-        prevArrow:
-            '<button type="button" class="date_slider_btn prev"><img src="' +
-            site_data.theme_url +
-            '/images/icons/arrow-3.svg" alt=""></button>',
-        nextArrow:
-            '<button type="button" class="date_slider_btn next"><img src="' +
-            site_data.theme_url +
-            '/images/icons/arrow-3.svg" alt=""></button>',
-    });
-
-    $(".template_calendar_page_container .filters select").select2({
-        dropdownParent: $('#dropdown'),
-        width: '100%',
-        minimumResultsForSearch: -1
-    });
-    /*	-----------------------------------------------------------------------------
-           CALENDAR PAGE END
-       --------------------------------------------------------------------------------- */
 
     /*	-----------------------------------------------------------------------------
-             GALLERY PAGE
-         --------------------------------------------------------------------------------- */
+        TEMPLATE CALENDAR
+    --------------------------------------------------------------------------------- */
+    if ( $(".template_calendar_page_container").length ) {
+        var categoryFilterBreakPoint = 1250;
+        var filtersHolder = $('.filters');
+
+        if( $(window).width() > categoryFilterBreakPoint ) {
+            filtersHolder.find("input[name=category]").prop('disabled', false);
+            filtersHolder.find("select").prop('disabled', true);
+        } else {
+            filtersHolder.find("input[name=category]").prop('disabled', true);
+            filtersHolder.find("select").prop('disabled', false);
+        }
+
+        function slickCarousel() {
+            $(".events_slider").slick({
+                prevArrow:
+                    '<button type="button" class="events_slider_btn prev"><img src="' +
+                    site_data.theme_url +
+                    '/images/icons/arrow.svg" alt=""></button>',
+                nextArrow:
+                    '<button type="button" class="events_slider_btn next"><img src="' +
+                    site_data.theme_url +
+                    '/images/icons/arrow.svg" alt=""></button>',
+                infinite: false,
+            });
+        }
+        function destroyCarousel() {
+            if ( $('.events_slider').hasClass('slick-initialized') ) {
+                $('.events_slider').slick('destroy');
+            }
+        }
+
+        slickCarousel();
+
+        $(".date_slider").slick({
+            prevArrow:
+                '<button type="button" class="date_slider_btn prev"><img src="' +
+                site_data.theme_url +
+                '/images/icons/arrow-3.svg" alt=""></button>',
+            nextArrow:
+                '<button type="button" class="date_slider_btn next"><img src="' +
+                site_data.theme_url +
+                '/images/icons/arrow-3.svg" alt=""></button>',
+        });
+
+        function filterCalendar() {
+            var calendarResponseDiv = document.getElementById('events_response');
+            var date = $('.date_slider .slick-slide.slick-current').find('p').data('value');
+            var category = '';
+            if( $(window).width() > categoryFilterBreakPoint ) {
+                category = $('input[name="category"]:checked').val();
+            } else {
+                category = $('select[name="category"]').val();
+            }
+
+            console.log(category);
+
+            $.ajax({
+                url: $(calendarResponseDiv).data('action'),
+                data: {
+                    action: 'filter_calendar',
+                    date: date,
+                    category: category,
+                },
+                type: 'POST',
+                beforeSend: function (xhr) {
+                    $(calendarResponseDiv).css('opacity','0');
+                },
+                success: function (data) {
+                    calendarResponseDiv.innerHTML = data;
+                    destroyCarousel()
+                    slickCarousel();
+                },
+                complete: function (xhr, status) {
+                    $(calendarResponseDiv).css('opacity','1');
+                }
+            });
+        }
+
+        // On before slide change
+        $('.date_slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+            filterCalendar();
+        });
+
+        $('.filters').find('input, select').change(function() {
+            filterCalendar();
+        });
+
+        $(".template_calendar_page_container .filters select").select2({
+            dropdownParent: $('#dropdown'),
+            width: '100%',
+            minimumResultsForSearch: -1
+        });
+    }
 
     $('.template_gallery_page_container')
 
