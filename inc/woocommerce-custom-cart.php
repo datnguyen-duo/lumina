@@ -1,7 +1,6 @@
 <?php
 function render_shopping_cart_items($is_item_added_to_cart = false) {
     $woocommerce_cart = WC()->cart->get_cart();
-    $checkoutPage = ( is_checkout() && empty( is_wc_endpoint_url('order-received')) );
 
     if( $woocommerce_cart ):
         $checkout_url = wc_get_checkout_url();
@@ -63,19 +62,7 @@ function render_shopping_cart_items($is_item_added_to_cart = false) {
 
                     <div class="actions desktop">
 <!--                        <div class="edit_item" data-product="--><?php //echo $product_id; ?><!--">Edit</div>-->
-                        <?php
-                        echo apply_filters(
-                            'woocommerce_cart_item_remove_link',
-                            sprintf(
-                                '<a href="%s" class="remove_item" aria-label="%s" data-product_id="%s" data-target="'.$cart_item_key.'" data-product_sku="%s">Remove</a>',
-                                esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-                                esc_html__( 'Remove this item', 'woocommerce' ),
-                                esc_attr( $product_id ),
-                                esc_attr( $_product->get_sku() )
-                            ),
-                            $cart_item_key
-                        );
-                        ?>
+                        <p class="remove_item" data-target="<?php echo $cart_item_key ?>">Remove</p>
                     </div>
                 </div>
                 <?php if( $category->slug == 'ticket'):
@@ -128,29 +115,14 @@ function render_shopping_cart_items($is_item_added_to_cart = false) {
                 <?php endif; ?>
 
                 <div class="actions mobile">
-                    <?php
-                    echo apply_filters(
-                        'woocommerce_cart_item_remove_link',
-                        sprintf(
-                            '<a href="%s" class="remove_item" aria-label="%s" data-product_id="%s" data-target="'.$cart_item_key.'" data-product_sku="%s">Remove</a>',
-                            esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-                            esc_html__( 'Remove this item', 'woocommerce' ),
-                            esc_attr( $product_id ),
-                            esc_attr( $_product->get_sku() )
-                        ),
-                        $cart_item_key
-                    );
-                    ?>
+                    <p class="remove_item" data-target="<?php echo $cart_item_key ?>">Remove</p>
                 </div>
             </div>
         <?php endforeach; ?>
 
-        <?php if( !$checkoutPage ): ?>
-            <div class="checkout_btn_holder">
-                <a href="<?php echo $checkout_url; ?>" class="checkout_btn blue">Checkout</a>
-            </div>
-        <?php endif; ?>
-
+        <div class="checkout_btn_holder">
+            <a href="<?php echo $checkout_url; ?>" class="checkout_btn blue">Checkout</a>
+        </div>
     <?php else:
         echo '<p class="empty_cart_message">Your cart is empty.</p>';
     endif;
@@ -205,6 +177,14 @@ function woo_custom_add_to_cart() {
 }
 add_action('wp_ajax_woo_custom_add_to_cart', 'woo_custom_add_to_cart'); // wp_ajax_{ACTION HERE}
 add_action('wp_ajax_nopriv_woo_custom_add_to_cart', 'woo_custom_add_to_cart');
+
+
+function woo_custom_remove_from_cart() {
+    $cart_item_key = $_POST['cartItemKey'];
+    WC()->cart->remove_cart_item($cart_item_key);
+}
+add_action('wp_ajax_woo_custom_remove_from_cart', 'woo_custom_remove_from_cart'); // wp_ajax_{ACTION HERE}
+add_action('wp_ajax_nopriv_woo_custom_remove_from_cart', 'woo_custom_remove_from_cart');
 
 function edit_ticket_product() {
     $product_id = $_POST['product_id'];

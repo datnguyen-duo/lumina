@@ -512,6 +512,12 @@ body {
     background-color: rgba(255, 255, 255, 0.9);
     z-index: 9;
     display: none;
+
+    &.checkout_page {
+        @media @laptop-s {
+            display: none !important;
+        }
+    }
 }
 
 .custom_side_cart {
@@ -542,6 +548,7 @@ body {
     &.checkout_page {
         @media @laptop-s {
             position: sticky;
+            transform: translateX(0);
         }
 
         .cart_header {
@@ -552,8 +559,10 @@ body {
             }
         }
 
-        @media @laptop-s {
-            transform: translateX(0);
+        .custom_side_cart_content {
+            .checkout_btn_holder {
+                display: none;
+            }
         }
     }
 
@@ -846,6 +855,7 @@ body {
         height: 100vh;
         padding-bottom: 40px;
         box-sizing: border-box;
+
         @media @tablet-s {
             padding-bottom: 55px;
         }
@@ -920,6 +930,7 @@ body {
 
                     .remove_item,
                     .edit_item {
+                        cursor: pointer;
                         .p1();
                         color: #fff;
                     }

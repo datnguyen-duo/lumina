@@ -38,9 +38,12 @@
             },
             complete: function (xhr, status) {
                 openSideCart();
+
+                if( customSideCart.hasClass('checkout_page') && !customSideCart.find('.items .item').length ) {
+                    window.location.href = '/';
+                }
             },
         });
-
     }
     //Update items in shopping cart END
 
@@ -53,21 +56,22 @@
     //Remove item from cart function
     customSideCart.on("click", ".remove_item", function (event) {
         event.preventDefault();
-        var productID = $(this).data("product_id");
-        var cartItemID = $(this).data("target");
+        var cartItemKey = $(this).data("target");
 
         $.ajax({
-            url: $(this).attr("href"),
+            url: $('.custom_side_cart').data('action'),
             data: {
-                // action: "product_remove",
-                product_id: productID,
+                action: "woo_custom_remove_from_cart",
+                cartItemKey: cartItemKey,
             },
             type: "POST", // POST
             beforeSend: function (xhr) {
-                $("#cart_item_" + cartItemID).slideUp(250);
+                $("#cart_item_" + cartItemKey).slideUp(250);
             },
             success: function (data) {
-                updateShoppingCart();
+                setTimeout(function(){
+                    updateShoppingCart();
+                }, 250);
             },
             complete: function (xhr, status) {},
         });
