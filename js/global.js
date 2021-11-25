@@ -313,9 +313,11 @@ window.addEventListener("load", function () {
         PROGRAMS PAGE
     --------------------------------------------------------------------------------- */
     if ( $(".template_programs_page_container").length ) {
+        var programsResponseDiv = document.getElementById('programs_response');
+
         var filterForm = $('#programs_filter_form');
         filterForm.find('input, select').change(function() {
-            filterForm.submit();
+            filterPrograms();
         });
 
         $("form select").select2({
@@ -330,6 +332,33 @@ window.addEventListener("load", function () {
         } else {
             filterForm.find("input[name=type]").prop('disabled', true);
             filterForm.find("select").prop('disabled', false);
+        }
+
+        function filterPrograms() {
+            var categoryFilterBreakPoint = 1250;
+            var category = '';
+            var sort = $('input[name="sort"]:checked').val();
+
+            if( $(window).width() > categoryFilterBreakPoint ) {
+                category = $('input[name="type[]"]').val();
+            } else {
+                category = $('select[name="type"]').val();
+            }
+
+            $.ajax({
+                url: $(programsResponseDiv).data('action'),
+                data: filterForm.serialize(),
+                type: 'POST',
+                beforeSend: function (xhr) {
+                    $(programsResponseDiv).css('opacity','0');
+                },
+                success: function (data) {
+                    programsResponseDiv.innerHTML = data;
+                },
+                complete: function (xhr, status) {
+                    $(programsResponseDiv).css('opacity','1');
+                }
+            });
         }
     }
     /*	-----------------------------------------------------------------------------
@@ -418,8 +447,6 @@ window.addEventListener("load", function () {
             } else {
                 category = $('select[name="category"]').val();
             }
-
-            console.log(category);
 
             $.ajax({
                 url: $(calendarResponseDiv).data('action'),

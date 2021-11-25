@@ -152,8 +152,8 @@
                 }
 
                 &.sort {
-                    &.DESC {
-                        span {
+                    input {
+                        &:checked ~ span {
                             img {
                                 transform: rotate(180deg);
                             }
@@ -206,6 +206,7 @@
                         margin-left: 7px;
                         width: 13px;
                         top: -1px;
+                        .transition();
 
                         @media @tablet-s {
                             margin-left: 8px;
@@ -227,6 +228,25 @@
         .h5();
         color: @color1;
         text-align: center;
+    }
+
+    #programs_response {
+        .transition();
+
+        .no_results {
+            min-height: 400px;
+            padding: 100px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 70vw;
+            margin: auto;
+            text-align: center;
+
+            h2 {
+                .h2();
+            }
+        }
     }
 
     .programs_section {
