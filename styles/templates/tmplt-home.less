@@ -483,20 +483,23 @@
                 .p2();
                 color: #D22EFF;
                 text-transform: uppercase;
-                max-width: 600px;
                 margin: auto;
                 margin-top: 24px;
                 text-align: center;
                 padding: 0 20px;
                 box-sizing: border-box;
+                max-width: 750px;
 
                 @media @tablet-s {
                     margin-top: 70px;
                 }
 
                 @media @tablet-l {
-                    max-width: calc(865px + 40px);
                     margin-top: 110px;
+                }
+
+                @media @desktop-l {
+                    max-width: 1000px;
                 }
             }
         }
@@ -1070,7 +1073,8 @@
                 border-radius: 30px 30px 0 0;
                 border: solid 1px @color1;
                 border-bottom: 0;
-                z-index: 1;
+                z-index: 0;
+                pointer-events: none;
 
                 @media @tablet-s {
                     top: -20px;
@@ -1083,6 +1087,8 @@
                 width: 50%;
                 display: flex;
                 align-items: center;
+                z-index: 2;
+                position: relative;
 
                 button {
                     .p1();
@@ -1190,8 +1196,12 @@
         .description {
             .p2();
             color: #fff;
-            max-width: 1056px;
+            max-width: 750px;
             margin: auto;
+
+            @media @desktop-l {
+                max-width: 1056px;
+            }
         }
 
         .button {
