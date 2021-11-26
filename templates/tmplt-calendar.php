@@ -102,7 +102,7 @@ $categories = get_terms( array(
                 <div class="box">
                     <div class="box_content">
                         <?php if( $box['icon'] ): ?>
-                            <img class="icon" src="<?php echo get_template_directory_uri(); ?>/images/dev/box-icon-1.svg">
+                            <img class="icon" src="<?php echo $box['icon']['url'] ?>">
                         <?php endif; ?>
 
                         <?php if( $box['title'] ): ?>
