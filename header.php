@@ -57,8 +57,8 @@
                                 <a href="">Lumina</a>
                                 <ul class="sub-menu">
                                     <li><a href="/">Home</a></li>
-                                    <!-- <li><a href="/">About</a></li>
-                                    <li><a href="/">Gallery</a></li> -->
+                                     <li><a href="/">About</a></li>
+                                    <!--<li><a href="/">Gallery</a></li> -->
                                     <li><a href="/contact">Contact</a></li>
                                 </ul>
                             </li>
