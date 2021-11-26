@@ -377,9 +377,9 @@ get_header();
         <div class="section_title_holder">
             <div class="section_title">
                 <div class="sentence_part part_1">
-                    <img class="word_image wi_1" src="<?php echo get_template_directory_uri(); ?>/images/dev/RII Karim.jpg" alt="">
+                    <img class="word_image wi_1" src="<?php echo get_template_directory_uri(); ?>/images/dev/WT Sophie.jpg" alt="">
                     <h2>Staff &</h2>
-                    <img class="word_image wi_2" src="<?php echo get_template_directory_uri(); ?>/images/dev/AYLI Grace.jpg" alt="">
+                    <img class="word_image wi_2" src="<?php echo get_template_directory_uri(); ?>/images/dev/WT Meg.jpg" alt="">
                 </div>
 
                 <div class="sentence_part part_2">
