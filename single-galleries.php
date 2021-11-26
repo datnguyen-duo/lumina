@@ -13,7 +13,7 @@ $images = get_field('gallery'); ?>
             <?php endforeach; ?>
         <?php else: ?>
             <div class="no_images">
-                <h2>There is no any images to show for this gallery.</h2>
+                <h2>There are no any images to show for this gallery.</h2>
             </div>
         <?php endif; ?>
     </section>

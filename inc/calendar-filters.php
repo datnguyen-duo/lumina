@@ -164,7 +164,7 @@ function print_calendar($events_args) {
         Step 2 END-->
     <?php else: ?>
         <section class="no_events_section">
-            <h2>There is no upcoming events right now.</h2>
+            <h2>There are no upcoming events right now.</h2>
         </section>
     <?php endif;
 }

@@ -39,7 +39,7 @@ $galleries = new WP_Query(array(
             </div>
         <?php else: ?>
             <div class="no_galleries">
-                <h2>There is no galleries to show yet.</h2>
+                <h2>There are no galleries to show yet.</h2>
             </div>
         <?php endif; ?>
     </section>

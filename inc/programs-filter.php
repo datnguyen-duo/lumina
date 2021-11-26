@@ -55,7 +55,7 @@ function print_programs($programs_args) {
     <?php endwhile; wp_reset_postdata();
     else: ?>
     <div class="no_results">
-        <h2>There is no any program available right now.</h2>
+        <h2>There are no any program available right now.</h2>
     </div>
     <?php endif;
 }

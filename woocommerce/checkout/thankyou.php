@@ -37,6 +37,11 @@
                             We are hosting a food drive to benefit Tommy’s Pantry and the Capital Area Food Bank at
                             our performances, so please bring non-perishable foods with you to the show to donate!
                         </p>
+                        <p>
+                            Please send proof of vaccination to office@luminastudio.org OR bring
+                            proof of vaccination with you to the theatre (picture of vaccination
+                            card is sufficient). Masks required for all audience members.
+                        </p>
                     </div>
                 <?php endif; ?>
 
@@ -49,14 +54,6 @@
                         </p>
                     </div>
                 <?php endif; ?>
-
-                <div class="message caution_message">
-                    <p>
-                        Please send proof of vaccination to office@luminastudio.org OR bring
-                        proof of vaccination with you to the theatre (picture of vaccination
-                        card is sufficient). Masks required for all audience members.
-                    </p>
-                </div>
             </div>
         </div>
     </section>
