@@ -425,7 +425,7 @@ get_header();
                     <div class="member_holder">
                         <div class="member">
                             <div class="image_holder">
-                                <img class="word_image wi_1" src="<?php echo get_template_directory_uri(); ?>/images/dev/RII Karim.jpg" alt="">
+                                <img class="word_image wi_1" src="<?php echo get_template_directory_uri(); ?>/images/dev/Meg Lebow_Co-Executive Director.jpeg" alt="">
 
                                 <div class="member_desc">
                                     <p>
@@ -450,7 +450,7 @@ get_header();
                     <div class="member_holder">
                         <div class="member">
                             <div class="image_holder">
-                                <img class="word_image wi_1" src="<?php echo get_template_directory_uri(); ?>/images/dev/RII Karim.jpg" alt="">
+                                <img class="word_image wi_1" src="<?php echo get_template_directory_uri(); ?>/images/dev/Sophie Cameron_Co-Executive Director.jpeg" alt="">
 
                                 <div class="member_desc">
                                     <p>
@@ -471,7 +471,7 @@ get_header();
                     <div class="member_holder">
                         <div class="member">
                             <div class="image_holder">
-                                <img class="word_image wi_1" src="<?php echo get_template_directory_uri(); ?>/images/dev/RII Karim.jpg" alt="">
+                                <img class="word_image wi_1" src="<?php echo get_template_directory_uri(); ?>/images/dev/David Minton_Director Emeritus.png" alt="">
 
                                 <div class="member_desc">
                                     <p>
@@ -490,7 +490,7 @@ get_header();
                     <div class="member_holder">
                         <div class="member">
                             <div class="image_holder">
-                                <img class="word_image wi_1" src="<?php echo get_template_directory_uri(); ?>/images/dev/RII Karim.jpg" alt="">
+                                <img class="word_image wi_1" src="<?php echo get_template_directory_uri(); ?>/images/dev/Julie Reiner_Managing Director Emeritus.png" alt="">
 
                                 <div class="member_desc">
                                     <p>
@@ -509,7 +509,7 @@ get_header();
                     <div class="member_holder">
                         <div class="member">
                             <div class="image_holder">
-                                <img class="word_image wi_1" src="<?php echo get_template_directory_uri(); ?>/images/dev/RII Karim.jpg" alt="">
+                                <img class="word_image wi_1" src="<?php echo get_template_directory_uri(); ?>/images/dev/Jillian Raye_Founder and Guiding Light.png" alt="">
 
                                 <div class="member_desc">
                                     <p>
