@@ -4,7 +4,7 @@ get_header(); ?>
     <div class="template_home_page_container">
         <section class="hero_section">
             <div class="banner__split-text">
-                <h1 class="big_headline_animation">Coming Soon:</h1>
+                <h1 class="big_headline_animation">Coming Soon</h1>
                 <h1 class="big_headline_animation">Oliver Twist</h1>
                 
             </div>
