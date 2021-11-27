@@ -27,8 +27,8 @@
 
         <nav>
             <ul>
-                <li><a href="/product/donate">Support</a></li>
-                <li><a href="/programs">Register</a></li>
+                <li><a href="/support/">Support</a></li>
+                <li><a href="/programs/">Register</a></li>
             </ul>
         </nav>
 
@@ -57,9 +57,9 @@
                                 <a href="">Lumina</a>
                                 <ul class="sub-menu">
                                     <li><a href="/">Home</a></li>
-                                     <li><a href="/about">About</a></li>
+                                     <li><a href="/about/">About</a></li>
                                     <!--<li><a href="/">Gallery</a></li> -->
-                                    <li><a href="/contact">Contact</a></li>
+                                    <li><a href="/contact/">Contact</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -91,7 +91,7 @@
                                     <li><a href="/programs">Programs</a></li>
                                     <li><a href="/faq">FAQ & Policies</a></li>
                                     <li><a href="/tickets">Tickets</a></li>
-                                    <!-- <li><a href="/calendar">Calendar</a></li> -->
+                                    <li><a href="/calendar">Calendar</a></li>
                                 </ul>
                             </li>
                         </ul>

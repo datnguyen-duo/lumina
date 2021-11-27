@@ -23,10 +23,10 @@
 
                                     <ul class="sub-menu">
                                         <li><a href="/">Home</a></li>
-                                        <!-- <li><a href="/">About</a></li> -->
+                                        <li><a href="/about/">About</a></li>
                                         <!-- <li><a href="/">Gallery</a></li> -->
-                                        <li><a href="/donate">Support</a></li>
-                                        <li><a href="/contact">Contact</a></li>
+                                        <li><a href="/support/">Support</a></li>
+                                        <li><a href="/contact/">Contact</a></li>
                                     </ul>
                                 </li>
 
@@ -37,7 +37,7 @@
                                         <li><a href="/programs">Programs</a></li>
                                         <li><a href="/faq">FAQ & Policies</a></li>
                                         <li><a href="/tickets">Tickets</a></li>
-                                        <!-- <li><a href="/calendar">Calendar</a></li> -->
+                                        <li><a href="/calendar">Calendar</a></li>
                                         <li><a class="custom_side_cart_opener">Cart</a></li>
                                     </ul>
                                 </li>
