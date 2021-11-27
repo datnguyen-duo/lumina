@@ -42,7 +42,7 @@ get_header();
         <div class="left">
             <div class="title_holder">
                 <h2>How to <br>donate</h2>
-                <a class="button blue">Donate through our website</a>
+                <a href="/donate/" class="button blue">Donate through our website</a>
             </div>
         </div>
         <div class="right">
@@ -61,7 +61,7 @@ get_header();
                 <h2 class="info_title">Online Donations</h2>
 
                 <div class="button_holder">
-                    <a href="" class="button big">Donate Now</a>
+                    <a href="/donate/" class="button big">Donate Now</a>
                 </div>
             </div>
 
@@ -128,9 +128,8 @@ get_header();
         <div class="info">
             <div class="title_holder">
                 <h2 class="info_title">Contact Us</h2>
-
                 <div class="button_holder">
-                    <a href="" class="button big">Send An Email</a>
+                    <a href="mailto:office@luminastudio.org" class="button big">Send An Email</a>
                 </div>
             </div>
 
