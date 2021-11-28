@@ -210,12 +210,25 @@
       text-align: center;
       position: relative;
       z-index: 3;
-
-      p {
-        .h2();
-        line-height: 1.2em;
-        font-size: 40px !important;
+      
+      .description {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
       }
+
+      .col {   
+        margin: 2em 0;
+        h2 {
+          .h2();
+          line-height: 1.2em;
+        }
+
+        p {
+          .p1();
+        }
+      }
+
     }
   }
 

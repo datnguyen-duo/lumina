@@ -32,16 +32,10 @@ get_header();
             </div>
             <div class="right">
                 <div class="description">
+                    <p>Our Mission</p>
                     <p>
-                        Lumina provides a disciplined and rigorous professional setting where
-                        actors are trained in a comprehensive performance focused program of
-                        theatre arts based on Rudolf Steiner’s Creative Speech and Drama techniques.
-                        The techniques of Stella Adler and Michael Chehkov are also demonstrated and put
-                        into practice. Our program includes in-depth vocal and character coaching, improvisation,
-                        and stage combat training, detailed costumes, live music, choreography and occasionally
-                        special elements such as masks to support the shows. The results are exhilarating and
-                        thoughtful productions that demand more of our aspiring actors, and benefit them for life,
-                        whether they pursue acting professionally or become informed and astute patrons of the arts.
+                        Lumina Studio Theatre’s mission is to provide unique opportunities for young actors of any level of experience who seek to perform Shakespeare, other plays of the classical repertory theatre, and modern plays that focus on the beauty of language.<br><br>
+                        Lumina provides a disciplined and rigorous professional setting where actors are trained in a comprehensive, performance-focused program of theatre arts based on Rudolf Steiner’s Creative Speech and Drama techniques. The techniques of Stella Adler and Michael Chekhov are also demonstrated and put into practice. Our program includes in-depth vocal and character coaching, improvisation, and stage-combat training, detailed costumes, live music, choreography and occasionally special elements such as masks to support the shows. The results are exhilarating and thoughtful productions that demand more of our aspiring actors, and benefit them for life.
                     </p>
                 </div>
             </div>
@@ -49,17 +43,45 @@ get_header();
     </section>
 
     <section class="description_section">
-        <h2 class="title">Our Mission</h2>
+        <h2 class="title">Core Values</h2>
 
         <div class="description_holder">
             <div class="description">
-                <p>
-                    Lumina Studio Theatre’s mission is to provide unique opportunities for young actors of any level of experience who seek to perform Shakespeare, other plays of the classical repertory theatre, and modern plays that focus on the beauty of language.
-                </p>
-                <br><br>
-                <p>
-                    Lumina provides a disciplined and rigorous professional setting where actors are trained in a comprehensive, performance-focused program of theatre arts based on Rudolf Steiner’s Creative Speech and Drama techniques. The techniques of Stella Adler and Michael Chekhov are also demonstrated and put into practice. Our program includes in-depth vocal and character coaching, improvisation, and stage-combat training, detailed costumes, live music, choreography and occasionally special elements such as masks to support the shows. The results are exhilarating and thoughtful productions that demand more of our aspiring actors, and benefit them for life.
-                </p>
+                <div class="col">
+                    <h2>Artistic Quality</h2>
+                    <p>
+                        Lumina produces plays of professional quality and holds every young actor to a high standard of performance. Lumina’s Shakespeare-based Acting Techniques are taught and employed to great success, and Lumina youth feel accomplished and proud after each show.
+                    </p>
+                </div>
+
+                <div class="col">
+                    <h2>Originality</h2>
+                    <p>
+                        Lumina has a long-standing tradition of producing original scripts and adaptations that bring a new perspective to the works of Shakespeare and other classic texts.
+                     </p>
+                </div>
+
+                <div class="col">
+                    <h2>Community</h2>
+                    <p>
+                        Lumina brings together young people of different ages to create a shared experience of artistic fulfillment and foster youth leadership. This nurtures a supportive community of collaborators dedicated to producing quality theater.
+                    </p>
+                </div>
+
+                <div class="col">
+                    <h2>Accessibility</h2>
+                    <p>
+                        Lumina Studio Theatre’s staff implements both individualized and program-wide accommodations and individualized plans so that every young person enrolled in Lumina programming can excel and have their moment to shine onstage.
+                    </p>
+                </div>
+
+                <div class="col">
+                    <h2>Equity and Inclusion</h2>
+                    <p>
+                        Lumina is committed to producing actively anti-racist theater that engages young people in meaningful and respectful conversations about Shakespeare, race, history, and current events. Lumina will continually strive to become a more equitable and inclusive company across race, ethnicity, nationality, religion, gender identity, sexual orientation, physical ability, and socioeconomic status.
+                    </p>
+                </div>
+
             </div>
         </div>
     </section>
