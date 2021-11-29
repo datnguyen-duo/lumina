@@ -487,30 +487,33 @@ window.addEventListener("load", function () {
     }
 
     if ( $(".template_gallery_page_container").length ) {
-        var swiper = new Swiper(".swiper", {
-            // loopedSlides: 8,
-            slidesPerView: 2.8,
-            spaceBetween: 100,
-            loop: true,
-            freeMode: true,
-            autoplay: {
-                delay: 1,
-                disableOnInteraction: false,
-                waitForTransition: false,
+        var splide = new Splide( '.splide', {
+            type   : 'loop',
+            drag   : 'free',
+            perPage: 3,
+            pagination: false,
+            arrows: false,
+            gap: '8vw',
+            waitForTransition: false,
+            easingFunc: t => number = 1 - Math.pow(1 - t, 3),
+            autoScroll: {
+                speed: 1,
+                pauseOnFocus: false,
+                // pauseOnHover: false
             },
-            speed: 10000,
-            mousewheel: {
-                // sensitivity: 0.5,
-                // invert: true,
-                forceToAxis: true,
-            },
-
             breakpoints: {
-                1600: {
-                    spaceBetween: 170,
+                1100: {
+                    gap: '6vw',
+                },
+                760: {
+                    gap: 45,
+                    perPage: 2,
+                },
+                600: {
+                    perPage: 1,
                 }
-            }
-        });
+            },
+        } ).mount( window.splide.Extensions );
     }
     /*	-----------------------------------------------------------------------------
            GALLERY PAGE END

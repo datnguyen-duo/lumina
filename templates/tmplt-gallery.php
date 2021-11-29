@@ -20,21 +20,29 @@ $galleries = new WP_Query(array(
                 </div>
             </div>
 
-            <div class="swiper-container swiper">
-                <div class="swiper-wrapper">
-                    <?php while( $galleries->have_posts() ): $galleries->the_post(); ?>
-                        <div class="swiper-slide">
-                            <a href="<?php the_permalink(); ?>" class="gallery_image">
-                                <div class="image_holder">
-                                    <div class="image">
-                                        <?php echo get_the_post_thumbnail(get_the_ID(),'large'); ?>
+            <div class="splide" style="display: block;">
+                <div class="splide__track">
+                    <div class="splide__list">
+                        <?php while( $galleries->have_posts() ): $galleries->the_post(); $short_desc = get_field('short_desc'); ?>
+                            <div class="splide__slide">
+                                <a href="<?php the_permalink(); ?>" class="gallery_image">
+                                    <div class="image_holder">
+                                        <div class="image">
+                                            <?php echo get_the_post_thumbnail(get_the_ID(),'large'); ?>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <p><?php the_title(); ?></p>
-                            </a>
-                        </div>
-                    <?php endwhile; wp_reset_postdata(); ?>
+                                    <p>
+                                        <span class="name"><?php the_title(); ?></span>
+
+                                        <?php if( $short_desc ): ?>
+                                            <span class="short_desc"><?php echo $short_desc; ?></span>
+                                        <?php endif; ?>
+                                    </p>
+                                </a>
+                            </div>
+                        <?php endwhile; wp_reset_postdata(); ?>
+                    </div>
                 </div>
             </div>
         <?php else: ?>

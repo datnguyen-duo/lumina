@@ -6,6 +6,6 @@ Author URI: https://duo-studio.co/
 Version: 2.0.0
 */
 @import "styles/plugins/select2.css";
-@import "styles/plugins/swipermin.css";
+@import "styles/plugins/splide.min.css";
 @import "styles/reset.css";
 @import "styles/global.css";
