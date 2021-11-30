@@ -481,17 +481,17 @@ window.addEventListener("load", function () {
             perPage: 3,
             pagination: false,
             arrows: false,
-            gap: '8vw',
+            gap: '3vw',
             waitForTransition: false,
             easingFunc: t => number = 1 - Math.pow(1 - t, 3),
             autoScroll: {
-                speed: 1,
+                speed: 0.8,
                 pauseOnFocus: false,
                 // pauseOnHover: false
             },
             breakpoints: {
                 1100: {
-                    gap: '6vw',
+                    // gap: '6vw',
                 },
                 760: {
                     gap: 45,
