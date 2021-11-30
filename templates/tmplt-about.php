@@ -8,7 +8,7 @@ get_header();
             <h1 class="section_title desktop">
                 <span class="title_part_golder">
                     <span class="title_part_text">About</span>
-                    <a href=""><span>unique opportunities for young actors of any experience level</span></a>
+                    <span class="circle"><span>unique opportunities for young actors of any experience level</span></span>
                 </span>
                 <span class="title_part_text">lumina</span>
             </h1>
@@ -19,7 +19,7 @@ get_header();
                     <span class="title_part_text">lumina</span>
                 </div>
 
-                <a href=""><span>unique opportunities for young actors of any experience level</span></a>
+                <span class="circle"><span>unique opportunities for young actors of any experience level</span></span>
             </h1>
         </div>
         <div class="image_with_description">
@@ -553,7 +553,7 @@ get_header();
 
         <div class="directors_description">
             <div class="left">
-                <h3>Board of directors</h3>
+                <h3>Board of Directors</h3>
                 <div class="circle mobile">
                     <p>
                         2020 <br>
@@ -575,7 +575,7 @@ get_header();
 
         <div class="directors">
             <ul>
-                <li>Amanda Fore (chair)</li>
+                <li>Amanda Fore (Chair)</li>
                 <li>Tracey Broderick</li>
                 <li>Sophie Cameron</li>
                 <li>Jennie Guilfoyle</li>
