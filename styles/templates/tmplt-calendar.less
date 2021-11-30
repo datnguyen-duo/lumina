@@ -131,6 +131,10 @@
                 font-size: 22px;
             }
 
+            &:hover {
+                background-color: @color3;
+            }
+
             input {
                 display: none;
             }
@@ -240,7 +244,7 @@
                     width: 0;
 
                     &:checked ~ span {
-                        background-color: @color2;
+                        background-color: @color3;
                     }
                 }
 
@@ -559,6 +563,8 @@
 
                         .image_holder {
                             .image {
+                                border: solid 2px @color1;
+                                box-sizing: border-box;
                                 position: relative;
                                 padding-top: 85.4%;
                                 border-radius: 30px;
