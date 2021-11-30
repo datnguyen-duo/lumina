@@ -64,7 +64,7 @@ $type_field = get_field_object($type_field_key);
 
     <section class="programs_section" id="programs_response" data-action="<?php echo site_url() ?>/wp-admin/admin-ajax.php">
         <?php print_programs($programs_args); ?>
-a    </section>
+    </section>
 
     <section class="banner_section">
         <h2>FAQS &</h2>
