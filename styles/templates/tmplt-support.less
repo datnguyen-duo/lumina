@@ -1,17 +1,17 @@
 .template_support_page_container {
     .hero_section {
         box-sizing: border-box;
-        padding: 104px 25px 45px 25px;
+        padding: 108px 25px 45px 25px;
         background-image: url("../images/blue-2-bg.jpg");
         background-repeat: no-repeat;
         background-size: cover;
 
         @media @tablet-s {
-            padding: 300px 4vw 83px;
+            padding: 240px 4vw 83px;
         }
 
         @media @laptop-s {
-            padding: 300px 5.5vw 83px 6.4vw;
+            padding: 240px 5.5vw 83px 6.4vw;
         }
 
         .title_holder {
@@ -21,7 +21,7 @@
                 margin-bottom: 0;
             }
 
-            a {
+            .circle {
                 border: solid 1px @color1;
                 border-radius: 300px;
                 padding: 7px 8px 8px 0;
@@ -76,7 +76,7 @@
                         justify-content: space-between;
                     }
 
-                    a {
+                    .circle {
                         padding: 7px 8px 8px 0;
                         top: -2vw;
                         display: none;
@@ -123,40 +123,6 @@
             }
         }
 
-
-        //.title_holder {
-        //    position: relative;
-        //    z-index: 2;
-        //    margin-bottom: 58px;
-        //
-        //    @media @tablet-s {
-        //        margin-bottom: -7vw;
-        //    }
-        //
-        //    h1 {
-        //        font-family: @fontL;
-        //        text-transform: uppercase;
-        //        font-size: 60px;
-        //        color: @color1;
-        //        margin: auto;
-        //        max-width: 315px;
-        //
-        //        @media @tablet-s {
-        //            max-width: initial;
-        //            letter-spacing: 2px;
-        //            font-size: 15.6vw;
-        //        }
-        //
-        //        span {
-        //            display: block;
-        //
-        //            &:nth-child(2) {
-        //                text-align: right;
-        //            }
-        //        }
-        //    }
-        //}
-
         .image_with_description {
             display: flex;
             flex-wrap: wrap;
@@ -169,8 +135,9 @@
 
                 @media @tablet-s {
                     padding-top: 40px;
+                    padding-left: 2vw;
                     padding-bottom: 40px;
-                    padding-right: 7vw;
+                    padding-right: 8vw;
                     margin-bottom: 0;
                     width: 41.2%;
                 }
@@ -288,7 +255,7 @@
 
             @media @tablet-s {
                 width: 35%;
-                border-left: solid 1px @color3;
+                border-left: solid 1px @color1;
             }
 
             @media @desktop-m {
@@ -324,7 +291,7 @@
                         display: block;
                         min-width: 15px;
                         height: 1px;
-                        background-color: @color3;
+                        background-color: @color1;
                         position: relative;
                         top: 10px;
                         margin-right: 10px;
@@ -544,7 +511,7 @@
 
                                 @media @tablet-s {
                                     max-width: initial;
-                                    max-height: 10vw;
+                                    max-height: 15vw;
                                 }
                             }
                         }

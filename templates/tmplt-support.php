@@ -9,12 +9,12 @@ get_header();
                 <span class="title_part_text">Support</span>
 
                 <span class="title_part_golder">
-                    <a href=""><span>Help us bring the transformative power of theatre to our community</span></a>
+                    <span href="" class="circle"><span>Help us bring the transformative power of theatre to our community</span></span>
                     <span class="title_part_text">lumina</span>
                 </span>
             </h1>
 
-            <a href="" class="mobile"><span>Help us bring the transformative power of theatre to our community</span></a>
+            <span class="circle mobile"><span>Help us bring the transformative power of theatre to our community</span></span>
         </div>
         <div class="image_with_description">
             <div class="left">
@@ -42,7 +42,7 @@ get_header();
         <div class="left">
             <div class="title_holder">
                 <h2>How to <br>donate</h2>
-                <a href="/donate/" class="button blue">Donate through our website</a>
+                <a href="/donate/" class="button blue">Donate Through Our Website</a>
             </div>
         </div>
         <div class="right">
