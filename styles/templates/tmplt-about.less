@@ -152,8 +152,13 @@
                 width: 100%;
 
                 @media @tablet-s {
-                    padding: 70px 0 70px 5vw;
+                    padding: 70px 0 70px 40px;
                     width: 44.5%;
+                }
+
+                @media @laptop-s {
+                    padding-right: 5vw;
+                    padding-left: 10vw;
                 }
 
                 @media @desktop-m {
@@ -860,7 +865,7 @@
             margin: 50px 0 86px 0;
 
             @media @tablet-s {
-                margin: 137px 0;
+                margin: 100px 0;
             }
 
             .members {
@@ -874,7 +879,7 @@
                 @media @tablet-s {
                     margin-left: -2vw;
                     width: calc(100% + 4vw);
-                    margin-bottom: 110px;
+                    margin-bottom: 4vw;
                 }
 
                 // @media @laptop-s {
@@ -980,10 +985,15 @@
                                 .cropped_img();
                                 z-index: 1;
                                 .transition();
+                                border-radius: 20px;
+
+                                @media @tablet-s {
+                                    border-radius: 30px;
+                                }
                             }
 
                             .member_desc {
-                                padding-top: 10px;
+                                padding: 20px 10px 0;
                                 position: absolute;
                                 top: 0;
                                 left: 0;
@@ -993,7 +1003,12 @@
                                 .transition();
                                 height: 80%;
                                 overflow-y: scroll;
+
                                 @media @tablet-s {
+                                    padding: 50px 20px 0;
+                                }
+
+                                @media @desktop-m {
                                     padding-top: 70px;
                                 }
                             }
@@ -1003,9 +1018,11 @@
                             .h3();
                             cursor: pointer;
                             display: flex;
+                            align-items: flex-end;
                             justify-content: space-between;
                             padding-left: 12px;
                             font-size: 35px !important;
+
                             @media @tablet-s {
                                 padding-left: 0;
                             }
