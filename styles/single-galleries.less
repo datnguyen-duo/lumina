@@ -1,5 +1,5 @@
 .single_galleries_page_container {
-    padding: 118px 0;
+    padding: 60px 0 118px;
     background: rgb(225, 175, 255);
     background: linear-gradient(
             180deg,
@@ -8,7 +8,51 @@
     );
 
     @media @tablet-s {
-        padding: 250px 0;
+        padding: 130px 0 250px;
+    }
+
+    .return_button {
+        padding-left: 12px;
+        margin-bottom: 31px;
+
+        @media @tablet-s {
+            margin-bottom: 51px;
+            padding-left: 35px;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            .p1();
+
+            img {
+                width: 30px;
+                margin-right: 8px;
+
+                @media @tablet-s {
+                    margin-right: 15px;
+                    width: 40px;
+                }
+
+                @media @desktop-m {
+                    width: 45px;
+                }
+
+                &.desktop {
+                    display: none;
+
+                    @media @tablet-s {
+                        display: block;
+                    }
+                }
+
+                &.mobile {
+                    @media @tablet-s {
+                        display: none;
+                    }
+                }
+            }
+        }
     }
 
     .gallery_section {

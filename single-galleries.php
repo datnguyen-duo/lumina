@@ -2,6 +2,14 @@
 get_header();
 $images = get_field('gallery'); ?>
 <div class="single_galleries_page_container">
+    <div class="return_button">
+        <a href="/gallery">
+            <img class="desktop" src="<?php echo get_template_directory_uri(); ?>/images/icons/circle-arrow.svg" alt="">
+            <img class="mobile" src="<?php echo get_template_directory_uri(); ?>/images/icons/circle-arrow-2.svg" alt="">
+            <?php the_title(); ?>
+        </a>
+    </div>
+
     <section class="gallery_section">
         <?php if( $images ): ?>
             <?php foreach ( $images as $index => $image ): ?>
