@@ -32,28 +32,25 @@ $categories = get_terms( array(
 ?>
 
 <div class="template_calendar_page_container">
-    <div class="filters">
+    <form class="filters" id="calendar_filter_form">
+        <input type="hidden" name="action" value="filter_calendar">
         <?php if( $events_months ): ?>
             <div class="pill date date_slider">
                 <?php
                 foreach ( $events_months as $month ):
                     $date_month = date('F', strtotime($month)); ?>
-                    <p data-value="<?php echo $month; ?>">
+                    <p>
                         <?php echo $date_month; ?>
+                        <input type="radio" name="date" value="<?php echo $month; ?>">
                     </p>
                 <?php endforeach; ?>
             </div>
 
             <?php if( $categories ): ?>
                 <div class="pills_checkbox_inputs_holder">
-                    <label for="category_all">
-                        <input type="radio" id="category_all" name="category" value="" checked>
-                        <span class="checkmark">All</span>
-                    </label>
-
                     <?php foreach ( $categories as $category ): ?>
                         <label for="category_<?php echo $category->slug; ?>">
-                            <input type="radio" id="category_<?php echo $category->slug; ?>" name="category" value="<?php echo $category->slug; ?>">
+                            <input type="checkbox" id="category_<?php echo $category->slug; ?>" name="category[]" value="<?php echo $category->slug; ?>">
                             <span class="checkmark"><?php echo $category->name; ?></span>
                         </label>
                     <?php endforeach; ?>
@@ -70,7 +67,7 @@ $categories = get_terms( array(
                 </div>
             <?php endif; ?>
         <?php endif; ?>
-    </div>
+    </form>
 
     <h1 class="page_title">Calendar</h1>
     <div id="events_response" data-action="<?php echo site_url() ?>/wp-admin/admin-ajax.php">

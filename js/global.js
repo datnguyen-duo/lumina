@@ -386,24 +386,19 @@ window.addEventListener("load", function () {
         --------------------------------------------------------------------------------- */
         
 
-
-    /*	-----------------------------------------------------------------------------
-             CALENDAR PAGE
-         --------------------------------------------------------------------------------- */
-
     /*	-----------------------------------------------------------------------------
         TEMPLATE CALENDAR
     --------------------------------------------------------------------------------- */
     if ( $(".template_calendar_page_container").length ) {
         var categoryFilterBreakPoint = 1250;
-        var filtersHolder = $('.filters');
+        var filterForm = $('#calendar_filter_form');
 
         if( $(window).width() > categoryFilterBreakPoint ) {
-            filtersHolder.find("input[name=category]").prop('disabled', false);
-            filtersHolder.find("select").prop('disabled', true);
+            filterForm.find("input[name=category]").prop('disabled', false);
+            filterForm.find("select").prop('disabled', true);
         } else {
-            filtersHolder.find("input[name=category]").prop('disabled', true);
-            filtersHolder.find("select").prop('disabled', false);
+            filterForm.find("input[name=category]").prop('disabled', true);
+            filterForm.find("select").prop('disabled', false);
         }
 
         function slickCarousel() {
@@ -440,21 +435,11 @@ window.addEventListener("load", function () {
 
         function filterCalendar() {
             var calendarResponseDiv = document.getElementById('events_response');
-            var date = $('.date_slider .slick-slide.slick-current').find('p').data('value');
-            var category = '';
-            if( $(window).width() > categoryFilterBreakPoint ) {
-                category = $('input[name="category"]:checked').val();
-            } else {
-                category = $('select[name="category"]').val();
-            }
+            $('.date_slider .slick-slide.slick-current').find('input').prop("checked", true);
 
             $.ajax({
                 url: $(calendarResponseDiv).data('action'),
-                data: {
-                    action: 'filter_calendar',
-                    date: date,
-                    category: category,
-                },
+                data: filterForm.serialize(),
                 type: 'POST',
                 beforeSend: function (xhr) {
                     $(calendarResponseDiv).css('opacity','0');
@@ -485,6 +470,9 @@ window.addEventListener("load", function () {
             minimumResultsForSearch: -1
         });
     }
+    /*	-----------------------------------------------------------------------------
+       TEMPLATE CALENDAR END
+   --------------------------------------------------------------------------------- */
 
     if ( $(".template_gallery_page_container").length ) {
         var splide = new Splide( '.splide', {
