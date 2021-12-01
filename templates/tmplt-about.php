@@ -27,7 +27,7 @@ get_header();
             <div class="left">
                 <div class="image_holder">
                     <div class="image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/dev/12th Night.jpg" alt="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/dev/12th-night.jpg" alt="">
                     </div>
 
                     <div class="circle_btn_holder">
