@@ -22,11 +22,22 @@ get_header();
                 <span class="circle"><span>unique opportunities for young actors of any experience level</span></span>
             </h1>
         </div>
+
         <div class="image_with_description">
             <div class="left">
                 <div class="image_holder">
                     <div class="image">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/dev/12th Night.jpg" alt="">
+                    </div>
+
+                    <div class="circle_btn_holder">
+                        <a href="" target="" class="circle_btn">
+                            <img class="circle" src="<?php echo get_template_directory_uri(); ?>/images/about-circle-icon-circle.svg" alt="">
+                            <span class="circle_text_holder">
+                                    <img class="circle_text" src="<?php echo get_template_directory_uri(); ?>/images/about-circle-icon-circle-text.svg" alt="">
+                                </span>
+                            <img class="circle_arrow" src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow-pink.svg" alt="">
+                        </a>
                     </div>
                 </div>
             </div>

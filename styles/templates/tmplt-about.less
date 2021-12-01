@@ -111,8 +111,10 @@
                 width: 100%;
                 box-sizing: border-box;
                 margin-bottom: 43px;
+                padding-right: 25px;
 
                 @media @tablet-s {
+                    padding-right: 0;
                     margin-bottom: 0;
                     width: 55.5%;
                 }
@@ -144,6 +146,13 @@
                             object-position: 0% 0%;
                         }
                     }
+
+                    .circle_btn_holder {
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        transform: translate(40%, 40%);
+                    }
                 }
             }
 
@@ -152,7 +161,7 @@
                 width: 100%;
 
                 @media @tablet-s {
-                    padding: 70px 0 70px 40px;
+                    padding: 70px 0 70px 80px;
                     width: 44.5%;
                 }
 
