@@ -578,6 +578,20 @@
                                         height: 80px;
                                     }
 
+                                    &:hover {
+                                        background-color: @color3;
+
+                                        img {
+                                            &:nth-child(1) {
+                                                display: none;
+                                            }
+
+                                            &:nth-child(2) {
+                                                display: block;
+                                            }
+                                        }
+                                    }
+
                                     &:after {
                                         content: "";
                                         display: block;
@@ -1049,6 +1063,10 @@
                                 padding: 0;
                                 border: solid 1px @color1;
                                 .transition();
+
+                                &:hover {
+                                    background-color: @color3;
+                                }
 
                                 @media @tablet-s {
                                     width: 55px;
