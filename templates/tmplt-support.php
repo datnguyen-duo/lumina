@@ -3,189 +3,146 @@
 get_header();
 ?>
 <div class="template_support_page_container">
+    <?php $hero_section = get_field('hero_section'); ?>
     <section class="hero_section">
-        <div class="title_holder">
-            <h1 class="section_title desktop">
-                <span class="title_part_text">Support</span>
+        <?php if( $hero_section['title_part_1'] || $hero_section['title_part_2'] || $hero_section['subtitle']): ?>
+            <div class="title_holder">
+                <h1 class="section_title desktop">
+                    <?php if( $hero_section['title_part_1'] ): ?>
+                        <span class="title_part_text"><?= $hero_section['title_part_1']; ?></span>
+                    <?php endif; ?>
 
-                <span class="title_part_golder">
-                    <span href="" class="circle"><span>Help us bring the transformative power of theatre to our community</span></span>
-                    <span class="title_part_text">lumina</span>
-                </span>
-            </h1>
+                    <span class="title_part_golder">
+                        <?php if( $hero_section['subtitle'] ): ?>
+                            <span class="circle"><span><?= $hero_section['subtitle']; ?></span></span>
+                        <?php endif; ?>
 
-            <span class="circle mobile"><span>Help us bring the transformative power of theatre to our community</span></span>
-        </div>
+                        <?php if( $hero_section['title_part_2'] ): ?>
+                            <span class="title_part_text"><?= $hero_section['title_part_2']; ?></span>
+                        <?php endif; ?>
+                    </span>
+                </h1>
+
+                <?php if( $hero_section['subtitle'] ): ?>
+                    <span class="circle mobile"><span><?= $hero_section['subtitle']; ?></span></span>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
+
         <div class="image_with_description">
             <div class="left">
-                <div class="description">
-                    <p>
-                    For nearly 25 years, Lumina has been helping young actors discover the wonders of the theatre’s spotlight! For 200 productions, the youth of our community have been introduced to Shakespeare and helped to develop an appreciation of the classics and a love of language.
-                    </p>
-
-                    <p>
-                        More than ever, your donation is needed to help Lumina continue to bring the transformative power of theatre to audiences and actors of all ages throughout our community.
-                    </p>
-                </div>
+                <?php if( $hero_section['description'] ): ?>
+                    <div class="description">
+                        <p><?= $hero_section['description']; ?></p>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="right">
                 <div class="image_holder">
-                    <div class="image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/dev/Nicholas Nickleby.jpg" alt="">
-                    </div>
+                    <?php if( $hero_section['image'] ): ?>
+                        <div class="image">
+                            <?= wp_get_attachment_image($hero_section['image']['ID'],'large'); ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="donate_section">
-        <div class="left">
-            <div class="title_holder">
-                <h2>How to <br>donate</h2>
-                <a href="/donate/" class="button blue">Donate Through Our Website</a>
-            </div>
-        </div>
-        <div class="right">
-            <ul>
-                <li>Click on the Donate Now link below to make a donation through our website</li>
-                <li>Donations may also be sent directly to: Lumina Studio Theatre, 8641 Colesville Road, Silver Spring, MD 20910</li>
-                <li>Lumina Studio Theatre is a tax-exempt 501(c)(3) organization. Gifts are tax deductible to the extent allowed by law.</li>
-            </ul>
-        </div>
-    </section>
+    <?php $description_section = get_field('description_section');
 
-    <section class="info_section">
-        <h2 class="section_title">How to <br>support us</h2>
-        <div class="info">
-            <div class="title_holder">
-                <h2 class="info_title">Online Donations</h2>
+    if( $description_section['title'] || $description_section['link'] || $description_section['list'] ): ?>
+        <section class="donate_section">
+            <div class="left">
+                <div class="title_holder">
+                    <?php if( $description_section['title'] ): ?>
+                        <h2><?= $description_section['title']; ?></h2>
+                    <?php endif; ?>
 
-                <div class="button_holder">
-                    <a href="/donate/" class="button big">Donate Now</a>
+                    <?php
+                    $link = $description_section['link'];
+                    if( $link ):
+                        $link_url = $link['url'];
+                        $link_title = $link['title'];
+                        $link_target = $link['target'] ? $link['target'] : '_self';
+                        ?>
+                        <a class="button blue" href="<?= esc_url( $link_url ); ?>" target="<?= esc_attr( $link_target ); ?>">
+                            <?= esc_html( $link_title ); ?>
+                        </a>
+                    <?php endif; ?>
                 </div>
             </div>
-
-            <div class="info_list_holder">
-
-                <div class="list_items">
-
-                    <div class="list_item">
-                        <div class="icon_holder">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/dev/cash-gifts.svg" alt="">
-                        </div>
-
-                        <div class="description_holder">
-                            <h3>Cash Gifts</h3>
-                            <p>
-                                Lumina depends on the generosity of individuals like you as well as public and private foundations to help promote its mission and grow the organization. Contributions to the Annual Fund help with the costs of productions and operating costs. <a href="/donate/">Donate Now.</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="list_item">
-                        <div class="icon_holder">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/dev/scholarship-gifts.svg" alt="">
-                        </div>
-
-                        <div class="description_holder">
-                            <h3>Scholarship Gifts</h3>
-                            <p>
-                            Lumina believes that no young person should miss the opportunity to participate in a production due to financial constraints. A portion of funds raised from the Annual Campaign go directly to assist qualifying young actors to participate in Lumina productions. Donations towards the general scholarship fund or to support a scholarship actor for an entire season are gratefully accepted. If you would like your donation to be used specifically for scholarships, make a note in the text box on the donation link. <a href="/donate/">Donate Now.</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="list_item">
-                        <div class="icon_holder">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/dev/memory-gifts.svg" alt="">
-                        </div>
-
-                        <div class="description_holder">
-                            <h3>Memory Gifts</h3>
-                            <p>
-                            The Jillian Raye Memorial Fund was established to provide funds to specifically further the development of Lumina’s mission. If you would like your donation to go into the Jillian Raye Memorial Fund, make a note in the text box on the donation link. <a href="/donate/">Donate Now.</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="list_item">
-                        <div class="icon_holder">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/dev/volunteering.svg" alt="">
-                        </div>
-
-                        <div class="description_holder">
-                            <h3>Volunteering</h3>
-                            <p>
-                                Lumina is authorized to offer Student Service Learning Hours (SSL) towards Montgomery County Schools graduation requirements.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-
+            <div class="right">
+                <?php if( $description_section['list'] ): ?>
+                    <ul>
+                        <?php foreach( $description_section['list'] as $item ): ?>
+                            <li><?= $item['title'] ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
             </div>
-        </div>
-        <div class="info">
-            <div class="title_holder">
-                <h2 class="info_title">Contact Us</h2>
-                <div class="button_holder">
-                    <a href="mailto:office@luminastudio.org" class="button big">Send An Email</a>
-                </div>
-            </div>
+        </section>
+    <?php endif; ?>
 
-            <div class="info_list_holder">
-                <div class="list_items">
-                    <div class="list_item">
-                        <div class="icon_holder">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/dev/planned-giving.svg" alt="">
-                        </div>
+    <?php
+    $info_section = get_field('info_section');
 
-                        <div class="description_holder">
-                            <h3>Planned Gifts</h3>
-                            <p>
-                            Create your own legacy by making Lumina a part of your trust, bequest, or endowment. This type of gift guarantees Lumina will continue to fulfill its mission. Contact the office by calling 301-565-2281 or sending an email to <a href="mailto:office@luminastudio.org">office@luminastudio.org</a>.
-                            </p>
-                        </div>
+    if( $info_section['groups'] ): ?>
+        <section class="info_section">
+            <?php if( $info_section['title'] ): ?>
+                <h2 class="section_title"><?= $info_section['title']; ?></h2>
+            <?php endif; ?>
+
+            <?php
+            $info_section = get_field('info_section');
+            foreach( $info_section['groups'] as $group ): ?>
+                <div class="info">
+                    <div class="title_holder">
+                        <h2 class="info_title"><?php echo $group['title']; ?></h2>
+
+                        <?php
+                        $link = $group['link'];
+                        if( $link ):
+                            $link_url = $link['url'];
+                            $link_title = $link['title'];
+                            $link_target = $link['target'] ? $link['target'] : '_self';
+                            ?>
+                            <div class="button_holder">
+                                <a class="button big" href="<?= esc_url( $link_url ); ?>" target="<?= esc_attr( $link_target ); ?>">
+                                    <?= esc_html( $link_title ); ?>
+                                </a>
+                            </div>
+                        <?php endif; ?>
                     </div>
-                    <div class="list_item">
-                        <div class="icon_holder">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/dev/stock-gifts.svg" alt="">
-                        </div>
 
-                        <div class="description_holder">
-                            <h3>Stock Gifts</h3>
-                            <p>
-                            Lumina accepts gifts of publicly-traded stocks and bonds as per IRS guidelines. Gifts of stocks or bonds may be sold and the proceeds used to support productions and programming. For more information on how to donate stocks or bonds, contact the office by calling 301-565-2281 or sending an email to <a href="mailto:office@luminastudio.org">office@luminastudio.org</a>.
-                            </p>
+                    <div class="info_list_holder">
+                        <div class="list_items <?= ( sizeof($group['list']) == 1 ) ? ' rows_layout' : null; ?>">
+                            <?php foreach ( $group['list'] as $item ): ?>
+                                <div class="list_item">
+                                    <?php if( $item['icon'] ): ?>
+                                        <div class="icon_holder">
+                                            <img src="<?= $item['icon']['url']; ?>" alt="<?= $item['icon']['alt']; ?>">
+                                        </div>
+                                    <?php endif; ?>
+
+
+                                    <div class="description_holder">
+                                        <?php if( $item['title'] ): ?>
+                                            <h3><?= $item['title']; ?></h3>
+                                        <?php endif; ?>
+
+                                        <?php if( $item['description'] ): ?>
+                                            <p><?= $item['description']; ?></p>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="info">
-            <div class="title_holder">
-                <h2 class="info_title">Contact Your Business</h2>
-            </div>
-
-            <div class="info_list_holder">
-                <div class="list_items rows_layout">
-                    <div class="list_item">
-                        <div class="icon_holder">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/dev/employee-matching-gifts.svg" alt="">
-                        </div>
-
-                        <div class="description_holder">
-                            <h3>Employee Matching Gifts</h3>
-                            <p>
-                            Many employers match donations to charitable organizations from their employees. These matching gifts can double your donation to Lumina Studio Theatre. Contact the Human Resources Department at your business to find out if there is a matching gift program. Send the Matching Gift form to: Lumina Studio Theatre, 8641 Colesville Rd, Silver Spring, MD 20910.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <?php endforeach; ?>
+        </section>
+    <?php endif; ?>
 </div>
 <?php
 get_footer(); ?>
