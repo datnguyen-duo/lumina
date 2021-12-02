@@ -15,6 +15,7 @@ if ( ! function_exists( 'site_setup' ) ) :
 				'menu-1' => esc_html__( 'Hidden 1(Left)', 'lumina' ),
 				'menu-2' => esc_html__( 'Hidden 2(Right)', 'lumina' ),
 				'menu-3' => esc_html__( 'Buttons', 'lumina' ),
+				'menu-4' => esc_html__( 'Footer', 'lumina' ),
             )
 		);
 
