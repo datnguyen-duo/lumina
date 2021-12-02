@@ -25,12 +25,17 @@
             <img class="dark" src="<?php echo get_template_directory_uri(); ?>/images/logo-dark.png" alt="">
         </a>
 
-        <nav>
-            <ul>
-                <li><a href="/support/">Support</a></li>
-                <li><a href="/programs/">Register</a></li>
-            </ul>
-        </nav>
+        <?php
+        if( has_nav_menu('menu-3') ): ?>
+            <nav>
+                <?php wp_nav_menu(
+                    array(
+                        'theme_location' => 'menu-3',
+                        'container' => false,
+                    )
+                ); ?>
+            </nav>
+        <?php endif; ?>
 
         <div class="hamburger_holder">
             <p class="cart_link custom_side_cart_opener">Cart</p>
@@ -51,19 +56,17 @@
                 
                 <div class="left">
                     <img class="menu_gradient1" src="<?php echo get_template_directory_uri(); ?>/images/menu_gradient1.svg" alt="">
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href="">Lumina</a>
-                                <ul class="sub-menu">
-                                    <li><a href="/">Home</a></li>
-                                     <li><a href="/about/">About</a></li>
-                                    <!--<li><a href="/">Gallery</a></li> -->
-                                    <li><a href="/contact/">Contact</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
+                    <?php
+                    if( has_nav_menu('menu-1') ): ?>
+                        <nav>
+                            <?php wp_nav_menu(
+                                array(
+                                    'theme_location' => 'menu-1',
+                                    'container' => false,
+                                )
+                            ); ?>
+                        </nav>
+                    <?php endif; ?>
 
                     <div class="form_holder desktop">
                         <p>
@@ -82,20 +85,18 @@
                 <div class="separator_mobile"></div>
                 <div class="right">
                     <img class="menu_gradient2" src="<?php echo get_template_directory_uri(); ?>/images/menu_gradient2.svg" alt="">
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href="">Theatre</a>
 
-                                <ul class="sub-menu">
-                                    <li><a href="/programs">Programs</a></li>
-                                    <li><a href="/faq">FAQ & Policies</a></li>
-                                    <li><a href="/tickets">Tickets</a></li>
-                                    <li><a href="/calendar">Calendar</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
+                    <?php
+                    if( has_nav_menu('menu-2') ): ?>
+                        <nav>
+                            <?php wp_nav_menu(
+                                array(
+                                    'theme_location' => 'menu-2',
+                                    'container' => false,
+                                )
+                            ); ?>
+                        </nav>
+                    <?php endif; ?>
 
                     <div class="form_holder mobile">
                         <p>

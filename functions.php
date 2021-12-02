@@ -12,7 +12,9 @@ if ( ! function_exists( 'site_setup' ) ) :
 
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'rotary' ),
+				'menu-1' => esc_html__( 'Hidden 1(Left)', 'lumina' ),
+				'menu-2' => esc_html__( 'Hidden 2(Right)', 'lumina' ),
+				'menu-3' => esc_html__( 'Buttons', 'lumina' ),
             )
 		);
 
