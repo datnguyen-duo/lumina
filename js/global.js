@@ -581,112 +581,86 @@ window.addEventListener("load", function () {
            FAQ PAGE END
        --------------------------------------------------------------------------------- */
 
-    var wordsWithImageSection = $(".words_with_image_section");
-    var wordsWithImageSectionWord = $(".words_with_image_section span");
-    wordsWithImageSectionWord.on({
-        mouseover: function () {
-            var img = $(this).data("image");
 
-            setTimeout(function () {
-                wordsWithImageSection.addClass("word_is_active");
-                wordsWithImageSection
-                    .find(".img_background")
-                    .attr("src", img)
-                    .fadeIn(200);
-            }, 250);
-        },
-        mouseout: function () {
-            wordsWithImageSection.removeClass("word_is_active");
+    /*	-----------------------------------------------------------------------------
+           HOMEPAGE PAGE END
+       --------------------------------------------------------------------------------- */
+    if ( $(".template_home_page_container").length ) {
+        var wordsWithImageSection = $(".words_with_image_section");
+        var wordsWithImageSectionWord = $(".words_with_image_section span");
+        wordsWithImageSectionWord.on({
+            mouseover: function () {
+                var img = $(this).data("image");
 
-            wordsWithImageSection.find(".img_background").fadeOut(200, function () {
-                $(this).attr("src", "");
+                setTimeout(function () {
+                    wordsWithImageSection.addClass("word_is_active");
+                    wordsWithImageSection
+                        .find(".img_background")
+                        .attr("src", img)
+                        .fadeIn(200);
+                }, 250);
+            },
+            mouseout: function () {
+                wordsWithImageSection.removeClass("word_is_active");
+
+                wordsWithImageSection.find(".img_background").fadeOut(200, function () {
+                    $(this).attr("src", "");
+                });
+            },
+        });
+        
+        var testimonialSlider = $('.testimonials_slider');
+
+        function initTestimonialsSlider(category) {
+            testimonialSlider.find(".testimonial").css("display", "none");
+            testimonialSlider.find(".testimonial."+category).css("display", "block");
+
+            testimonialSlider.on(
+                "afterChange",
+                function (event, slick, currentSlide, nextSlide) {
+                    smoothScroll();
+                }
+            );
+
+            testimonialSlider.slick({
+                prevArrow:
+                    '<div class="left"><button type="button" class="testimonials_prev_btn"><img src="' +
+                    site_data.theme_url +
+                    '/images/icons/arrow.svg" alt="">Previous</button></div>',
+                nextArrow:
+                    '<div class="right"><button type="button" class="testimonials_next_btn">Next<img src="' +
+                    site_data.theme_url +
+                    '/images/icons/arrow.svg" alt=""></button></div>',
+                appendArrows: $(".navigation"),
+                fade: true,
+                adaptiveHeight: true,
+                rows: 0,
+                slide: "."+category,
             });
-        },
-    });
-    $(".testimonials_slider").on(
-        "afterChange",
-        function (event, slick, currentSlide, nextSlide) {
+        }
+
+        initTestimonialsSlider($('.testimonials_section .btn.active').data('target'));
+
+        $(".testimonials_section .btn").on("click", function () {
+            if( !$(this).hasClass('active') ) {
+                $(".testimonials_section .btn").removeClass("active");
+                $(this).addClass("active");
+
+                var category = $(this).data('target');
+
+                $(".testimonials_slider").slick("unslick");
+
+                initTestimonialsSlider(category);
+            }
+
             smoothScroll();
-        }
-    );
-    $(".testimonials_slider").slick({
-        prevArrow:
-            '<div class="left"><button type="button" class="testimonials_prev_btn"><img src="' +
-            site_data.theme_url +
-            '/images/icons/arrow.svg" alt="">Previous</button></div>',
-        nextArrow:
-            '<div class="right"><button type="button" class="testimonials_next_btn">Next<img src="' +
-            site_data.theme_url +
-            '/images/icons/arrow.svg" alt=""></button></div>',
-        appendArrows: $(".navigation"),
-        fade: true,
-        adaptiveHeight: true,
-        rows: 0,
-        slide: ".actor",
-    });
+        });
+    }
+    /*	-----------------------------------------------------------------------------
+           HOMEPAGE PAGE END
+       --------------------------------------------------------------------------------- */
 
-    $(".testimonials_section .btn").on("click", function () {
-        if ($(this).is(".active")) {
-            return;
-        } else {
-            $(".testimonials_section .btn").removeClass("active");
-            $(this).addClass("active");
-        }
 
-        $(".testimonials_slider").slick("unslick");
-
-        if ($(this).is(".actors")) {
-            $(".testimonial.actor").css("display", "block");
-            $(".testimonial.audience").css("display", "none");
-            $(".testimonials_slider").slick({
-                prevArrow:
-                    '<div class="left"><button type="button" class="testimonials_prev_btn"><img src="' +
-                    site_data.theme_url +
-                    '/images/icons/arrow.svg" alt="">Previous</button></div>',
-                nextArrow:
-                    '<div class="right"><button type="button" class="testimonials_next_btn">Next<img src="' +
-                    site_data.theme_url +
-                    '/images/icons/arrow.svg" alt=""></button></div>',
-                appendArrows: $(".navigation"),
-                fade: true,
-                adaptiveHeight: true,
-                rows: 0,
-                slide: ".actor",
-            });
-            $(".testimonials_slider").on(
-                "afterChange",
-                function (event, slick, currentSlide, nextSlide) {
-                    smoothScroll();
-                }
-            );
-        } else {
-            $(".testimonial.actor").css("display", "none");
-            $(".testimonial.audience").css("display", "block");
-            $(".testimonials_slider").slick({
-                prevArrow:
-                    '<div class="left"><button type="button" class="testimonials_prev_btn"><img src="' +
-                    site_data.theme_url +
-                    '/images/icons/arrow.svg" alt="">Previous</button></div>',
-                nextArrow:
-                    '<div class="right"><button type="button" class="testimonials_next_btn">Next<img src="' +
-                    site_data.theme_url +
-                    '/images/icons/arrow.svg" alt=""></button></div>',
-                appendArrows: $(".navigation"),
-                fade: true,
-                adaptiveHeight: true,
-                rows: 0,
-                slide: ".audience",
-            });
-            $(".testimonials_slider").on(
-                "afterChange",
-                function (event, slick, currentSlide, nextSlide) {
-                    smoothScroll();
-                }
-            );
-        }
-
-        smoothScroll();
-    });
 
     //     $(".letter_wrap").each(function () {
     //       var words = jQuery(this).text().split(" ");

@@ -2,62 +2,136 @@
 /* Template Name: Home */
 get_header(); ?>
     <div class="template_home_page_container">
+        <?php $hero_section = get_field('hero_section'); ?>
         <section class="hero_section">
+            <?php if( $hero_section['title_part_1'] || $hero_section['title_part_2'] ): ?>
             <div class="banner__split-text">
-                <h1 class="big_headline_animation">Coming Soon:</h1>
-                <h1 class="big_headline_animation">Oliver Twist</h1>
-                
+                <?php if( $hero_section['title_part_1'] ): ?>
+                    <h1 class="big_headline_animation"><?= $hero_section['title_part_1'] ?></h1>
+                <?php endif; ?>
+
+                <?php if( $hero_section['title_part_2'] ): ?>
+                    <h1 class="big_headline_animation"><?= $hero_section['title_part_2'] ?></h1>
+                <?php endif; ?>
             </div>
+            <?php endif;
 
-            <img class="background animate_el" src="<?php echo get_template_directory_uri(); ?>/images/dev/Winters Tale Players.jpg" alt="hero-image">
+            if( $hero_section['image'] ):
+                echo wp_get_attachment_image($hero_section['image']['ID'],'large',false,array('class' => 'background animate_el'));
+            endif; ?>
             <div class="hero_overlay"></div>
-
-            <!-- <div class="wrapper">
-                <p>Buy tickets for our Fall Mainstage Production!</p>
-                <a href="" class="button">Buy</a>
-            </div> -->
 
             <div class="cta_section">
                 <div class="wrapper left">
-                    
-                    <p>Buy tickets for our Fall Mainstage Production!</p>
-                    <a href="/tickets" class="button">Buy</a>
+                    <?php if( $hero_section['cta_1_description']  ): ?>
+                        <p><?= $hero_section['cta_1_description'] ?></p>
+                    <?php endif; ?>
+
+                    <?php
+                    $link = $hero_section['cta_1_link'];
+                    if( $link ):
+                        $link_url = $link['url'];
+                        $link_title = $link['title'];
+                        $link_target = $link['target'] ? $link['target'] : '_self';
+                        ?>
+                        <a class="button" href="<?= esc_url( $link_url ); ?>" target="<?= esc_attr( $link_target ); ?>">
+                            <?= esc_html( $link_title ); ?>
+                        </a>
+                    <?php endif; ?>
                 </div>
 
                 <div class="wrapper">
-                    <h2>ROMEO И JULIET</h2>
-                    <p>Register now for our Spring Mainstage Production!</p>
+                    <?php if( $hero_section['cta_2_title'] ): ?>
+                        <h2><?= $hero_section['cta_2_title'] ?></h2>
+                    <?php endif; ?>
 
-                    <div class="buttons">
-                        <a href="/programs" class="button light">Register</a>
-                        <a href="/product/donate" class="button light">Donate</a>
-                    </div>
+                    <?php if( $hero_section['cta_2_description'] ): ?>
+                        <p><?= $hero_section['cta_2_description'] ?></p>
+                    <?php endif; ?>
+
+                    <?php if( $hero_section['cta_2_link'] || $hero_section['cta_2_link_2'] ): ?>
+                        <div class="buttons">
+                            <?php
+                            $link = $hero_section['cta_2_link'];
+                            if( $link ):
+                                $link_url = $link['url'];
+                                $link_title = $link['title'];
+                                $link_target = $link['target'] ? $link['target'] : '_self';
+                                ?>
+                                <a class="button light" href="<?= esc_url( $link_url ); ?>" target="<?= esc_attr( $link_target ); ?>">
+                                    <?= esc_html( $link_title ); ?>
+                                </a>
+                            <?php endif; ?>
+                            <?php
+                            $link = $hero_section['cta_2_link_2'];
+                            if( $link ):
+                                $link_url = $link['url'];
+                                $link_title = $link['title'];
+                                $link_target = $link['target'] ? $link['target'] : '_self';
+                                ?>
+                                <a class="button light" href="<?= esc_url( $link_url ); ?>" target="<?= esc_attr( $link_target ); ?>">
+                                    <?= esc_html( $link_title ); ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
                 
             </div>
         </section>
 
-        <section class="words_with_image_section">
-            <img class="img_background" src="" alt="">
-            <!-- <h2 class="title">Welcome to Lumina Theatre</h2> -->
+        <?php
+        $interactive_desc_section = get_field('interactive_desc_section');
+        $description = $interactive_desc_section['description'];
+        if( $description ): ?>
+            <section class="words_with_image_section">
+                <img class="img_background" src="" alt="">
+                <!-- <h2 class="title">Welcome to Lumina Theatre</h2> -->
 
-            <div class="description_holder">
-                <div class="description">
-                    <p class="st__split-blurb">We provide unique opportunities for young actors of any level of experience who seek to perform <span data-image="<?php echo get_template_directory_uri(); ?>/images/dev/Welcome-Shakespeare-v2.jpg">Shakespeare</span>, other plays of the <span data-image="<?php echo get_template_directory_uri(); ?>/images/dev/Welcome-Classical-v2.jpg">classical</span> repertory theatre, and <span data-image="<?php echo get_template_directory_uri(); ?>/images/dev/Welcome-Modern-v2.jpg">modern</span> plays that focus on the beauty of language.</p>
+                <div class="description_holder">
+                    <div class="description">
+                        <?php
+                        $interactive_words = $interactive_desc_section['interactive_words'];
+                        if( $interactive_words ):
+                            $interactive_desc = '';
+
+                            foreach ( $interactive_words as $word ):
+                                $word_image = $word['image'];
+                                $target = $word['word'];
+                                $interactive_desc = preg_replace("/({$target})/", "<span data-image='{$word_image['url']}'>$1</span>", $description);
+                                $description = $interactive_desc;
+                            endforeach;
+                        endif; ?>
+                        <p class="st__split-blurb"><?= $description; ?></p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        <?php endif; ?>
 
+        <?php $description_section = get_field('description_section'); ?>
         <section class="description_section">
             <div class="description_section_content">
                 <div class="sentence_part part_1">
-                    <h2>Register</h2>
-                    <img class="word_image" src="<?php echo get_template_directory_uri(); ?>/images/dev/AYLI Grace.jpg" alt="">
+                    <?php if( $description_section['title_part_1'] ): ?>
+                        <h2><?= $description_section['title_part_1'] ?></h2>
+                    <?php endif; ?>
+
+                    <?php
+                    if( $description_section['title_image_1'] ):
+                        echo wp_get_attachment_image($description_section['title_image_1']['ID'],'large',false,array('class' => 'word_image'));
+                    endif; ?>
                 </div>
 
                 <div class="sentence_part part_2">
-                    <img class="word_image" src="<?php echo get_template_directory_uri(); ?>/images/dev/RII Karim.jpg" alt="">
-                    <h2>For</h2>
+                    <?php
+                    if( $description_section['title_image_2'] ):
+                        echo wp_get_attachment_image($description_section['title_image_2']['ID'],'large',false,array('class' => 'word_image'));
+                    endif; ?>
+
+                    <?php if( $description_section['title_part_2'] ): ?>
+                        <h2><?= $description_section['title_part_2'] ?></h2>
+                    <?php endif; ?>
+
                     <div class="circle_btn_holder animate_el">
                         <a href="/lumina/faq/#registration-policies" class="circle_btn">
                             <img class="circle" src="<?php echo get_template_directory_uri(); ?>/images/circle.svg" alt="">
@@ -68,12 +142,16 @@ get_header(); ?>
                         </a>
                     </div>
 
-                    <h2>Our</h2>
+                    <?php if( $description_section['title_part_3'] ): ?>
+                        <h2><?= $description_section['title_part_3'] ?></h2>
+                    <?php endif; ?>
                 </div>
 
-                <div class="sentence_part">
-                    <h2>Programs</h2>
-                </div>
+                <?php if( $description_section['title_part_4'] ): ?>
+                    <div class="sentence_part">
+                        <h2><?= $description_section['title_part_4'] ?></h2>
+                    </div>
+                <?php endif; ?>
 
                 <div class="circle_btn_holder_mobile">
                     <a href="#" class="circle_btn">
@@ -85,63 +163,84 @@ get_header(); ?>
                     </a>
                 </div>
 
-                <p class="description">We provide incredible theatre programs for ages 8-18 to rehearse and perform imaginative, high quality classical theatre! Scroll down to learn more</p>
+                <?php if( $description_section['description'] ): ?>
+                    <p class="description"><?= $description_section['description'] ?></p>
+                <?php endif; ?>
             </div>
         </section>
 
-        <section class="img_with_desc_section">
-            <div class="left">
-                <div class="image_holder animate_el">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/dev/Nicholas Nickelby 2013.jpg" alt="">
-                </div>
-            </div>
-            <div class="right">
-                <div class="right_content animate_el">
-                    <div class="st__split-text">
-                        <h2 class="title desktop letter_wrap animate_el big_headline_animation">Rehearsal</h2>
-                        <h2 class="title desktop letter_wrap animate_el big_headline_animation">Groups</h2>
-                    </div>
-                    <h2 class="title mobile">Rehearsal Groups</h2>
-                    <h2 class="subtitle">Young Actors of many ages collaborate on a unique and high quality production</h2>
-                    <div class="description">
-                        <p>Actors meet in 3 groups for weekly rehearsals - Players (ages 8-12), Classics (ages 12-16) and Guild (by invitation). Although the rehearsal groups meet separately each week, the members of the Players, Classics, and Guild all work on a single production. Coming together on occasional weekend rehearsals, and then every day during Production Week, all actors ultimately create a cohesive, high quality production that bonds them together as creative collaborators. The Director and production team approach each production as a “hand made” creative project that requires complete devotion. All together, this creates not only great art, but a transformative experience that benefits our actors for life!</p>
-                    </div>
-                    <a href="/programs" class="button big">Learn More</a>
-                </div>
-            </div>
-        </section>
+        <?php $blocks = get_field('blocks');
 
-        <section class="img_with_desc_section_2">
-            <div class="left">
-                <div class="left_content animate_el">
-                    <div class="st__split-text">
-                        <h2 class="title desktop letter_wrap animate_el big_headline_animation">Summerstock</h2>
-                        <h2 class="title desktop letter_wrap animate_el big_headline_animation">Camps</h2>
+        foreach ( $blocks as $index => $block ): ?>
+            <?php if( $index %2 == 0 ): ?>
+                <section class="img_with_desc_section">
+                    <div class="left">
+                        <div class="image_holder animate_el">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/dev/Nicholas Nickelby 2013.jpg" alt="">
+                        </div>
                     </div>
-                    <h2 class="title mobile">Summerstock Camps</h2>
-                    <h2 class="subtitle">Stay tuned for your chance to register for another summer of theatre magic in 2022!</h2>
-                    <div class="description">
-                        <p>All actors are cast in an exciting role, receive expert directing & coaching, make new friends, play theatre games, and make memories to last a lifetime!  Lumina’s famous camp is coming back for a summer filled with laughter and learning!  Summer Camps are educational and filled with creativity that exercises both brain and body!</p>
+                    <div class="right">
+                        <div class="right_content animate_el">
+                            <div class="st__split-text">
+                                <h2 class="title desktop letter_wrap animate_el big_headline_animation">Rehearsal</h2>
+                                <h2 class="title desktop letter_wrap animate_el big_headline_animation">Groups</h2>
+                            </div>
+                            <h2 class="title mobile">Rehearsal Groups</h2>
+                            <h2 class="subtitle">Young Actors of many ages collaborate on a unique and high quality production</h2>
+                            <div class="description">
+                                <p>Actors meet in 3 groups for weekly rehearsals - Players (ages 8-12), Classics (ages 12-16) and Guild (by invitation). Although the rehearsal groups meet separately each week, the members of the Players, Classics, and Guild all work on a single production. Coming together on occasional weekend rehearsals, and then every day during Production Week, all actors ultimately create a cohesive, high quality production that bonds them together as creative collaborators. The Director and production team approach each production as a “hand made” creative project that requires complete devotion. All together, this creates not only great art, but a transformative experience that benefits our actors for life!</p>
+                            </div>
+                            <a href="/programs" class="button big">Learn More</a>
+                        </div>
                     </div>
-                    <a href="/tickets" class="button blue big">Learn More</a>
-                </div>
-            </div>
-            <div class="right">
-                <div class="image_holder animate_el">
-                    <img class="" src="<?php echo get_template_directory_uri(); ?>/images/dev/Evian MSND.JPG" alt="">
-                </div>
-            </div>
-        </section>
+                </section>
 
+            <?php else: ?>
+                <section class="img_with_desc_section_2">
+                    <div class="left">
+                        <div class="left_content animate_el">
+                            <div class="st__split-text">
+                                <h2 class="title desktop letter_wrap animate_el big_headline_animation">Summerstock</h2>
+                                <h2 class="title desktop letter_wrap animate_el big_headline_animation">Camps</h2>
+                            </div>
+                            <h2 class="title mobile">Summerstock Camps</h2>
+                            <h2 class="subtitle">Stay tuned for your chance to register for another summer of theatre magic in 2022!</h2>
+                            <div class="description">
+                                <p>All actors are cast in an exciting role, receive expert directing & coaching, make new friends, play theatre games, and make memories to last a lifetime!  Lumina’s famous camp is coming back for a summer filled with laughter and learning!  Summer Camps are educational and filled with creativity that exercises both brain and body!</p>
+                            </div>
+                            <a href="/tickets" class="button blue big">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="image_holder animate_el">
+                            <img class="" src="<?php echo get_template_directory_uri(); ?>/images/dev/Evian MSND.JPG" alt="">
+                        </div>
+                    </div>
+                </section>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+        <?php $description_s = get_field('description_section_2'); ?>
         <section class="banner_section">
             <div class="banner">
-                <div class="st__split-text">
-                    <div class="cta">
-                        <h2 class="animate_el big_headline_animation">OUR</h2>
-                        <a class="cta_btn">Anti-racism, Diversity Inclusion & Accessibility</a>
+                <?php if( $description_s['title_part_1'] || $description_s['title_part_2'] || $description_s['subtitle'] ): ?>
+                    <div class="st__split-text">
+                        <div class="cta">
+                            <?php if( $description_s['title_part_1'] ): ?>
+                                <h2 class="animate_el big_headline_animation"><?= $description_s['title_part_1'] ?></h2>
+                            <?php endif; ?>
+
+                            <?php if( $description_s['subtitle'] ): ?>
+                                <p class="cta_btn"><?= $description_s['subtitle'] ?></p>
+                            <?php endif; ?>
+                        </div>
+
+                        <?php if( $description_s['title_part_2'] ): ?>
+                            <h2 class="animate_el big_headline_animation"><?= $description_s['title_part_2'] ?></h2>
+                        <?php endif; ?>
                     </div>
-                    <h2 class="animate_el big_headline_animation">Commitment</h2>
-                </div>
+                <?php endif; ?>
+
                 <div class="description_holder">
                     <a href="<?php echo get_template_directory_uri(); ?>/images/dev/FINAL DEIA Statement.pdf" class="circle_btn" download>
                         <img class="circle" src="<?php echo get_template_directory_uri(); ?>/images/circle-2.svg" alt="">
@@ -150,105 +249,69 @@ get_header(); ?>
                             <img class="circle_text" src="<?php echo get_template_directory_uri(); ?>/images/circle-text-2.svg" alt="">
                         </span>
                     </a>
-                    <p>
-                    Lumina Studio Theatre supports the work of BIPOC organizers and activists calling for an acknowledgement of an end to systemic racism, including in the world of theatre. Lumina's core value of originality encourages young people and adults alike to question and engage in critical discussion not only of Shakespeare, but of much of the Western Literary "canon." Lumina Studio Theatre is engaging in an ongoing process of education and self-reflection regarding how we as an organization can do more and do better in Diversity, Equity, Inclusion, and Accessibility. This education process includes attending workshops on anti-racist theater making (like those led by <a href="https://www.nicolembrewer.com/anti-racist-theatre" target="_blank" rel="noopener noreferrer">Nicole Brewer</a>) to help Lumina move from passive assimilationism to active anti-racism. As members of the Silver Spring/Takoma Park/ greater Washington DC community, our intention is to listen to and uplift the voices of community members of color and take actionable steps to move the organization towards anti-racism and encourage our peer organizations to do the same. For more information on equity in the arts, please visit the Montgomery County Arts and Humanities Council List of Resources on Racial Justice and Equity.
-                    <br><br>
-                    Lumina Studio Theatre embraces the gender exploration and play that have always been an integral part of the theatre world. Lumina is a welcoming environment for LGBTQIA+ youth and strives to be inclusive and respectful in both the works we perform and the instruction we provide. Lumina Studio Theatre recognizes that queer youth in America still face many threats to their wellbeing and it is the job of a youth arts organization to provide a safe place free from hate and full of love.</p>
+
+                    <?php if( $description_s['description'] ): ?>
+                        <p><?= $description_s['description'] ?></p>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
 
-        <section class="testimonials_section">
-            <div class="buttons">
-                <div class="btn active actors">Actors</div>
-                <div class="btn dark_outline audience">Audience</div>
-            </div>
-            <div class="testimonials_slider">
-
-                <div class="testimonial actor">
-                    <h2 class="text">“At this point in my life, I can surely say that 90% of everything that I know about anything has come from Lumina and 99.9% of everything that I know about theatre has come from my time with Lumina. Lumina has made me who I am.”</h2>
-                    <h3 class="author">Isabel Thompson, Alumnus</h3>
+        <?php
+        $testimonials_groups = get_field('testimonials_groups');
+        if( $testimonials_groups ): ?>
+            <section class="testimonials_section">
+                <div class="buttons">
+                    <?php foreach( $testimonials_groups as $index => $group ):
+                        $category = 'category_'.strtolower(str_replace(" ", "_", $group['title']));
+                    ?>
+                        <div class="btn <?= ( $index == 0 ) ? ' active' : null; ?>" data-target="<?= $category ?>">
+                            <?= $group['title'] ?>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
 
-                <div class="testimonial actor">
-                    <h2 class="text">“Through Lumina, I gave part of myself to each of these characters, and in return they gave themselves to me and shaped the person I am today.”</h2>
-                    <h3 class="author">Adelaide Waldrop, Alumnus</h3>
+                <div class="testimonials_slider">
+                    <?php foreach( $testimonials_groups as $group ):
+                        $category = 'category_'.strtolower(str_replace(" ", "_", $group['title']));
+                        foreach( $group['testimonials'] as $testimonial ): ?>
+                            <div class="testimonial <?= $category ?>">
+                                <h2 class="text"><?= $testimonial['description'] ?></h2>
+                                <h3 class="author"><?= $testimonial['author'] ?></h3>
+                            </div>
+                        <?php endforeach;
+                    endforeach; ?>
                 </div>
 
-                <div class="testimonial actor">
-                    <h2 class="text">“My son learned that he is in charge of his life and is responsible for himself (learn your lines, and if you don’t take that responsibility, your lines (and even your part) will be cut.). He learned that if you set your goals high and expect yourself to reach them, you will. He also learned that just when you think you can’t, you can.”</h2>
-                    <h3 class="author">Rose Monsell, Lumina Parent</h3>
-                </div>
+                <div class="navigation"></div>
+            </section>
+        <?php endif; ?>
 
-                <div class="testimonial actor">
-                    <h2 class="text">“I signed her up for camp there, and honestly she's like a changed kid.  She got a big part in the play they are doing, and has been dedicated about learning lines, etc.  Plus she just seems overall more outgoing, social in a different/ better way .... it's amazing.”</h2>
-                    <h3 class="author">Lumina Summerstock Parent</h3>
-                </div>
-
-                <div class="testimonial actor">
-                    <h2 class="text">“It was such a wonderful experience for my daughter to use her voice in this new way!”</h2>
-                    <h3 class="author">Lumina Summerstock Parent</h3>
-                </div>
-
-                <div class="testimonial actor">
-                    <h2 class="text">“They really gave us a gift as young kids in taking us seriously and asking us to behave professionally. In exchange, we got to be on a real stage with real costumes and acting classical material.”</h2>
-                    <h3 class="author">Lizzie Albert, Alumnus (NYU Tisch School of the Arts)</h3>
-                </div>
-
-                <div class="testimonial actor">
-                    <h2 class="text">“Lumina is a village.  Youngsters, parents and community members come together to enjoy theater, classic literature and have fun.  Friendships are forged, horizons are opened and abilities are stretched in this loving and encouraging setting.  I wouldn’t miss watching the kids transform their characters in each production from the first read to final performance.  Likewise it is inspiring to watch the young actors develop as people who can be counted on for persistence, effort and reliability as well as entertainment!”</h2>
-                    <h3 class="author">Cassie Gabriel, Actor & Supporter</h3>
-                </div>
-
-                <div class="testimonial actor">
-                    <h2 class="text">“Working with the young actors at Lumina has simply been one of the most stimulating experiences of my theatrical life. It’s a privilege to rehearse and perform alongside such an extraordinary pool of enthusiasm, commitment, imagination, professionalism and burgeoning talent.”</h2>
-                    <h3 class="author">John O’Connor, Author and Shakespearean Scholar</h3>
-                </div>
-
-                <div class="testimonial audience">
-                    <h2 class="text">“Lumina Studio Theatre’s The Tempest was a stunning spectacle of superior stage craft, the kind of collective performance that “dreams are made of.”</h2>
-                    <h3 class="author">DC Metro Theatre Arts Review</h3>
-                </div>
-
-                <div class="testimonial audience">
-                    <h2 class="text">“The moment you lay eyes on the magnificent set, you know: This is no ordinary youth production. A far, and far more professional, cry from what most of us recall of elementary school recitals, Lumina Studio Theatre brings us a delightful romp through one of Shakespeare’s cherished comedies.”</h2>
-                    <h3 class="author">DC Theatre Scene Review of Twelfth Night 2014</h3>
-                </div>
-
-                <div class="testimonial audience">
-                    <h2 class="text">“Shogun Caesar was a knockout triumph in every respect…. This theatre company is a community treasure and is deserving of national attention and recognition.”</h2>
-                    <h3 class="author">Jamie Raskin, Maryland State Senator</h3>
-                </div>
-
-                <div class="testimonial audience">
-                    <h2 class="text">“I had the pleasure of attending Lumina Studio Theatre’s splendid production of Cymbeline.  I was extremely impressed with the great work that Lumina got out of the students.  Not only did they know exactly what they were saying at every moment, they were also very clear on their characters, relationships, and the whole story. The young Lumina actors took very challenging Shakespeare and really owned it. They were poised, confident, and well-directed.  Not only that, but they were having a great time!  Congratulations, Lumina, for pulling off a near-miracle: getting kids to put on a Shakespeare play at a high level at such a young age.  Keep up the great work!”</h2>
-                    <h3 class="author">Nick Newlin, The Nicolo Whimsey Show</h3>
-                </div>
-
-                <div class="testimonial audience">
-                    <h2 class="text">“I was really amazed that these were young actors! I couldn’t believe how well they handled the amount of and complexity of the lines and of the content….What a celebration of talent, of motivation and seriousness of purpose. We hear quite a bit these days about kids who are glued to TVs and video games, struggling with ADHD and anti-depressants or who are not goal-oriented, but here is a stellar example of 40 young actors (with lead roles played by 14 year-olds), who have risen to extraordinary heights and who should be mentoring all those other kids. What an inspiration!”</h2>
-                    <h3 class="author">Joanne Rasi, Library of Congress</h3>
-                </div>
-
-                <div class="testimonial audience">
-                    <h2 class="text">“Incredible… One of the most stirring performances I have seen in a long time… Fabulous”</h2>
-                    <h3 class="author">Susan Jenkins, Executive Director Arts & Humanities Council of Montgomery County</h3>
-                </div>
-
-                <div class="testimonial audience">
-                    <h2 class="text">“Lumina is a first class organization. Pyramid Atlantic has worked with Lumina on several occasions and it is always artistically fulfilling and energizing to work with such a talented group of actors, directors and designers.”</h2>
-                    <h3 class="author">Jose Dominguez, Executive Director, Pyramid Atlantic Arts Center</h3>
-                </div>
-            </div>
-
-            <div class="navigation"></div>
-        </section>
-
+        <?php $banner_s = get_field('banner_section'); ?>
         <section class="banner_2_section">
-            <img class="icon" src="<?php echo get_template_directory_uri(); ?>/images/banner-icon.svg" alt="">
-            <h2 class="title letter_wrap animate_el big_headline_animation">Keep Lumina’s Light Shining</h2>
-            <p class="description">More than ever, your donation is needed to help Lumina continue to bring the transformative power of theatre to audiences and actors of all ages throughout our community.</p>
-            <a href="/product/donate" class="button big blue">Donate</a>
+            <?php if( $banner_s['icon'] ): ?>
+                <img class="icon" src="<?= $banner_s['icon']['url']; ?>" alt="<?= $banner_s['icon']['alt']; ?>">
+            <?php endif; ?>
+
+            <?php if( $banner_s['title'] ): ?>
+                <h2 class="title letter_wrap animaxte_el big_headline_animation"><?php echo $banner_s['title']; ?></h2>
+            <?php endif; ?>
+
+            <?php if( $banner_s['description'] ): ?>
+                <p class="description"><?php echo $banner_s['description']; ?></p>
+            <?php endif; ?>
+
+            <?php
+            $link = $banner_s['button'];
+            if( $link ):
+                $link_url = $link['url'];
+                $link_title = $link['title'];
+                $link_target = $link['target'] ? $link['target'] : '_self';
+                ?>
+                <a class="button big blue" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                    <?php echo esc_html( $link_title ); ?>
+                </a>
+            <?php endif; ?>
         </section>
     </div>
 <?php
