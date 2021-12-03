@@ -1,94 +1,126 @@
 <?php
 /* Template Name: Contact */
-get_header(); ?>
+get_header();
+$phone = get_field('phone','option');
+$address = get_field('address','option');
+$email = get_field('email','option');
+$facebook = get_field('facebook','option');
+$instagram = get_field('instagram','option');
+$youtube = get_field('youtube','option');
+$office_hours = get_field('office_hours','option');
+?>
 <div class="template_contact_page_container">
     <h1 class="page_title">Contact</h1>
 
     <section class="map_section">
         <div class="map_holder">
             <div id="map"></div>
-            <!-- <div class="map">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/dev/map.png" alt="">
-            </div> -->
 
-            <div class="map_info desktop">
-                <div class="info">
-                    <div class="info_title">Find US</div>
-                    <div class="info_desc">
-                        8641 Colesville Rd,
-                        Silver Spring, MD 20910
-                    </div>
+            <?php if( $address || $office_hours ): ?>
+                <div class="map_info desktop">
+                    <?php if( $address ): ?>
+                        <div class="info">
+                            <div class="info_title">Find Us</div>
+                            <div class="info_desc"><?= $address ?></div>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if( $office_hours ): ?>
+                        <div class="info">
+                            <div class="info_title">Office hours</div>
+                            <div class="info_desc"><?= $office_hours ?></div>
+                        </div>
+                    <?php endif; ?>
                 </div>
-                <div class="info">
-                    <div class="info_title">Office hours</div>
-                    <div class="info_desc">
-                        Monday-Thursday,<br>
-                        9am-3pm
-                    </div>
-                </div>
-            </div>
+            <?php endif; ?>
         </div>
 
-        <div class="map_info mobile">
-                <div class="info">
-                    <div class="info_title">Find US</div>
-                    <div class="info_desc">
-                        8641 Colesville Rd,
-                        Silver Spring, MD 20910
+        <?php if( $address || $office_hours ): ?>
+            <div class="map_info mobile">
+                <?php if( $address ): ?>
+                    <div class="info">
+                        <div class="info_title">Find US</div>
+                        <div class="info_desc"><?= $address ?></div>
                     </div>
-                </div>
-                <div class="info">
-                    <div class="info_title">Office hours</div>
-                    <div class="info_desc">
-                        Monday-Thursday,<br>
-                        9am-3pm
+                <?php endif; ?>
+
+                <?php if( $office_hours ): ?>
+                    <div class="info">
+                        <div class="info_title">Office hours</div>
+                        <div class="info_desc"><?= $office_hours ?></div>
                     </div>
-                </div>
+                <?php endif; ?>
             </div>
+        <?php endif; ?>
     </section>
 
-    <section class="boxes_section">
-        <h2 class="title">To reach Lumina Studio Theatre from downtown Silver Spring/Takoma Park:</h2>
+    <?php
+    $info_list = get_field('info_list');
+    $info_list_title = get_field('info_list_title');
+    if( $info_list ): ?>
+        <section class="boxes_section">
+            <?php if( $info_list_title ): ?>
+                <h2 class="title"><?= $info_list_title; ?></h2>
+            <?php endif; ?>
 
-        <div class="boxes">
-            <div class="box">
-                <div class="box_content">
-                    <h2>Walking/Driving</h2>
-                    <p>Lumina’s office is located in the lower level of the Silver Spring Black Box Theatre – on Colesville Road, one block North of the intersection of Colesville Road and Georgia Avenue. DROP OFF/PICKUP students in the side alley.</p>
-                </div>
+            <div class="boxes <?= ( sizeof($info_list) > 2 ) ? ' more_than_two_boxes' : null; ?>">
+                <?php foreach( $info_list as $item ): ?>
+                    <div class="box">
+                        <div class="box_content">
+                            <?php if( $item['title'] ): ?>
+                                <h2><?= $item['title'] ?></h2>
+                            <?php endif; ?>
+
+                            <?php if( $item['description'] ): ?>
+                                <p><?= $item['description'] ?></p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
-            <div class="box">
-                <div class="box_content">
-                    <h2>By Metro</h2>
-                    <p>Take the Red Line train to the SILVER SPRING station.  Exit the station and walk NORTH on Colesville Road. The Silver Spring Black Box is 3 blocks NORTH of the Metro Station.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+        </section>
+    <?php endif; ?>
+
     <section class="contact_section">
-        <div class="contact">
-            <h2 class="contact_title">Email Us</h2>
-            <a href="mailto:office@luminastudio.org">office@luminastudio.org </a>
-        </div>
-        <div class="contact">
-            <h2 class="contact_title">Call Us</h2>
-            <a href="tel:(301) 565-2281">(301) 565-2281</a>
-        </div>
-        <div class="contact">
-            <h2 class="contact_title">Follow Us</h2>
-            <ul>
-                <li><a href="https://www.facebook.com/LuminaStudioTheater/" target="_blank">FACEBOOK</a></li>
-                <li><a href="https://www.instagram.com/luminastudiotheatre/?hl=en" target="_blank">INSTAGRAM</a></li>
-                <li><a href="https://www.youtube.com/channel/UCPp30MGZtbEp22ak3TwatzQ" target="_blank">YOUTUBE</a></li>
-            </ul>
-        </div>
+        <?php if( $email ): ?>
+            <div class="contact">
+                <h2 class="contact_title">Email Us</h2>
+                <a href="mailto:<?= $email ?>"><?= $email; ?></a>
+            </div>
+        <?php endif; ?>
+
+        <?php if( $phone ): ?>
+            <div class="contact">
+                <h2 class="contact_title">Call Us</h2>
+                <a href="tel:<?= $phone ?>"><?= $phone ?></a>
+            </div>
+        <?php endif; ?>
+
+        <?php if( $facebook || $instagram || $youtube ): ?>
+            <div class="contact">
+                <h2 class="contact_title">Follow Us</h2>
+                <ul>
+                    <?php if( $facebook ): ?>
+                        <li><a href="<?= $facebook; ?>" target="_blank">FACEBOOK</a></li>
+                    <?php endif; ?>
+
+                    <?php if( $instagram ): ?>
+                        <li><a href="<?= $instagram; ?>" target="_blank">INSTAGRAM</a></li>
+                    <?php endif; ?>
+
+                    <?php if( $youtube ): ?>
+                        <li><a href="<?= $youtube; ?>" target="_blank">INSTAGRAM</a></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+
         <div class="contact">
             <h2 class="contact_title">Subscribe</h2>
             <p class="mobile_email_label">ENTER YOUR</p>
             <form action="">
                 <input type="email" placeholder="Enter your e-mail">
-                <button><img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow-white.svg" alt=""></button>
+                <button><img src="<?= get_template_directory_uri(); ?>/images/icons/arrow-white.svg" alt=""></button>
             </form>
         </div>
     </section>
