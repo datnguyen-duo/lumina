@@ -272,12 +272,38 @@ window.addEventListener("load", function () {
                 rows: 0,
                 // slide: ".actor",
             });
+
+            $(".gallery_custom_pagination_slider").slick({
+                // slidesToShow: 20,
+                slidesToScroll: 20,
+                infinite: false,
+                variableWidth: true,
+                // gap: '100px',
+                prevArrow:
+                    '<button type="button" class="custom_pagination_slider_prev"><img src="' +
+                    site_data.theme_url +
+                    '/images/icons/arrow-3-white.svg" alt=""></button>',
+                nextArrow:
+                    '<button type="button" class="custom_pagination_slider_next"><img src="' +
+                    site_data.theme_url +
+                    '/images/icons/arrow-3-white.svg" alt=""></button>',
+                // fade: true,
+                // appendArrows: $(".gallery_holder"),
+                adaptiveHeight: true,
+                rows: 0,
+            });
         });
 
         $('.gallery_slider').on('afterChange', function(slick, currentSlide){
             $('.gallery_custom_pagination li').removeClass('active').eq(currentSlide.currentSlide).addClass('active');
             $('.gallery_custom_mobile_pagination .current_slide').text(currentSlide.currentSlide + 1);
+
+            var target = $(this).data('index');
+
+            $('.gallery_custom_pagination_slider').slick('slickGoTo', currentSlide.currentSlide);
         });
+
+
 
         $('.gallery_custom_pagination li').on('click', function(){
             var target = $(this).data('index');

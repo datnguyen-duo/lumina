@@ -35,11 +35,13 @@ $images = get_field('gallery'); ?>
                 </p>
 
                 <div class="left">
-                    <ul class="gallery_custom_pagination">
-                        <?php foreach ( $images as $index => $image ): ?>
-                            <li data-index="<?php echo $index; ?>"> <?php echo $index+1; ?></li>
-                        <?php endforeach; ?>
-                    </ul>
+                    <div class="pagination">
+                        <ul class="gallery_custom_pagination <?= ( sizeof($images) > 22 ) ? ' gallery_custom_pagination_slider' : null; ?>">
+                            <?php foreach ( $images as $index => $image ): ?>
+                                <li class="test" data-index="<?php echo $index; ?>"> <?php echo $index+1; ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
 
                     <div class="gallery_custom_mobile_pagination">
                         <p class="current_slide">1</p>

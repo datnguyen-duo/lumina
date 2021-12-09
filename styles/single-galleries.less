@@ -139,6 +139,13 @@
         background-color: fade(#340174,95%);
         z-index: 11;
 
+        //Slick slider fix when slider is inside of div which has display: flex;
+        * {
+            min-height: 0;
+            min-width: 0;
+        }
+        //Slick slider fix END
+
         .slider_controls {
             position: absolute;
             height: 50px;
@@ -218,11 +225,56 @@
             }
 
             .gallery_custom_pagination {
-                display: none;
+                &:not(.gallery_custom_pagination_slider) {
+                    display: none;
 
-                @media @tablet-s {
-                    display: flex;
+                    @media @tablet-s {
+                        display: flex;
+                    }
                 }
+
+                &.gallery_custom_pagination_slider {
+                    max-width: 600px;
+                    display: none;
+                    position: relative;
+                    transform: translateY(10px);
+
+                    @media @tablet-s {
+                        display: block;
+                    }
+
+                    @media @laptop-s {
+                        max-width: 800px;
+                    }
+
+                    .custom_pagination_slider_prev,
+                    .custom_pagination_slider_next {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        background-color: transparent;
+                        padding: 0;
+                        border: none;
+                        width: 20px;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    .custom_pagination_slider_prev {
+                        transform: translate(0, calc(-100% - 3px));
+
+                        img {
+                            transform: rotate(180deg);
+                        }
+                    }
+
+                    .custom_pagination_slider_next {
+                        transform: translate(calc(100% + 10px), calc(-100% - 3px));
+                    }
+                }
+
 
                 li {
                     .p1();
