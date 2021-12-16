@@ -40,7 +40,7 @@ endif;
 add_action( 'after_setup_theme', 'site_setup' );
 
 function site_scripts() {
-	wp_enqueue_style( 'site-style', get_stylesheet_uri(), array(), '1.0' );
+	wp_enqueue_style( 'site-style', get_stylesheet_uri(), array(), '1.0.1' );
     wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
     wp_enqueue_script('slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', array(), null, true);
 
@@ -56,7 +56,7 @@ function site_scripts() {
     wp_enqueue_script('jquery-validate', get_theme_file_uri('/js/plugins/jquery.validate.min.js'), NULL, '1', true);
     wp_enqueue_script('select2', get_theme_file_uri('/js/plugins/select2.js'), NULL, '1', true);
 
-    wp_enqueue_script('global', get_theme_file_uri('/js/global.js'), NULL, '1.0', true);
+    wp_enqueue_script('global', get_theme_file_uri('/js/global.js'), NULL, '1.0.1', true);
     wp_enqueue_script('woocommerce-custom-cart', get_theme_file_uri('/js/woocommerce-custom-cart.js'), NULL, '1.0', true);
     wp_enqueue_script('page-js', get_theme_file_uri('/js/page.js'), NULL, '1.0', true);
 
