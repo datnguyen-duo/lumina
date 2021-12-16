@@ -111,8 +111,12 @@
                             quantity: quantity,
                         },
                         type: "POST",
-                        beforeSend: function (xhr) {},
+                        beforeSend: function (xhr) {
+                            formEl.find('.ticket_options').addClass('disabled');
+                        },
                         success: function (data) {
+                            formEl.find('.ticket_options').removeClass('disabled');
+
                             // console.log(data)
                             if( data === 'false' ) {
                                 document.getElementById(responseEl).innerHTML = 'Tickets for this date are out of stock!'
