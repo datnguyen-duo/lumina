@@ -31,6 +31,9 @@ $products = new WP_Query(array(
             $ticket_dates = get_field('dates');
             $ticket_types = get_field('ticket_types');
             $ticket_name = get_the_title();
+
+            $handle = new WC_Product_Variable(get_the_ID());
+            $variations = $handle->get_children();
             ?>
             <div class="ticket">
                 <div class="left">
@@ -64,9 +67,6 @@ $products = new WP_Query(array(
                     <?php endif; ?>
 
                     <?php
-                    $handle = new WC_Product_Variable(get_the_ID());
-                    $variations = $handle->get_children();
-
                     if( $ticket_types && $variations ): ?>
                         <div class="ticket_options">
                             <h2 class="subtitle">SELECT YOUR TICKET</h2>
@@ -101,9 +101,7 @@ $products = new WP_Query(array(
                             <input type="hidden" name="custom_price_field" value="0" id="ticket_price_input_<?= get_the_ID(); ?>">
                         </div>
                         <p class="messages" id="ticket_options_<?= get_the_ID() ?>"></p>
-                    <?php endif; ?>
 
-                    <?php if( $ticket_dates ): ?>
                         <button class="add_to_cart_ticket button" data-product-id="<?= get_the_ID(); ?>">Purchase</button>
                     <?php endif; ?>
                 </form>
