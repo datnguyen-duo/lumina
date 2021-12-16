@@ -28,33 +28,16 @@ $products = new WP_Query(array(
         <?php while( $products->have_posts() ): $products->the_post();
             $product = wc_get_product( get_the_ID() );
             $credits = get_field('credits');
-            $ticket_dates = get_field('dates'); ?>
+            $ticket_dates = get_field('dates');
+            $ticket_types = get_field('ticket_types');
+            $ticket_name = get_the_title();
+            ?>
             <div class="ticket">
                 <div class="left">
-                    <div class="image_holder">
-                        <?= get_the_post_thumbnail(get_the_ID(),'large'); ?>
-                    </div>
+                    <div class="image_holder"><?= get_the_post_thumbnail(get_the_ID(),'large'); ?></div>
                 </div>
                 <form class="right ticket_variations_form" id="variations_form_<?= get_the_ID(); ?>">
                     <h2 class="title"><?php the_title(); ?></h2>
-                    <?php
-                    $handle = new WC_Product_Variable(get_the_ID());
-                    $variations = $handle->get_children();
-                    if( $variations && $ticket_dates ): ?>
-                        <div class="pills_checkbox_inputs_holder">
-                            <?php foreach ( $variations as $value ): $variation = new WC_Product_Variation($value); ?>
-                                <label for="<?= $value; ?>">
-                                    <input type="radio" id="<?= $value; ?>" name="ticket_type" value="<?= $value; ?>" required>
-                                    <span class="checkmark">
-                                        <span class="pill_content">
-                                            <span class="price"><?= get_woocommerce_currency_symbol().$variation->get_price(); ?></span>
-                                            <span class="type"><?= implode(" / ", $variation->get_variation_attributes()); ?></span>
-                                        </span>
-                                    </span>
-                                </label>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
 
                     <?php if( get_the_content() || $credits ): ?>
                         <div class="descriptions">
@@ -80,16 +63,56 @@ $products = new WP_Query(array(
                         </div>
                     <?php endif; ?>
 
+                    <?php
+                    $handle = new WC_Product_Variable(get_the_ID());
+                    $variations = $handle->get_children();
+
+                    if( $ticket_types && $variations ): ?>
+                        <div class="ticket_options">
+                            <h2 class="subtitle">SELECT YOUR TICKET</h2>
+
+                            <div class="options_holder">
+                                <select name="ticket-date-time" id="ticket-variations_<?= get_the_ID(); ?>" data-class="rounded" data-placeholder="Date and Time" required>
+                                    <option></option>
+                                    <?php foreach ( $variations as $value ):
+                                        $single_variation = new WC_Product_Variation($value);
+
+                                        $option_name = str_replace($ticket_name.' - ', "", $single_variation->get_name());
+//                                echo '<option  value="'.$value.">'.implode(" / ", $single_variation->get_variation_attributes()).'</option>'
+                                        ?>
+                                        <option value="<?= $value ?>"><?= $option_name ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+
+                                <select name="ticket-type" id="ticket_type_<?= get_the_ID(); ?>" data-class="rounded" data-placeholder="Ticket type" required>
+                                    <option></option>
+                                    <?php foreach ( $ticket_types as $type ): ?>
+                                        <option value="<?= $type['price'] ?>"><?= $type['name'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+
+                                <div class="quantity_input">
+                                    <span class="quantity_plus_minus minus"><img src="<?= get_template_directory_uri(); ?>/images/icons/minus.svg" alt=""></span>
+                                    <input type="number" name="quantity" value="1">
+                                    <span class="quantity_plus_minus plus"><img src="<?= get_template_directory_uri(); ?>/images/icons/plus.svg" alt=""></span>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="custom_price_field" value="0" id="ticket_price_input_<?= get_the_ID(); ?>">
+                        </div>
+                        <p class="messages" id="ticket_options_<?= get_the_ID() ?>"></p>
+                    <?php endif; ?>
+
                     <?php if( $ticket_dates ): ?>
-                        <button class="add_to_cart_ticket button" data-product-id="<?= get_the_ID(); ?>">Select Ticket</button>
+                        <button class="add_to_cart_ticket button" data-product-id="<?= get_the_ID(); ?>">Purchase</button>
                     <?php endif; ?>
                 </form>
             </div>
         <?php endwhile; wp_reset_postdata(); ?>
     </section>
+
     <?php
     $info_list = get_field("info_list");
-
     if( $info_list ): ?>
         <section class="info_section">
             <?php foreach ( $info_list as $group ): ?>

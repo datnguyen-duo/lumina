@@ -63,8 +63,7 @@ function donation_custom_fields(): array {
 
 function ticket_custom_fields(): array {
     return [
-        ['label' => 'Date', 'name' => 'date'],
-        ['label' => 'Time', 'name' => 'time'],
+        ['label' => 'Ticket Type', 'name' => 'ticket_type'],
     ];
 }
 
@@ -410,7 +409,7 @@ function add_cart_item_data( $cart_item_meta, $product_id ) {
 
         if( $category->slug == 'registration'):
             $fields = registration_custom_fields();
-        elseif( $category->slug == 'donation'):
+        elseif( $category->slug == 'donation' ):
             $fields = donation_custom_fields();
         endif;
 

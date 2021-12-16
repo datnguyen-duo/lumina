@@ -117,6 +117,36 @@ window.addEventListener("load", function () {
 
 (function ($) {
     //document ready
+
+    //Custom select (select 2 js)
+    $('select').each(function(){
+        let selectClassList = $(this).data('class');
+        let holderID;
+
+        if( $(this).attr('id') ) {
+            holderID = $(this).attr('id');
+        } else {
+            holderID =  $(this).attr('name');
+        }
+
+        holderID = holderID.concat('_holder')
+
+        $(this).wrap('<div class="select_2_holder" id="'+holderID+'"></div>');
+
+        let selectHolder = $('#' + holderID);
+
+        $(this).select2({
+            dropdownParent: selectHolder,
+            width: '100%',
+            minimumResultsForSearch: -1,
+            // placeholder: 'test',
+        });
+
+        selectHolder.addClass(selectClassList);
+    });
+    //Custom select (select 2 js) END
+
+
     /*	-----------------------------------------------------------------------------
             MENU OPENER START
         --------------------------------------------------------------------------------- */

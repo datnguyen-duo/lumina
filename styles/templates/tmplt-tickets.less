@@ -211,75 +211,130 @@
                     position: relative;
                 }
 
-                .pills_checkbox_inputs_holder {
-                    display: flex;
-                    flex-wrap: wrap;
+                .ticket_options {
+                    margin-top: 60px;
 
-                    label {
-                        position: relative;
-                        cursor: pointer;
-                        width: 33.333%;
+                    @media @desktop-s {
+                        margin-top: 90px;
+                    }
+
+                    .subtitle {
+                        margin-bottom: 15px;
+                    }
+
+                    .options_holder {
                         display: flex;
                         flex-wrap: wrap;
 
-                        small {
-                            order: 1;
-                            width: 100%;
-                            color: @color3;
+                        @media @laptop-s {
+                            flex-wrap: nowrap;
                         }
 
-                        input {
-                            position: absolute;
-                            opacity: 0;
-                            cursor: pointer;
-                            height: 0;
-                            width: 0;
+                        .select_2_holder {
+                            width: 50%;
+                            margin-bottom: 10px;
+
+                            @media @laptop-s {
+                                margin-bottom: 0;
+                                width: 100%;
+                            }
+
+                            small {
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                transform: translateY(calc(100% + 3px));
+                            }
                         }
 
-                        .checkmark {
-                            width: 100%;
-                            border: solid 1px @color1;
-                            border-radius: 60px;
-                            position: relative;
-                            background-color: transparent;
-                            height: 60px;
+                        .quantity_input {
+                            min-width: 100%;
                             display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            padding: 0;
-                            .transition();
+                            min-height: 38px;
+                            border-radius: 60px;
+                            border: solid 1px @color1;
+                            position: relative;
+                            box-sizing: border-box;
 
                             @media @tablet-s {
-                                height: 70px;
+                                height: 45px;
                             }
 
-                            @media @desktop-m {
-                                height: 80px;
+                            @media @laptop-s {
+                                min-width: 90px;
+                                height: 55px;
                             }
 
-                            .pill_content {
+                            @media @desktop-s {
+                                min-width: 106px;
+                            }
+
+                            @media @desktop-l {
+                                height: 63px;
+                            }
+
+                            input[type=number]::-webkit-inner-spin-button,
+                            input[type=number]::-webkit-outer-spin-button {
+                                -webkit-appearance: none;
+                                -moz-appearance: none;
+                                appearance: none;
+                            }
+
+                            input {
+                                background-color: transparent;
+                                border: 0;
+                                padding: 0;
                                 text-align: center;
+                                width: 100%;
+                                outline: none;
+                                .fontR();
+                                font-size: 16px;
+                                line-height: 1.36em;
+                                color: @color1;
 
-                                .price,
-                                .type {
-                                    display: block;
+                                @media @laptop-xl {
+                                    font-size: 18px;
                                 }
 
-                                .type {
-                                    .p1();
-                                    text-transform: capitalize;
+                                @media @desktop-m {
+                                    font-size: 20px;
+                                }
+                            }
+
+                            .quantity_plus_minus {
+                                position: absolute;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                cursor: pointer;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 10px;
+                                height: 10px;
+
+                                @media @laptop-s {
+                                    width: 13px;
+                                    height: 13px;
                                 }
 
-                                .price {
-                                    .p2();
+                                &.minus {
+                                    left: 15px;
+                                }
+
+                                &.plus {
+                                    right: 15px;
+                                }
+
+                                img {
+                                    width: 100%;
                                 }
                             }
                         }
                     }
+                }
 
-                    label input:checked ~ .checkmark {
-                        background-color: @color2;
-                    }
+                .messages {
+                    .p1();
                 }
 
                 .title {

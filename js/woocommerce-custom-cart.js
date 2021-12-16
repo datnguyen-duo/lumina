@@ -78,40 +78,75 @@
     });
     //Remove item from cart function END
 
-    //Add ticket to the cart
+    //Tickets template page
     if ($(".template_tickets_page_container").length) {
+        //Add ticket to the cart
         $(".ticket_variations_form").each(function () {
             var formEl = $(this);
             $(formEl).validate({
                 messages: {
-                    ticket_type: "Please choose your ticket type",
+                    "ticket-date-time": "Choose your ticket date and time",
+                    "ticket-type": "Choose your ticket type",
                 },
                 submitHandler: function (form) {
-                    var itemID = $(formEl).find("button").data("product-id");
-                    var variation_id = $(formEl)
-                        .find('input[name="ticket_type"]:checked')
-                        .val();
-                    var responseEl = "edit_ticket_container_" + itemID;
+                    var itemID = $(formEl).find(".add_to_cart_ticket").data("product-id");
+                    var variationID = $(formEl).find("select[name=ticket-date-time]").val();
+                    var quantityInput = $(formEl).find("input[name=quantity]");
+                    var quantity = $(formEl).find("input[name=quantity]").val();
 
-                    $(".edit_ticket_container").remove();
+                    var responseEl = "ticket_options_" + itemID;
 
-                    $(".custom_side_cart").append(
-                        '<div class="edit_ticket_container" id="' + responseEl + '"></div>'
-                    );
-
-                    openSideCart();
+                    var ticketType = $('#ticket_type_'+itemID +' option:selected').text();
+                    var ticketTypePrice = $('#ticket_type_'+itemID).val();
+                    var ticketPriceInput = $('#ticket_price_input_'+itemID);
+                    var price = quantity * ticketTypePrice;
+                    ticketPriceInput.val(price);
 
                     $.ajax({
                         url: "/wp-admin/admin-ajax.php",
                         data: {
-                            action: "edit_ticket_product",
+                            action: "check_ticket_quantity",
                             product_id: itemID,
-                            variation_id: variation_id,
+                            variation_id: variationID,
+                            quantity: quantity,
                         },
                         type: "POST",
                         beforeSend: function (xhr) {},
                         success: function (data) {
-                            document.getElementById(responseEl).innerHTML = data;
+                            // console.log(data)
+                            if( data === 'false' ) {
+                                document.getElementById(responseEl).innerHTML = 'Tickets for this date are out of stock!'
+                            } else if( data.includes('false') ){
+                                let info = data.split(" ");
+                                //Second element in info array is number of available tickets for specific variation(date)
+                                let word = ( parseInt(info[1]) > 1 ) ? 'tickets' : 'ticket';
+                                document.getElementById(responseEl).innerHTML = 'There is only ' + info[1] + ' ' + word + ' available for this date.'
+                            } else if( data.includes('in-cart') ) {
+                                let info = data.split(" ");
+                                let word = ( parseInt(info[1]) > 1 ) ? 'tickets' : 'ticket';
+                                document.getElementById(responseEl).innerHTML = 'There is no more available tickets for this date. You have last ' + word + ' in your cart.'
+                            } else {
+                                document.getElementById(responseEl).innerHTML = '';
+
+                                $.ajax({
+                                    url: "/wp-admin/admin-ajax.php",
+                                    data: {
+                                        action: "woo_custom_add_to_cart",
+                                        product_id: itemID,
+                                        product_sku: "",
+                                        quantity: quantity,
+                                        variation_id: variationID,
+                                        custom_price_field: price,
+                                        ticket_type: ticketType,
+                                    },
+                                    type: "POST", // POST
+                                    beforeSend: function (xhr) {},
+                                    success: function (data) {
+                                        $('body').trigger('added_to_cart')
+                                    },
+                                    complete: function (xhr, status) {},
+                                });
+                            }
                         },
                         complete: function (xhr, status) {},
                     });
@@ -121,88 +156,21 @@
                 errorElement: "small",
             });
         });
-    }
 
-    customSideCart.on("click", ".add_to_cart_t", function () {
-        var itemID = $(this).data("product-id");
-        var variationID = $(this).data("variation-id");
-        var responseEl = "edit_ticket_container_" + itemID;
-        var elId = $("#" + responseEl);
-        var quantity = elId.find('input[name="custom_quantity"]').val();
-        var date_time_input = elId.find(".time_label input:checked").val();
-        var date_time = date_time_input.split("__");
-        var date = date_time[0];
-        var time = date_time[1];
+        //Tickets quantity input (plus/minus)
+        $('.quantity_input .quantity_plus_minus').on( 'click',function () {
+            var ticketQuantityInput = $(this).parent().find("input[name=quantity]");
+            var ticketQuantityInputVal = parseInt(ticketQuantityInput.val());
 
-        $.ajax({
-            url: "/wp-admin/admin-ajax.php",
-            data: {
-                action: "woo_custom_add_to_cart",
-                product_id: itemID,
-                product_sku: "",
-                quantity: quantity,
-                variation_id: variationID,
-                custom_data: {
-                    date: date,
-                    time: time,
-                },
-            },
-            type: "POST", // POST
-            beforeSend: function (xhr) {},
-            success: function (data) {
-                $("#edit_ticket_container_" + itemID).fadeOut(function () {
-                    $(this).remove();
-                });
-
-                $('body').trigger('added_to_cart')
-            },
-            complete: function (xhr, status) {},
-        });
-    });
-
-    customSideCart.on("click", ".change_step", function () {
-        var target = $(this).data("target");
-
-        if (target === ".step_2") {
-            $(".step_1").validate({
-                messages: {
-                    date: "Chose the date.",
-                },
-                submitHandler: function (form) {
-                    $(".step").removeClass("active");
-                    $(target).addClass("active");
-                },
-                errorElement: "small",
-                errorLabelContainer: "#step_1_errors_div",
-            });
-        } else {
-            $(".step").removeClass("active");
-            $(target).addClass("active");
-        }
-    });
-
-    customSideCart.on("click", ".variation .quantity_plus_minus", function () {
-        var input = $(".quantity_input_holder").find("input");
-        var inputVal = parseInt(input.val());
-        var productPrice = parseInt($(".step .variation .price p").data("value"));
-
-        if ($(this).hasClass("minus")) {
-            if (inputVal > 1) {
-                input.val((inputVal -= 1));
+            if ($(this).hasClass("minus")) {
+                if (ticketQuantityInputVal > 1) {
+                    ticketQuantityInput.val((ticketQuantityInputVal -= 1));
+                }
+            } else {
+                ticketQuantityInput.val((ticketQuantityInputVal += 1));
             }
-        } else {
-            input.val((inputVal += 1));
-        }
-
-        $(".step .variation .price p span").text(inputVal * productPrice);
-    });
-
-    customSideCart.on("click", ".close_product", function () {
-        var itemID = $(this).data("product-id");
-
-        $("#edit_ticket_container_" + itemID).fadeOut(function () {
-            $(this).remove();
         });
-    });
-    //Add ticket to the cart END
+        //Tickets quantity input END
+    }
+    //Tickets template page END
 })(jQuery);
