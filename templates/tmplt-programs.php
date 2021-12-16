@@ -34,18 +34,15 @@ $type_field = get_field_object($type_field_key);
                         </label>
                     <?php endforeach; ?>
                 </div>
+                <select name="type[]" id="program-type" data-class="rounded_2">
+                    <option value="">All</option>
 
-                <div id="type_dropdown">
-                    <select name="type[]">
-                        <option value="">All</option>
-
-                        <?php foreach ( $type_field['choices'] as $k => $v ): ?>
-                            <option value="<?php echo $k; ?>">
-                                <?php echo $v; ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
+                    <?php foreach ( $type_field['choices'] as $k => $v ): ?>
+                        <option value="<?php echo $k; ?>">
+                            <?php echo $v; ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
             </div>
         <?php endif; ?>
 

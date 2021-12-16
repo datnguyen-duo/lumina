@@ -1188,7 +1188,90 @@ body {
         }
     }
 
-    &:not(.rounded) {
+    &.rounded_2 {
+        .select2-container {
+            &.select2-container--open {
+                .selection {
+                    .select2-selection {
+                        .select2-selection__arrow {
+                            transform: translateY(-50%) rotate(0deg);
+                        }
+                    }
+                }
+            }
+
+            .selection {
+                .select2-selection {
+                    border: solid 1px @color1;
+                    border-radius: 60px;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 32px 0 15px;
+                    box-sizing: border-box;
+                    background-color: @color2;
+                    min-width: 77px;
+
+                    @media @tablet-s {
+                        height: 60px;
+                        padding: 0 40px 0 15px;
+                    }
+
+                    .select2-selection__rendered {
+                        padding: 0;
+                        .p2();
+                        text-align: center;
+                    }
+
+                    .select2-selection__arrow {
+                        top: 50%;
+                        right: 14px;
+                        transform: translateY(-50%) rotate(180deg);
+                        background-image: url("../images/icons/arrow-2.svg");
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        height: 15px;
+                        width: 13px;
+
+                        @media @tablet-s {
+                            width: 17px;
+                            height: 20px;
+                        }
+
+                        b {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .select2-dropdown {
+            border-color: transparent !important;
+            width: auto !important;
+            background-color: transparent;
+
+            .select2-results {
+                .select2-results__options {
+                    margin-top: 5px;
+                    .select2-results__option {
+                        background-color: @color2;
+                        border: 1px solid @color1;
+                        .p2();
+                        white-space: nowrap;
+                        border-radius: 60px;
+
+                        &.select2-results__option--highlighted {
+                            background-color: @color1;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &:not(.rounded,.rounded_2) {
         .select2-container {
             .selection {
                 .select2-selection {

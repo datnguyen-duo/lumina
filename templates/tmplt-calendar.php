@@ -56,15 +56,13 @@ $categories = get_terms( array(
                     <?php endforeach; ?>
                 </div>
 
-                <div id="dropdown">
-                    <select name="category">
-                        <option value="">All</option>
+                <select name="category" id="category_select" data-class="rounded_2">
+                    <option value="">All</option>
 
-                        <?php foreach ( $categories as $category ): ?>
-                            <option value="<?php echo $category->slug ?>"><?php echo $category->name; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
+                    <?php foreach ( $categories as $category ): ?>
+                        <option value="<?php echo $category->slug ?>"><?php echo $category->name; ?></option>
+                    <?php endforeach; ?>
+                </select>
             <?php endif; ?>
         <?php endif; ?>
     </form>

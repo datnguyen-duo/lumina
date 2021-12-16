@@ -118,33 +118,35 @@ window.addEventListener("load", function () {
 (function ($) {
     //document ready
 
-    //Custom select (select 2 js)
-    $('select').each(function(){
-        let selectClassList = $(this).data('class');
-        let holderID;
+    $(window).on('load', function(){
+        //Custom select (select 2 js)
+        $('select').each(function(){
+            let selectClassList = $(this).data('class');
+            let holderID;
 
-        if( $(this).attr('id') ) {
-            holderID = $(this).attr('id');
-        } else {
-            holderID =  $(this).attr('name');
-        }
+            if( $(this).attr('id') ) {
+                holderID = $(this).attr('id');
+            } else {
+                holderID =  $(this).attr('name');
+            }
 
-        holderID = holderID.concat('_holder')
+            holderID = holderID.concat('_holder')
 
-        $(this).wrap('<div class="select_2_holder" id="'+holderID+'"></div>');
+            $(this).wrap('<div class="select_2_holder" id="'+holderID+'"></div>');
 
-        let selectHolder = $('#' + holderID);
+            let selectHolder = $('#' + holderID);
 
-        $(this).select2({
-            dropdownParent: selectHolder,
-            width: '100%',
-            minimumResultsForSearch: -1,
-            // placeholder: 'test',
+            $(this).select2({
+                dropdownParent: selectHolder,
+                width: '100%',
+                minimumResultsForSearch: -1,
+                // placeholder: 'test',
+            });
+
+            selectHolder.addClass(selectClassList);
         });
-
-        selectHolder.addClass(selectClassList);
+        //Custom select (select 2 js) END
     });
-    //Custom select (select 2 js) END
 
 
     /*	-----------------------------------------------------------------------------
@@ -376,12 +378,6 @@ window.addEventListener("load", function () {
             filterPrograms();
         });
 
-        $("form select").select2({
-            dropdownParent: $('#type_dropdown'),
-            width: '100%',
-            minimumResultsForSearch: -1
-        });
-
         if( $(window).width() > 1250 ) {
             filterForm.find("input[name=type]").prop('disabled', false);
             filterForm.find("select").prop('disabled', true);
@@ -518,12 +514,6 @@ window.addEventListener("load", function () {
 
         $('.filters').find('input, select').change(function() {
             filterCalendar();
-        });
-
-        $(".template_calendar_page_container .filters select").select2({
-            dropdownParent: $('#dropdown'),
-            width: '100%',
-            minimumResultsForSearch: -1
         });
     }
     /*	-----------------------------------------------------------------------------
