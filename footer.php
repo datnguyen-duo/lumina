@@ -1,4 +1,4 @@
-        <?php
+<?php
         $checkoutPage = ( is_checkout() && empty( is_wc_endpoint_url('order-received')) );
         if( !$checkoutPage ):
             $phone = get_field('phone','option');
@@ -11,10 +11,13 @@
                 <div class="top">
                     <div class="left">
                         <h2>Subscribe to Lumina for the latest updates</h2>
-                        <form action="">
+                        <!-- <form action="">
                             <input type="email" placeholder="Email Address">
                             <button><img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow.svg" alt=""></button>
-                        </form>
+                        </form> -->
+                        <!-- Begin Constant Contact Inline Form Code -->
+                        <div class="ctct-inline-form" data-form-id="ea484f0d-9149-4fcd-af14-2c2ce948281a"></div>
+                        <!-- End Constant Contact Inline Form Code -->
 
                         <div class="contact_info">
                             <img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo-dark.png" alt="">
@@ -75,6 +78,10 @@
     </div><!-- #scroll-container-->
 </div><!-- #viewport -->
 <?php wp_footer(); ?>
+<!-- Begin Constant Contact Active Forms -->
+<script> var _ctct_m = "2c2bc7f5f3221778dc457148819434af"; </script>
+<script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
+<!-- End Constant Contact Active Forms -->
 </body>
 
 </html>
