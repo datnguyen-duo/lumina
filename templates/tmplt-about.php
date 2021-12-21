@@ -40,7 +40,7 @@ get_header();
                     </div>
 
                     <div class="circle_btn_holder">
-                        <a href="" target="" class="circle_btn">
+                        <a href="/programs/" class="circle_btn">
                             <img class="circle" src="<?= get_template_directory_uri(); ?>/images/about-circle-icon-circle.svg" alt="">
                             <span class="circle_text_holder">
                                     <img class="circle_text" src="<?= get_template_directory_uri(); ?>/images/about-circle-icon-circle-text.svg" alt="">
