@@ -262,6 +262,23 @@ window.addEventListener("load", function () {
                 $('.other_source_input_holder').hide();
             }
         });
+
+        //Deposit price field
+        //Elex(name your price) plugin input field #custom_price_field
+        var customPriceField = $('#custom_price_field');
+        var depositCheckbox = $("#deposit_consent");
+        function setDepositPrice() {
+            if ( depositCheckbox.is(":checked") ) {
+                customPriceField.attr('value',depositPrice);
+            } else {
+                customPriceField.attr('value', $('#registration_product_price').data('price'));
+            }
+        }
+        setDepositPrice();
+        depositCheckbox.change(function() {
+            setDepositPrice();
+        });
+        //Deposit price field END
     }
     /*	-----------------------------------------------------------------------------
             SINGLE PRODUCT END - REGISTRATION CATEGORY

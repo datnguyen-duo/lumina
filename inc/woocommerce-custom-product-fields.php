@@ -44,6 +44,8 @@ function registration_custom_fields(): array {
         ['label' => 'I have read, understand and agree to abide by the Lumina Studio Theatre Policies as set forth on the Lumina Studio website', 'name' => 'privacy_and_policy_consent'],
 
         ['label' => 'We (actor and parent) understand that attendance at each camp day is essential', 'name' => 'parent_consent'],
+
+        ['label' => 'I would like to pay a deposit', 'name' => 'deposit_consent'],
     ];
 }
 
@@ -73,7 +75,11 @@ function add_fields_before_add_to_cart() {
     $categories = $product->get_category_ids();
     $category = get_term($categories[0]);
 
-    if( $category->slug == 'registration'): ?>
+    if( $category->slug == 'registration'):
+        //Product min price (Elex name your price plugin)
+        $deposit = $product->get_meta( 'elex_wfp_custom_price_text_field' );
+        $is_deposit_allowed = $product->get_meta( 'elex_wfp_custom_text_field_flag' );
+    ?>
         <div class="custom_fields_container">
             <div class="custom_fields">
                 <h2>Parent/Guardian 1</h2>
@@ -301,6 +307,15 @@ function add_fields_before_add_to_cart() {
                             <input type="checkbox" id="parent_consent" name="parent_consent" value="Yes" required>
                             <span class="checkmark"></span>
                         </label>
+
+                        <?php if( $is_deposit_allowed && $deposit ): ?>
+                            <input type="hidden" name="deposit_price" value="<?= $deposit ?>">
+                            <label for="deposit_consent" class="container">
+                                I would like to pay a deposit
+                                <input type="checkbox" id="deposit_consent" name="deposit_consent" value="Yes">
+                                <span class="checkmark"></span>
+                            </label>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

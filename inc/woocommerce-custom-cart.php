@@ -83,7 +83,8 @@ function render_shopping_cart_items($is_item_added_to_cart = false) {
                         </ul>
                     </div>
                 <?php elseif( $category->slug == 'donation'):
-                    $donation_type = $cart_item['custom_data']['donation_type'];?>
+                    $donation_type = $cart_item['custom_data']['donation_type'];
+                ?>
                     <div class="bottom_info">
                         <ul>
                             <?php if( $donation_type ): ?>
@@ -94,13 +95,14 @@ function render_shopping_cart_items($is_item_added_to_cart = false) {
                     </div>
                 <?php else:
                     $registration_type = get_field('type', $product_id);
+                    $deposit = $cart_item['custom_data']['deposit_consent'];
                     ?>
                     <div class="bottom_info">
                         <ul>
                             <?php if( $registration_type ): ?>
                                 <li><?= $registration_type['label']; ?></li>
                             <?php endif; ?>
-                            <li><?= $price_with_symbol; ?></li>
+                            <li><?= $price_with_symbol; ?><?=( $deposit == 'Yes' ) ? ' (deposit)' : null ?></li>
                         </ul>
                     </div>
                 <?php endif; ?>

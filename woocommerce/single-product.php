@@ -33,7 +33,11 @@ $category = $categories[0];
             </div>
         </section>
     </div>
-<?php else: ?>
+<?php else:
+    $age_limit_min = get_field('age_limit_min');
+    $age_limit_max = get_field('age_limit_max');
+    $age_limit_message = get_field('age_limit_message');
+    ?>
     <div class="single_product_page_container registration_category">
         <section class="hero_section">
 
@@ -48,16 +52,17 @@ $category = $categories[0];
                     </div>
 
                     <div class="gallery_swiper_holder">
-                        <?php if( $age_limit['min'] ): ?>
+                        <?php if( $age_limit_min ): ?>
                             <div class="age_limit mobile">
-                                <p>AGE<?php echo ( $age_limit['min'] && $age_limit['max']) ? 'S' : null; ?></p>
+                                <p>AGE<?php echo ( $age_limit_min && $age_limit_max) ? 'S' : null; ?></p>
+
                                 <div class="ages">
-                                    <?php if( $age_limit['min'] ): ?>
-                                        <p><?php echo $age_limit['min']; ?></p>
+                                    <?php if( $age_limit_min ): ?>
+                                        <p><?php echo $age_limit_min; ?></p>
                                     <?php endif; ?>
 
-                                    <?php if( $age_limit['min'] && $age_limit['max'] ): ?>
-                                        <p><?php echo $age_limit['max']; ?></p>
+                                    <?php if( $age_limit_min && $age_limit_max ): ?>
+                                        <p><?php echo $age_limit_max; ?></p>
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -95,12 +100,7 @@ $category = $categories[0];
             <div class="right">
 
                 <div class="right_content">
-                    <?php
-                    $age_limit_min = get_field('age_limit_min');
-                    $age_limit_max = get_field('age_limit_max');
-                    $age_limit_message = get_field('age_limit_message');
-
-                    if( $age_limit_min ): ?>
+                    <?php if( $age_limit_min ): ?>
                         <div class="age_limit desktop">
                             <p>AGES</p>
                             <div class="ages">
@@ -123,8 +123,8 @@ $category = $categories[0];
 
                         <div class="label price_label">
                             <div class="label_content">
-                                <p class="label_title">Registration Cost</p>
-                                <p class="label_desc"><?php if($product->get_price()): echo get_woocommerce_currency_symbol().$product->get_price(); else: echo "TBD"; endif;?></p>
+                                <p class="label_title" id="registration_product_price_label">Registration Cost</p>
+                                <p class="label_desc"><?php if($product->get_price()): echo get_woocommerce_currency_symbol().'<span id="registration_product_price" data-price="'.$product->get_price().'">'.$product->get_price().'</span>'; else: echo "TBD"; endif;?></p>
                             </div>
                         </div>
                     </div>
