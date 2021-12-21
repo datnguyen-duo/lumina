@@ -11,14 +11,9 @@
                 <div class="top">
                     <div class="left">
                         <h2>Subscribe to Lumina for the latest updates</h2>
-                        <!-- <form action="">
-                            <input type="email" placeholder="Email Address">
-                            <button><img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow.svg" alt=""></button>
-                        </form> -->
                         <!-- Begin Constant Contact Inline Form Code -->
                         <div class="ctct-inline-form" data-form-id="ea484f0d-9149-4fcd-af14-2c2ce948281a"></div>
                         <!-- End Constant Contact Inline Form Code -->
-
                         <div class="contact_info">
                             <img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo-dark.png" alt="">
 

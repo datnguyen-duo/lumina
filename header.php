@@ -72,14 +72,9 @@
                         <p>
                             Subscribe to Lumina for the latest updates
                         </p>
-                        <form action="">
-                            <input type="email" placeholder="Email Address">
-                            <div class="icon_btn">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow-3.svg" alt="">
-                                <input type="submit">
-                            </div>
-                            
-                        </form>
+                        <!-- Begin Constant Contact Inline Form Code -->
+                        <div class="ctct-inline-form" data-form-id="ea484f0d-9149-4fcd-af14-2c2ce948281a"></div>
+                        <!-- End Constant Contact Inline Form Code -->
                     </div>
                 </div>
                 <div class="separator_mobile"></div>
@@ -102,14 +97,9 @@
                         <p>
                             Subscribe to Lumina for the latest updates
                         </p>
-                        <form action="">
-                            <input type="email" placeholder="Email Address">
-                            <div class="icon_btn">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow-3.svg" alt="">
-                                <input type="submit">
-                            </div>
-                            
-                        </form>
+                        <!-- Begin Constant Contact Inline Form Code -->
+                        <div class="ctct-inline-form" data-form-id="ea484f0d-9149-4fcd-af14-2c2ce948281a"></div>
+                        <!-- End Constant Contact Inline Form Code -->
                     </div>
                 </div>
             </div>
