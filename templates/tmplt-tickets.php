@@ -97,8 +97,6 @@ $products = new WP_Query(array(
                                     <span class="quantity_plus_minus plus"><img src="<?= get_template_directory_uri(); ?>/images/icons/plus.svg" alt=""></span>
                                 </div>
                             </div>
-
-                            <input type="hidden" name="custom_price_field" value="0" id="ticket_price_input_<?= get_the_ID(); ?>">
                         </div>
                         <p class="messages" id="ticket_options_<?= get_the_ID() ?>"></p>
 

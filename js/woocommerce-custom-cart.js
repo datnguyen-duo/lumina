@@ -91,16 +91,12 @@
                 submitHandler: function (form) {
                     var itemID = $(formEl).find(".add_to_cart_ticket").data("product-id");
                     var variationID = $(formEl).find("select[name=ticket-date-time]").val();
-                    var quantityInput = $(formEl).find("input[name=quantity]");
                     var quantity = $(formEl).find("input[name=quantity]").val();
 
                     var responseEl = "ticket_options_" + itemID;
 
                     var ticketType = $('#ticket_type_'+itemID +' option:selected').text();
-                    var ticketTypePrice = $('#ticket_type_'+itemID).val();
-                    var ticketPriceInput = $('#ticket_price_input_'+itemID);
-                    var price = quantity * ticketTypePrice;
-                    ticketPriceInput.val(price);
+                    var price = $('#ticket_type_'+itemID).val();
 
                     $.ajax({
                         url: "/wp-admin/admin-ajax.php",

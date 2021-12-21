@@ -66,7 +66,7 @@ function render_shopping_cart_items($is_item_added_to_cart = false) {
                 </div>
                 <?php if( $category->slug == 'ticket'):
                     $variations = $cart_item['variation'];
-                    $ticket_type = $cart_item['ticket_type']; ?>
+                    $ticket_type = $cart_item['custom_data']['ticket_type']; ?>
                     <div class="bottom_info">
                         <ul>
                             <?php if( $ticket_type ): ?>
@@ -151,23 +151,31 @@ function render_shopping_cart() {
 
 function woo_custom_add_to_cart() {
     $product_id = $_POST['product_id'];
-    $variation_id = $_POST['variation_id'];
+    $variation_id = ( isset($_POST['variation_id']) ) ? $_POST['variation_id'] : '';
     $quantity = ( isset($_POST['quantity']) ) ? $_POST['quantity'] : 1;
 
-    add_filter('woocommerce_add_cart_item_data','wdm_add_item_data',1,10);
-    function wdm_add_item_data($cart_item_data, $product_id) {
-        global $woocommerce;
+    //Ticket product
+    $product = wc_get_product( $product_id );
+    $categories = $product->get_category_ids();
+    $category = get_term($categories[0]);
+    if( $category->slug == 'ticket'):
+        add_filter('woocommerce_add_cart_item_data','wdm_add_item_data',1,10);
+        function wdm_add_item_data($cart_item_data, $product_id) {
+            global $woocommerce;
 
-        $ticket_custom_price = $_POST['custom_price_field'];
-        if( $ticket_custom_price ):
-            $ticket_type = $_POST['ticket_type'];
+            $ticket_custom_price = $_POST['custom_price_field'];
+            if( $ticket_custom_price ):
+                $ticket_type = $_POST['ticket_type'];
 
-            $cart_item_meta['custom_price_field'] = $ticket_custom_price;
-            $cart_item_meta['ticket_type'] = $ticket_type;
-        endif;
+                $cart_item_meta['custom_price_field'] = $ticket_custom_price;
+                $cart_item_meta['total_price'] = $ticket_custom_price;
+                $cart_item_meta['custom_data']['ticket_type'] = $ticket_type;
+            endif;
 
-        return $cart_item_meta;
-    }
+            return $cart_item_meta;
+        }
+    endif;
+    //Ticket product END
 
     WC()->cart->add_to_cart( $product_id, $quantity, $variation_id );
 }
