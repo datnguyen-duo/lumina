@@ -6,6 +6,7 @@ $events = new WP_Query(array(
     'orderby' => 'meta_value_num',
     'meta_key' => 'date',
     'order'	=> 'ASC',
+    'posts_per_page' => -1,
 ));
 
 $events_months = [];
@@ -78,6 +79,7 @@ $categories = get_terms( array(
             'orderby' => 'meta_value_num',
             'meta_key' => 'date',
             'order'	=> 'ASC',
+            'posts_per_page' => -1,
             'meta_query' => array(
                 array (
                     'key' => 'date',

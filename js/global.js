@@ -229,7 +229,7 @@ window.addEventListener("load", function () {
   if ($(".single_product_page_container.donation_category").length) {
     //copy value of custom price clone input to the original hidden custom price input
     $("#custom_price_field_clone").on("input", function () {
-      $("#custom_price_field").val($(this).val());
+      $(".custom-price").val($(this).val());
     });
 
     $("input[type=radio][name=donation_type_clone]").change(function () {
@@ -263,8 +263,9 @@ window.addEventListener("load", function () {
 
     //Deposit price field
     //Elex(name your price) plugin input field #custom_price_field
-    var customPriceField = $("#custom_price_field");
+    var customPriceField = $(".custom-price");
     var depositCheckbox = $("#deposit_consent");
+    var depositPrice = 150;
     function setDepositPrice() {
       if (depositCheckbox.is(":checked")) {
         customPriceField.attr("value", depositPrice);
@@ -273,6 +274,7 @@ window.addEventListener("load", function () {
           "value",
           $("#registration_product_price").data("price")
         );
+        console.log($("#registration_product_price").data("price"));
       }
     }
     setDepositPrice();
