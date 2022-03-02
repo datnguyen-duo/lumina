@@ -4,6 +4,7 @@ get_header();
 
 $galleries = new WP_Query(array(
     'post_type' => 'galleries',
+    'posts_per_page' => -1,
 ));
 ?>
 <div class="template_gallery_page_container">
