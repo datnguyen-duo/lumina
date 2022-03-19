@@ -19,7 +19,7 @@ $products = new WP_Query(array(
             <h1 class="page_title big_headline_animation">Ticketing</h1>
             <h1 class="page_title big_headline_animation">& shows</h1>
             <?php if( $products->have_posts() ): ?>
-                <p><?= $products->found_posts ?> show now playing!</p>
+                <p><?= $products->found_posts ?> show<?php if ($products->found_posts > 1){echo "s"; } ?> now playing!</p>
             <?php endif; ?>
         </div>
     </section>
