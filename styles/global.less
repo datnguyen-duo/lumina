@@ -566,8 +566,12 @@ body {
         }
 
         .custom_side_cart_content {
-            .checkout_btn_holder {
-                display: none;
+            .items {
+                .checkout_btn_holder {
+                    .checkout_btn {
+                        display: none;
+                    }
+                }
             }
         }
     }
@@ -1041,6 +1045,51 @@ body {
 
                 @media @tablet-s {
                     padding: 0 40px;
+                }
+
+                .cart_totals_holder {
+                    text-align: center;
+
+                    .cart_totals_title {
+                        display: block;
+                        margin-bottom: 15px;
+                        .fontR();
+                        font-size: 14px;
+                        line-height: 1.34em;
+                        color: @color2;
+
+                        @media @desktop-m {
+                            font-size: 16px;
+                        }
+
+                        @media @laptop-s {
+                            font-size: 18px;
+                        }
+                    }
+
+                    .cart_totals {
+                        display: block;
+                        font-family: @fontR;
+                        font-size: 22px;
+                        color: @color2;
+
+                        @media @tablet-s {
+                            font-size: 35px;
+                        }
+
+                        @media @laptop-s {
+                            font-size: 42px;
+                        }
+
+                        @media @desktop-m {
+                            font-size: 47px;
+                        }
+
+                        @media @desktop-l {
+                            font-size: 55px;
+                        }
+                    }
+
                 }
 
                 .checkout_btn {

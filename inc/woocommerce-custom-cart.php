@@ -4,6 +4,8 @@ function render_shopping_cart_items($is_item_added_to_cart = false) {
 
     if( $woocommerce_cart ):
         $checkout_url = wc_get_checkout_url();
+        $cart_totals = WC()->cart->get_totals();
+        $cart_price = $cart_totals['total'];
 
         if( $is_item_added_to_cart ):
             $last_added_product_id = end( WC()->cart->cart_contents)['product_id'];
@@ -114,6 +116,10 @@ function render_shopping_cart_items($is_item_added_to_cart = false) {
         <?php endforeach; ?>
 
         <div class="checkout_btn_holder">
+            <div class="cart_totals_holder">
+                <span class="cart_totals_title">Total price</span>
+                <span class="cart_totals"><?= wc_price($cart_price) ?></span>
+            </div>
             <a href="<?= $checkout_url; ?>" class="checkout_btn blue">Checkout</a>
         </div>
     <?php else:
