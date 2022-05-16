@@ -468,6 +468,7 @@ window.addEventListener("load", function () {
             CONTACT PAGE END
         --------------------------------------------------------------------------------- */
 
+
   /*	-----------------------------------------------------------------------------
         TEMPLATE CALENDAR
     --------------------------------------------------------------------------------- */
@@ -558,33 +559,60 @@ window.addEventListener("load", function () {
    --------------------------------------------------------------------------------- */
 
   if ($(".template_gallery_page_container").length) {
-    var splide = new Splide(".splide", {
-      type: "loop",
-      drag: "free",
-      perPage: 3,
-      pagination: false,
-      arrows: false,
-      gap: "3vw",
-      waitForTransition: false,
-      easingFunc: (t) => (number = 1 - Math.pow(1 - t, 3)),
-      autoScroll: {
-        speed: 0.8,
-        pauseOnFocus: false,
-        // pauseOnHover: false
-      },
-      breakpoints: {
-        1100: {
-          // gap: '6vw',
+    const $galleriesResponse = $('#galleries-response');
+
+    $('#season-year-select').on('change',function(){
+      $.ajax({
+        url: "/wp-admin/admin-ajax.php",
+        data: {
+          action: 'filter_galleries',
+          year: $(this).val(),
         },
-        760: {
-          gap: 45,
-          perPage: 2,
+        type: "GET",
+        beforeSend: function (xhr) {
+          $galleriesResponse.addClass('loading');
         },
-        600: {
-          perPage: 1,
+        success: function (data) {
+          $galleriesResponse.html(data);
+          initGalleriesSlider();
         },
-      },
-    }).mount(window.splide.Extensions);
+        complete: function (data) {
+          $galleriesResponse.removeClass('loading');
+        },
+      });
+    });
+
+    function initGalleriesSlider() {
+      var splide = new Splide(".splide", {
+        type: "loop",
+        drag: "free",
+        perPage: 3,
+        pagination: false,
+        arrows: false,
+        gap: "3vw",
+        waitForTransition: false,
+        easingFunc: (t) => (number = 1 - Math.pow(1 - t, 3)),
+        autoScroll: {
+          speed: 0.8,
+          pauseOnFocus: false,
+          // pauseOnHover: false
+        },
+        breakpoints: {
+          1100: {
+            // gap: '6vw',
+          },
+          760: {
+            gap: 45,
+            perPage: 2,
+          },
+          600: {
+            perPage: 1,
+          },
+        },
+      }).mount(window.splide.Extensions);
+    }
+
+    initGalleriesSlider();
   }
   /*	-----------------------------------------------------------------------------
            GALLERY PAGE END

@@ -2,55 +2,48 @@
 /* Template Name: Gallery */
 get_header();
 
-$galleries = new WP_Query(array(
-    'post_type' => 'galleries',
-    'posts_per_page' => -1,
-));
+function get_posts_years_array() {
+    global $wpdb;
+    $result = array();
+    $years = $wpdb->get_results(
+        $wpdb->prepare(
+            "SELECT YEAR(post_date) FROM {$wpdb->posts} WHERE post_status = 'publish' GROUP BY YEAR(post_date) AND wp_posts.post_type = 'galleries'"
+        ),
+        ARRAY_N
+    );
+
+    if ( is_array( $years ) && count( $years ) > 0 ) {
+        foreach ( $years as $year ) {
+            $result[] = $year[0];
+        }
+    }
+    return $result;
+}
+
+$galleries_years = get_posts_years_array();
 ?>
 <div class="template_gallery_page_container">
     <section class="gallery_section">
-        <?php if( $galleries->have_posts() ): ?>
-            <div class="top_bar">
-                <div class="info">
-                    <p>Scroll</p>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow-3.svg" alt="">
-                </div>
-                <div class="filter">
-                    <p>Season</p>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow-3.svg" alt="">
-                </div>
+        <div class="top_bar">
+            <div class="info">
+                <p>Scroll</p>
+                <img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow-3.svg" alt="">
             </div>
-
-            <div class="splide" style="display: block;">
-                <div class="splide__track">
-                    <div class="splide__list">
-                        <?php while( $galleries->have_posts() ): $galleries->the_post(); $short_desc = get_field('short_desc'); ?>
-                            <div class="splide__slide">
-                                <a href="<?php the_permalink(); ?>" class="gallery_image">
-                                    <div class="image_holder">
-                                        <div class="image">
-                                            <?php echo get_the_post_thumbnail(get_the_ID(),'large'); ?>
-                                        </div>
-                                    </div>
-
-                                    <p>
-                                        <span class="name"><?php the_title(); ?></span>
-
-                                        <?php if( $short_desc ): ?>
-                                            <span class="short_desc"><?php echo $short_desc; ?></span>
-                                        <?php endif; ?>
-                                    </p>
-                                </a>
-                            </div>
-                        <?php endwhile; wp_reset_postdata(); ?>
-                    </div>
+            <?php if( $galleries_years ): ?>
+                <div class="field">
+                    <select name="season-year" data-class="rounded_2" data-placeholder="Season" id="season-year-select">
+                        <option></option>
+                        <option value="all">All</option>
+                        <?php foreach ( $galleries_years as $year ): ?>
+                            <option value="<?= $year ?>"><?= $year ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
-            </div>
-        <?php else: ?>
-            <div class="no_galleries">
-                <h2>There are no galleries to show yet.</h2>
-            </div>
-        <?php endif; ?>
+            <?php endif; ?>
+        </div>
+        <div id="galleries-response">
+            <?php print_galleries(); ?>
+        </div>
     </section>
 </div>
 <?php
