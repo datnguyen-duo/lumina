@@ -2,25 +2,19 @@
 /* Template Name: Gallery */
 get_header();
 
-function get_posts_years_array() {
-    global $wpdb;
-    $result = array();
-    $years = $wpdb->get_results(
-        $wpdb->prepare(
-            "SELECT YEAR(post_date) FROM {$wpdb->posts} WHERE post_status = 'publish' GROUP BY YEAR(post_date) AND wp_posts.post_type = 'galleries'"
-        ),
-        ARRAY_N
-    );
+$galleries = new WP_Query(array(
+    'post_type' => 'galleries',
+    'posts_per_page' => -1,
+));
 
-    if ( is_array( $years ) && count( $years ) > 0 ) {
-        foreach ( $years as $year ) {
-            $result[] = $year[0];
-        }
+$galleries_years = [];
+
+while($galleries->have_posts()): $galleries->the_post();
+    $gallery_year = get_the_date('Y');
+    if( !in_array($gallery_year, $galleries_years) ) {
+        array_push($galleries_years,get_the_date('Y'));
     }
-    return $result;
-}
-
-$galleries_years = get_posts_years_array();
+endwhile; wp_reset_postdata();
 ?>
 <div class="template_gallery_page_container">
     <section class="gallery_section">
