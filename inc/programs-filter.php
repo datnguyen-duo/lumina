@@ -66,8 +66,9 @@ function filter_programs() {
 
     $programs_args = array(
         'post_type' => 'product',
-        'meta_key'			=> 'age_limit_min',
-        'orderby'			=> 'meta_value_num',
+        // 'meta_key'			=> 'age_limit_min',
+        // 'orderby'			=> 'meta_value_num',
+        'order_by' => 'pubish_date',
         'order'				=> ( $filtered_sort ) ? $filtered_sort : 'DESC',
         'tax_query' => array(
             array(

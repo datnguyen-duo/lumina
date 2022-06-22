@@ -293,7 +293,7 @@ function add_fields_before_add_to_cart() {
                 </div>
 
                 <div class="caution">
-                    <p>A non-refundable deposit of $150 is required with all registrations.</p>
+                    <p>A non-refundable deposit of $150 is required with all registrations. This deposit will be subtracted from the total registration fee.</p>
 
                     <div class="checkbox_inputs_holder">
                         <label for="privacy_and_policy_consent" class="container">
