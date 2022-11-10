@@ -468,7 +468,6 @@ window.addEventListener("load", function () {
             CONTACT PAGE END
         --------------------------------------------------------------------------------- */
 
-
   /*	-----------------------------------------------------------------------------
         TEMPLATE CALENDAR
     --------------------------------------------------------------------------------- */
@@ -559,25 +558,25 @@ window.addEventListener("load", function () {
    --------------------------------------------------------------------------------- */
 
   if ($(".template_gallery_page_container").length) {
-    const $galleriesResponse = $('#galleries-response');
+    const $galleriesResponse = $("#galleries-response");
 
-    $('#season-year-select').on('change',function(){
+    $("#season-year-select").on("change", function () {
       $.ajax({
         url: "/wp-admin/admin-ajax.php",
         data: {
-          action: 'filter_galleries',
+          action: "filter_galleries",
           year: $(this).val(),
         },
         type: "GET",
         beforeSend: function (xhr) {
-          $galleriesResponse.addClass('loading');
+          $galleriesResponse.addClass("loading");
         },
         success: function (data) {
           $galleriesResponse.html(data);
           initGalleriesSlider();
         },
         complete: function (data) {
-          $galleriesResponse.removeClass('loading');
+          $galleriesResponse.removeClass("loading");
         },
       });
     });

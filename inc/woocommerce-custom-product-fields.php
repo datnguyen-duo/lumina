@@ -57,6 +57,8 @@ function donation_custom_fields(): array {
 
         ['label' => 'Privacy Preferences', 'name' => 'privacy'],
 
+        ['label' => 'Donor Names', 'name' => 'donor'],
+
         ['label' => 'Designation', 'name' => 'designation'],
 
         ['label' => 'Designation or gift', 'name' => 'designation_or_gift'],
@@ -393,6 +395,11 @@ function add_fields_before_add_to_cart() {
                 </label>
                 <input type="hidden" name="privacy">
             </div>
+        </div>
+
+        <div class="row">
+            <h2>Donor Name(s)</h2>
+            <input type="text" name="donor" class="full-width">
         </div>
 
         <div class="row">

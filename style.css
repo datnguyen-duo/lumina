@@ -5,7 +5,7 @@ Author: Duo Studio
 Author URI: https://duo-studio.co/
 Version: 1.0.1
 */
-@import "styles/plugins/select2.css";
+/* @import "styles/plugins/select2.min.css"; */
 @import "styles/plugins/splide.min.css";
 @import "styles/reset.css";
 @import "styles/global.css";

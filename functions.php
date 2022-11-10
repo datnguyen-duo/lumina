@@ -54,7 +54,7 @@ function site_scripts() {
     wp_enqueue_script('splide-slider-extension-auto-scroll', get_theme_file_uri('/js/plugins/splide-extension-auto-scroll.min.js'), NULL, '1', true);
 
     wp_enqueue_script('jquery-validate', get_theme_file_uri('/js/plugins/jquery.validate.min.js'), NULL, '1', true);
-    wp_enqueue_script('select2', get_theme_file_uri('/js/plugins/select2.js'), NULL, '1', true);
+    // wp_enqueue_script('select2', get_theme_file_uri('/js/plugins/select2.js'), NULL, '1', true);
 
     wp_enqueue_script('global', get_theme_file_uri('/js/global.js'), NULL, '1.0.1', true);
     wp_enqueue_script('woocommerce-custom-cart', get_theme_file_uri('/js/woocommerce-custom-cart.js'), NULL, '1.0', true);
@@ -89,3 +89,6 @@ add_filter('ai1wm_exclude_content_from_export', function($exclude_filters) {
     $exclude_filters[] = 'themes/lumina/.git';
     return $exclude_filters;
 });
+
+add_filter( 'auto_update_plugin', '__return_false' );
+add_filter( 'auto_update_theme', '__return_false' );

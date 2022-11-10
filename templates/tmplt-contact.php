@@ -109,7 +109,7 @@ $office_hours = get_field('office_hours','option');
                     <?php endif; ?>
 
                     <?php if( $youtube ): ?>
-                        <li><a href="<?= $youtube; ?>" target="_blank">INSTAGRAM</a></li>
+                        <li><a href="<?= $youtube; ?>" target="_blank">YOUTUBE</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
