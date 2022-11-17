@@ -34,9 +34,7 @@
 
                     <div class="message">
                         <p>
-                            Please send proof of vaccination to office@luminastudio.org OR bring
-                            proof of vaccination with you to the theatre (picture of vaccination
-                            card is sufficient). Masks required for all audience members.
+                            
                         </p>
                     </div>
                 <?php endif; ?>

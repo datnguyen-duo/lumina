@@ -248,8 +248,65 @@ function add_fields_before_add_to_cart() {
                     <label for="actor_email">Email</label>
                     <input type="text" name="actor_email" id="actor_email" placeholder="Email Address">
                 </div>
+
+                <?php if ($product->slug == "the-players"): ?>
+                    <h2>My Young Actor Can:</h2>
+                    <div class="pills_checkbox_inputs_holder">
+                        <label for="players_plum" class="container">
+                            <input type="radio" id="players_plum" name="source_clone" value="Plum" required>
+                            <span class="checkmark">ONLY rehearse on Wednesdays (PLUM Cast) from 4:30-6:00 pm</span>
+                        </label>
+
+                        <label for="players_emerald" class="container">
+                            <input type="radio" id="players_emerald" name="source_clone" value="Emerald" required>
+                            <span class="checkmark">ONLY rehearse on Thursdays (EMERALD Cast) from 4:30-6:00 pm</span>
+                        </label>
+
+                        <label for="players_both" class="container">
+                            <input type="radio" id="players_both" name="source_clone" value="Both" required>
+                            <span class="checkmark">Rehearse on either Wednesdays or Thursdays</span>
+                        </label>
+
+                        <input type="hidden" name="players">
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($product->slug == "the-classics"): ?>
+                    <h2>My Young Actor Can:</h2>
+                    <div class="pills_checkbox_inputs_holder">
+                        <label for="players_plum" class="container">
+                            <input type="radio" id="players_plum" name="source_clone" value="Plum" required>
+                            <span class="checkmark">ONLY rehearse on Wednesdays (PLUM Cast) from 4:30-6:30 pm</span>
+                        </label>
+
+                        <label for="players_emerald" class="container">
+                            <input type="radio" id="players_emerald" name="source_clone" value="Emerald" required>
+                            <span class="checkmark">ONLY rehearse on Thursdays (EMERALD Cast) from 4:30-6:30 pm</span>
+                        </label>
+
+                        <label for="players_both" class="container">
+                            <input type="radio" id="players_both" name="source_clone" value="Both" required>
+                            <span class="checkmark">Rehearse on either Wednesdays or Thursdays</span>
+                        </label>
+
+                        <input type="hidden" name="players">
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
+
+        <?php if ($product->slug == "the-players" || "the-classics"): ?>
+            <div class="custom_fields_container">
+                <div class="custom_fields">
+                    <h2>Comments/Questions (optional)</h2>
+                    
+                    <div class="input_holder">
+                        <label for="additional-comments">Comments/Questions</label>
+                        <input type="text" name="additional-comments" id="additional-comments" placeholder="Comments/Questions">
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
 
         <div class="custom_fields_container actor">
             <div class="custom_fields">
