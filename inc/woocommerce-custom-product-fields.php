@@ -37,6 +37,10 @@ function registration_custom_fields(): array {
         ['label' => 'Actor Cell', 'name' => 'actor_cell'],
         ['label' => 'Actor Email', 'name' => 'actor_email'],
 
+        ['label' => 'My Young Actor Can', 'name' => 'players'],
+
+        ['label' => 'Comments/Questions (optional)', 'name' => 'additional-comments'],
+
         ['label' => 'How did you hear about us?', 'name' => 'source'],
 
         ['label' => 'How did you hear about us? - Other ', 'name' => 'other_source'],
@@ -253,17 +257,17 @@ function add_fields_before_add_to_cart() {
                     <h2>My Young Actor Can:</h2>
                     <div class="pills_checkbox_inputs_holder">
                         <label for="players_plum" class="container">
-                            <input type="radio" id="players_plum" name="source_clone" value="Plum" required>
+                            <input type="radio" id="players_plum" name="players_clone" value="Plum" >
                             <span class="checkmark">ONLY rehearse on Wednesdays (PLUM Cast) from 4:30-6:00 pm</span>
                         </label>
 
                         <label for="players_emerald" class="container">
-                            <input type="radio" id="players_emerald" name="source_clone" value="Emerald" required>
+                            <input type="radio" id="players_emerald" name="players_clone" value="Emerald" >
                             <span class="checkmark">ONLY rehearse on Thursdays (EMERALD Cast) from 4:30-6:00 pm</span>
                         </label>
 
                         <label for="players_both" class="container">
-                            <input type="radio" id="players_both" name="source_clone" value="Both" required>
+                            <input type="radio" id="players_both" name="players_clone" value="Both" >
                             <span class="checkmark">Rehearse on either Wednesdays or Thursdays</span>
                         </label>
 
@@ -275,17 +279,17 @@ function add_fields_before_add_to_cart() {
                     <h2>My Young Actor Can:</h2>
                     <div class="pills_checkbox_inputs_holder">
                         <label for="players_plum" class="container">
-                            <input type="radio" id="players_plum" name="source_clone" value="Plum" required>
+                            <input type="radio" id="players_plum" name="players_clone" value="Plum" >
                             <span class="checkmark">ONLY rehearse on Wednesdays (PLUM Cast) from 4:30-6:30 pm</span>
                         </label>
 
                         <label for="players_emerald" class="container">
-                            <input type="radio" id="players_emerald" name="source_clone" value="Emerald" required>
+                            <input type="radio" id="players_emerald" name="players_clone" value="Emerald" >
                             <span class="checkmark">ONLY rehearse on Thursdays (EMERALD Cast) from 4:30-6:30 pm</span>
                         </label>
 
                         <label for="players_both" class="container">
-                            <input type="radio" id="players_both" name="source_clone" value="Both" required>
+                            <input type="radio" id="players_both" name="players_clone" value="Both" >
                             <span class="checkmark">Rehearse on either Wednesdays or Thursdays</span>
                         </label>
 
@@ -348,7 +352,7 @@ function add_fields_before_add_to_cart() {
 
                 <div class="input_holder other_source_input_holder" style="display: none;">
 <!--                    <label for="other_source_input">Other</label>-->
-                    <input type="text" name="other_source" id="other_source_input" placeholder="How did you heard about us?" required>
+                    <input type="text" name="other_source" id="other_source_input" placeholder="How did you hear about us?" required>
                 </div>
 
                 <div class="caution">
