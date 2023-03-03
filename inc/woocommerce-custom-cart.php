@@ -32,9 +32,9 @@ function render_shopping_cart_items($is_item_added_to_cart = false) {
                 $price = $cart_item['custom_price_field'];
             }
 
-            if( $cart_item['campaign_id'] ) {
-                $image = get_the_post_thumbnail( $cart_item['campaign_id'] );
-            }
+            // if( $cart_item['campaign_id'] ) {
+            //     $image = get_the_post_thumbnail( $cart_item['campaign_id'] );
+            // }
 
             $price_with_symbol = get_woocommerce_currency_symbol().$price;
             $_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );

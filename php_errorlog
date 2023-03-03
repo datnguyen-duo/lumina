@@ -1,0 +1,20 @@
+[11-Jul-2022 16:15:20 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/customer/www/luminastudio.org/public_html/wp-content/themes/lumina/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/luminastudio.org/public_html/wp-content/themes/lumina/index.php on line 1
+[01-Sep-2022 07:11:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/customer/www/luminastudio.org/public_html/wp-content/themes/lumina/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/luminastudio.org/public_html/wp-content/themes/lumina/index.php on line 1
+[15-Oct-2022 00:16:23 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/customer/www/luminastudio.org/public_html/wp-content/themes/lumina/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/luminastudio.org/public_html/wp-content/themes/lumina/index.php on line 1
+[01-Dec-2022 04:18:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/customer/www/luminastudio.org/public_html/wp-content/themes/lumina/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/luminastudio.org/public_html/wp-content/themes/lumina/index.php on line 1
+[24-Jan-2023 07:35:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/customer/www/luminastudio.org/public_html/wp-content/themes/lumina/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/luminastudio.org/public_html/wp-content/themes/lumina/index.php on line 1
