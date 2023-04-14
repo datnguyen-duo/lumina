@@ -1,444 +1,446 @@
 .template_programs_page_container {
-    position: relative;
-    z-index: 0;
-    background: linear-gradient(#fff, #E1AFFF);
-    padding-top: 58px;
+  position: relative;
+  z-index: 0;
+  background: linear-gradient(#fff, #e1afff);
+  padding-top: 58px;
+
+  @media @tablet-s {
+    padding-top: 100px;
+  }
+
+  @media @tablet-l {
+    padding-top: 146px;
+  }
+
+  .filters {
+    padding: 0 14px;
+    box-sizing: border-box;
+    margin-bottom: 53px;
+    display: flex;
+    justify-content: space-between;
 
     @media @tablet-s {
-        padding-top: 100px;
+      margin-bottom: 150px;
+      padding: 0 42px;
     }
 
-    @media @tablet-l{
-        padding-top: 146px;
+    @media @desktop-m {
+      margin-bottom: 242px;
+    }
+    #program-type {
+      opacity: 0;
+    }
+    .field {
+      .pills_checkbox_inputs_holder {
+        display: none;
+
+        @media @laptop-s {
+          display: flex;
+        }
+      }
+
+      .select_2_holder {
+        @media @laptop-s {
+          display: none;
+        }
+      }
     }
 
-    .filters {
-        padding: 0 14px;
-        box-sizing: border-box;
-        margin-bottom: 53px;
+    .pills_checkbox_inputs_holder {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      @media @tablet-l {
+        justify-content: initial;
+        flex-wrap: nowrap;
+      }
+
+      label {
+        position: relative;
+        cursor: pointer;
         display: flex;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
 
-        @media @tablet-s {
-            margin-bottom: 150px;
-            padding: 0 42px;
+        &:hover {
+          span {
+            background-color: @color3;
+          }
         }
 
-        @media @desktop-m {
-            margin-bottom: 242px;
+        @media @tablet-l {
+          margin-bottom: 0;
         }
 
-        .field {
-            .pills_checkbox_inputs_holder {
-                display: none;
-
-                @media @laptop-s {
-                    display: flex;
-                }
+        &.sort {
+          input {
+            &:checked ~ span {
+              img {
+                transform: rotate(180deg);
+              }
             }
-
-            .select_2_holder {
-                @media @laptop-s {
-                    display: none;
-                }
-            }
+          }
         }
 
-        .pills_checkbox_inputs_holder {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
 
-            @media @tablet-l {
-                justify-content: initial;
-                flex-wrap: nowrap;
-            }
-
-            label {
-                position: relative;
-                cursor: pointer;
-                display: flex;
-                flex-wrap: wrap;
-                margin-bottom: 10px;
-
-                &:hover{
-                    span {
-                        background-color: @color3;
-                    }
-                }
-
-                @media @tablet-l {
-                    margin-bottom: 0;
-                }
-
-                &.sort {
-                    input {
-                        &:checked ~ span {
-                            img {
-                                transform: rotate(180deg);
-                            }
-                        }
-                    }
-                }
-
-                input {
-                    position: absolute;
-                    opacity: 0;
-                    cursor: pointer;
-                    height: 0;
-                    width: 0;
-
-                    &:checked ~ span {
-                        background-color: @color2;
-                    }
-                }
-
-                span {
-                    padding: 0 20px;
-                    box-sizing: border-box;
-                    min-width: 77px;
-                    width: 100%;
-                    border: solid 1px @color1;
-                    border-radius: 60px;
-                    position: relative;
-                    background-color: transparent;
-                    height: 40px;
-                    display: flex;
-                    text-align: center;
-                    align-items: center;
-                    justify-content: center;
-                    .transition();
-                    .p2();
-                    font-size: 20px !important;
-
-                    @media @tablet-s {
-                        padding: 15px 40px;
-                        height: auto;
-                        min-width: 163px;
-                    }
-
-                    @media @desktop-m {
-                        // padding: 15 55px;
-                    }
-
-                    img {
-                        position: relative;
-                        margin-left: 7px;
-                        width: 13px;
-                        top: -1px;
-                        .transition();
-
-                        @media @tablet-s {
-                            margin-left: 8px;
-                            width: 17px;
-                            top: -2px;
-                        }
-
-                        @media @laptop-s {
-                            top: -4px;
-                            width: auto;
-                        }
-                    }
-                }
-            }
+          &:checked ~ span {
+            background-color: @color2;
+          }
         }
+
+        span {
+          padding: 0 20px;
+          box-sizing: border-box;
+          min-width: 77px;
+          width: 100%;
+          border: solid 1px @color1;
+          border-radius: 60px;
+          position: relative;
+          background-color: transparent;
+          height: 40px;
+          display: flex;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          .transition();
+          .p2();
+          font-size: 20px !important;
+
+          @media @tablet-s {
+            padding: 15px 40px;
+            height: auto;
+            min-width: 163px;
+          }
+
+          @media @desktop-m {
+            // padding: 15 55px;
+          }
+
+          img {
+            position: relative;
+            margin-left: 7px;
+            width: 13px;
+            top: -1px;
+            .transition();
+
+            @media @tablet-s {
+              margin-left: 8px;
+              width: 17px;
+              top: -2px;
+            }
+
+            @media @laptop-s {
+              top: -4px;
+              width: auto;
+            }
+          }
+        }
+      }
     }
+  }
 
-    .page_title {
-        .h5();
-        color: @color1;
-        text-align: center;
+  .page_title {
+    .h5();
+    color: @color1;
+    text-align: center;
+  }
+
+  #programs_response {
+    .transition();
+
+    .no_results {
+      min-height: 400px;
+      padding: 100px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 70vw;
+      margin: auto;
+      text-align: center;
+
+      h2 {
+        .h2();
+      }
     }
+  }
 
-    #programs_response {
-        .transition();
+  .programs_section {
+    .program {
+      display: flex;
+      align-items: center;
+      border-bottom: solid 1px @color1;
+      box-sizing: border-box;
+      flex-direction: column;
 
-        .no_results {
-            min-height: 400px;
-            padding: 100px 0;
+      @media @tablet-l {
+        padding: 20px 30px;
+        flex-direction: row;
+      }
+
+      @media @tablet-xl {
+        padding: 20px 110px;
+        flex-direction: row;
+      }
+
+      @media @desktop-s {
+        padding: 20px 122px;
+      }
+
+      &:first-of-type {
+        border-top: solid 1px @color1;
+      }
+
+      &:last-of-type {
+        margin-bottom: 50px;
+      }
+
+      .column {
+        padding: 60px 0;
+
+        @media @tablet-l {
+          padding: 75px 0;
+        }
+
+        &.img_col {
+          position: relative;
+          padding-right: 15px;
+          padding-left: 15px;
+          box-sizing: border-box;
+          padding-bottom: 30px;
+          width: 100%;
+
+          @media @tablet-l {
+            padding-left: 103px;
+            padding-bottom: 60px;
+            width: 30%;
+          }
+
+          @media @desktop-s {
+            padding-left: 173px;
+          }
+
+          .circle {
+            right: 5vw;
+            top: 20vw;
+            border-radius: 143px;
+            border: solid 1px @color1;
+            z-index: 1;
+            position: absolute;
             display: flex;
             align-items: center;
             justify-content: center;
-            max-width: 70vw;
-            margin: auto;
             text-align: center;
-
-            h2 {
-                .h2();
-            }
-        }
-    }
-
-    .programs_section {
-        .program {
-            display: flex;
-            align-items: center;
-            border-bottom: solid 1px @color1;
-            box-sizing: border-box;
-            flex-direction: column;
-
-            @media @tablet-l{
-                padding: 20px 30px;
-                flex-direction: row;
-            }
-
-            @media @tablet-xl{
-                padding: 20px 110px;
-                flex-direction: row;
-            }
-
-            @media @desktop-s{
-                padding: 20px 122px;
-            }
-
-            &:first-of-type {
-                border-top: solid 1px @color1;
-            }
-
-            &:last-of-type {
-                margin-bottom: 50px;
-            }
-
-            .column {
-                padding: 60px 0;
-
-                @media @tablet-l{
-                    padding: 75px 0;
-                }
-
-                &.img_col {
-                    position: relative;
-                    padding-right: 15px;
-                    padding-left: 15px;
-                    box-sizing: border-box;
-                    padding-bottom: 30px;
-                    width: 100%;
-
-                    @media @tablet-l{
-                        padding-left: 103px;
-                        padding-bottom: 60px;
-                        width: 30%;
-                    }
-
-                    @media @desktop-s{
-                        padding-left: 173px;
-                    }
-
-                    .circle {
-                        right: 5vw;
-                        top: 20vw;
-                        border-radius: 143px;
-                        border: solid 1px @color1;
-                        z-index: 1;
-                        position: absolute;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        text-align: center;
-                        background-color: #fff;
-                        width: 70px;
-                        height: 70px;
-
-                        @media @tablet-s{
-                            top: 10vw;
-                        }
-
-                        @media @tablet-l{
-                            width: 80px;
-                            height: 80px;
-                            top: 50%;
-                            right: auto;
-                            background-color: transparent;
-                            transform: translate(calc(-100% - 30px), -50%);
-                        }
-
-                        @media @tablet-xl{
-                            width: 100px;
-                            height: 100px;
-                        }
-
-                        @media @desktop-s{   
-                            width: 143px;
-                            height: 143px;
-                        }
-
-                        .ages {
-                            display: block;
-                            .p2();
-                        }
-
-                        .circle_desc {
-                            .p1();
-                            position: absolute;
-                            bottom: 0;
-                            transform: translateY(calc(100% + 13px));
-                            display: none;
-
-                            @media @tablet-l{
-                                display: block;
-                            }
-                        }
-                    }
-
-                    .image_holder {
-                        position: relative;
-                        padding-top: 100%;
-                        border-radius: 30px;
-                        overflow: hidden;
-                        // min-width: 300px;
-                        width: 100%;
-
-                        @media @tablet-s{
-                            max-width: 400px;
-                            padding-top: 50%;
-                            margin: auto;
-                        }
-
-                        @media @tablet-l{
-                            min-width: initial;
-                            padding-top: 100%;
-                        }
-
-                        @media @tablet-xl{
-                            max-width: 100%;
-                            padding-top: 100%;
-                        }
-
-                        img {
-                            .cropped_img();
-                        }
-                    }
-                }
-
-                &.info_col {
-                    text-align: center;
-                    padding-left: 30px;
-                    padding-right: 30px;
-                    padding-top: 0px;
-                    padding-bottom: 0px;
-
-                    @media @tablet-l{
-                        padding-left: 32px;
-                        box-sizing: border-box;
-                        padding-right: 32px;
-                        text-align: left;
-                        width: 50%;
-                    }
-
-                    @media @tablet-xl{
-                        box-sizing: border-box;
-                        text-align: left;
-                    }
-
-                    @media @desktop-s{
-                        padding-right: 123px;
-                        padding-left: 72px;
-                    }
-
-                    .program_category {
-                        margin-bottom: 12px;
-                        .p1();
-                    }
-
-                    .program_title {
-                        margin-bottom: 15px;
-                        font-family: @fontL;
-                        font-size: 36px;
-                        color: @color1;
-                        text-transform: capitalize;
-
-                        @media @tablet-l {
-                            font-size: 2.6vw;
-                            margin-bottom: 32px;
-                        }
-                    }
-
-                    .program_description {
-                        .p1();
-                        max-width: 630px;
-                    }
-                }
-
-                &.cta_col {
-                    text-align: center;
-                    padding-top: 45px;
-
-                    @media @tablet-l {
-                        padding-top: 60px;
-                        margin-left: auto;
-                        text-align: center;
-                        width: 20%;
-                    }
-
-                    p {
-                        margin-top: 17px;
-                        .p1();
-                    }
-
-                    .button {
-                        min-width: 280px;
-
-                        @media @tablet-l{
-                            min-width: 180px;
-                        }
-
-                        @media @tablet-xl{
-                            min-width: 280px;
-                        }
-
-                        @media @desktop-s {
-                            min-width: 300px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .banner_section {
-        background-image: url("../images/purple-3-bg.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding: 70px 0;
-        padding-bottom: 120px;
-        text-align: center;
-        position: relative;
-
-        @media @tablet-s {
-            padding: 157px 0 240px;
-        }
-
-        @media @tablet-xl {
-            padding: 170px 0 240px;
-        }
-
-        &:after {
-            content: "";
-            display: block;
-            width: 100%;
-            height: 1px;
-            background-color: @color1;
-            position: absolute;
-            top: 0;
-            left: 0;
-            transform: translateY(-25px);
-        }
-
-        h2 {
-            .h0();
-            color: #fff;
-        }
-
-        .button {
-            margin-top: 35px;
+            background-color: #fff;
+            width: 70px;
+            height: 70px;
 
             @media @tablet-s {
-                margin-top: 45px;
+              top: 10vw;
             }
 
-            @media @desktop-m {
-                margin-top: 72px;
+            @media @tablet-l {
+              width: 80px;
+              height: 80px;
+              top: 50%;
+              right: auto;
+              background-color: transparent;
+              transform: translate(calc(-100% - 30px), -50%);
             }
+
+            @media @tablet-xl {
+              width: 100px;
+              height: 100px;
+            }
+
+            @media @desktop-s {
+              width: 143px;
+              height: 143px;
+            }
+
+            .ages {
+              display: block;
+              .p2();
+            }
+
+            .circle_desc {
+              .p1();
+              position: absolute;
+              bottom: 0;
+              transform: translateY(calc(100% + 13px));
+              display: none;
+
+              @media @tablet-l {
+                display: block;
+              }
+            }
+          }
+
+          .image_holder {
+            position: relative;
+            padding-top: 100%;
+            border-radius: 30px;
+            overflow: hidden;
+            // min-width: 300px;
+            width: 100%;
+
+            @media @tablet-s {
+              max-width: 400px;
+              padding-top: 50%;
+              margin: auto;
+            }
+
+            @media @tablet-l {
+              min-width: initial;
+              padding-top: 100%;
+            }
+
+            @media @tablet-xl {
+              max-width: 100%;
+              padding-top: 100%;
+            }
+
+            img {
+              .cropped_img();
+            }
+          }
         }
+
+        &.info_col {
+          text-align: center;
+          padding-left: 30px;
+          padding-right: 30px;
+          padding-top: 0px;
+          padding-bottom: 0px;
+
+          @media @tablet-l {
+            padding-left: 32px;
+            box-sizing: border-box;
+            padding-right: 32px;
+            text-align: left;
+            width: 50%;
+          }
+
+          @media @tablet-xl {
+            box-sizing: border-box;
+            text-align: left;
+          }
+
+          @media @desktop-s {
+            padding-right: 123px;
+            padding-left: 72px;
+          }
+
+          .program_category {
+            margin-bottom: 12px;
+            .p1();
+          }
+
+          .program_title {
+            margin-bottom: 15px;
+            font-family: @fontL;
+            font-size: 36px;
+            color: @color1;
+            text-transform: capitalize;
+
+            @media @tablet-l {
+              font-size: 2.6vw;
+              margin-bottom: 32px;
+            }
+          }
+
+          .program_description {
+            .p1();
+            max-width: 630px;
+          }
+        }
+
+        &.cta_col {
+          text-align: center;
+          padding-top: 45px;
+
+          @media @tablet-l {
+            padding-top: 60px;
+            margin-left: auto;
+            text-align: center;
+            width: 20%;
+          }
+
+          p {
+            margin-top: 17px;
+            .p1();
+          }
+
+          .button {
+            min-width: 280px;
+
+            @media @tablet-l {
+              min-width: 180px;
+            }
+
+            @media @tablet-xl {
+              min-width: 280px;
+            }
+
+            @media @desktop-s {
+              min-width: 300px;
+            }
+          }
+        }
+      }
     }
+  }
+
+  .banner_section {
+    background-image: url("../images/purple-3-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 70px 0;
+    padding-bottom: 120px;
+    text-align: center;
+    position: relative;
+
+    @media @tablet-s {
+      padding: 157px 0 240px;
+    }
+
+    @media @tablet-xl {
+      padding: 170px 0 240px;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: @color1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(-25px);
+    }
+
+    h2 {
+      .h0();
+      color: #fff;
+    }
+
+    .button {
+      margin-top: 35px;
+
+      @media @tablet-s {
+        margin-top: 45px;
+      }
+
+      @media @desktop-m {
+        margin-top: 72px;
+      }
+    }
+  }
 }

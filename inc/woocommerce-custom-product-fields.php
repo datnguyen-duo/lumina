@@ -256,14 +256,14 @@ function add_fields_before_add_to_cart() {
                 <?php if ($product->slug == "the-players"): ?>
                     <h2>My Young Actor Can:</h2>
                     <div class="pills_checkbox_inputs_holder">
-                        <label for="players_plum" class="container">
-                            <input type="radio" id="players_plum" name="players_clone" value="Plum" >
-                            <span class="checkmark">ONLY rehearse on Wednesdays (PLUM Cast) from 4:30-6:00 pm</span>
+                        <label for="players_tangerine" class="container">
+                            <input type="radio" id="players_tangerine" name="players_clone" value="Tangerine" >
+                            <span class="checkmark">ONLY rehearse on Wednesdays (TANGERINE Cast) from 4:30-6:00 pm</span>
                         </label>
 
-                        <label for="players_emerald" class="container">
-                            <input type="radio" id="players_emerald" name="players_clone" value="Emerald" >
-                            <span class="checkmark">ONLY rehearse on Thursdays (EMERALD Cast) from 4:30-6:00 pm</span>
+                        <label for="players_teal" class="container">
+                            <input type="radio" id="players_teal" name="players_clone" value="Teal" >
+                            <span class="checkmark">ONLY rehearse on Thursdays (TEAL Cast) from 4:30-6:00 pm</span>
                         </label>
 
                         <label for="players_both" class="container">
@@ -278,14 +278,14 @@ function add_fields_before_add_to_cart() {
                 <?php if ($product->slug == "the-classics"): ?>
                     <h2>My Young Actor Can:</h2>
                     <div class="pills_checkbox_inputs_holder">
-                        <label for="players_plum" class="container">
-                            <input type="radio" id="players_plum" name="players_clone" value="Plum" >
-                            <span class="checkmark">ONLY rehearse on Wednesdays (PLUM Cast) from 4:30-6:30 pm</span>
+                        <label for="players_tangerine" class="container">
+                            <input type="radio" id="players_tangerine" name="players_clone" value="Tangerine" >
+                            <span class="checkmark">ONLY rehearse Wednesdays (TANGERINE Cast) from 4:30-6:30 pm</span>
                         </label>
 
-                        <label for="players_emerald" class="container">
-                            <input type="radio" id="players_emerald" name="players_clone" value="Emerald" >
-                            <span class="checkmark">ONLY rehearse on Thursdays (EMERALD Cast) from 4:30-6:30 pm</span>
+                        <label for="players_teal" class="container">
+                            <input type="radio" id="players_teal" name="players_clone" value="Teal" >
+                            <span class="checkmark">ONLY rehearse on Thursdays (TEAL Cast) from 4:30-6:30 pm</span>
                         </label>
 
                         <label for="players_both" class="container">
