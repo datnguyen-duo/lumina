@@ -258,12 +258,12 @@ function add_fields_before_add_to_cart() {
                     <div class="pills_checkbox_inputs_holder">
                         <label for="players_tangerine" class="container">
                             <input type="radio" id="players_tangerine" name="players_clone" value="Tangerine" >
-                            <span class="checkmark">ONLY rehearse on Wednesdays (TANGERINE Cast) from 4:30-6:00 pm</span>
+                            <span class="checkmark">ONLY rehearse on Wednesdays (CRIMSON Cast) from 4:30-6:00 pm</span>
                         </label>
 
                         <label for="players_teal" class="container">
                             <input type="radio" id="players_teal" name="players_clone" value="Teal" >
-                            <span class="checkmark">ONLY rehearse on Thursdays (TEAL Cast) from 4:30-6:00 pm</span>
+                            <span class="checkmark">ONLY rehearse on Thursdays (INDIGO Cast) from 4:30-6:00 pm</span>
                         </label>
 
                         <label for="players_both" class="container">
@@ -280,12 +280,12 @@ function add_fields_before_add_to_cart() {
                     <div class="pills_checkbox_inputs_holder">
                         <label for="players_tangerine" class="container">
                             <input type="radio" id="players_tangerine" name="players_clone" value="Tangerine" >
-                            <span class="checkmark">ONLY rehearse Wednesdays (TANGERINE Cast) from 4:30-6:30 pm</span>
+                            <span class="checkmark">ONLY rehearse on Wednesdays (CRIMSON Cast) from 4:30-6:30 pm</span>
                         </label>
 
                         <label for="players_teal" class="container">
                             <input type="radio" id="players_teal" name="players_clone" value="Teal" >
-                            <span class="checkmark">ONLY rehearse on Thursdays (TEAL Cast) from 4:30-6:30 pm</span>
+                            <span class="checkmark">ONLY rehearse on Thursdays (INDIGO Cast) from 4:30-6:30 pm</span>
                         </label>
 
                         <label for="players_both" class="container">
