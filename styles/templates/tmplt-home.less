@@ -2,7 +2,6 @@
   overflow: hidden;
 
   .hero_section {
-    height: 80vh;
     background-color: #30074c;
     border-radius: 0 0 30px 30px;
     position: relative;
@@ -11,11 +10,6 @@
 
     @media @tablet-s {
       border-radius: 0 0 60px 60px;
-    }
-
-    @media @laptop-s {
-      max-height: 1218px;
-      height: 61.75vw;
     }
 
     .background {
@@ -44,80 +38,18 @@
       }
     }
 
-    &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: calc(100% + 27px);
-      width: 100%;
-      box-sizing: border-box;
-      border: solid 1px @color1;
-      border-radius: 0 0 30px 30px;
-      z-index: -1;
-
-      @media @tablet-s {
-        height: calc(100% + 40px);
-        border-radius: 0 0 60px 60px;
-      }
-    }
-
-    &:before {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: calc(100% + 14px);
-      width: 100%;
-      box-sizing: border-box;
-      border: solid 1px @color1;
-      border-radius: 0 0 30px 30px;
-      z-index: -1;
-
-      @media @tablet-s {
-        height: calc(100% + 20px);
-        border-radius: 0 0 60px 60px;
-      }
-    }
-
     .banner__split-text {
-      position: absolute;
-      top: 35%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      position: relative;
       z-index: 1;
-      width: 100%;
-      padding-left: 5vw;
-      box-sizing: border-box;
-
-      @media @tablet-l {
-        top: 50%;
-      }
-
-      @media @laptop-l {
-        top: 45%;
-      }
-
-      @media @laptop-s {
-        text-align: left;
-      }
-
-      @media @desktop-l {
-        // left: 10%;
-      }
-
+      padding: 25vh 0 20vh;
+      border-bottom: 1px solid #fff;
+      border-radius: 0 0 60px 60px;
       h1 {
         .h1();
         color: #fff;
         text-align: center;
         width: 100%;
         box-sizing: border-box;
-
-        @media @tablet-l {
-          text-align: left;
-        }
       }
 
       p {
@@ -129,73 +61,12 @@
 
     .cta_section {
       display: flex;
-      justify-content: space-between;
-      position: absolute;
-      bottom: 40px;
+      flex-direction: column;
       width: 100%;
-      left: 0;
       opacity: 0;
-      padding: 0 5vw;
       box-sizing: border-box;
       flex-wrap: wrap;
       text-align: center;
-
-      @media @tablet-s {
-        flex-wrap: nowrap;
-        box-sizing: border-box;
-        text-align: initial;
-        align-items: flex-end;
-      }
-
-      @media @tablet-l {
-        flex-wrap: nowrap;
-        box-sizing: border-box;
-        text-align: initial;
-      }
-
-      @media @desktop-l {
-        bottom: 5vw;
-      }
-
-      .wrapper {
-        width: 100%;
-
-        @media @tablet-l {
-          width: 50%;
-          max-width: 500px;
-          text-align: initial;
-          transform: none;
-        }
-
-        @media @desktop-l {
-          max-width: 590px;
-        }
-
-        &.left {
-          margin-bottom: 40px;
-
-          @media @tablet-s {
-            margin-bottom: 0;
-          }
-
-          .button {
-            width: 75%;
-            margin: auto;
-
-            @media @tablet-s {
-              width: 48%;
-            }
-          }
-
-          p {
-            margin-bottom: 10px;
-
-            @media @tablet-s {
-              margin-bottom: 20px;
-            }
-          }
-        }
-      }
 
       h2 {
         .h3();
@@ -205,40 +76,42 @@
       }
 
       p {
-        .p1();
+        .h4();
         color: #fff;
       }
 
-      .buttons {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 24px;
-
-        @media @laptop-s {
-          margin-top: 35px;
-          flex-wrap: nowrap;
+      .wrapper {
+        display: grid;
+        padding: 1rem 5vw;
+        border: 1px solid #fff;
+        border-radius: 0 0 60px 60px;
+        border-top: none;
+        z-index: 1;
+        grid-template-columns: 1fr;
+        box-sizing: border-box;
+        min-width: calc(100% + 2px);
+        margin-left: -1px;
+        @media @tablet-s {
+          grid-template-columns: 60% 40%;
         }
-
-        .button {
-          width: 75%;
-          margin: auto;
-          margin-bottom: 7px;
-
+        .buttons {
+          display: flex;
+          flex-direction: column;
           @media @tablet-s {
-            margin-bottom: 0;
-            margin-right: 5px;
-            margin-left: 0px;
-            width: 45%;
+            flex-direction: row;
+          }
+        }
+        > * {
+          justify-self: center;
+          @media @tablet-s {
+            align-self: center;
+            justify-self: start;
           }
 
-          @media @tablet-l {
-            margin-right: 15px;
-          }
-
-          &:last-of-type {
+          .button {
+            margin: 0.5rem 0 0;
             @media @tablet-s {
-              margin-right: 0;
-              margin-bottom: 0;
+              margin: 0 0.5rem 0 0;
             }
           }
         }
@@ -1127,6 +1000,59 @@
 
           img {
             margin-left: 8px;
+          }
+        }
+      }
+    }
+
+    .shoutout {
+      padding: 6vw;
+      text-align: center;
+
+      &__headline {
+        .h2();
+        padding: 0 4vw 2rem;
+      }
+
+      p {
+        .p1();
+        margin-bottom: 2rem;
+      }
+
+      &__cards {
+        display: grid;
+        grid-template-columns: 60% 1fr;
+        gap: 2rem;
+
+        @media screen and (max-width: 768px) {
+          grid-template-columns: 1fr;
+        }
+        .card {
+          padding: 4rem;
+          border-radius: 30px;
+          @media screen and (max-width: 768px) {
+            padding: 2rem;
+          }
+          &:nth-child(1) {
+            border: 1px solid @color1;
+
+            p {
+              max-width: 600px;
+              margin: 0 auto 2rem;
+            }
+          }
+
+          &:nth-child(2) {
+            background-color: #d22eff;
+          }
+          img {
+            max-width: 100%;
+          }
+
+          iframe {
+            aspect-ratio: 16/9;
+            width: 100%;
+            height: auto;
           }
         }
       }

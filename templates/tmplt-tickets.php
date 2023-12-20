@@ -73,7 +73,7 @@ $products = new WP_Query(array(
 
                             <div class="options_holder">
                                 <select name="ticket-date-time" id="ticket-variations_<?= get_the_ID(); ?>" data-class="rounded" data-placeholder="Date and Time" required>
-                                    <option></option>
+                                    <option selected="true" disabled="disabled">Date & Time</option>
                                     <?php foreach ( $variations as $value ):
                                         $single_variation = new WC_Product_Variation($value);
 
@@ -85,7 +85,7 @@ $products = new WP_Query(array(
                                 </select>
 
                                 <select name="ticket-type" id="ticket_type_<?= get_the_ID(); ?>" data-class="rounded" data-placeholder="Ticket type" required>
-                                    <option></option>
+                                    <option selected="true" disabled="disabled">Type</option>
                                     <?php foreach ( $ticket_types as $type ): ?>
                                         <option value="<?= $type['price'] ?>"><?= $type['name'] ?></option>
                                     <?php endforeach; ?>

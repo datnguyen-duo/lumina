@@ -125,7 +125,6 @@ get_header();
                                         </div>
                                     <?php endif; ?>
 
-
                                     <div class="description_holder">
                                         <?php if( $item['title'] ): ?>
                                             <h3><?= $item['title']; ?></h3>
@@ -137,6 +136,17 @@ get_header();
                                     </div>
                                 </div>
                             <?php endforeach; ?>
+                            <?php if ($group['additional_images']): ?>
+                                <div class="additional-images">
+                                    <div class="inner">
+                                    <?php foreach ($group['images'] as $image): ?>
+                                        <div class="image">
+                                            <?= wp_get_attachment_image($image['image']['ID'], 'full'); ?>
+                                        </div>
+                                    <?php endforeach; ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

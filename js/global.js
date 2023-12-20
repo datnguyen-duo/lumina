@@ -104,7 +104,7 @@ function smoothScroll() {
 document.addEventListener("DOMContentLoaded", function (event) {
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(ScrollToPlugin);
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
 });
 
 /*	-----------------------------------------------------------------------------

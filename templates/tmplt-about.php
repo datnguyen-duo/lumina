@@ -247,18 +247,18 @@ get_header();
                     <?php endif; ?>
                     <div class="circle mobile">
                         <p>
-                            2022 <br>
+                            <?php echo get_field('years')['from'];?> <br>
                             - <br>
-                            2023
+                            <?php echo get_field('years')['to'];?>
                         </p>
                     </div>
                 </div>
                 <div class="right">
                     <div class="circle desktop">
                         <p>
-                            2022 <br>
+                            <?php echo get_field('years')['from'];?> <br>
                             - <br>
-                            2023
+                            <?php echo get_field('years')['to'];?>
                         </p>
                     </div>
                 </div>

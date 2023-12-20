@@ -20,33 +20,42 @@ get_header(); ?>
                 echo wp_get_attachment_image($hero_section['image']['ID'],'large',false,array('class' => 'background animate_el'));
             endif; ?>
             <div class="hero_overlay"></div>
-
             <div class="cta_section">
-                <div class="wrapper left">
-                    <?php if( $hero_section['cta_1_description']  ): ?>
-                        <p><?= $hero_section['cta_1_description'] ?></p>
+                <div class="wrapper">
+                    <?php if( $hero_section['cta_1_text']  ): ?>
+                        <p><?= $hero_section['cta_1_text'] ?></p>
                     <?php endif; ?>
 
+                    <div class="buttons">
                     <?php
-                    $link = $hero_section['cta_1_link'];
-                    if( $link ):
-                        $link_url = $link['url'];
-                        $link_title = $link['title'];
-                        $link_target = $link['target'] ? $link['target'] : '_self';
-                        ?>
-                        <a class="button" href="<?= esc_url( $link_url ); ?>" target="<?= esc_attr( $link_target ); ?>">
-                            <?= esc_html( $link_title ); ?>
-                        </a>
-                    <?php endif; ?>
+                        $link = $hero_section['cta_1_link'];
+                        if( $link ):
+                            $link_url = $link['url'];
+                            $link_title = $link['title'];
+                            $link_target = $link['target'] ? $link['target'] : '_self';
+                            ?>
+                            <a class="button light" href="<?= esc_url( $link_url ); ?>" target="<?= esc_attr( $link_target ); ?>">
+                                <?= esc_html( $link_title ); ?>
+                            </a>
+                        <?php endif; ?>
+                        <?php
+                        $link = $hero_section['cta_1_link_2'];
+                        if( $link ):
+                            $link_url = $link['url'];
+                            $link_title = $link['title'];
+                            $link_target = $link['target'] ? $link['target'] : '_self';
+                            ?>
+                            <a class="button light" href="<?= esc_url( $link_url ); ?>" target="<?= esc_attr( $link_target ); ?>">
+                                <?= esc_html( $link_title ); ?>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+
                 </div>
 
                 <div class="wrapper">
-                    <?php if( $hero_section['cta_2_title'] ): ?>
-                        <h2><?= $hero_section['cta_2_title'] ?></h2>
-                    <?php endif; ?>
-
-                    <?php if( $hero_section['cta_2_description'] ): ?>
-                        <p><?= $hero_section['cta_2_description'] ?></p>
+                    <?php if( $hero_section['cta_2_text'] ): ?>
+                        <p><?= $hero_section['cta_2_text'] ?></p>
                     <?php endif; ?>
 
                     <?php if( $hero_section['cta_2_link'] || $hero_section['cta_2_link_2'] ): ?>
@@ -282,8 +291,43 @@ get_header(); ?>
                 </div>
 
                 <div class="navigation"></div>
+
+                <div class="shoutout">
+                    <?php if (get_field('shoutout_headline')): ?>
+                        <h2 class="shoutout__headline">
+                            <?php echo get_field('shoutout_headline'); ?>
+                        </h2>
+                    <?php endif;?>
+
+                    <div class="shoutout__cards">
+                        <div class="card">
+                            <?php if (get_field('shoutout_card')['text']): ?>
+                                <p class="card__text">
+                                    <?php echo get_field('shoutout_card')['text']; ?>
+                                </p>
+                            <?php endif?>
+                            <?php if (get_field('shoutout_card')['video']): ?>
+                                <div class="card__video">
+                                    <?php echo get_field('shoutout_card')['video']; ?>
+                                </div>
+                            <?php endif?>
+                        </div>
+                        <div class="card">
+                            <?php if (get_field('shoutout_card_2')['text']): ?>
+                                <p class="card__text">
+                                    <?php echo get_field('shoutout_card_2')['text']; ?>
+                                </p>
+                            <?php endif; ?>
+                            <?php if (get_field('shoutout_card_2')['image']): 
+                                echo wp_get_attachment_image(get_field('shoutout_card_2')['image']['ID'],'full',false,array('class' => ''));
+                            endif; ?>
+                        </div>
+                    </div>
+                </div>
             </section>
         <?php endif; ?>
+
+
 
         <?php $banner_s = get_field('banner_section'); ?>
         <section class="banner_2_section">
