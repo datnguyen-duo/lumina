@@ -562,7 +562,7 @@ window.addEventListener("load", function () {
 
     $("#season-year-select").on("change", function () {
       $.ajax({
-        url: "http://localhost/lumina/wp-admin/admin-ajax.php",
+        url: "https://www.luminastudio.org/wp-admin/admin-ajax.php",
         data: {
           action: "filter_galleries",
           year: $(this).val(),

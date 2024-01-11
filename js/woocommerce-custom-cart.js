@@ -106,7 +106,7 @@
           var price = $("#ticket_type_" + itemID).val();
 
           $.ajax({
-            url: "http://localhost/lumina/wp-admin/admin-ajax.php",
+            url: "https://www.luminastudio.org/wp-admin/admin-ajax.php",
             data: {
               action: "check_ticket_quantity",
               product_id: itemID,
@@ -145,7 +145,7 @@
                 document.getElementById(responseEl).innerHTML = "";
 
                 $.ajax({
-                  url: "http://localhost/lumina/wp-admin/admin-ajax.php",
+                  url: "https://www.luminastudio.org/wp-admin/admin-ajax.php",
                   data: {
                     action: "woo_custom_add_to_cart",
                     product_id: itemID,
