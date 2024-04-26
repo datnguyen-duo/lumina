@@ -257,12 +257,12 @@ function add_fields_before_add_to_cart() {
                     <h2>My Young Actor Can:</h2>
                     <div class="pills_checkbox_inputs_holder">
                         <label for="players_rose" class="container">
-                            <input type="radio" id="players_rose" name="players_clone" value="Crimson" >
+                            <input type="radio" id="players_rose" name="players_clone" value="Rose" >
                             <span class="checkmark">ONLY rehearse on Wednesdays (ROSE Cast) from 4:30-6:00 pm</span>
                         </label>
 
                         <label for="players_burgandy" class="container">
-                            <input type="radio" id="players_burgandy" name="players_clone" value="Indigo" >
+                            <input type="radio" id="players_burgandy" name="players_clone" value="Burgundy" >
                             <span class="checkmark">ONLY rehearse on Thursdays (BURGANDY Cast) from 4:30-6:00 pm</span>
                         </label>
 
