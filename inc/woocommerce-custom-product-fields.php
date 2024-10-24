@@ -16,7 +16,6 @@ function registration_custom_fields(): array {
         ['label' => 'Guardian 1 State', 'name' => 'guardian_1_state'],
         ['label' => 'Guardian 1 Zip', 'name' => 'guardian_1_zip'],
         ['label' => 'Guardian 1 Phone', 'name' => 'guardian_1_phone'],
-        ['label' => 'Guardian 1 Cell', 'name' => 'guardian_1_cell'],
         ['label' => 'Guardian 1 Email', 'name' => 'guardian_1_email'],
 
         ['label' => 'Guardian 2 Name', 'name' => 'guardian_2_name'],
@@ -26,7 +25,6 @@ function registration_custom_fields(): array {
         ['label' => 'Guardian 2 State', 'name' => 'guardian_2_state'],
         ['label' => 'Guardian 2 Zip', 'name' => 'guardian_2_zip'],
         ['label' => 'Guardian 2 Phone', 'name' => 'guardian_2_phone'],
-        ['label' => 'Guardian 2 Cell', 'name' => 'guardian_2_cell'],
         ['label' => 'Guardian 2 Email', 'name' => 'guardian_2_email'],
 
         ['label' => 'Actor Name', 'name' => 'actor_name'],
@@ -34,8 +32,13 @@ function registration_custom_fields(): array {
         ['label' => 'Actor Birthday Day', 'name' => 'actor_birthday_day'],
         ['label' => 'Actor Birthday Year', 'name' => 'actor_birthday_year'],
         ['label' => 'Actor Phone', 'name' => 'actor_phone'],
-        ['label' => 'Actor Cell', 'name' => 'actor_cell'],
         ['label' => 'Actor Email', 'name' => 'actor_email'],
+
+        ['label' => 'Insurance Company', 'name' => 'insurance_company'],
+        ['label' => 'Insurance ID Number', 'name' => 'insurance_id_number'],
+        ['label' => 'Insurance Subscriber Name', 'name' => 'insurance_subscriber_name'],
+        ['label' => 'Insurance Group Number', 'name' => 'insurance_group_number'],
+        ['label' => 'Insurance Plan Number', 'name' => 'insurance_plan_number'],
 
         ['label' => 'My Young Actor Can', 'name' => 'players'],
 
@@ -129,16 +132,9 @@ function add_fields_before_add_to_cart() {
                     </div>
                 </div>
 
-                <div class="two_cols">
-                    <div class="input_holder">
-                        <label for="guardian_1_phone">Phone</label>
-                        <input type="text" name="guardian_1_phone" id="guardian_1_phone" placeholder="Phone">
-                    </div>
-
-                    <div class="input_holder">
-                        <label for="guardian_1_cell">Cell</label>
-                        <input type="text" name="guardian_1_cell" id="guardian_1_cell" placeholder="Cell">
-                    </div>
+                <div class="input_holder">
+                    <label for="guardian_1_phone">Cell Phone</label>
+                    <input type="text" name="guardian_1_phone" id="guardian_1_phone" placeholder="Cell Phone">
                 </div>
 
                 <div class="input_holder">
@@ -164,7 +160,7 @@ function add_fields_before_add_to_cart() {
 
                 <div class="two_cols">
                     <div class="input_holder">
-                        <label for="guardian_2_address">Address</label>
+                        <label for="guardian_2_address">Address (if different from Parent/Guardian 1)</label>
                         <input type="text" name="guardian_2_address" id="guardian_2_address" placeholder="Address(Line 1)">
                     </div>
 
@@ -191,16 +187,9 @@ function add_fields_before_add_to_cart() {
                     </div>
                 </div>
 
-                <div class="two_cols">
-                    <div class="input_holder">
-                        <label for="guardian_2_phone">Phone</label>
-                        <input type="text" name="guardian_2_phone" id="guardian_2_phone" placeholder="Phone">
-                    </div>
-
-                    <div class="input_holder">
-                        <label for="guardian_2_cell" class="hidden">Cell</label>
-                        <input type="text" name="guardian_2_cell" id="guardian_2_cell" placeholder="Cell">
-                    </div>
+                <div class="input_holder">
+                    <label for="guardian_2_phone">Cell Phone</label>
+                    <input type="text" name="guardian_2_phone" id="guardian_2_phone" placeholder="Cell Phone">
                 </div>
 
                 <div class="input_holder">
@@ -236,17 +225,12 @@ function add_fields_before_add_to_cart() {
                     </div>
                 </div>
 
-                <div class="two_cols">
+                <?php if ($product->slug == "the-guild" || $product->slug == "the-ensemble"): ?>
                     <div class="input_holder">
-                        <label for="actor_phone">Phone</label>
-                        <input type="text" name="actor_phone" id="actor_phone" placeholder="Phone">
+                        <label for="actor_phone">Cell Phone</label>
+                        <input type="text" name="actor_phone" id="actor_phone" placeholder="Cell Phone">
                     </div>
-
-                    <div class="input_holder">
-                        <label for="actor_cell" class="hidden">Cell</label>
-                        <input type="text" name="actor_cell" id="actor_cell" placeholder="Cell">
-                    </div>
-                </div>
+                <?php endif; ?>
 
                 <div class="input_holder">
                     <label for="actor_email">Email</label>
@@ -256,14 +240,14 @@ function add_fields_before_add_to_cart() {
                 <?php if ($product->slug == "the-players"): ?>
                     <h2>My Young Actor Can:</h2>
                     <div class="pills_checkbox_inputs_holder">
-                        <label for="players_rose" class="container">
-                            <input type="radio" id="players_rose" name="players_clone" value="Rose" >
-                            <span class="checkmark">ONLY rehearse on Wednesdays (ROSE Cast) from 4:30-6:00 pm</span>
+                        <label for="players_dandelion" class="container">
+                            <input type="radio" id="players_dandelion" name="players_clone" value="Dandelion" >
+                            <span class="checkmark">ONLY rehearse on Wednesdays (DANDELION Cast) from 4:30-6:00 pm</span>
                         </label>
 
-                        <label for="players_burgandy" class="container">
-                            <input type="radio" id="players_burgandy" name="players_clone" value="Burgundy" >
-                            <span class="checkmark">ONLY rehearse on Thursdays (BURGANDY Cast) from 4:30-6:00 pm</span>
+                        <label for="players_olive" class="container">
+                            <input type="radio" id="players_olive" name="players_clone" value="Olive" >
+                            <span class="checkmark">ONLY rehearse on Thursdays (OLIVE Cast) from 4:30-6:00 pm</span>
                         </label>
 
                         <label for="players_both" class="container">
@@ -278,14 +262,14 @@ function add_fields_before_add_to_cart() {
                 <?php if ($product->slug == "the-classics"): ?>
                     <h2>My Young Actor Can:</h2>
                     <div class="pills_checkbox_inputs_holder">
-                        <label for="players_rose" class="container">
-                            <input type="radio" id="players_rose" name="players_clone" value="Crimson" >
-                            <span class="checkmark">ONLY rehearse on Wednesdays (ROSE Cast) from 4:30-6:30 pm</span>
+                        <label for="players_dandelion" class="container">
+                            <input type="radio" id="players_dandelion" name="players_clone" value="Dandelion" >
+                            <span class="checkmark">ONLY rehearse on Wednesdays (DANDELION Cast) from 4:30-6:30 pm</span>
                         </label>
 
-                        <label for="players_burgandy" class="container">
-                            <input type="radio" id="players_burgandy" name="players_clone" value="Indigo" >
-                            <span class="checkmark">ONLY rehearse on Thursdays (BURGANDY Cast) from 4:30-6:30 pm</span>
+                        <label for="players_olive" class="container">
+                            <input type="radio" id="players_olive" name="players_clone" value="Olive" >
+                            <span class="checkmark">ONLY rehearse on Thursdays (OLIVE Cast) from 4:30-6:30 pm</span>
                         </label>
 
                         <label for="players_both" class="container">
@@ -296,6 +280,38 @@ function add_fields_before_add_to_cart() {
                         <input type="hidden" name="players">
                     </div>
                 <?php endif; ?>
+            </div>
+        </div>
+
+        <div class="custom_fields_container">
+            <div class="custom_fields">
+                <h2>Emergency Contact Information</h2>
+
+                <div class="input_holder">
+                    <label for="emergency_insurance_company">Insurance Company</label>
+                    <input type="text" name="emergency_insurance_company" id="emergency_insurance_company" placeholder="Insurance Company">
+                </div>
+
+                <div class="input_holder">
+                    <label for="emergency_insurance_id_number">ID Number</label>
+                    <input type="text" name="emergency_insurance_id_number" id="emergency_insurance_id_number" placeholder="ID Number">
+                </div>
+
+                <div class="input_holder">
+                    <label for="emergency_insurance_subscriber_name">Subscriber Name</label>
+                    <input type="text" name="emergency_insurance_subscriber_name" id="emergency_insurance_subscriber_name" placeholder="Subscriber Name">
+                </div>
+
+                <div class="input_holder">
+                    <label for="emergency_insurance_group_number">Group Number</label>
+                    <input type="text" name="emergency_insurance_group_number" id="emergency_insurance_group_number" placeholder="Group Number">
+                </div>
+
+                <div class="input_holder">
+                    <label for="emergency_insurance_plan_number">Plan Number</label>
+                    <input type="text" name="emergency_insurance_plan_number" id="emergency_insurance_plan_number" placeholder="Plan Number">
+                </div>
+
             </div>
         </div>
 
@@ -338,8 +354,8 @@ function add_fields_before_add_to_cart() {
                     </label>
 
                     <label for="source_newspaper" class="container">
-                        <input type="radio" id="source_newspaper" name="source_clone" value="Newspaper">
-                        <span class="checkmark">Newspaper</span>
+                        <input type="radio" id="source_newspaper" name="source_clone" value="Listserv">
+                        <span class="checkmark">Listserv</span>
                     </label>
 
                     <label for="source_other" class="container">
